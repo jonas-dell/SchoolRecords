@@ -1,0 +1,102 @@
+.profile-container {
+  margin-top: 30px;
+  width: 300px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 140px;
+  background-color: #7f408e;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+}
+
+.profile-header > p {
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.profile-header > img {
+  width: 15px;
+  height: 15px;
+}
+
+.profile-content {
+  height: 300px;
+  background-color: #f7f7f7;
+  border-radius: 0 0 10px 10px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.img-container img {
+  width: 150px;
+  height: 150px;
+  margin: -50px;
+  border: 13px solid #fff;
+  border-radius: 50%;
+}
+
+.profile-name {
+  margin-top: 60px;
+  text-align: center;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.role {
+  text-align: center;
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+  color: #959393;
+  margin-top: 10px;
+}
+
+.actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.actions li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.clock {
+  background: url(../../../assets/img/clock.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.person {
+  background: url(../../../assets/img/person.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+}
+
+.phone {
+  background: url(../../../assets/img/phone.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  margin-left: 2px;
+}

@@ -1,0 +1,63 @@
+@font-face {
+  font-family: IBM_Plex_Sans_Reg;
+  src: url(../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf)
+    format("opentype");
+}
+
+@font-face {
+  font-family: IBM_Plex_Sans_Semi_Bold;
+  src: url(../assets/fonts/IBM_Plex_Sans/IBMPlexSans-SemiBold.ttf)
+    format("opentype");
+}
+
+@font-face {
+  font-family: Nunit;
+  src: url(../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf)
+    format("opentype");
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../assets/fonts/OpenSans/OpenSans-VariableFont_wght.ttf)
+    format("opentype");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(../assets/fonts/Roboto/Roboto-Bold.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Roboto-Light;
+  src: url(../assets/fonts/Roboto/Roboto-Light.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(../assets/fonts/Roboto/Roboto-Medium.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../assets/fonts/Roboto/Roboto-Regular.ttf) format("opentype");
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: rgb(241, 241, 241);
+}

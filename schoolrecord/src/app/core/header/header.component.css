@@ -1,0 +1,29 @@
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.container-info-person {
+  display: flex;
+}
+
+.container-info-person {
+  font-size: 1.5rem;
+}
+
+.container-info-person > p:first-of-type {
+  font-weight: bold;
+  font-family: Roboto, Arial, sans-serif;
+  margin-right: 3px;
+}
+
+.container-info-person > p:last-child {
+  font-family: Roboto-Light, Arial, sans-serif;
+  margin-right: 3px;
+}
+
+.salutation {
+  font-family: Roboto-Light;
+  font-size: 0.825rem;
+  color: #959393;
+}

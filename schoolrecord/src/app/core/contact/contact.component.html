@@ -1,0 +1,22 @@
+<section class="contact-container" (scroll)="onScroll($event)">
+  <h2 class="title">Contacts</h2>
+  <p class="last-infos">Last Payments Sent 2 Days Ago</p>
+  <ul class="contacts">
+    <li *ngFor="let contact of contacts">
+      <img [src]="contact.image" alt="Profile" />
+      <div class="contact-info">
+        <p class="contact-name">{{ contact.name }}</p>
+        <p class="contact-address">{{ contact.address }}</p>
+      </div>
+    </li>
+    <li class="loading">
+      <ngx-loading
+        [show]="loading"
+        [config]="{ backdropBorderRadius: '3px' }"
+      ></ngx-loading>
+    </li>
+    <li class="contacts-loaded" *ngIf="contactsLoaded">
+      <p>Contatos carregados!</p>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,74 @@
+.container-sidebar {
+  height: 100vh;
+  width: 60px;
+  background-color: #7f408e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+}
+
+.logo {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.icon-container li:last-child {
+  position: fixed;
+  bottom: 0;
+}
+
+.icon-container li.active::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 40px;
+  background-color: #151c48;
+  position: fixed;
+  left: 0;
+  border-radius: 5px;
+}
+
+.icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.icon-home {
+  background: url(../../../assets/img/home.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-people {
+  background: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-notification {
+  background: url(../../../assets/img/notification.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-dashboard {
+  background: url(../../../assets/img/dashboard.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-documents {
+  background: url(../../../assets/img/documents.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-rating {
+  background: url(../../../assets/img/rating.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-config {
+  background: url(../../../assets/img/config.svg);
+  background-repeat: no-repeat;
+}

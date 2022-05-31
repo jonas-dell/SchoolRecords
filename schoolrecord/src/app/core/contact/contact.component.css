@@ -1,0 +1,73 @@
+.contact-container {
+  width: 300px;
+  padding: 25px 20px;
+  margin-top: 30px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #f7f7f7;
+  max-height: 410px;
+  overflow-y: scroll;
+}
+
+.contact-container::-webkit-scrollbar {
+  width: 20px;
+}
+
+.contact-container::-webkit-scrollbar-track {
+  background-color: #f7f7f7;
+}
+
+.contact-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 5px solid transparent;
+  background-clip: content-box;
+  background-color: rgb(241, 241, 241);
+}
+
+.title {
+  font-size: 1.5em;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+.last-infos {
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
+.contacts {
+  margin-top: 20px;
+}
+
+.contacts li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contacts li:last-of-type {
+  margin-bottom: 0;
+}
+
+.contact-info {
+  margin-left: 20px;
+}
+
+.contact-name {
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+}
+
+.contact-address {
+  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  color: #959393;
+}
+
+.loading {
+  position: relative;
+  margin-top: 30px;
+}
+
+.contacts-loaded {
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  justify-content: center;
+}

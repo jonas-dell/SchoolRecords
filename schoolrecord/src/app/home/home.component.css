@@ -1,0 +1,29 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.side-bar {
+  flex-basis: 60px;
+}
+
+.content-container {
+  padding: 10px 30px;
+  flex-basis: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+.principal-container {
+  display: flex;
+}
+
+.info-container {
+  flex-basis: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dynamic-content-container {
+  width: calc(100% - 300px);
+}
