@@ -12,6 +12,7 @@
   flex-basis: calc(100% - 60px);
   display: flex;
   flex-direction: column;
+  background-color: #f7f7f7;
 }
 
 .principal-container {

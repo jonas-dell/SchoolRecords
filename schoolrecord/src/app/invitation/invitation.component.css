@@ -1,0 +1,154 @@
+.invitation-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .side-bar {
+    flex-basis: 60px;
+  }
+  
+  .content-container {
+    padding: 10px 30px;
+    flex-basis: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7
+  }
+  
+  .principal-container {
+    display: flex;
+  }
+  
+  .info-container {
+    flex-basis: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dynamic-content-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    margin: 30px 50px 20px 85px;
+    background-color: #fff;
+    border: 1px solid #00000066;
+    border-radius: 10px;
+  }
+
+  .input-search {
+    padding: 20px;
+    width: 100%;
+    background-color: #fff;
+    font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: normal;
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    color: #939393;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: #939393;
+  }
+
+  .img-container-search {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    cursor: pointer;
+  }
+
+  .image-search {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    left: -5px;
+  }
+
+  .invitation-content-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 60px;
+    column-gap: 60px;
+    margin: 30px 50px 0px 90px;
+    padding: 60px 80px;
+    background-color: #fff;
+  }
+
+  .invitation {
+    position: relative;
+    width: 300px;
+    height: 430px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #00000066;
+  }
+
+  .invitation-header {
+    height: 100px;
+    background-color: #7f408e;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .img-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .img-container img {
+    width: 120px;
+    height: 120px;
+    margin: 40px;
+    border-radius: 50%;
+  }
+
+  .invitation-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 325px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .invitation-name {
+    position: relative;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    top: 80px;
+  }
+
+  .invitation-profession {
+    position: relative;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 0.9rem;
+    top: 15px;
+  }
+
+  .button-container {
+    position: relative;
+    top: 15px;
+  }
+
+  .btn-connect {
+    padding: 5px 50px;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #00000066;
+    font-weight: bold;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    color:#7f408e;
+  }

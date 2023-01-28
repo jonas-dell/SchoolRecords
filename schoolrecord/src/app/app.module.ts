@@ -9,9 +9,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InvitationComponent } from './invitation/invitation.component';
 
 @NgModule({
-  declarations: [...Index.getComponents()],
+  declarations: [...Index.getComponents(), InvitationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
