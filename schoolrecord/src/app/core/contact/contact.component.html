@@ -1,4 +1,4 @@
-<section class="contact-container" (scroll)="onScroll($event)">
+<section class="contact-container" (scroll)="onScroll($event)" #contact> 
   <h2 class="title">Contacts</h2>
   <p class="last-infos">Last Payments Sent 2 Days Ago</p>
   <ul class="contacts">
@@ -12,7 +12,12 @@
     <li class="loading">
       <ngx-loading
         [show]="loading"
-        [config]="{ backdropBorderRadius: '3px' }"
+        [config]="{
+          backdropBorderRadius: '3px',
+          primaryColour: '#f4f4f4',
+          secondaryColour: '#f4f4f4',
+          tertiaryColour: '#f4f4f4'
+        }"
       ></ngx-loading>
     </li>
     <li class="contacts-loaded" *ngIf="contactsLoaded">
