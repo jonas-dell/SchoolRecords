@@ -34,7 +34,7 @@
     display: flex;
     justify-content: space-between;
     height: 70px;
-    margin: 30px 50px 20px 85px;
+    margin: 30px 30px 20px 85px;
     background-color: #fff;
     border: 1px solid #00000066;
     border-radius: 10px;
@@ -78,15 +78,15 @@
     flex-wrap: wrap;
     row-gap: 60px;
     column-gap: 60px;
-    margin: 30px 50px 0px 90px;
+    margin: 30px 30px 0px 90px;
     padding: 60px 80px;
     background-color: #fff;
   }
 
   .invitation {
     position: relative;
-    width: 300px;
-    height: 430px;
+    width: 280px;
+    height: 410px;
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #00000066;
@@ -104,7 +104,7 @@
   }
 
   .img-container img {
-    width: 120px;
+    width: 110px;
     height: 120px;
     margin: 40px;
     border-radius: 50%;
@@ -112,10 +112,11 @@
 
   .invitation-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    height: 325px;
+    align-items: center;
+    height: 305px;
     background-color: #fff;
     border-radius: 0 0 10px 10px;
   }
@@ -124,21 +125,21 @@
     position: relative;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 1.2rem;
-    top: 80px;
+    font-size: 1.3rem;
+    top: -30px;
   }
 
   .invitation-profession {
     position: relative;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: bolder;
-    font-size: 0.9rem;
-    top: 15px;
+    font-size: 1rem;
+    top: -25px;
   }
 
   .button-container {
     position: relative;
-    top: 15px;
+    top: 50px;
   }
 
   .btn-connect {
