@@ -1,0 +1,81 @@
+<section class="timeline">
+  <div class="principal-info row form-group">
+    <div class="share-now col-8">
+      <p>Publish Scientific Article It's Essential to Your Academic Success!</p>
+      <button class="btn-share-now">Public Now</button>
+    </div>
+    <div class="col-4 pr-0">
+      <div class="visu-container">
+        <p class="visu-title">Visualizações</p>
+        <p class="subscriptions">1,799.12</p>
+        <p class="subs-summary">
+          <i
+            class="fas fa-arrow-up"
+            style="font-size: 14px; color: #7e46b5; margin-right: 5px"
+          ></i
+          >+ 4,989.21
+        </p>
+        <div id="chartdiv" style="width: 100%"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <p class="recent-pub">RECENT PUBLICATIONS</p>
+  </div>
+  <div class="row form-group">
+    <div class="col-4 pl-0">
+      <div class="recent-card">
+        <img
+          class="recent-img"
+          src="../../assets/img/mundi.png"
+          alt="Recent Image"
+        />
+        <p class="recent-title">The spirit of Ocean</p>
+        <p class="recent-info">Owned by James John Markus</p>
+        <button class="recent-button">Bid Now</button>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="recent-card">
+        <img
+          class="recent-img"
+          src="../../assets/img/spacex.png"
+          alt="Recent Image"
+        />
+        <p class="recent-title">The Falcon-9</p>
+        <p class="recent-info">Owned by Elon Musk</p>
+        <button class="recent-button">Bid Now</button>
+      </div>
+    </div>
+    <div class="col-4 pr-0">
+      <div class="recent-card">
+        <img
+          class="recent-img"
+          src="../../assets/img/animals.jpg"
+          alt="Recent Image"
+        />
+        <p class="recent-title">Native African Animals</p>
+        <p class="recent-info">Owned by National Geographic</p>
+        <button class="recent-button">Bid Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-8 pl-0">
+      <p style="width: 100%; height: 1500px; background: tomato">TESTE</p>
+    </div>
+    <div class="col-4 pr-0">
+      <div #pub>
+        <div class="pub-container">
+          <div class="pub d-flex" *ngFor="let item of publications">
+            <img [src]="item.img" alt="Pub" />
+            <div class="pub-info">
+              <p>{{ item.title }}</p>
+              <p>{{ item.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
