@@ -9,7 +9,6 @@
   padding: 20px;
 }
 
-
 .profile-header > p {
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
   color: #fff;
@@ -22,15 +21,10 @@
 
 .profile-content {
   height: 300px;
-  background-color: #fff;
+  background-color: #fafcfe;
   border-radius: 0 0 10px 10px;
   box-shadow: 3px 3px 5px #707070;
 }
-.profile-container {
-  margin-top: 30px;
-  width: 300px;
-}
-
 
 .img-container {
   display: flex;

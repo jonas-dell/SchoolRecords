@@ -8,6 +8,12 @@
   position: fixed;
 }
 
+.container-sidebar::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .logo {
   margin-top: 20px;
   margin-bottom: 40px;
