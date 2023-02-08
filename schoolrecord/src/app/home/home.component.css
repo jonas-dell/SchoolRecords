@@ -1,6 +1,18 @@
 .home-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.header {
+  padding: 10px 20px;
+  position: fixed;
+  width: calc(100% - 60px);
+  height: 80px;
+  margin-left: 60px;
+  background: #f5f7f7;
+  border: 1px solid #eee7e7;
+  z-index: 1;
 }
 
 .side-bar {
@@ -8,23 +20,38 @@
 }
 
 .content-container {
-  padding: 10px 30px;
+  padding: 10px 25px;
   flex-basis: calc(100% - 60px);
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  margin-left: 60px;
+  margin-top: 80px;
+  height: 2000px;
+  position: relative;
 }
+
 
 .principal-container {
   display: flex;
+  padding: 30px 0;
+  
 }
 
 .info-container {
-  flex-basis: 300px;
+  flex-basis: 20%;
   display: flex;
   flex-direction: column;
+  margin: 0 1% 0 0;
 }
 
 .dynamic-content-container {
   width: calc(100% - 300px);
+  padding: 0 30px 0 15px;
+}
+
+
+/* Contacts */
+.contacts {
+  position: sticky;
+  top: 70px;
 }
