@@ -1,0 +1,95 @@
+<section class="games-container">
+  <side-bar class="side-bar"></side-bar>
+  <div class="content-container">
+    <header id="header" role="banner"></header>
+    <div class="principal-container">
+      <div class="info-container">
+        <profile></profile>
+        <contact></contact>
+      </div>
+      <div class="dynamic-content-container">
+        <div class="search-container">
+          <input class="input-search" type="text" placeholder="Search a game" />
+          <div class="img-container-search">
+            <img
+              class="image-search"
+              src="../../../assets/img/search.png"
+              alt="Search"
+            />
+          </div>
+        </div>
+
+        <section
+          class="game-content-container"
+          (scroll)="onScroll($event)"
+          #game
+        >
+          <h2 class="title">Games</h2>
+          <p class="game-count">{{ games.length }} Games found</p>
+          <ul class="game-content">
+            <div class="game-content-li">
+              <li *ngFor="let game of games" class="game">
+                <a href="{{ game.title }}">
+                  <img [src]="game.img" class="img-container" alt="Game" />
+                </a>
+
+                <div class="game-info">
+                  <a href="{{ game.title }}" class="game-name">{{
+                    game.title
+                  }}</a>
+                  <p class="game-description">{{ game.desc }}</p>
+                </div>
+              </li>
+            </div>
+
+            <!-- SÓ COPIEI NÃO SEI USAR -->
+            <li class="loading">
+              <ngx-loading
+                [show]="loading"
+                [config]="{
+                  backdropBorderRadius: '3px',
+                  primaryColour: '#f4f4f4',
+                  secondaryColour: '#f4f4f4',
+                  tertiaryColour: '#f4f4f4'
+                }"
+              ></ngx-loading>
+            </li>
+            <li class="games-loaded" *ngIf="gamesLoaded"></li>
+          </ul>
+        </section>
+
+        <!-- JEITO ANTIGO
+         <div class="game-content-container">
+          <div class="game">
+            <div class="game-content">
+              <div class="img-container">
+                <img src="../../../assets/img/game1.png" />
+                <h1 class="game-name">Wumpus World</h1>
+                <h2 class="game-description">
+                  The Wumpus World's agent is an example of a knowledge-based
+                  agent that represents Knowledge representation, reasoning and
+                  planning.
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="game">
+            <div class="game-header">
+              <div class="img-container">
+                <img src="../../../assets/img/game2.png" />
+                <h1 class="game-name">Snake</h1>
+                <h2 class="game-description">
+                  In this game, the main objective of the player is to catch the
+                  maximum number of fruits without hitting the wall or itself.
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

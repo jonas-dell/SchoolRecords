@@ -10,10 +10,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InvitationComponent } from './invitation/invitation.component';
 
 @NgModule({
   declarations: [...Index.getComponents()],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,4 +29,3 @@ import { InvitationComponent } from './invitation/invitation.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-

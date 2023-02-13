@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  },
+  {
+    "id": 1,
+    "img": "../../assets/img/game1.png",
+    "title": "Wumpus World",
+    "desc": "The Wumpus World's agent is an example of a knowledge-based agent that represents Knowledge representation, reasoning and planning."
+  },
+  {
+    "id": 2,
+    "img": "../../assets/img/game2.png",
+    "title": "Snake",
+    "desc": "In this game, the main objective of the player is to catch the maximum number of fruits without hitting the wall or itself."
+  }
+]

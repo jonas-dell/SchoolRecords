@@ -28,13 +28,13 @@
     "ngx-loading": "^2.0.1",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~6.6.0",
-    "sweetalert2": "^11.4.16",
+    "sweetalert2": "^11.4.8",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.1.1",
-    "@angular/cli": "~12.1.1",
+    "@angular-devkit/build-angular": "^12.2.18",
+    "@angular/cli": "^12.2.18",
     "@angular/compiler-cli": "~12.1.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

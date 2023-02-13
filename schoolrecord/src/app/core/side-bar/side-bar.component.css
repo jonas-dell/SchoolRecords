@@ -78,3 +78,8 @@
   background: url(../../../assets/img/config.svg);
   background-repeat: no-repeat;
 }
+
+.icon-controller {
+  background: url(../../../assets/img/controller.svg);
+  background-repeat: no-repeat;
+}
