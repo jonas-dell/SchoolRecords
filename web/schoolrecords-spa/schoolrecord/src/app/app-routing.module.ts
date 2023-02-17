@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GamesComponent } from './games/games.component';
+import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
 
 // import { NotFoundComponent } from './not-found/not-found.component';
 // import { PerfilComponent } from './perfil/perfil.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'invitation', component: InvitationComponent },
   { path: 'games', component: GamesComponent },
+  { path: 'article-relevance', component: ArticleRelevanceComponent },
   {
     path: 'home',
     component: HomeComponent,

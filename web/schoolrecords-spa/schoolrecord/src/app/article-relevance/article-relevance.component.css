@@ -1,0 +1,119 @@
+.article-relevance-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.side-bar {
+  flex-basis: 60px;
+}
+
+.content-container {
+  padding: 10px 30px;
+  flex-basis: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+}
+
+.principal-container {
+  display: flex;
+}
+
+.info-container {
+  flex-basis: 300px;
+  display: flex;
+  flex-direction: column;
+}
+  
+.dynamic-content-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0px 0px 30px;
+}
+
+.doughnuts-charts-container {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  gap: 20px;
+}
+
+.doughnut-chart-container {
+  width: 175px;
+  height: 200px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 3px 3px 5px #707070;
+  background-color: #fff;
+}
+
+.line-chart-container {
+  flex-grow: 0;
+  width: 99%;
+  height: 57%;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 3px 3px 5px #707070;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.team-container {
+  width: 250px;
+  height: 72%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 30px 0px 0px 30px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 3px 3px 5px #707070;
+}
+
+.team-container > h1 {
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  margin: 30px 30px 15px 30px;
+}
+
+.team {
+  margin: 0px 30px 0px 30px;
+}
+
+.team-info-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+
+.team-info-container img {
+  width: 55px;
+  height: 55px;
+}
+
+.info {
+  margin: 10px 0px 10px 10px;
+}
+
+.team-name {
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+}
+
+.team-profession {
+  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  color: #959393;
+  margin-top: 5px;
+}
+
+.btn-load-more {
+  background-color: rgba(95,110,235);
+  margin: 10px 30px 0px 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  color: #fff;
+  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+}

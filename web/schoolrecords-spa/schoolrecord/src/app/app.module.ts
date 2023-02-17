@@ -10,9 +10,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
 
 @NgModule({
-  declarations: [...Index.getComponents()],
+  declarations: [...Index.getComponents(), ArticleRelevanceComponent],
 
   imports: [
     BrowserModule,
