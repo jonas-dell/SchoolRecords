@@ -4,23 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GamesComponent } from './games/games.component';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
-
-// import { NotFoundComponent } from './not-found/not-found.component';
-// import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
+import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { InvitationComponent } from './invitation/invitation.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-// import { TimelineComponent } from './timeline/timeline.component';
+import { EditTextComponent } from './edit-text/edit-text.component';
 
-// const routes: Routes = [
-// { path: '', redirectTo: '/login', pathMatch: 'full' },
-// { path: 'home', component: HomeComponent },
-// { path: 'login', component: LoginComponent },
-// { path: 'register', component: RegisterComponent },
-// { path: 'invitation', component: InvitationComponent },
-// ];
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -29,6 +20,10 @@ const routes: Routes = [
   { path: 'invitation', component: InvitationComponent },
   { path: 'games', component: GamesComponent },
   { path: 'article-relevance', component: ArticleRelevanceComponent },
+
+  { path: 'personalData',component: PersonalDataComponent},
+  { path: 'editText', component: EditTextComponent},
+  
   {
     path: 'home',
     component: HomeComponent,
