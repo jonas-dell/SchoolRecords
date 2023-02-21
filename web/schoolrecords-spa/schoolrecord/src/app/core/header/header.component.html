@@ -1,31 +1,39 @@
 <div class="header-container-bg">
- 
+  
   <div class="header-container">
-    
     <div class="welcome">
-        <div class="container-info-person">
-            <p>Good Morning,</p>
-            <p>Jonas</p>
-        </div>
-        <p class="salutation">Welcome to my portifólio</p>
+      <div class="container-info-person">
+        <p>Good Morning,</p>
+        <p>Jonas</p>
+      </div>
+      <p class="salutation">Welcome to my portifólio</p>
     </div>
     
     <input type="text" class="col-md-6 search" placeholder="search any collection"/>
-     
-    <ul class="icons">
+    
+
+    
+    <ul class="icons" >
+        
       <li class="col-md-3 icon">
         <i class="fa fa-envelope" style="font-size: 20px; color: #7f408e"></i>
       </li>
+  
       <li class="col-md-3 icon">
         <i class="fa fa-bell" style="font-size: 20px; color: #7f408e"></i>
       </li>
+  
       <li class="btn-icon">
         <i class="fa fa-user" aria-hidden="true"></i>
         <input type="submit" value="Jonas Cardoso" />
       </li>
     </ul> 
+    
+    
+    <button id="btn-mobile" (click)="toggleHeader()"><span id="hamburger"></span></button> 
 
-  </div>
+  </div>  
+
 </div>
 
 

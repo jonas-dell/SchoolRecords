@@ -72,12 +72,14 @@ p {
 }
 
 .icons {
-
   max-width: 400px;
-
   display: flex;
   margin: 0 1% 0 3.5%; 
   flex-basis: 100%;
+
+
+
+  border:1px solid #000;
 }
 
 .icon {
@@ -94,7 +96,7 @@ p {
   margin-right: 20px;
 }
 
-.btn-icon {
+ .btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +124,104 @@ p {
   font-family: Popins-Regular, sans-serif;
 }
 
+#btn-mobile{
+  display: none;
+}
 
+@media (max-width: 1485px){
+   #btn-mobile{
+    display: block;
+   }
+   .icons{
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background:#e7e7e7;
+    transition: .6s;
+    z-index:1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+   }
+
+   .icons.native {
+    height: calc(100vh - 70px); /*100% da tela - view port height*/
+    visibility: visible;
+    overflow-y: auto;
+   }
+
+   .icons i{
+  
+      padding: 1rem 0;
+      margin: 0  1rem;
+      border-bottom: 2px solid rgba(0,0,0,.05);
+   }
+
+
+  #btn-mobile{
+    display: flex;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border:none;
+    background: none ;
+    cursor:pointer;
+    gap: .5rem;
+  }
+
+  #hamburger{
+    border-top:2px solid;
+    width: 20px;
+  }
+
+  #hamburger::after, #hamburger::before{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background:currentColor;
+    margin-top:5px ;
+    transition: .3s;
+    position: relative;
+  }
+}
+
+@media(max-width: 800px){
+  #btn-mobile{
+    display: block;
+  }
+
+  .search{
+    display: none;
+  }
+
+  #btn-mobile{
+    display: flex;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border:none;
+    background: none ;
+    cursor:pointer;
+    gap: .5rem;
+  }
+
+  #hamburger{
+    border-top:2px solid;
+    width: 20px;
+  }
+
+  #hamburger::after, #hamburger::before{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background:currentColor;
+    margin-top:5px ;
+    transition: .3s;
+    position: relative;
+  }
+}
 
 
 
