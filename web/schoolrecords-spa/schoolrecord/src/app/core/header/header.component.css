@@ -76,10 +76,6 @@ p {
   display: flex;
   margin: 0 1% 0 3.5%; 
   flex-basis: 100%;
-
-
-
-  border:1px solid #000;
 }
 
 .icon {
@@ -132,33 +128,22 @@ p {
    #btn-mobile{
     display: block;
    }
+
    .icons{
-    display: block;
+    display: none;
     position: absolute;
     width: 100%;
     top: 70px;
     right: 0px;
     background:#e7e7e7;
-    transition: .6s;
+     transition: .6s;
     z-index:1000;
     height: 0px;
     visibility: hidden;
-    overflow-y: hidden;
+    overflow-y: hidden; 
    }
 
-   .icons.native {
-    height: calc(100vh - 70px); /*100% da tela - view port height*/
-    visibility: visible;
-    overflow-y: auto;
-   }
-
-   .icons i{
-  
-      padding: 1rem 0;
-      margin: 0  1rem;
-      border-bottom: 2px solid rgba(0,0,0,.05);
-   }
-
+   
 
   #btn-mobile{
     display: flex;
