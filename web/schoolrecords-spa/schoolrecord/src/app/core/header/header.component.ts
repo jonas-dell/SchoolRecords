@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   showHeader = false;
  
   toggleHeader(): void{
+    alert('Teste do menu hamburger');
     this.showHeader = !this.showHeader;
   }
 

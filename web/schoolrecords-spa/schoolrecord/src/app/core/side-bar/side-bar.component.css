@@ -54,6 +54,10 @@
   background-repeat: no-repeat;
 }
 
+.icon-people, .clicked {
+  color: red; /* cor do ícone após o clique */
+}
+
 .icon-notification {
   background: url(../../../assets/img/notification.svg);
   background-repeat: no-repeat;
