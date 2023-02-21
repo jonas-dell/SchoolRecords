@@ -1,3 +1,6 @@
+import { Label } from '@amcharts/amcharts4/core';
+import { NONE_TYPE } from '@angular/compiler';
+import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import gradient from 'chartjs-plugin-gradient';
@@ -48,6 +51,9 @@ export class ArticleRelevanceComponent implements OnInit {
       }
     }
 
+    const dayArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const hoursArray = [1.30, 8.0, 5.3, 3.3, 9.0, 3.1, 1.8, 3.6, 2.9, 5.0, 9.0, 4.9];
+
     new Chart('line-chart', {
       
       type: 'line',
@@ -80,6 +86,21 @@ export class ArticleRelevanceComponent implements OnInit {
           intersect: false,
         },
         plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return ''
+              },
+              title: function(context) {
+                console.log(context);
+                return `Day:            ${dayArray[context[0].dataIndex]}`;
+              },
+              afterTitle: function(context) {
+                console.log(context);
+                return `Hours:        ${hoursArray[context[0].dataIndex]}`;
+              }
+            },
+          },
           title: {
             display: true,
             text: 'PROGRESS',
