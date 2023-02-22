@@ -42,6 +42,7 @@
   height: 30px;
   display: inline-block;
   margin: 10px 0;
+  cursor: pointer;
 }
 
 .icon-home {

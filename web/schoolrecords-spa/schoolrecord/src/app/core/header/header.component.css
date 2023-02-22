@@ -1,4 +1,4 @@
-.header-container-bg{
+.header-container-bg {
   background: #f5f7f7;
   padding: 10px 20px;
   position: fixed;
@@ -6,14 +6,14 @@
   height: 80px;
   margin-left: 60px;
   border: 1px solid #eee7e7;
-  z-index: 1;  
+  z-index: 1;
 }
 
-.header-container{
+.header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  /* justify-content: space-between;
+  flex-wrap: wrap; */
 }
 
 p {
@@ -21,25 +21,25 @@ p {
   margin: 0;
 }
 
-.welcome{
-  max-width: 350px;
-  /* flex-basis: 20%; */
+.welcome {
+  flex-basis: 20%;
   flex-shrink: 0;
 }
 
-.container-info-person{
+.container-info-person {
+  display: flex;
   font-size: 1.5em;
   display: flex;
   flex-wrap: wrap;
 }
 
-.container-info-person > p:first-of-type{
+.container-info-person > p:first-of-type {
   font-weight: bold;
-  font-family: Roboto,Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   margin-right: 3px;
 }
 
-.container-info-person > p:last-child{
+.container-info-person > p:last-child {
   font-family: Roboto-Light, Arial, sans-serif;
   margin-right: 3px;
 }
@@ -50,7 +50,7 @@ p {
   color: #959393;
 }
 
-.search{
+.search {
   background: url(../../../assets/img/search.png) no-repeat;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -64,7 +64,6 @@ p {
   outline: none;
   font-family: Popins-Regular, sans-serif;
   font-size: 0.8rem;
-
 }
 
 .search:focus {
@@ -74,7 +73,7 @@ p {
 .icons {
   max-width: 400px;
   display: flex;
-  margin: 0 1% 0 3.5%; 
+  margin: 0 0 0 3.5%;
   flex-basis: 100%;
 }
 
@@ -92,7 +91,7 @@ p {
   margin-right: 20px;
 }
 
- .btn-icon {
+.btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,113 +119,90 @@ p {
   font-family: Popins-Regular, sans-serif;
 }
 
-#btn-mobile{
+#btn-mobile {
   display: none;
 }
 
-@media (max-width: 1485px){
-   #btn-mobile{
+@media (max-width: 1485px) {
+  #btn-mobile {
     display: block;
-   }
+  }
 
-   .icons{
+  .icons {
     display: none;
     position: absolute;
     width: 100%;
     top: 70px;
     right: 0px;
-    background:#e7e7e7;
-     transition: .6s;
-    z-index:1000;
+    background: #e7e7e7;
+    transition: 0.6s;
+    z-index: 1000;
     height: 0px;
     visibility: hidden;
-    overflow-y: hidden; 
-   }
-
-   
-
-  #btn-mobile{
-    display: flex;
-    padding: .5rem 1rem;
-    font-size: 1rem;
-    border:none;
-    background: none ;
-    cursor:pointer;
-    gap: .5rem;
+    overflow-y: hidden;
   }
 
-  #hamburger{
-    border-top:2px solid;
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+
+  #hamburger {
+    border-top: 2px solid;
     width: 20px;
   }
 
-  #hamburger::after, #hamburger::before{
-    content: '';
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
     display: block;
     width: 20px;
     height: 2px;
-    background:currentColor;
-    margin-top:5px ;
-    transition: .3s;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
     position: relative;
   }
 }
 
-@media(max-width: 800px){
-  #btn-mobile{
+@media (max-width: 800px) {
+  #btn-mobile {
     display: block;
   }
 
-  .search{
+  .search {
     display: none;
   }
 
-  #btn-mobile{
+  #btn-mobile {
     display: flex;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
-    border:none;
-    background: none ;
-    cursor:pointer;
-    gap: .5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
   }
 
-  #hamburger{
-    border-top:2px solid;
+  #hamburger {
+    border-top: 2px solid;
     width: 20px;
   }
 
-  #hamburger::after, #hamburger::before{
-    content: '';
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
     display: block;
     width: 20px;
     height: 2px;
-    background:currentColor;
-    margin-top:5px ;
-    transition: .3s;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
     position: relative;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -88,7 +88,7 @@ input::placeholder {
   flex-wrap: wrap;
   row-gap: 60px;
   column-gap: 60px;
-  margin: 30px 30px 0px 90px;
+  margin: 30px 0 0 0;
   background-color: #fff;
   overflow-y: scroll;
   box-shadow: 3px 3px 5px #707070;
@@ -97,7 +97,7 @@ input::placeholder {
 
 .game {
   position: relative;
-  width: 640px;
+  width: 650px;
   max-height: 155px;
   background-color: #f7f7f7;
   margin-left: -50px;
@@ -120,6 +120,7 @@ input::placeholder {
   column-gap: 60px;
   margin: 30px 30px 0px 70px;
   background-color: #fff;
+  justify-content: space-between;
 }
 
 .img-container {

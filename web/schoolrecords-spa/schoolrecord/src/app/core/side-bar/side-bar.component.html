@@ -1,18 +1,33 @@
 <section class="container-sidebar">
   <img src="../../../assets/img/logo.svg" class="logo" alt="Logo" />
   <ul class="icon-container">
-    <li class="active">
-      <a  routerLink="/home"><span class="icon icon-home"></span></a>
+    <li
+      routerLink="/home"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-home"></span></a>
     </li>
-    <li>
-      <a routerLink="/personalData"><span class="icon icon-people" ></span></a>
+    <li
+      routerLink="/perfil"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-people"></span></a>
     </li>
-    <li>
-      <a routerLink="/invitation"><span class="icon icon-notification"></span
-      ></a>
+    <li
+      routerLink="/home/invitation"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-notification"></span></a>
     </li>
-    <li>
-      <a routerLink="/article-relevance"><span class="icon icon-dashboard"></span></a>
+    <li
+      routerLink="/home/article-relevance"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-dashboard"></span></a>
     </li>
     <li>
       <a href="/editText"><span class="icon icon-documents"></span></a>
@@ -21,12 +36,29 @@
       <a routerLink="/invitation"><span class="icon icon-rating"></span></a>
     </li>
 
-    <li>
-      <a routerLink="/games"><span class="icon icon-controller"> </span></a>
+    <li
+      routerLink="/documents"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-documents"></span></a>
     </li>
-
-    <li>
-      <a href="#"><span class="icon icon-config"></span></a>
+    <li
+      routerLink="/rating"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-rating"></span></a>
+    </li>
+    <li
+      routerLink="/home/games"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-controller"> </span></a>
+    </li>
+    <li routerLink="/home/config">
+      <a><span class="icon icon-config"></span></a>
     </li>
   </ul>
 </section>
