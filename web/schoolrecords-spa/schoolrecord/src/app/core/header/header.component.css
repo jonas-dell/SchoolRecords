@@ -12,8 +12,6 @@
 .header-container {
   display: flex;
   align-items: center;
-  /* justify-content: space-between;
-  flex-wrap: wrap; */
 }
 
 p {
@@ -33,18 +31,18 @@ p {
   flex-wrap: wrap;
 }
 
-.container-info-person > p:first-of-type {
+.salutation {
   font-weight: bold;
   font-family: Roboto, Arial, sans-serif;
   margin-right: 3px;
 }
 
-.container-info-person > p:last-child {
+.user {
   font-family: Roboto-Light, Arial, sans-serif;
   margin-right: 3px;
 }
 
-.salutation {
+.welcome-porfolio {
   font-family: Roboto-Light;
   font-size: 0.825rem;
   color: #959393;
@@ -123,7 +121,22 @@ p {
   display: none;
 }
 
-@media (max-width: 1485px) {
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .header-container-bg {
+    background-color: tomato;
+  }
+
+  .salutation,
+  .user {
+    font-size: 1.125rem;
+  }
+
+  .welcome-porfolio,
+  .salutation {
+    display: none;
+  }
+
   #btn-mobile {
     display: block;
   }
@@ -170,8 +183,184 @@ p {
   }
 }
 
-@media (max-width: 800px) {
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-container-bg {
+    background-color: rgb(71, 120, 255);
+  }
+
+  .salutation,
+  .user {
+    font-size: 0.875rem;
+  }
+
+  .welcome-porfolio {
+    display: none;
+  }
+
   #btn-mobile {
+    display: block;
+  }
+
+  .icons {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background: #e7e7e7;
+    transition: 0.6s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header-container-bg {
+    background-color: rgb(207, 236, 42);
+  }
+
+  .salutation,
+  .user {
+    font-size: 1.125rem;
+  }
+
+  #btn-mobile {
+    display: block;
+  }
+
+  .icons {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background: #e7e7e7;
+    transition: 0.6s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .header-container-bg {
+    background-color: rgb(240, 26, 80);
+  }
+
+  .salutation,
+  .user {
+    font-size: 1.25rem;
+  }
+
+  #btn-mobile {
+    display: block;
+  }
+
+  .icons {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background: #e7e7e7;
+    transition: 0.6s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+
+  #btn-mobile {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  /* #btn-mobile {
     display: block;
   }
 
@@ -204,5 +393,5 @@ p {
     margin-top: 5px;
     transition: 0.3s;
     position: relative;
-  }
+  } */
 }
