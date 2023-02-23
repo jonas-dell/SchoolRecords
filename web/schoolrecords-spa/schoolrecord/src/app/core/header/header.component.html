@@ -1,36 +1,38 @@
 <div class="header-container-bg">
   <div class="header-container">
-    <div class="welcome">
-      <div class="container-info-person">
-        <p class="salutation">Good Morning,</p>
-        <p class="user">Jonas</p>
+    <div style="flex-basis: 20%">
+      <div class="welcome">
+        <div class="container-info-person">
+          <p class="salutation">Good Morning,</p>
+          <p class="user">Jonas</p>
+        </div>
+        <p class="welcome-porfolio">Welcome to my portifólio</p>
       </div>
-      <p class="welcome-porfolio">Welcome to my portifólio</p>
     </div>
+    <div style="flex-grow: 1">
+      <input
+        type="text"
+        class="search w-100"
+        placeholder="search any collection"
+      />
+    </div>
+    <div style="flex-basis: 27.55555%">
+      <ul class="icons">
+        <li class="col-md-3 icon">
+          <i class="fa fa-envelope" style="font-size: 20px; color: #7f408e"></i>
+        </li>
+        <li class="col-md-3 icon">
+          <i class="fa fa-bell" style="font-size: 20px; color: #7f408e"></i>
+        </li>
 
-    <input
-      type="text"
-      class="col-md-6 search"
-      placeholder="search any collection"
-    />
-
-    <ul class="icons">
-      <li class="col-md-3 icon">
-        <i class="fa fa-envelope" style="font-size: 20px; color: #7f408e"></i>
-      </li>
-
-      <li class="col-md-3 icon">
-        <i class="fa fa-bell" style="font-size: 20px; color: #7f408e"></i>
-      </li>
-
-      <li class="btn-icon">
-        <i class="fa fa-user" aria-hidden="true"></i>
-        <input type="submit" value="Jonas Cardoso" />
-      </li>
-    </ul>
-
-    <button id="btn-mobile" (click)="toggleHeader()">
-      <span id="hamburger"></span>
-    </button>
+        <li class="btn-icon">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input type="submit" value="Jonas Cardoso" class="user-profile" />
+        </li>
+      </ul>
+      <button id="btn-mobile" (click)="toggleHeader()">
+        <span id="hamburger"></span>
+      </button>
+    </div>
   </div>
 </div>
