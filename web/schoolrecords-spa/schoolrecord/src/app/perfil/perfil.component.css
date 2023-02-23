@@ -1,52 +1,36 @@
-.register-container {
+.perfil-container {
   display: flex;
+  justify-content: center;
 }
 
-.register-info {
-  background-color: #e4daf3;
-  flex-grow: 1.8;
-  flex-basis: 0;
-  padding: 12% 0 0 7%;
-  height: 100vh;
+.perfil {
+  background-color: #fff;
+  box-shadow: 3px 3px 5px #707070;
+  border-radius: 10px 10px 10px 10px;
+  width: 50%;
+  margin: auto;
+  margin-top: 15px;
+  padding: 3%;
 }
 
-.title {
-  color: #780a7e;
-  font-size: 4rem;
-  margin-bottom: 1.5%;
-  font-family: "IBM_Plex_Sans_Semi_Bold", sans-serif;
-}
-
-.login {
-  flex-grow: 1;
-  flex-basis: 0;
-  padding: 5% 0 0 0;
-}
-
-.container-login {
-  padding-left: 10%;
-}
-
-.has-account {
-  margin-bottom: 0;
-  font-family: Nunito, sans-serif;
-}
-
-.has-account > span {
-  color: #9441b7;
-  font-weight: bold;
-  font-family: Nunito, sans-serif;
-}
-
-.sign-up {
+.resum-data {
   font-size: 2.5rem;
-  font-family: Nunit, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: bold;
-  margin-top: 80px;
+  margin-bottom: 10px;
 }
 
-.form-login input {
-  width: 400px;
+.form {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-container1 {
+  width: 50%;
+}
+
+.form-group input {
+  width: 100%;
   padding: 15px 30px;
   border-radius: 30px;
   border-style: solid;
@@ -54,46 +38,79 @@
   background-color: #f2f2f2;
   outline: none;
   font-size: 0.875rem;
-  font-family: OpenSans, sans-serif;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
 }
 
-.form-login input:focus {
-  border-color: #65cbf3;
-  background: none;
+.image-profile-container {
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-.btn-login {
-  width: 400px;
-  padding: 15px 30px;
+.image-profile-container img {
+  width: 300px;
+  height: 280px;
+}
+
+.file-image-container {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #7f408e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  top: 220px;
+  left: -70px;
+}
+
+#img-profile {
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.form2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.senha-container {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 20px;
+}
+
+.senha {
+  width: 100%;
+}
+
+.btn-container-update {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-update {
+  width: 200px;
+  padding: 10px;
   border-radius: 30px;
   border-style: solid;
   border-color: #7f408e;
   background-color: #7f408e;
   outline: none;
   font-size: 1rem;
-  font-family: OpenSans, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   color: #fff;
   font-weight: bold;
-}
-
-.signup-label {
-  text-align: center;
-  font-family: Nunito, sans-serif;
-  margin-top: 50px;
-  max-width: 400px;
-}
-
-.btn-login.btn-login-google {
   margin-top: 10px;
-  border-color: #7070702e;
-  color: #000;
-  background: none;
-}
-
-.btn-login.btn-login-google > svg {
-  height: 20px;
-}
-
-.register {
-  cursor: pointer;
 }
