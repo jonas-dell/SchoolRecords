@@ -8,5 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class PerfilComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    let fileButtonContainer = document.getElementById('button-file-container');
+    let file = document.getElementById('file-img-input');
+
+    fileButtonContainer?.addEventListener('click', () => {
+      file?.click();
+    });
+
+  }
 }
