@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { EditTextComponent } from './edit-text/edit-text.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       { path: 'games', component: GamesComponent, pathMatch: 'full' },
+      { path: 'edit-text', component: EditTextComponent, pathMatch: 'full' },
       { path: 'perfil', component: PerfilComponent, pathMatch: 'full' },
       { path: 'invitation', component: InvitationComponent },
       {
