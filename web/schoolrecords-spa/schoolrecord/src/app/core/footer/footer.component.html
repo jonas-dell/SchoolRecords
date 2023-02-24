@@ -1,0 +1,31 @@
+<section class="container-footer-mobile">
+  <ul class="icon-container">
+    <li
+      routerLink="/home"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-home"></span></a>
+    </li>
+
+    <li
+      routerLink="/perfil"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-people"></span></a>
+    </li>
+
+    <li
+      routerLink="/home/invitation"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-notification"></span></a>
+    </li>
+
+    <li routerLink="/home/config">
+      <a><span class="icon icon-config"></span></a>
+    </li>
+  </ul>
+</section>

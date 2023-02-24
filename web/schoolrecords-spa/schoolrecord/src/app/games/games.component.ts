@@ -10,7 +10,7 @@ import { GamesService } from './games.service';
 })
 export class GamesComponent implements OnInit {
   page: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 6;
   lastScroll: number = 0;
   loading: boolean = false;
   gamesLoaded: boolean = false;
@@ -43,7 +43,7 @@ export class GamesComponent implements OnInit {
         tap(() => (this.loading = false)),
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
-          this.showContactsLoadedMessage('gamesLoaded');
+          this.showGamesLoadedMessage('gamesLoaded');
           return true;
         })
       )
@@ -52,7 +52,7 @@ export class GamesComponent implements OnInit {
       });
   }
 
-  private showContactsLoadedMessage(controller: string) {
+  private showGamesLoadedMessage(controller: string) {
     this[controller] = true;
     timer(5000).subscribe(() => {
       this[controller] = false;

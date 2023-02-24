@@ -123,6 +123,14 @@ p {
   display: none;
 }
 
+/* TAMANHO QUE DEIXEI O FOOTER APARECER DEPOIS TROCO */
+@media (max-width: 800px) {
+  .header-container-bg {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 767px) {
   /* .header-container-bg {

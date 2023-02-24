@@ -1,6 +1,9 @@
 <section class="game-content-container" (scroll)="onScroll($event)" #game>
-  <h2 class="title">Games</h2>
-  <p class="game-count">{{ games.length }} Games found</p>
+  <div id="header-count">
+    <h2 class="title">Games</h2>
+    <p class="game-count">{{ games.length }} Games found</p>
+  </div>
+
   <ul class="game-content">
     <div class="game-content-li">
       <li *ngFor="let game of games" class="game">

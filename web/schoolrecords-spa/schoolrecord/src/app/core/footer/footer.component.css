@@ -1,0 +1,45 @@
+.container-footer-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #7f408e;
+  z-index: 1;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.icon-home {
+  background: url(../../../assets/img/home.svg);
+  background-repeat: no-repeat;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+
+.icon-people {
+  background: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-notification {
+  background: url(../../../assets/img/notification.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-config {
+  background: url(../../../assets/img/config.svg);
+  background-repeat: no-repeat;
+}

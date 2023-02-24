@@ -13,9 +13,16 @@ import { AppComponent } from './app.component';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { EditTextComponent } from './edit-text/edit-text.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
-  declarations: [...Index.getComponents(), ArticleRelevanceComponent, PersonalDataComponent, EditTextComponent],
+  declarations: [
+    ...Index.getComponents(),
+    ArticleRelevanceComponent,
+    PersonalDataComponent,
+    EditTextComponent,
+    FooterComponent,
+  ],
 
   imports: [
     BrowserModule,
