@@ -42,7 +42,8 @@ footer {
   display: none;
 }
 
-@media (max-width: 800px) {
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
   side-bar {
     display: none;
   }
@@ -53,5 +54,13 @@ footer {
 
   section {
     overflow-x: hidden;
+  }
+
+  .content-container {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    top: 80px;
+    padding: 0;
   }
 }

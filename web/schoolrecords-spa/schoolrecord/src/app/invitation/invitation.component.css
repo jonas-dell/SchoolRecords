@@ -130,3 +130,6 @@ input::placeholder {
   background-color: #fff;
   color: #7f408e;
 }
+
+@media (max-width: 800px) {
+}

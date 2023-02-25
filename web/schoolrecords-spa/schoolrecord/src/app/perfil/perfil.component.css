@@ -11,6 +11,9 @@
   margin: auto;
   margin-top: 15px;
   padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .resum-data {
@@ -44,28 +47,29 @@
 .image-profile-container {
   display: flex;
   align-items: flex-end;
-  width: 50%;
   flex-wrap: wrap;
   justify-content: flex-end;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  margin-right: 10%;
 }
 
 .image-profile-container img {
-  width: 300px;
-  height: 280px;
+  width: 75%;
 }
 
 .file-image-container {
+  position: absolute;
   width: 55px;
   height: 55px;
+
   border-radius: 50%;
   background-color: #7f408e;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  position: relative;
-  top: 220px;
-  left: -70px;
 }
 
 #img-profile {
@@ -75,7 +79,7 @@
   height: 25px;
 }
 
-input[type='file'] {
+input[type="file"] {
   display: none;
 }
 
@@ -113,4 +117,131 @@ input[type='file'] {
   color: #fff;
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* responsivadade */
+
+/* X-Small devices (tablets, 768px and up) */
+@media (max-width: 766px) {
+  .resum-data {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .form-group input {
+    padding: 7px 10px;
+    border-radius: 30px;
+    font-size: 0.6rem;
+    font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  }
+
+  .image-profile-container {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+  }
+
+  .image-profile-container img {
+    width: 100%;
+  }
+
+  .file-image-container {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+    background-color: #7f408e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  #img-profile {
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+  }
+
+  .btn-update {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .senha-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    grid-gap: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .perfil-container {
+    margin-bottom: 20%;
+  }
+
+  .perfil {
+    width: 100%;
+  }
+
+  .form {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .form2 {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .btn-container-update {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+/* TIRAR A PROPRIEDADE QUE A FOTO FICA ENORME */
+@media (min-width: 440px) and (max-width: 768px) {
+  .image-profile-container {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    margin: 0;
+  }
+
+  .image-profile-container img {
+    width: 65%;
+  }
+}
+
+/* NÃO PRECISOU MUDAR (AINDA)*/
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
 }
