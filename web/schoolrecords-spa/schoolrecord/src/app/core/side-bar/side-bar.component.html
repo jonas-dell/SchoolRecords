@@ -29,8 +29,12 @@
     >
       <a><span class="icon icon-dashboard"></span></a>
     </li>
-    <li>
-      <a href="/editText"><span class="icon icon-documents"></span></a>
+    <li
+      routerLink="/home/edit-text"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a><span class="icon icon-documents"></span></a>
     </li>
     <li>
       <a routerLink="/invitation"><span class="icon icon-rating"></span></a>

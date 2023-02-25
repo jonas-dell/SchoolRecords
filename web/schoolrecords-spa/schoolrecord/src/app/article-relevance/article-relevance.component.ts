@@ -1,6 +1,3 @@
-import { Label } from '@amcharts/amcharts4/core';
-import { NONE_TYPE } from '@angular/compiler';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import gradient from 'chartjs-plugin-gradient';
@@ -48,7 +45,7 @@ export class ArticleRelevanceComponent implements OnInit {
       },
     };
 
-    const dayArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const daysArray = [5, 3, 7, 22, 12, 8, 15, 9, 1, 25, 20, 10];
     const hoursArray = [1.30, 8.0, 5.3, 3.3, 9.0, 3.1, 1.8, 3.6, 2.9, 5.0, 9.0, 4.9];
 
     new Chart('line-chart', {
@@ -103,7 +100,7 @@ export class ArticleRelevanceComponent implements OnInit {
               },
               title: function(context) {
                 console.log(context);
-                return `Day:            ${dayArray[context[0].dataIndex]}`;
+                return `Days:          ${daysArray[context[0].dataIndex]}`;
               },
               afterTitle: function(context) {
                 console.log(context);
@@ -146,15 +143,16 @@ export class ArticleRelevanceComponent implements OnInit {
       plugins: [plugin, gradient],
     });
 
-    var valueDesign = 48;
-    new Chart('doughnut-chart-design', {
+    var valueViews = 48;
+    new Chart('doughnut-chart-views', {
       type: 'doughnut',
       data: {
         datasets: [
           {
-            data: [valueDesign, 100 - valueDesign],
+            data: [valueViews, 100 - valueViews],
             backgroundColor: ['#f35762', '#e5f3fe'],
             hoverBackgroundColor: ['#f35762', '#e5f3fe'],
+            hoverBorderColor: ['#f35762', '#e5f3fe'],
           },
         ],
       },
@@ -166,7 +164,7 @@ export class ArticleRelevanceComponent implements OnInit {
         plugins: {
           title: {
             display: true,
-            text: 'DESIGN',
+            text: 'VIEWS',
             align: 'center',
             padding: {
               top: 20,
@@ -182,8 +180,8 @@ export class ArticleRelevanceComponent implements OnInit {
         {
           beforeDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
             ctx.fillStyle = '#e5f3fe';
             ctx.beginPath();
             ctx.arc(88, 115, 49, 0, 2 * Math.PI);
@@ -193,18 +191,18 @@ export class ArticleRelevanceComponent implements OnInit {
           id: 'text',
           afterDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
 
             ctx.restore();
             var fontSize = (height / 130).toFixed(2);
-            ctx.font = fontSize + 'em sans-serif';
+            ctx.font = fontSize + 'em Roboto-Regular, Arial, Helvetica, sans-serif';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = '#f35762';
 
-            var text = valueDesign.toString() + '%',
-              textX = Math.round((width - ctx.measureText(text).width) / 2),
-              textY = height / 2 + 20;
+            var text = valueViews.toString() + '%',
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 2 + 20;
 
             ctx.fillText(text, textX, textY);
             ctx.save();
@@ -222,6 +220,7 @@ export class ArticleRelevanceComponent implements OnInit {
             data: [valueLikes, 100 - valueLikes],
             backgroundColor: ['#5767f2', '#e5f3fe'],
             hoverBackgroundColor: ['#5767f2', '#e5f3fe'],
+            hoverBorderColor: ['#5767f2', '#e5f3fe'],
           },
         ],
       },
@@ -249,8 +248,8 @@ export class ArticleRelevanceComponent implements OnInit {
         {
           beforeDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
             ctx.fillStyle = '#e5f3fe';
             ctx.beginPath();
             ctx.arc(88, 115, 49, 0, 2 * Math.PI);
@@ -260,18 +259,18 @@ export class ArticleRelevanceComponent implements OnInit {
           id: 'text',
           afterDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
 
             ctx.restore();
             var fontSize = (height / 130).toFixed(2);
-            ctx.font = fontSize + 'em sans-serif';
+            ctx.font = fontSize + 'em Roboto-Regular, Arial, Helvetica, sans-serif';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = '#5767f2';
 
             var text = valueLikes.toString() + '%',
-              textX = Math.round((width - ctx.measureText(text).width) / 2),
-              textY = height / 2 + 20;
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 2 + 20;
 
             ctx.fillText(text, textX, textY);
             ctx.save();
@@ -289,6 +288,7 @@ export class ArticleRelevanceComponent implements OnInit {
             data: [valueRelevant, 100 - valueRelevant],
             backgroundColor: ['#1aa4a6', '#e8f6f6'],
             hoverBackgroundColor: ['#1aa4a6', '#e8f6f6'],
+            hoverBorderColor: ['#1aa4a6', '#e8f6f6'],
           },
         ],
       },
@@ -316,8 +316,8 @@ export class ArticleRelevanceComponent implements OnInit {
         {
           beforeDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
             ctx.fillStyle = '#e8f6f6';
             ctx.beginPath();
             ctx.arc(88, 115, 49, 0, 2 * Math.PI);
@@ -327,18 +327,18 @@ export class ArticleRelevanceComponent implements OnInit {
           id: 'text',
           afterDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
 
             ctx.restore();
             var fontSize = (height / 130).toFixed(2);
-            ctx.font = fontSize + 'em sans-serif';
+            ctx.font = fontSize + 'em Roboto-Regular, Arial, Helvetica, sans-serif';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = '#1aa4a6';
 
             var text = valueRelevant.toString() + '%',
-              textX = Math.round((width - ctx.measureText(text).width) / 2),
-              textY = height / 2 + 20;
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 2 + 20;
 
             ctx.fillText(text, textX, textY);
             ctx.save();
@@ -356,6 +356,7 @@ export class ArticleRelevanceComponent implements OnInit {
             data: [valueProduction, 100 - valueProduction],
             backgroundColor: ['#445074', '#f1f1f1'],
             hoverBackgroundColor: ['#445074', '#f1f1f1'],
+            hoverBorderColor: ['#445074', '#f1f1f1'],
           },
         ],
       },
@@ -383,8 +384,8 @@ export class ArticleRelevanceComponent implements OnInit {
         {
           beforeDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
             ctx.fillStyle = '#f1f1f1';
             ctx.beginPath();
             ctx.arc(88, 115, 49, 0, 2 * Math.PI);
@@ -394,18 +395,18 @@ export class ArticleRelevanceComponent implements OnInit {
           id: 'text',
           afterDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
 
             ctx.restore();
             var fontSize = (height / 130).toFixed(2);
-            ctx.font = fontSize + 'em sans-serif';
+            ctx.font = fontSize + 'em Roboto-Regular, Arial, Helvetica, sans-serif';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = '#445074';
 
             var text = valueProduction.toString() + '%',
-              textX = Math.round((width - ctx.measureText(text).width) / 2),
-              textY = height / 2 + 20;
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 2 + 20;
 
             ctx.fillText(text, textX, textY);
             ctx.save();
@@ -414,15 +415,16 @@ export class ArticleRelevanceComponent implements OnInit {
       ],
     });
 
-    var valueProduction2 = 25;
-    new Chart('doughnut-chart-production2', {
+    var valueDownloads = 25;
+    new Chart('doughnut-chart-downloads', {
       type: 'doughnut',
       data: {
         datasets: [
           {
-            data: [valueProduction2, 100 - valueProduction2],
+            data: [valueDownloads, 100 - valueDownloads],
             backgroundColor: ['#477546', '#f1f1f1'],
             hoverBackgroundColor: ['#477546', '#f1f1f1'],
+            hoverBorderColor: ['#477546', '#f1f1f1'],
           },
         ],
       },
@@ -434,7 +436,7 @@ export class ArticleRelevanceComponent implements OnInit {
         plugins: {
           title: {
             display: true,
-            text: 'PRODUCTION',
+            text: 'DOWNLOADS',
             align: 'center',
             padding: {
               top: 20,
@@ -450,8 +452,8 @@ export class ArticleRelevanceComponent implements OnInit {
         {
           beforeDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
             ctx.fillStyle = '#f1f1f1';
             ctx.beginPath();
             ctx.arc(88, 115, 49, 0, 2 * Math.PI);
@@ -461,18 +463,18 @@ export class ArticleRelevanceComponent implements OnInit {
           id: 'text',
           afterDraw: function (chart, a, b) {
             var width = chart.width,
-              height = chart.height,
-              ctx = chart.ctx;
+            height = chart.height,
+            ctx = chart.ctx;
 
             ctx.restore();
             var fontSize = (height / 130).toFixed(2);
-            ctx.font = fontSize + 'em sans-serif';
+            ctx.font = fontSize + 'em Roboto-Regular, Arial, Helvetica, sans-serif';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = '#477546';
 
-            var text = valueProduction2.toString() + '%',
-              textX = Math.round((width - ctx.measureText(text).width) / 2),
-              textY = height / 2 + 20;
+            var text = valueDownloads.toString() + '%',
+            textX = Math.round((width - ctx.measureText(text).width) / 2),
+            textY = height / 2 + 20;
 
             ctx.fillText(text, textX, textY);
             ctx.save();
