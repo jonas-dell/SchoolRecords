@@ -80,10 +80,17 @@ input::placeholder {
   justify-content: center;
 }
 
+a {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  top: 40px;
+}
+
 .img-container img {
   width: 120px;
   height: 120px;
-  margin: 40px;
   border-radius: 50%;
 }
 
