@@ -179,3 +179,94 @@
     width: 90%;
   }
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  #logo-sr {
+    display: block;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+
+  .login-container {
+    flex-direction: column;
+    max-width: 100vw;
+  }
+
+  .login-info {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.5%;
+  }
+
+  .login-info p {
+    max-width: 70%;
+    margin: auto;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .login {
+    flex-grow: 0;
+    flex-basis: 0;
+    padding-top: 5%;
+    text-align: center;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .container-login {
+    padding: 0;
+    width: 100%;
+  }
+
+  .form-login {
+    width: 100%;
+    margin: auto;
+  }
+
+  .signup-label {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+  }
+
+  .form-login input {
+    width: 90%;
+  }
+
+  .btn-login {
+    width: 90%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .login-info {
+    flex-grow: 1.5;
+  }
+
+  .login {
+    flex-grow: 1.5;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .login-info {
+    flex-grow: 1.5;
+  }
+
+  .login {
+    flex-grow: 1.5;
+  }
+}

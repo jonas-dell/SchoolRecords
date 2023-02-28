@@ -19,18 +19,6 @@ side-bar {
   display: flex;
 }
 
-.info-container {
-  flex-basis: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
-.dynamic-content-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .search-container {
   display: flex;
   justify-content: space-between;

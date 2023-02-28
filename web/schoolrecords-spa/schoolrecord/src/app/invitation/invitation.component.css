@@ -1,11 +1,15 @@
 .invitation-container {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  margin: auto;
 }
 
 .dynamic-content-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: auto;
 }
 
 .search-container {
@@ -51,13 +55,16 @@ input::placeholder {
 }
 
 .invitation-content-container {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   row-gap: 60px;
   column-gap: 60px;
-  margin: 30px 0 0 0;
   background-color: #fff;
+  width: 100%;
+  margin: auto;
+  justify-content: left;
+  align-items: start;
 }
 
 .invitation {
@@ -67,6 +74,16 @@ input::placeholder {
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid #00000066;
+}
+
+.invitation-content-li {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 50px;
+  column-gap: 60px;
+  background-color: #fff;
+  justify-content: space-evenly;
 }
 
 .invitation-header {
@@ -136,6 +153,12 @@ a {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   background-color: #fff;
   color: #7f408e;
+}
+
+.invites-loaded {
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  justify-content: center;
 }
 
 @media (max-width: 800px) {

@@ -4,7 +4,7 @@ import { ArticleRelevanceComponent } from './article-relevance/article-relevance
 import { FeedComponent } from './feed/feed.component';
 import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
-import { InvitationComponent } from './invitation/invitation.component';
+import { InvitesComponent } from './invitation/invitation.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
       { path: 'games', component: GamesComponent, pathMatch: 'full' },
       { path: 'edit-text', component: EditTextComponent, pathMatch: 'full' },
       { path: 'perfil', component: PerfilComponent, pathMatch: 'full' },
-      { path: 'invitation', component: InvitationComponent },
+      { path: 'invitation', component: InvitesComponent },
       {
         path: 'article-relevance',
         component: ArticleRelevanceComponent,

@@ -14,87 +14,46 @@
         />
       </div>
     </div>
-    <div class="invitation-content-container">
-      <div class="invitation">
-        <div class="invitation-header">
-          <div class="img-container">
-            <a href="#">
-              <img src="../../../assets/img/invitation.png" />
-            </a>
+
+    <ul class="invitation-content-container">
+      <div class="invitation-content-li">
+        <li *ngFor="let invite of invites" class="invite">
+          <div class="invitation">
+            <div class="invitation-header">
+              <div class="img-container">
+                <a href="{{ invite.id }}">
+                  <img [src]="invite.img" alt="Invite" />
+                </a>
+              </div>
+            </div>
+
+            <div class="invitation-content">
+              <p class="invitation-name">{{ invite.name }}</p>
+              <p class="invitation-profession">{{ invite.profession }}</p>
+              <div class="button-container">
+                <button class="btn-connect">Connect</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="invitation-content">
-          <p class="invitation-name">Fernanda Bottino</p>
-          <p class="invitation-profession">Security Manager</p>
-          <div class="button-container">
-            <button class="btn-connect">Connect</button>
-          </div>
-        </div>
+        </li>
       </div>
-      <div class="invitation">
-        <div class="invitation-header">
-          <div class="img-container">
-            <a href="#">
-              <img src="../../../assets/img/invitation.png" />
-            </a>
-          </div>
-        </div>
-        <div class="invitation-content">
-          <p class="invitation-name">Fernanda Bottino</p>
-          <p class="invitation-profession">Security Manager</p>
-          <div class="button-container">
-            <button class="btn-connect">Connect</button>
-          </div>
-        </div>
-      </div>
-      <div class="invitation">
-        <div class="invitation-header">
-          <div class="img-container">
-            <a href="#">
-              <img src="../../../assets/img/invitation.png" />
-            </a>
-          </div>
-        </div>
-        <div class="invitation-content">
-          <p class="invitation-name">Fernanda Bottino</p>
-          <p class="invitation-profession">Security Manager</p>
-          <div class="button-container">
-            <button class="btn-connect">Connect</button>
-          </div>
-        </div>
-      </div>
-      <div class="invitation">
-        <div class="invitation-header">
-          <div class="img-container">
-            <a href="#">
-              <img src="../../../assets/img/invitation.png" />
-            </a>
-          </div>
-        </div>
-        <div class="invitation-content">
-          <p class="invitation-name">Fernanda Bottino</p>
-          <p class="invitation-profession">Security Manager</p>
-          <div class="button-container">
-            <button class="btn-connect">Connect</button>
-          </div>
-        </div>
-      </div>
-      <div class="invitation">
-        <div class="invitation-header">
-          <div class="img-container">
-            <a href="#">
-              <img src="../../../assets/img/invitation.png" />
-            </a>
-          </div>
-        </div>
-        <div class="invitation-content">
-          <p class="invitation-name">Fernanda Bottino</p>
-          <p class="invitation-profession">Security Manager</p>
-          <div class="button-container">
-            <button class="btn-connect">Connect</button>
-          </div>
-        </div>
-      </div>
+
+      <li class="loading">
+        <ngx-loading
+          [show]="loading"
+          [config]="{
+            backdropBorderRadius: '3px',
+            primaryColour: '#f4f4f4',
+            secondaryColour: '#f4f4f4',
+            tertiaryColour: '#f4f4f4'
+          }"
+        ></ngx-loading>
+      </li>
+      <li class="invites-loaded" *ngIf="invitesLoaded"></li>
+    </ul>
+
+    <!--JEITO ANTIGO
+        <div class="invitation-content-container">
       <div class="invitation">
         <div class="invitation-header">
           <div class="img-container">
@@ -112,6 +71,8 @@
         </div>
       </div>
     </div>
+    -->
+
     <router-outlet></router-outlet>
   </div>
 </section>

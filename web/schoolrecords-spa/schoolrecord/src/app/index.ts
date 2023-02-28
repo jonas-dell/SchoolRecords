@@ -6,7 +6,7 @@ import { SideBarComponent } from './core/side-bar/side-bar.component';
 import { FeedComponent } from './feed/feed.component';
 import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
-import { InvitationComponent } from './invitation/invitation.component';
+import { InvitesComponent } from './invitation/invitation.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -27,7 +27,7 @@ export class Index {
       PersonalDataComponent,
       NotFoundComponent,
       PerfilComponent,
-      InvitationComponent,
+      InvitesComponent,
       RegisterComponent,
       TimelineComponent,
       GamesComponent,
