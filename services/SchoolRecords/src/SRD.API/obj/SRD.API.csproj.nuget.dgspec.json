@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj": {}
+    "D:\\Users\\rcardoso\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj": {
+    "D:\\Users\\rcardoso\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj",
+        "projectUniqueName": "D:\\Users\\rcardoso\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj",
         "projectName": "SRD.API",
-        "projectPath": "D:\\Users\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj",
+        "projectPath": "D:\\Users\\rcardoso\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\SRD.API.csproj",
         "packagesPath": "C:\\Users\\rcardoso\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\obj\\",
+        "outputPath": "D:\\Users\\rcardoso\\Rafael\\Projects\\SchoolRecords\\services\\SchoolRecords\\src\\SRD.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rcardoso\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\rcardoso\\Desktop": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
