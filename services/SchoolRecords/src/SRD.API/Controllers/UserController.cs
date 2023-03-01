@@ -30,8 +30,8 @@ namespace SRD.API.Controllers
                 return NotFound(new { Message = "User not found" });
 
             return Ok(new
-            {
-                Message = "Login Success"
+            
+                { Message = "Deu bom", Successful = true
             });
         }
 
