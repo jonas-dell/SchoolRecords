@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
+import { EditTextComponent } from './edit-text/edit-text.component';
 import { FeedComponent } from './feed/feed.component';
 import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
@@ -10,7 +11,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { EditTextComponent } from './edit-text/edit-text.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,7 +26,12 @@ const routes: Routes = [
         component: TimelineComponent,
         pathMatch: 'full',
       },
-      { path: 'games', component: GamesComponent, pathMatch: 'full' },
+      {
+        path: 'games',
+        component: GamesComponent,
+        pathMatch: 'full',
+        children: [],
+      },
       { path: 'edit-text', component: EditTextComponent, pathMatch: 'full' },
       { path: 'perfil', component: PerfilComponent, pathMatch: 'full' },
       { path: 'invitation', component: InvitesComponent },

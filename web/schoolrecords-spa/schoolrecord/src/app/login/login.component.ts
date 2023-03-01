@@ -29,18 +29,27 @@ export class LoginComponent implements OnInit {
   login(e: any) {
     e.preventDefault();
 
+    console.log(this.user);
+
     if (!this.user.valid) {
       return this.notificationService.errorFields();
     }
 
     this.loading = true;
-    this.loginService.login(this.user.value).subscribe((resp) => {
-      if (resp.successful) {
+    this.loginService.login(this.user.value).subscribe(
+      (resp: any) => {
+        if (resp.successful) {
+          this.loading = false;
+          this.toastr.success(resp.message);
+          this.user.reset();
+          this.router.navigate(['/home']);
+        }
+      },
+      (resp) => {
         this.loading = false;
-        this.toastr.success(resp.message);
-        this.user.reset();
-        this.router.navigate(['/home']);
+        console.log(resp.error.message);
+        alert('Deu ruim no login');
       }
-    });
+    );
   }
 }

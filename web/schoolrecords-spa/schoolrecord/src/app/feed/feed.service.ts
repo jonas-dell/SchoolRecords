@@ -1,13 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 import pubs from '../data/pub.json';
 
 @Injectable({ providedIn: 'root' })
-export class TimelineService {
+export class FeedService {
   pubsDb: Array<any> = new Array<any>();
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.pubsDb = pubs;
   }
 
@@ -22,5 +23,25 @@ export class TimelineService {
         return result;
       })
     );
+  }
+
+  getWeatherforecast() {
+    // this.http.get('https://localhost:44352/weatherforecast').subscribe(
+    //   (resp) => {
+    //     console.log('data', resp);
+    //   },
+    //   (error) => {
+    //     console.log('Error');
+    //     alert(error?.message);
+    //   }
+    // );
+
+    this.http
+      .post(`https://localhost:44352/weatherforecast`, {
+        nome: 'Adam AADFASDFASDFASDFASDFASDFA|SDFASDFSADF',
+      })
+      .subscribe((resp) => {
+        console.log(resp);
+      });
   }
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,9 +12,10 @@ import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
-import { PersonalDataComponent } from './personal-data/personal-data.component';
-import { EditTextComponent } from './edit-text/edit-text.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { EditTextComponent } from './edit-text/edit-text.component';
+import { PersonalDataComponent } from './personal-data/personal-data.component';
+import { BotaoComponent } from './shared/botao/botao.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,8 @@ import { FooterComponent } from './core/footer/footer.component';
     PersonalDataComponent,
     EditTextComponent,
     FooterComponent,
+    BotaoComponent,
   ],
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,6 +36,7 @@ import { FooterComponent } from './core/footer/footer.component';
     ToastrModule.forRoot(),
     NgChartsModule,
     NgxLoadingModule.forRoot({}),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

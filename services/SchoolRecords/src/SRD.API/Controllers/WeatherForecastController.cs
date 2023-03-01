@@ -34,5 +34,19 @@ namespace SRD.API.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public IActionResult CriarUsuario([FromBody] Usuario usuario)
+        {
+            var teste = usuario;
+
+            return BadRequest(new { Message = "Deu ruim no login", Successful = false});
+        }
+    }
+
+    public class Usuario
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
