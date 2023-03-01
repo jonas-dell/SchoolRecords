@@ -46,7 +46,8 @@ namespace SRD.API.Controllers
             await _authContext.SaveChangesAsync();
             return Ok(new
             {
-                Message = "User Registred"
+                Message = "User Registred",
+                Successful = true
             });
         }
     }
