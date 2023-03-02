@@ -17,6 +17,8 @@ namespace SRD.API.Controllers
             _authContext = appDbContext;
 
         }
+
+
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate([FromBody] User userObj)
         {
@@ -49,6 +51,23 @@ namespace SRD.API.Controllers
                 Message = "User Registred",
                 Successful = true
             });
+        }
+
+
+
+        //Get people
+        [HttpGet]
+        [Route("{id:int}")]
+        [ActionName("GetUser")]
+
+        public async Task<IActionResult> GetUser([FromRoute] int id)
+        {
+            var pessoa = await _authContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+            if (pessoa != null)
+            {
+                return Ok(pessoa);
+            }
+            return NotFound("Pessoa Not Found");
         }
     }
 }
