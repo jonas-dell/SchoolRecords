@@ -25,7 +25,9 @@ export class RegisterComponent implements OnInit {
     private notificationService: NotificationService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   register(e: any) {
     e.preventDefault();
@@ -35,13 +37,19 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    this.registerService.register(this.user.value).subscribe((resp) => {
+    this.registerService.register(this.user.value).subscribe((resp:any) => {
       if (resp.successful) {
         this.loading = false;
         this.toastr.success(resp.message);
         this.user.reset();
         this.router.navigate(['/login']);
       }
-    });
+    },
+    (resp) => {
+      this.loading = false;
+      console.log(resp.error.message);
+      alert('Deu ruim no register');
+    }
+  );
   }
 }
