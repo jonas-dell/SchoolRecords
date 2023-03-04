@@ -12,10 +12,12 @@ import { RegisterService } from './register.service';
 })
 export class RegisterComponent implements OnInit {
   loading: boolean = false;
+  
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    
   });
 
   constructor(

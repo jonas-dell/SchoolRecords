@@ -7,6 +7,7 @@ export class LoginService {
 
   login(user: any) {
     return this.http.post(`https://localhost:44352/api/User/authenticate`, user);
+    
     // return of({
     //   successful: true,
     //   message: 'Usuário autenticado com sucesso',

@@ -14,9 +14,10 @@ import { AppComponent } from './app.component';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { EditTextComponent } from './edit-text/edit-text.component';
+import { LoginComponent } from './login/login.component';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { BotaoComponent } from './shared/botao/botao.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ...Index.getComponents(),
@@ -25,6 +26,7 @@ import { BotaoComponent } from './shared/botao/botao.component';
     EditTextComponent,
     FooterComponent,
     BotaoComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,8 @@ import { BotaoComponent } from './shared/botao/botao.component';
     NgChartsModule,
     NgxLoadingModule.forRoot({}),
     HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

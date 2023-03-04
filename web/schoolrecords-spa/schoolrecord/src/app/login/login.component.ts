@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../shared/services/notification.service';
 import { LoginService } from './login.service';
 
+import { string } from '@amcharts/amcharts4/core';
+import userViews from '../userViews';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -12,6 +14,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loading: boolean = false;
+  userViews = userViews;
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -40,6 +43,9 @@ export class LoginComponent implements OnInit {
       (resp: any) => {
         if (resp.successful) {
           this.loading = false;
+       
+        
+          this.userViews.push({userName:this.user.value.userName})
           this.toastr.success(resp.message);
           this.user.reset();
           this.router.navigate(['/home']);

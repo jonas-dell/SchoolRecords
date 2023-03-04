@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from 'src/app/login/login.component';
+import userViews from 'src/app/userViews';
 
 @Component({
   selector: 'header',
@@ -12,9 +14,10 @@ export class HeaderComponent implements OnInit {
     alert('Teste do menu hamburger');
     this.showHeader = !this.showHeader;
   }
-
+ 
+  userViews = userViews ;
   
   constructor() {}
-
+  
   ngOnInit(): void {}
 }

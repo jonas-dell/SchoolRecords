@@ -3,8 +3,9 @@
     <div style="flex-basis: 20%">
       <div class="welcome">
         <div class="container-info-person">
-          <p class="salutation">Good Morning,</p>
-          <p class="user">Jonas</p>
+          <p class="salutation">Good Morning, {{userViews[0].userName}} </p>
+          
+         
         </div>
         <p class="welcome-porfolio">Welcome to my portifólio</p>
       </div>
@@ -27,7 +28,7 @@
 
         <li class="btn-icon">
           <i class="fa fa-user" aria-hidden="true"></i>
-          <input type="submit" value="Jonas Cardoso" class="user-profile" />
+          <input type="submit" value= {{userViews[0].userName}} class="user-profile" />
         </li>
       </ul>
       <button id="btn-mobile" (click)="toggleHeader()">

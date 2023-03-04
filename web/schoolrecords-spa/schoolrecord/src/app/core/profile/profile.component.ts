@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import userViews from 'src/app/userViews';
 
 @Component({
   selector: 'profile',
@@ -7,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   constructor() {}
-
+  userViews = userViews ;
   ngOnInit(): void {}
 }
