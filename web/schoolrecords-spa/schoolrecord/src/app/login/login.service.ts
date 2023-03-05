@@ -1,17 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfigService } from './../core/config/config.services';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private configService: ConfigService) {}
 
   login(user: any) {
-    return this.http.post(`https://localhost:44352/api/User/authenticate`, user);
-    
-    // return of({
-    //   successful: true,
-    //   message: 'Usuário autenticado com sucesso',
-    //   data: {},
-    // }).pipe(delay(5000));
+    return this.http.post(
+      `${this.configService.config.apiUrl}/api/User/authenticate`,
+      user
+    );
   }
 }
