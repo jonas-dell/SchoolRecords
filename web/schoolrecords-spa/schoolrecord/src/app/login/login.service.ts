@@ -8,7 +8,7 @@ export class LoginService {
 
   login(user: any) {
     return this.http.post(
-      `${this.configService.config.apiUrl}/api/User/authenticate`,
+      `${this.configService.config.apiUrl}/api/login/login`,
       user
     );
   }

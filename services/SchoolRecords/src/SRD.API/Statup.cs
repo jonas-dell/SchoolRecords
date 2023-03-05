@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SRD.API.Configuration;
 using SRD.API.Context;
 using System;
 
@@ -20,6 +21,10 @@ namespace SRD.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            var applicationAssembly = AppDomain.CurrentDomain.Load("SRD.Application");
+            var domainAssembly = AppDomain.CurrentDomain.Load("SRD.Domain");
+            var infraAssembly = AppDomain.CurrentDomain.Load("SRD.Infra");
+
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
@@ -33,6 +38,8 @@ namespace SRD.API
                     builder.AllowAnyHeader();
                 });
             });
+
+            services.AddMediatRApi(applicationAssembly, domainAssembly, infraAssembly);
 
             services.AddDbContext<AppDbContext>(options =>
             {

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SRD.API.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _authContext;
