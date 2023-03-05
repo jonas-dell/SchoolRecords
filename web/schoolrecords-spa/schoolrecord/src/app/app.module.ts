@@ -18,6 +18,9 @@ import { LoginComponent } from './login/login.component';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { BotaoComponent } from './shared/botao/botao.component';
 import { FormsModule } from '@angular/forms';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { CKEditorModule } from 'ng2-ckeditor';
+
 @NgModule({
   declarations: [
     ...Index.getComponents(),
@@ -39,8 +42,9 @@ import { FormsModule } from '@angular/forms';
     NgChartsModule,
     NgxLoadingModule.forRoot({}),
     HttpClientModule,
-    FormsModule
-
+    FormsModule,
+    PickerModule,
+    CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

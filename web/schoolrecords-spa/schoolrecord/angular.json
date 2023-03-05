@@ -53,7 +53,8 @@
               "src/styles/reset.css",
               "src/styles/styles.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/@ctrl/ngx-emoji-mart/picker.css"
             ],
             "scripts": []
           },
