@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SRD.API.Configuration;
-using SRD.API.Context;
+using SRD.Infra.Context;
 using System;
 
 namespace SRD.API
@@ -41,9 +41,9 @@ namespace SRD.API
 
             services.AddMediatRApi(applicationAssembly, domainAssembly, infraAssembly);
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnStr"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
             });
         }
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SRD.API.Context;
 using SRD.API.Models;
+using SRD.Infra.Context;
 using System.Threading.Tasks;
 
 namespace SRD.API.Controllers
@@ -10,9 +10,9 @@ namespace SRD.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly AppDbContext _authContext;
+        private readonly DataContext _authContext;
 
-        public UserController(AppDbContext appDbContext)
+        public UserController(DataContext appDbContext)
         {
             _authContext = appDbContext;
         }
@@ -35,21 +35,21 @@ namespace SRD.API.Controllers
             });
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> RegisterUser([FromBody] User userObj)
-        {
-            if (userObj == null)
-            {
-                return BadRequest();
-            }
-            await _authContext.Users.AddAsync(userObj);
-            await _authContext.SaveChangesAsync();
-            return Ok(new
-            {
-                Message = "User Registred",
-                Successful = true
-            });
-        }
+        //[HttpPost("register")]
+        //public async Task<IActionResult> RegisterUser([FromBody] User userObj)
+        //{
+        //    if (userObj == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    await _authContext.Users.AddAsync(userObj);
+        //    await _authContext.SaveChangesAsync();
+        //    return Ok(new
+        //    {
+        //        Message = "User Registred",
+        //        Successful = true
+        //    });
+        //}
 
         [HttpGet("get-user")]
         //[Route("{id:int}")]
