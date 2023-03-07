@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { RequestResponse } from '../shared/responses/request-response';
 import { NotificationService } from '../shared/services/notification.service';
 import { RegisterService } from './register.service';
 
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
     this.loading = true;
     this.registerService.register(this.user.value).subscribe(
-      (resp: any) => {
+      (resp: RequestResponse) => {
         if (resp.successful) {
           this.loading = false;
           this.toastr.success(resp.message);
@@ -45,7 +46,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/login']);
         }
       },
-      (resp) => {
+      (resp: RequestResponse) => {
         this.loading = false;
         this.notificationService.error(resp.message);
       }

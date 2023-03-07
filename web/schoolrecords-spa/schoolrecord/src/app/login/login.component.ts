@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../shared/services/notification.service';
+import { RequestResponse } from './../shared/responses/request-response';
 import { LoginService } from './login.service';
 
 import userViews from '../userViews';
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.loginService.login(this.user.value).subscribe(
-      (resp: any) => {
+      (resp: RequestResponse) => {
         if (resp.successful) {
           this.loading = false;
           this.userViews.push({ userName: this.user.value.userName });
@@ -46,9 +47,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       },
-      (resp) => {
+      (resp: RequestResponse) => {
         this.loading = false;
-        console.log(resp.error.message);
+        console.log(resp.message);
         alert('Deu ruim no login');
       }
     );
