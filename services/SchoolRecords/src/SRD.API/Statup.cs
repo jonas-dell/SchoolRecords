@@ -60,7 +60,9 @@ namespace SRD.API
             }
 
             app.UseHttpsRedirection();
+            
             app.UseCors("MyPolicy");
+            
             app.UseAuthentication();
 
             app.UseAuthorization();
