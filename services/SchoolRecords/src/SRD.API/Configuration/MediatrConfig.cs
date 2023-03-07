@@ -8,7 +8,7 @@ namespace SRD.API.Configuration
     {
         public static void AddMediatRApi(this IServiceCollection services,params Assembly[] assemblies)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
+            services.AddMediatR(assemblies);
         }
     }
 }
