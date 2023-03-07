@@ -1,4 +1,4 @@
-﻿namespace SRD.Application.Login.DTO
+﻿namespace SRD.Domain.Login.DTO
 {
     public class LoginDTO
     {

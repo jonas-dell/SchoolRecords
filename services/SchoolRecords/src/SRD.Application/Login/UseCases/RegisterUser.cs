@@ -1,37 +1,36 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using SRD.Core.Commands;
 using SRD.Core.Responses;
-using SRD.Domain.Login.DTO;
+using SRD.Domain.User.DTO;
+using SRD.Domain.User.Entities;
 using SRD.Domain.User.Repositories;
 
 namespace SRD.Application.Login.UseCases
 {
-    public class Login
+    public class RegisterUser
     {
         public class Command : IRequest<IRequestResponse>
         {
-            public LoginDTO LoginDTO { get; set; }
+            public RegisterDTO RegisterDTO { get; set; }
         }
 
         public class CommandHandler :
             BaseCommandHandler,
             IRequestHandler<Command, IRequestResponse>
         {
+            private readonly IMapper _mapper;
             private readonly IUserRepository _userRepository;
 
-            public CommandHandler(IUserRepository userRepository)
+            public CommandHandler(IUserRepository userRepository, IMapper mapper)
             {
                 _userRepository = userRepository;
+                _mapper = mapper;
             }
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var user = new Domain.User.Entities.User()
-                {
-                    Username = "Rafael Cardoso",
-                    Password = "123",
-                    Email = "rafael@gmail.com"
-                };
+                var user = _mapper.Map<User>(request.RegisterDTO);
 
                 _userRepository.Insert(user);
 

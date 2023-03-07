@@ -12,12 +12,11 @@ import { RegisterService } from './register.service';
 })
 export class RegisterComponent implements OnInit {
   loading: boolean = false;
-  
+
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    
   });
 
   constructor(
@@ -27,9 +26,7 @@ export class RegisterComponent implements OnInit {
     private notificationService: NotificationService
   ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   register(e: any) {
     e.preventDefault();
@@ -39,19 +36,19 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    this.registerService.register(this.user.value).subscribe((resp:any) => {
-      if (resp.successful) {
+    this.registerService.register(this.user.value).subscribe(
+      (resp: any) => {
+        if (resp.successful) {
+          this.loading = false;
+          this.toastr.success(resp.message);
+          this.user.reset();
+          this.router.navigate(['/login']);
+        }
+      },
+      (resp) => {
         this.loading = false;
-        this.toastr.success(resp.message);
-        this.user.reset();
-        this.router.navigate(['/login']);
+        this.notificationService.error(resp.message);
       }
-    },
-    (resp) => {
-      this.loading = false;
-      console.log(resp.error.message);
-      alert('Deu ruim no register');
-    }
-  );
+    );
   }
 }

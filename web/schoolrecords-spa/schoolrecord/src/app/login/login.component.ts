@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../shared/services/notification.service';
 import { LoginService } from './login.service';
 
-import { string } from '@amcharts/amcharts4/core';
 import userViews from '../userViews';
 @Component({
   selector: 'login',
@@ -32,8 +31,6 @@ export class LoginComponent implements OnInit {
   login(e: any) {
     e.preventDefault();
 
-    console.log(this.user);
-
     if (!this.user.valid) {
       return this.notificationService.errorFields();
     }
@@ -43,9 +40,7 @@ export class LoginComponent implements OnInit {
       (resp: any) => {
         if (resp.successful) {
           this.loading = false;
-       
-        
-          this.userViews.push({userName:this.user.value.userName})
+          this.userViews.push({ userName: this.user.value.userName });
           this.toastr.success(resp.message);
           this.user.reset();
           this.router.navigate(['/home']);

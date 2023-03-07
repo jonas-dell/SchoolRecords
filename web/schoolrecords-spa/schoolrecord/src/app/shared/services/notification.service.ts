@@ -12,4 +12,12 @@ export class NotificationService {
       text: 'Preencha os campos corretamente!',
     });
   }
+
+  error(errorMessage: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: errorMessage,
+    });
+  }
 }

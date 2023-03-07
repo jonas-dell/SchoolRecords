@@ -41,6 +41,10 @@ namespace SRD.API
 
             services.AddMediatRApi(applicationAssembly, domainAssembly, infraAssembly);
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddDependencyInjectConfiguration();
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));

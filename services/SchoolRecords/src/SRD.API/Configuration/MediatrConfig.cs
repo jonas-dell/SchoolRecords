@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace SRD.API.Configuration
 {
-    public static class MediatrExtension
+    public static class MediatrConfig
     {
         public static void AddMediatRApi(this IServiceCollection services,params Assembly[] assemblies)
         {

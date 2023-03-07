@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using SRD.Domain.User.Entities;
+using SRD.Core.Data;
 
 namespace SRD.Infra.Context
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IUnitOfWork
     {
         private readonly IConfiguration _configuration;
 
@@ -27,6 +27,27 @@ namespace SRD.Infra.Context
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnectionString"));
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Domain.User.Entities.User> Users { get; set; }
+
+        public async Task<bool> Commit()
+        {
+            foreach (Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry entry in ChangeTracker.Entries()
+               .Where(entry => entry.Entity.GetType().GetProperty("CreateDate") != null))
+            {
+                if (entry.State != EntityState.Added)
+                {
+                    entry.Property("CreateDate").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State != EntityState.Modified)
+                {
+                    entry.Property("CreateDate").IsModified = false;
+                }
+            }
+
+            bool success = await base.SaveChangesAsync() > 0;
+
+            return success;
+        }
     }
 }
