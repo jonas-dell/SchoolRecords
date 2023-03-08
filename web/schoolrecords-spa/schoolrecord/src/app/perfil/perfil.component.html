@@ -1,70 +1,163 @@
-<div class="perfil-container">
-  <div class="perfil">
-    <p class="resum-data">Resume Data</p>
-    <form>
-      <div class="form">
-        <div class="form-container1">
-          <div class="form-group">
-            <input type="text" placeholder="Full Name" required />
-          </div>
-          <div class="form-group">
-            <input type="date" required />
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Email" required />
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Confirm your email" required />
-          </div>
+<div class="scaffold-layout">
+  <section class="perfil-container">
+    <section class="grid-item1">
+      <div class="item1-img">
+        <div class="item1-background">
+          <img src="../../assets/img/coca.jpg" alt="profile-background" />
         </div>
 
-        <div class="image-profile-container">
-          <img
-            src="../../../assets/img/profile-picture.png"
-            alt="Profile picture"
-          />
+        <div class="item-button">
+          <label class="file-upload">
+            <input type="file" name="file" />
+            <span class="icon">
+              <i class="fa fa-pencil"></i>
+            </span>
+          </label>
+        </div>
 
-          <div class="file-image-container" id="button-file-container">
-            <img src="../../../assets/img/file.png" id="img-profile" />
-          </div>
-          <input
-            type="file"
-            accept="image/png, image/jpeg"
-            id="file-img-input"
-            required
-          />
-        </div>
-      </div>
-
-      <div class="form2">
-        <div class="form-group">
-          <input type="text" placeholder="State" required />
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="City" required />
-        </div>
-      </div>
-      <div class="senha-container">
-        <div class="senha">
-          <div class="form-group">
-            <input type="password" placeholder="Password" required />
-          </div>
-        </div>
-        <div class="senha">
-          <div class="form-group">
-            <input
-              type="password"
-              placeholder="Confirm your password"
-              required
-            />
+        <div class="photo-item">
+          <div class="upload-circle">
+            <input type="file" id="file-upload-" class="file-upload-button" />
+            <img for="file-upload-button" />
+            <i class="fas fa-plus"></i>
           </div>
         </div>
       </div>
 
-      <!-- TESTANDO COLOCAR DENTRO -->
-      <div class="btn-container-update">
-        <button class="btn-update">Update</button>
+      <div class="item1-date">
+        <!-- Botão para formulário -->
+        <!-- <a mat-raised-button (click)="openDialog()"> -->
+        <div class="item-button-date">
+          <label class="file-upload">
+            <!-- <input type="file" name="file" /> -->
+            <span class="icon">
+              <i class="fa fa-pencil"></i>
+            </span>
+          </label>
+        </div>
+        <!-- </a> -->
+
+        <div class="container-date">
+          <div class="userName" id="userName">
+            <h1>Jonas Cardoso <sup id="pronouns">(HE/Him)</sup></h1>
+          </div>
+          <div class="info-more">
+            <a href="/">Faculadade de tecnologia de São paulo</a>
+          </div>
+          <div class="softkills">
+            <p>Desenvolvedor Front-end | JavaScript | HTML | CSS | Angular</p>
+          </div>
+          <div class="item-date-city">
+            <p id="city">
+              São Paulo, São Paulo, Brazil<span class="separation"> . </span>
+              <a href="/">Contact info</a>
+            </p>
+          </div>
+          <div class="connections">
+            <a href="/">500+ connections</a>
+          </div>
+
+          <div class="more">
+            <button class="button-more">More</button>
+          </div>
+        </div>
       </div>
-    </form>
-  </div>
+
+      <div class="item1-container">
+        <div class="item-openToWork">
+          <strong>Open to work</strong>
+          <p>Frontend Developer roles</p>
+          <a href="/">Show datails</a>
+
+          <!-- <div class="item-button">
+            <label class="file-upload">
+              <input type="file" name="file" />
+              <span class="icon">
+                <i class="fa fa-pencil"></i>
+              </span>
+            </label>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="pvs-header"></div>
+    </section>
+
+    <section class="sidebar">
+      <section class="profile-info">
+        <div class="flex-container">
+          <div class="flex-item">
+            <a href="/">Edit public profile & URL</a>
+            <svg width="16" height="16" viewBox="0 0 16 16">
+              <path
+                d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm0 11.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zM8.82 9H7v-.95l.93-.46C8.64 7.24 9 6.89 9 6.6S8.57 6 8 6a6.49 6.49 0 00-3 .91V4.84A6.35 6.35 0 018.1 4c2 0 2.9 1 2.9 2.4 0 .9-.5 1.83-2.18 2.6z"
+              ></path>
+            </svg>
+          </div>
+
+          <hr />
+          <div class="flex-item">
+            <a href="/">Add profile in another language</a>
+            <svg width="16" height="16" viewBox="0 0 16 16">
+              <path
+                d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm0 11.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zM8.82 9H7v-.95l.93-.46C8.64 7.24 9 6.89 9 6.6S8.57 6 8 6a6.49 6.49 0 00-3 .91V4.84A6.35 6.35 0 018.1 4c2 0 2.9 1 2.9 2.4 0 .9-.5 1.83-2.18 2.6z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-premium">
+        <div class="profile-info">
+          <div class="flex-container">
+            <div class="flex-item-premium">
+              <p>Jonas, unlock your full potential with Linkedln Premium</p>
+
+              <div class="flex-item-premium-row">
+                <div class="premium-row-perfil">
+                  <img src="../../assets/img/invitation.png" />
+                </div>
+                <div class="premium-row-logo">
+                  <img src="../../assets/img/sr-logo-white.png" />
+                </div>
+              </div>
+
+              <p>See who's viewed your profile in the last 90 days</p>
+            </div>
+            <div class="button-premium">
+              <button class="button-premium-item" type="submit">
+                Try for Free
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="learning">
+        <div class="profile-info">
+          <div class="container-learning-bg">
+            <div class="container-learning">
+              <div class="learning-logo">
+                <img src="../../assets/img/sr-logo-white.png" />
+              </div>
+              <p>LEARNING</p>
+              <h2>Add new skills with these courses, free for 24 hours</h2>
+            </div>
+
+            <section class="container-videos">
+              <div class="container">
+                <img src="../../assets/img/coca-1.jpg" alt="Imagem" />
+                <button class="play-button"></button>
+              </div>
+            </section>
+
+            <div container-video>
+              <span class="video"><img src="/" /></span>
+              <a href="">Using SQL with C++</a>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </section>
+  </section>
 </div>
