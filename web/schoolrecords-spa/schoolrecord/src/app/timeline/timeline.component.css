@@ -7,6 +7,7 @@
   background-size: cover;
   padding: 30px 20px;
   border-radius: 20px;
+  width: 65%;
 }
 
 .share-now p {
@@ -26,6 +27,11 @@
   width: 150px;
   outline: none;
   border: none;
+}
+
+.visualization-container {
+  width: 35%;
+  padding-right: 0;
 }
 
 .visu-container {
@@ -110,6 +116,23 @@
   color: #46b5a7;
 }
 
+.recent-publications {
+  justify-content: space-around;
+}
+
+.recent-publication {
+  width: 30%;
+}
+
+.timeline-container {
+  width: 65%;
+}
+
+.ad-container {
+  padding-left: 2%;
+  width: 35%;
+}
+
 .pub-container {
   border-radius: 10px;
   background: #f2f2f2;
@@ -161,4 +184,74 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 767px) {
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .principal-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .share-now {
+    width: 100%;
+    margin: auto;
+    background-image: none;
+    background-color: #7f408e;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .share-now p {
+    font-size: 16px;
+    font-family: "IBM_Plex_Sans_Semi_Bold", sans-serif;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .btn-share-now {
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    align-self: center;
+  }
+
+  .recent-pub {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .recent-publications {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .recent-publication {
+    width: 100%;
+  }
+
+  .visu-container {
+    display: none;
+  }
+
+  .timeline-container {
+    width: 100%;
+  }
+
+  .ad-container {
+    display: none;
+  }
 }

@@ -29,3 +29,15 @@
 ::ng-deep .botao-home button {
   background-color: aquamarine !important;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .feed-container {
+    width: 100%;
+    margin: auto;
+  }
+
+  .info-container {
+    display: none;
+  }
+}
