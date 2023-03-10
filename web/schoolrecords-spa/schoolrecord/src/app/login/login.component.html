@@ -42,11 +42,17 @@
             <button class="btn-login" (click)="login($event)">Login</button>
           </div>
         </div>
+
+        <a [routerLink]="'/forgot-password'" class="forgot">Forgot password?</a>
+
         <div class="row form-group">
           <div class="col-12">
-            <p class="signup-label">or sign up with google</p>
+            <div class="divider">
+              <p>or</p>
+            </div>
           </div>
         </div>
+
         <div class="row form-group">
           <div class="col-12">
             <button class="btn-login btn-login-google">

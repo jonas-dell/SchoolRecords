@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
 import { EditTextComponent } from './edit-text/edit-text.component';
 import { FeedComponent } from './feed/feed.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
 import { InvitesComponent } from './invitation/invitation.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'home',
     component: HomeComponent,

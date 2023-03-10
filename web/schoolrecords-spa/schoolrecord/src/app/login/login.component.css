@@ -83,6 +83,44 @@
   font-weight: bold;
 }
 
+.forgot {
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  max-width: 400px;
+  margin-top: 20px;
+  color: #780a7e;
+}
+
+.forgot:hover {
+  color: blue;
+}
+
+.divider {
+  display: flex;
+  margin: 20px 0px;
+  max-width: 400px;
+  align-items: center;
+  text-align: center;
+}
+.divider > p {
+  color: #ddd;
+  font-weight: normal;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0 10px;
+}
+
+.divider span {
+  font-weight: bold;
+}
+
 .signup-label {
   text-align: center;
   font-family: Nunito, sans-serif;
@@ -91,7 +129,6 @@
 }
 
 .btn-login.btn-login-google {
-  margin-top: 10px;
   border-color: #7070702e;
   color: #000;
   background: none;
