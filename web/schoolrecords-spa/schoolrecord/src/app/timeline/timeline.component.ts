@@ -12,6 +12,7 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
+import { ParseSourceFile } from '@angular/compiler';
 
 @Component({
   selector: 'timeline',
@@ -41,6 +42,27 @@ export class TimelineComponent implements OnInit {
     this.timelineService
       .getPubs()
       .subscribe((resp) => (this.publications = resp));
+
+    const openAddArticleButton = document.querySelector("#open-add-article");
+    const closeAddArticleButton = document.querySelector("#close-add-article");
+    const AddArticleContainer = document.querySelector("#add-article-container");
+    const fade = document.querySelector("#fade");
+    
+    const toggleAddArticle = () => {
+      AddArticleContainer?.classList.toggle("hide");
+      fade?.classList.toggle("hide");
+    };
+    
+    [openAddArticleButton, closeAddArticleButton, fade].forEach((el) => {
+      el?.addEventListener("click", () => toggleAddArticle());
+    });
+
+    let fileButton = document.getElementById('button-file');
+    let file = document.getElementById('file-input');
+
+    fileButton?.addEventListener('click', () => {
+      file?.click();
+    });
   }
 
   @HostListener('window:scroll', ['$event'])
