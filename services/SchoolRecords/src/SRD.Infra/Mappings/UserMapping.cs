@@ -7,6 +7,8 @@ namespace SRD.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<Domain.User.Entities.User> builder)
         {
+            builder.ToTable("User");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
@@ -17,6 +19,7 @@ namespace SRD.Infra.Mappings
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.Password)
+
                 .IsRequired()
                 .HasColumnType("VARCHAR(100)");
 
@@ -32,7 +35,11 @@ namespace SRD.Infra.Mappings
               .IsRequired()
               .HasColumnType("VARCHAR(100)");
 
-            builder.ToTable("User");
+            builder.HasMany(x => x.Contacts)
+                   .WithMany(x => x.Users)
+                   .UsingEntity<Domain.User.Entities.UserContact>(
+                        x => x.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId),
+                        x => x.HasOne(x => x.Contact).WithMany().HasForeignKey(x => x.ContactId));
         }
     }
 }

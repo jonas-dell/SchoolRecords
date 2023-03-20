@@ -28,6 +28,7 @@ namespace SRD.Infra.Context
         }
 
         public DbSet<Domain.User.Entities.User> Users { get; set; }
+        public DbSet<Domain.User.Entities.UserContact> UserContacts { get; set; }
 
         public async Task<bool> Commit()
         {
