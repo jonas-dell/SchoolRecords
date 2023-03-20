@@ -29,7 +29,7 @@
         {
             return new RequestResponse()
             {
-                Successful = true,
+                Successful = false,
                 Message = string.IsNullOrWhiteSpace(message) ? "Erro ao processar a requisição" : message,
                 Data = data is not null ? data : null,
             };

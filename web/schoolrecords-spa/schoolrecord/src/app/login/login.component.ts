@@ -6,6 +6,7 @@ import { NotificationService } from '../shared/services/notification.service';
 import { RequestResponse } from './../shared/responses/request-response';
 import { LoginService } from './login.service';
 
+import { CurrentUserService } from '../shared/services/current-user.service';
 import userViews from '../userViews';
 @Component({
   selector: 'login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private loginService: LoginService,
+    private currentUserService: CurrentUserService,
     private notificationService: NotificationService
   ) {}
 
@@ -39,18 +41,21 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.loginService.login(this.user.value).subscribe(
       (resp: RequestResponse) => {
-        if (resp.successful) {
-          this.loading = false;
-          this.userViews.push({ userName: this.user.value.userName });
-          this.toastr.success(resp.message);
-          this.user.reset();
-          this.router.navigate(['/home']);
+        this.loading = false;
+
+        if (!resp.successful) {
+          this.toastr.error(resp.message);
+          return;
         }
+
+        this.toastr.success(resp.message);
+        this.currentUserService.setCurrentUser(resp.data);
+        this.user.reset();
+        this.router.navigate(['/home']);
       },
       (resp: RequestResponse) => {
         this.loading = false;
         console.log(resp.message);
-        alert('Deu ruim no login');
       }
     );
   }

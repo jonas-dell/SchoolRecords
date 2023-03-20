@@ -44,5 +44,10 @@ namespace SRD.Infra.User.Repositories
         {
             _context.Users.Update(user);
         }
+
+        public Domain.User.Entities.User? GetByUserName(string username)
+        {
+            return _context.Users.Where(x => x.Username == username).FirstOrDefault();
+        }
     }
 }

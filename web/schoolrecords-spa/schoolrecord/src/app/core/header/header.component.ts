@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from 'src/app/login/login.component';
-import userViews from 'src/app/userViews';
+import { User } from 'src/app/shared/models/user';
+import { CurrentUserService } from '../../shared/services/current-user.service';
 
 @Component({
   selector: 'header',
@@ -8,16 +8,16 @@ import userViews from 'src/app/userViews';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  showHeader = false;
- 
-  toggleHeader(): void{
-    alert('Teste do menu hamburger');
+  user: User;
+  showHeader: boolean = false;
+
+  toggleHeader(): void {
     this.showHeader = !this.showHeader;
   }
- 
-  userViews = userViews ;
-  
-  constructor() {}
-  
-  ngOnInit(): void {}
+
+  constructor(private currentUserService: CurrentUserService) {}
+
+  ngOnInit(): void {
+    this.user = this.currentUserService.getCurrentUser();
+  }
 }

@@ -26,16 +26,14 @@ namespace SRD.Application.Login.UseCases
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var user = new Domain.User.Entities.User()
-                {
-                    Username = "Rafael Cardoso",
-                    Password = "123",
-                    Email = "rafael@gmail.com"
-                };
+                var user = _userRepository.GetByUserName(request.LoginDTO.UserName);
 
-                _userRepository.Insert(user);
+                if (user == null) return RequestResponse.ErrorResponse("Usuário não cadastrado");
 
-                return await SaveData(_userRepository.UnitOfWork);
+                if (user != null && user.Password != request.LoginDTO.Password)
+                    return RequestResponse.ErrorResponse("Usuário ou senha incorretos");
+
+                return RequestResponse.SuccessResponse($"Bem-Vindo, {user?.Username}", user);
             }
         }
     }

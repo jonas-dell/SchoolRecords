@@ -8,5 +8,6 @@ namespace SRD.Domain.User.Repositories
         void Update(Entities.User user);
         IList<Entities.User> FindAll();
         Entities.User GetById(int id);
+        Entities.User? GetByUserName(string userName);
     }
 }

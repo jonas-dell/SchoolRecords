@@ -24,24 +24,4 @@ export class FeedService {
       })
     );
   }
-
-  getWeatherforecast() {
-    // this.http.get('https://localhost:44352/weatherforecast').subscribe(
-    //   (resp) => {
-    //     console.log('data', resp);
-    //   },
-    //   (error) => {
-    //     console.log('Error');
-    //     alert(error?.message);
-    //   }
-    // );
-
-    this.http
-      .post(`https://localhost:44352/weatherforecast`, {
-        nome: 'Adam AADFASDFASDFASDFASDFASDFA|SDFASDFSADF',
-      })
-      .subscribe((resp) => {
-        console.log(resp);
-      });
-  }
 }

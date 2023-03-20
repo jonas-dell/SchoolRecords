@@ -5,9 +5,13 @@
   </div>
   <div class="profile-content">
     <div class="img-container">
-      <img routerLink="/personalData" src="../../../assets/img/profile.svg" alt="Config" />
+      <img
+        routerLink="/personalData"
+        src="../../../assets/img/profile.svg"
+        alt="Config"
+      />
     </div>
-    <p class="profile-name">{{userViews[0].userName}}</p>
+    <p class="profile-name">{{ user.username }}</p>
     <p class="role">Admin</p>
     <ul class="actions">
       <li><a href="" class="clock"></a></li>

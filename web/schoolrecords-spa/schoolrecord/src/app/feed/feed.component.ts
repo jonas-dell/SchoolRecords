@@ -10,7 +10,5 @@ import { FeedService } from './feed.service';
 export class FeedComponent implements OnInit {
   constructor(private feedService: FeedService) {}
 
-  ngOnInit(): void {
-    this.feedService.getWeatherforecast();
-  }
+  ngOnInit(): void {}
 }
