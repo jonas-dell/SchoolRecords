@@ -1,5 +1,12 @@
 <section class="container-sidebar">
-  <img src="../../../assets/img/logo.svg" class="logo" alt="Logo" />
+  <img
+    src="../../../assets/img/logo.svg"
+    class="logo"
+    alt="Logo"
+    routerLink="/home"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  />
   <ul class="icon-container">
     <li
       routerLink="/home"
