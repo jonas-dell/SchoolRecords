@@ -13,23 +13,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
-import { FooterComponent } from './core/footer/footer.component';
-import { EditTextComponent } from './edit-text/edit-text.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { PersonalDataComponent } from './personal-data/personal-data.component';
-import { BotaoComponent } from './shared/botao/botao.component';
 
 @NgModule({
-  declarations: [
-    ...Index.getComponents(),
-    ArticleRelevanceComponent,
-    PersonalDataComponent,
-    EditTextComponent,
-    FooterComponent,
-    BotaoComponent,
-    ForgotPasswordComponent,
-  ],
+  declarations: [...Index.getComponents()],
   imports: [
     BrowserModule,
     AppRoutingModule,

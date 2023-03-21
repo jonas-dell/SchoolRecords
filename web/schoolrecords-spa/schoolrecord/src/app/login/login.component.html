@@ -21,11 +21,7 @@
       <form class="form-login" [formGroup]="user">
         <div class="row form-group">
           <div class="col-12">
-            <input
-              type="text"
-              placeholder="Email"
-              formControlName="userName"
-            />
+            <input type="text" placeholder="Email" formControlName="userName" />
           </div>
         </div>
         <div class="row form-group">
@@ -43,10 +39,14 @@
           </div>
         </div>
 
-        <a [routerLink]="'/forgot-password'" class="forgot">Forgot password?</a>
+        <div class="d-flex align-items-center justify-content-center">
+          <a [routerLink]="'/forgot-password'" class="forgot"
+            >Forgot password?</a
+          >
+        </div>
 
         <div class="row form-group">
-          <div class="col-12">
+          <div class="col-12 col-divider">
             <div class="divider">
               <p>or</p>
             </div>

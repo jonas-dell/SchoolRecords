@@ -61,3 +61,10 @@ img {
   background-clip: content-box;
   background-color: rgb(241, 241, 241);
 }
+
+@media (max-width: 500px) {
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

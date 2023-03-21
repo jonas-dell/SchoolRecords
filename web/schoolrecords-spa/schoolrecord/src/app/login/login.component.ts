@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CurrentUserService } from '../shared/services/current-user.service';
 import { NotificationService } from '../shared/services/notification.service';
 import { RequestResponse } from './../shared/responses/request-response';
 import { LoginService } from './login.service';
-
-import { CurrentUserService } from '../shared/services/current-user.service';
-import userViews from '../userViews';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -15,7 +13,6 @@ import userViews from '../userViews';
 })
 export class LoginComponent implements OnInit {
   loading: boolean = false;
-  userViews = userViews;
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),

@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
+import { UserGuard } from './shared/services/security/user-guard';
 import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
@@ -21,34 +22,58 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [UserGuard],
     children: [
-      { path: '', component: FeedComponent, pathMatch: 'full' },
+      {
+        path: '',
+        component: FeedComponent,
+        pathMatch: 'full',
+        canActivate: [UserGuard],
+      },
       {
         path: 'timeline',
         component: TimelineComponent,
         pathMatch: 'full',
+        canActivate: [UserGuard],
       },
       {
         path: 'games',
         component: GamesComponent,
         pathMatch: 'full',
         children: [],
+        canActivate: [UserGuard],
       },
-      { path: 'edit-text', component: EditTextComponent, pathMatch: 'full' },
-      { path: 'perfil', component: PerfilComponent, pathMatch: 'full' },
-      { path: 'invitation', component: InvitesComponent },
+      {
+        path: 'edit-text',
+        component: EditTextComponent,
+        pathMatch: 'full',
+        canActivate: [UserGuard],
+      },
+      {
+        path: 'perfil',
+        component: PerfilComponent,
+        pathMatch: 'full',
+        canActivate: [UserGuard],
+      },
+      {
+        path: 'invitation',
+        component: InvitesComponent,
+        canActivate: [UserGuard],
+      },
       {
         path: 'article-relevance',
         component: ArticleRelevanceComponent,
         pathMatch: 'full',
+        canActivate: [UserGuard],
       },
     ],
   },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent, canActivate: [UserGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), RouterModule],
   exports: [RouterModule],
+  providers: [UserGuard],
 })
 export class AppRoutingModule {}

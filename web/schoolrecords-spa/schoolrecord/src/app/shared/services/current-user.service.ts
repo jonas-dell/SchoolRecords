@@ -10,8 +10,12 @@ export class CurrentUserService {
     window.localStorage.setItem('user', this._user);
   }
 
-  getCurrentUser() {
+  getCurrentUser(): User {
     if (!this._user && !window.localStorage.getItem('user')) return new User();
     return !!this._user ? this._user : window.localStorage.getItem('user');
+  }
+
+  isLoggedUser(): boolean {
+    return !!this._user || !window.localStorage.getItem('user');
   }
 }

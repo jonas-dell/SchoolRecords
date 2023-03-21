@@ -97,3 +97,16 @@
 .register {
   cursor: pointer;
 }
+
+.to-go-back {
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  color: #000;
+}
+
+.to-go-back:hover {
+  color: #780a7e;
+  font-weight: 600px;
+  text-decoration: none;
+}
