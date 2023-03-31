@@ -25,8 +25,15 @@ namespace SRD.API
             var domainAssembly = AppDomain.CurrentDomain.Load("SRD.Domain");
             var infraAssembly = AppDomain.CurrentDomain.Load("SRD.Infra");
 
+            services.AddDbContext<DataContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
+            });
+
             services.AddControllers();
+            
             services.AddEndpointsApiExplorer();
+            
             services.AddSwaggerGen();
             services.AddCors(options =>
 
@@ -45,31 +52,32 @@ namespace SRD.API
 
             services.AddDependencyInjectConfiguration();
 
-            services.AddDbContext<DataContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
-            });
+            services.AddSwaggerConfiguration();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
         {
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
-            
+
+            app.UseRouting();
+
             app.UseCors("MyPolicy");
             
             app.UseAuthentication();
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            app.UseSwaggerConfiguration();
         }
     }
 

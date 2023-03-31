@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SRD.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -16,17 +16,14 @@ namespace SRD.API.Controllers
             _authContext = appDbContext;
         }
 
-        [Route("{id:int}")]
-        [HttpGet("get-user")]
-        [ActionName("GetUser")]
-
+        [HttpGet]
         public async Task<IActionResult> GetUser([FromRoute] int id)
         {
             var user = await _authContext.Users.FirstOrDefaultAsync(x => x.Id == id);
-            
+
             if (user != null)
                 return Ok(user);
-            
+
             return NotFound("Usuário não encontrado");
         }
     }
