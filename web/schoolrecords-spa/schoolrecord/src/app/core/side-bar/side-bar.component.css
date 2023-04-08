@@ -61,7 +61,7 @@
 }
 
 .icon-notification {
-  background: url(../../../assets/img/notification.svg);
+  background: url(../../../assets/img/people-fill.svg);
   background-repeat: no-repeat;
 }
 
@@ -89,3 +89,5 @@
   background: url(../../../assets/img/controller.svg);
   background-repeat: no-repeat;
 }
+
+/* https://iamvector.com/icons?search=person */
