@@ -1,4 +1,4 @@
 {
   "apiUrl": "https://localhost:44352",
-  "windowsAuthentication": true
+  "windowsAuthentication": false
 }
