@@ -40,4 +40,36 @@
   .info-container {
     display: none;
   }
+
+  .feed-container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .info-container {
+    display: none;
+  }
+
+  .feed-container {
+    padding: 0;
+  }
+
+  .timeline {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
 }

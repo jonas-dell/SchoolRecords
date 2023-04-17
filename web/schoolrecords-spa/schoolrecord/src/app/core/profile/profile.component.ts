@@ -8,7 +8,7 @@ import { CurrentUserService } from 'src/app/shared/services/current-user.service
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  user: User;
+  user: User | null;
 
   constructor(private currentUserService: CurrentUserService) {}
 

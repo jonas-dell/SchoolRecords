@@ -14,4 +14,11 @@ export class LoginService {
       user
     );
   }
+
+  loginWindowsAuthentication(): Observable<RequestResponse> {
+    return this.http.get<RequestResponse>(
+      `${this.configService.config.apiUrl}/api/login/loginWindowsAuthentication`,
+      { withCredentials: true }
+    );
+  }
 }

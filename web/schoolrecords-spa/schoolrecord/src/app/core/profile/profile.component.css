@@ -103,4 +103,13 @@
   margin-left: 2px;
 }
 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* .header-container-bg {
+    background-color: rgb(207, 236, 42);
+  } */
 
+  .actions li:last-of-type {
+    display: none;
+  }
+}

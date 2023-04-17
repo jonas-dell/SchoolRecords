@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,14 +36,17 @@ namespace SRD.API
             services.AddEndpointsApiExplorer();
             
             services.AddSwaggerGen();
-            services.AddCors(options =>
 
+            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+
+            services.AddCors(options =>
             {
                 options.AddPolicy("MyPolicy", builder =>
                 {
-                    builder.AllowAnyOrigin();
+                    builder.WithOrigins("https://localhost:4200", "http://localhost:4200");
                     builder.AllowAnyMethod();
                     builder.AllowAnyHeader();
+                    builder.AllowCredentials();
                 });
             });
 

@@ -18,4 +18,8 @@ export class ConfigService {
   load() {
     return this.http.get<Config>(`${this.configUrl}`);
   }
+
+  getConfig() {
+    return this.config;
+  }
 }

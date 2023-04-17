@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ConfigService } from './core/config/config.services';
+
+export function initWithDependencyFactory(configService: ConfigService) {
+  return () => {
+    return configService
+      .load()
+      .toPromise()
+      .then((config) => {});
+  };
+}
 
 @NgModule({
   declarations: [...Index.getComponents()],
@@ -31,7 +41,14 @@ import { AppComponent } from './app.component';
     PickerModule,
     CKEditorModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initWithDependencyFactory,
+      multi: true,
+      deps: [ConfigService],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

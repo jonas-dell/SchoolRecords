@@ -187,9 +187,9 @@ p {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
-  .header-container-bg {
+  /* .header-container-bg {
     background-color: rgb(71, 120, 255);
-  }
+  } */
 
   .salutation,
   .user {
@@ -247,9 +247,9 @@ p {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .header-container-bg {
+  /* .header-container-bg {
     background-color: rgb(207, 236, 42);
-  }
+  } */
 
   .salutation,
   .user {
@@ -269,9 +269,9 @@ p {
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) and (max-width: 1399px) {
-  .header-container-bg {
+  /* .header-container-bg {
     background-color: rgb(240, 26, 80);
-  }
+  } */
 
   .salutation,
   .user {
@@ -291,9 +291,9 @@ p {
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-  .header-container-bg {
+  /* .header-container-bg {
     background-color: rgb(114, 5, 90);
-  }
+  } */
 
   .salutation,
   .user {

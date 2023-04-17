@@ -36,8 +36,6 @@
   top: 70px;
 }
 
-/* RESPONSIVIDADE */
-
 footer {
   display: none;
 }
@@ -63,4 +61,36 @@ footer {
     top: 80px;
     padding: 0;
   }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* .header-container-bg {
+    background-color: rgb(71, 120, 255);
+  } */
+
+  .content-container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* .header-container-bg {
+    background-color: rgb(207, 236, 42);
+  } */
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  /* .header-container-bg {
+    background-color: rgb(240, 26, 80);
+  } */
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  /* .header-container-bg {
+    background-color: rgb(114, 5, 90);
+  } */
 }

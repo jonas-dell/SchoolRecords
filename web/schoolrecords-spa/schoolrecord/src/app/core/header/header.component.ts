@@ -8,7 +8,7 @@ import { CurrentUserService } from '../../shared/services/current-user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  user: User;
+  user: User | null;
   showHeader: boolean = false;
 
   toggleHeader(): void {
