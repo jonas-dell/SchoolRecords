@@ -32,21 +32,24 @@ namespace SRD.API
             });
 
             services.AddControllers();
-            
+
             services.AddEndpointsApiExplorer();
-            
+
             services.AddSwaggerGen();
 
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+            //services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
             services.AddCors(options =>
             {
                 options.AddPolicy("MyPolicy", builder =>
                 {
-                    builder.WithOrigins("https://localhost:4200", "http://localhost:4200");
-                    builder.AllowAnyMethod();
+                    //builder.AllowAnyOrigin();
+                    //builder.WithHeaders("Content-Type");
+                    //builder.WithHeaders("Authorization");
                     builder.AllowAnyHeader();
-                    builder.AllowCredentials();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyOrigin();
+                    //builder.WithOrigins("http://localhost:4200");
                 });
             });
 
@@ -71,7 +74,7 @@ namespace SRD.API
             app.UseRouting();
 
             app.UseCors("MyPolicy");
-            
+
             app.UseAuthentication();
 
             app.UseAuthorization();

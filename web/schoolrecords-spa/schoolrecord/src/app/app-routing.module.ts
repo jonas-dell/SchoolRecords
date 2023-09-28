@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
+import { DocumentsComponent } from './documents/documents.component';
 import { EditTextComponent } from './edit-text/edit-text.component';
 import { FeedComponent } from './feed/feed.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -12,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
 import { UserGuard } from './shared/services/security/user-guard';
+import { TestComponent } from './test/test.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
@@ -19,6 +21,13 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  {
+    path: 'documents',
+    component: DocumentsComponent,
+    pathMatch: 'full',
+    children: [],
+    canActivate: [UserGuard],
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -63,6 +72,12 @@ const routes: Routes = [
       {
         path: 'article-relevance',
         component: ArticleRelevanceComponent,
+        pathMatch: 'full',
+        canActivate: [UserGuard],
+      },
+      {
+        path: 'test',
+        component: TestComponent,
         pathMatch: 'full',
         canActivate: [UserGuard],
       },

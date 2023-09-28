@@ -5,6 +5,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { HeaderComponent } from './core/header/header.component';
 import { ProfileComponent } from './core/profile/profile.component';
 import { SideBarComponent } from './core/side-bar/side-bar.component';
+import { DocumentsComponent } from './documents/documents.component';
 import { EditTextComponent } from './edit-text/edit-text.component';
 import { FeedComponent } from './feed/feed.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -43,6 +44,7 @@ export class Index {
       FooterComponent,
       BotaoComponent,
       ForgotPasswordComponent,
+      DocumentsComponent,
     ];
   }
 }

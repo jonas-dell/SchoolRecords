@@ -47,15 +47,17 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.configService.getConfig().windowsAuthentication) {
-      this.loginService
-        .loginWindowsAuthentication()
-        .subscribe(this.loginSuccess, this.loginError);
-    }
+    // if (this.configService.getConfig().windowsAuthentication) {
+    //   this.loginService
+    //     .loginWindowsAuthentication()
+    //     .subscribe(this.loginSuccess, this.loginError);
+    // }
   }
 
   login(e: any) {
-    e.preventDefault();
+    console.log(e);
+
+    console.log(this.user);
 
     if (!this.user.valid) {
       return this.notificationService.errorFields();

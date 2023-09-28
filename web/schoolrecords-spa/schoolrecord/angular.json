@@ -118,6 +118,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles/normalize.css",
               "src/styles/reset.css",
               "src/styles/styles.css"
