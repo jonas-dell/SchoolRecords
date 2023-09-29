@@ -8,6 +8,7 @@ namespace SRD.Domain.Test.Repositories
 {
     public interface ITestRepository
     {
-        void Logar();
+        Entities.Teste Logar(string username);
+        
     }
 }

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp6.0</TargetFramework>
 	  <Nullable>disable</Nullable>
+	  <UserSecretsId>6f96ed24-5958-40e8-b6f6-b635927b6e76</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

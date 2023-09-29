@@ -11,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SRD.Core\SRD.Core.csproj" />
   </ItemGroup>
 
