@@ -1,190 +1,143 @@
-<div class="scaffold-layout">
-  <section class="perfil-container">
-    <section class="grid-item1">
-      <div class="item1-img">
-        <div class="item1-background">
-          <img src="../../assets/img/coca.jpg" alt="profile-background" />
-        </div>
-
-        <div class="item-button">
-          <label class="file-upload">
-            <input type="file" name="file" />
-            <span class="icon" style="cursor: pointer">
-              <i class="fa fa-pencil"></i>
-            </span>
-          </label>
-        </div>
-
-        <div class="photo-item">
-          <div class="upload-circle">
-            <input type="file" id="file-upload-" class="file-upload-button" />
-            <img for="file-upload-button" />
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="item1-date">
-        <div class="item-button-date">
-          <label class="file-upload" (click)="editarUsuario()">
-            <span class="icon">
-              <i class="fa fa-pencil" style="cursor: pointer"></i>
-            </span>
-          </label>
-        </div>
-
-        <div class="container-date">
-          <div class="userName" id="userName">
-            <h1>Jonas Cardoso <sup id="pronouns">(HE/Him)</sup></h1>
-          </div>
-          <div class="info-more">
-            <a href="/">Faculadade de tecnologia de São paulo</a>
-          </div>
-          <div class="softkills">
-            <p>Desenvolvedor Front-end | JavaScript | HTML | CSS | Angular</p>
-          </div>
-          <div class="item-date-city">
-            <p id="city">
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <div class="card">
+          <div class="profile-card">
+            <div class="cover-image"></div>
+            <img
+              class="profile-image"
+              src="https://via.placeholder.com/150"
+              alt="Imagem de perfil"
+            />
+            <p class="profile-name has-text-black-bis">Name</p>
+            <p class="profile-title">Title</p>
+            <p class="profile-location">
               São Paulo, São Paulo, Brazil<span class="separation"> . </span>
               <a href="/">Contact info</a>
             </p>
-          </div>
-          <div class="connections">
-            <a href="/">500+ connections</a>
-          </div>
+            <p class="profile-connections"><a href="/">+500connections</a></p>
 
-          <div class="more">
-            <button class="button-more">More</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="container-openToWork">
-        <div class="item-openToWork">
-          <strong>Open to work</strong>
-          <p>Frontend Developer roles</p>
-          <a href="/">Show datails</a>
-        </div>
-      </div>
-
-      <section class="container-bg">
-        <div class="container-education">
-          <h1>Education</h1>
-          <div class="icon-education">
-            <div class="item-plus">
-              <a href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  fill="currentColor"
-                  class="bi bi-plus-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                  />
-                  <path
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div class="item-pen">
-              <a href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  fill="currentColor"
-                  class="bi bi-pen"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="container-info-education">
-          <div class="info-education-logo">
-            <a href="/">
-              <img src="../../assets/img/cloud-arrow-up.svg" />
-            </a>
-          </div>
-          <div class="item-info-education">
-            <h3>Faculdade Engenheiro Salvador Arena</h3>
-            <p>Bachelor's degree, Engineering</p>
-            <p>Jav 2017 - Nov 2021</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="container-bg">
-        <div>skills</div>
-      </section>
-
-      <section class="container-bg">
-        <div>Analytics</div>
-      </section>
-
-      <section class="container-bg">
-        <div>Analytics</div>
-      </section>
-    </section>
-
-    <section class="sidebar">
-      <section class="profile-info">
-        <div class="flex-container">
-          <div class="flex-item">
-            <a href="/">Edit public profile & URL</a>
-            <svg width="16" height="16" viewBox="0 0 16 16">
-              <path
-                d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm0 11.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zM8.82 9H7v-.95l.93-.46C8.64 7.24 9 6.89 9 6.6S8.57 6 8 6a6.49 6.49 0 00-3 .91V4.84A6.35 6.35 0 018.1 4c2 0 2.9 1 2.9 2.4 0 .9-.5 1.83-2.18 2.6z"
-              ></path>
-            </svg>
-          </div>
-
-          <hr />
-          <div class="flex-item">
-            <a href="/">Add profile in another language</a>
-            <svg width="16" height="16" viewBox="0 0 16 16">
-              <path
-                d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm0 11.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zM8.82 9H7v-.95l.93-.46C8.64 7.24 9 6.89 9 6.6S8.57 6 8 6a6.49 6.49 0 00-3 .91V4.84A6.35 6.35 0 018.1 4c2 0 2.9 1 2.9 2.4 0 .9-.5 1.83-2.18 2.6z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      <section class="container-premium">
-        <div class="profile-info">
-          <div class="flex-container">
-            <div class="flex-item-premium">
-              <p>Jonas, unlock your full potential with Linkedln Premium</p>
-
-              <div class="flex-item-premium-row">
-                <div class="premium-row-perfil">
-                  <img src="../../assets/img/invitation.png" />
-                </div>
-                <div class="premium-row-logo">
-                  <img src="../../assets/img/sr-logo-white.png" />
-                </div>
-              </div>
-
-              <p>See who's viewed your profile in the last 90 days</p>
-            </div>
-            <div class="button-premium">
-              <button class="button-premium-item" type="submit">
-                Try for Free
+            <div class="buttons">
+              <button class="button is-link is-rounded">Open to</button>
+              <button class="button is-link is-outlined is-rounded">
+                Add profile section
+              </button>
+              <button class="button is-outlined is-rounded is-dark">
+                More
               </button>
             </div>
           </div>
         </div>
-      </section>
-    </section>
-  </section>
-</div>
+
+        <div class="card education">
+          <div class="card-content">
+            <div class="content">
+              <h3 class="title is-4 has-text-black-bis">
+                Education
+
+                <span class="icon is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+
+                <span class="icon is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </span>
+              </h3>
+
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img
+                          src="https://bulma.io/images/placeholders/96x96.png"
+                          alt="Placeholder image"
+                        />
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-6 has-text-black-bis">
+                        FATEC São Caetano do Sul - Antonio Russo
+                      </p>
+                      <div class="subtitle is-6 has-text-grey-darker">
+                        Analise e Desenvolvimento de Sistemas
+
+                        <p class="subtitle is-7 has-text-grey">
+                          jan de 2020<span class="separation"> - </span> jun de
+                          2023
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-quarter teste">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <p class="subtitle is-6 has-text-grey-darker">
+                Edit Public profile & URL
+                <span class="icon is-pulled-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+              </p>
+            </div>
+
+            <hr />
+
+            <div class="content">
+              <p class="subtitle is-6 has-text-grey-darker">
+                Add profile in another language
+                <span class="icon is-pulled-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

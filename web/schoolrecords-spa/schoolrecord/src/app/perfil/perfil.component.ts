@@ -5,7 +5,7 @@ import { FormPerfilComponent } from './form-perfil/form-perfil.component';
 @Component({
   selector: 'perfil',
   templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css'],
+  styleUrls: ['./styles.css'],
 })
 export class PerfilComponent implements OnInit {
   constructor(public dialog: MatDialog) {}

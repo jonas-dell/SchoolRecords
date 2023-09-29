@@ -1,3 +1,6 @@
+/*importação do bulma*/
+@import "~bulma/css/bulma.css";
+
 @font-face {
   font-family: IBM_Plex_Sans_Reg;
   src: url(../assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf)
@@ -69,5 +72,11 @@ img {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
