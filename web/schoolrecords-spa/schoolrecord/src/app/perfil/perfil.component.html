@@ -9,7 +9,7 @@
         <div class="item-button">
           <label class="file-upload">
             <input type="file" name="file" />
-            <span class="icon">
+            <span class="icon" style="cursor: pointer">
               <i class="fa fa-pencil"></i>
             </span>
           </label>
@@ -25,17 +25,13 @@
       </div>
 
       <div class="item1-date">
-        <!-- Botão para formulário -->
-        <!-- <a mat-raised-button (click)="openDialog()"> -->
         <div class="item-button-date">
-          <label class="file-upload">
-            <!-- <input type="file" name="file" /> -->
+          <label class="file-upload" (click)="editarUsuario()">
             <span class="icon">
-              <i class="fa fa-pencil"></i>
+              <i class="fa fa-pencil" style="cursor: pointer"></i>
             </span>
           </label>
         </div>
-        <!-- </a> -->
 
         <div class="container-date">
           <div class="userName" id="userName">
@@ -189,32 +185,6 @@
           </div>
         </div>
       </section>
-
-      <!-- <section class="learning">
-        <div class="profile-info">
-          <div class="container-learning-bg">
-            <div class="container-learning">
-              <div class="learning-logo">
-                <img src="../../assets/img/sr-logo-white.png" />
-              </div>
-              <p>LEARNING</p>
-              <h2>Add new skills with these courses, free for 24 hours</h2>
-            </div>
-
-            <section class="container-videos">
-              <div class="container">
-                <img src="../../assets/img/coca-1.jpg" alt="Imagem" />
-                <button class="play-button"></button>
-              </div>
-            </section>
-
-            <div container-video>
-              <span class="video"><img src="/" /></span>
-              <a href="">Using SQL with C++</a>
-            </div>
-          </div>
-        </div>
-      </section> -->
     </section>
   </section>
 </div>
