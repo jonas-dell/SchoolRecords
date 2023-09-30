@@ -48,13 +48,14 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles/normalize.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles/reset.css",
-              "src/styles/styles.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/@ctrl/ngx-emoji-mart/picker.css"
+              "node_modules/@ctrl/ngx-emoji-mart/picker.css",
+              "src/custom-theme.scss",
+              "src/styles/normalize.css",
+              "src/styles/reset.css",
+              "src/styles/styles.css"
             ],
             "scripts": []
           },

@@ -9,9 +9,10 @@ a {
 }
 
 .scaffold-layout {
-  background: rgb(243, 242, 239);
+  background: #efefef;
   max-width: 100%;
   min-height: 100%;
+  padding: 10px 25px;
 }
 
 ul > li {
@@ -325,7 +326,6 @@ p {
   display: flex;
   max-width: 90%;
   margin: 24px auto;
-  border: 1px solid #000;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
@@ -349,7 +349,6 @@ p {
   display: flex;
   max-width: 90%;
   margin: 24px auto;
-  border: 1px solid #000;
   justify-content: flex-start;
   align-items: center;
   padding: 5px;

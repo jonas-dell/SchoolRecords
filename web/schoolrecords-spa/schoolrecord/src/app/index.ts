@@ -17,6 +17,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { RegisterComponent } from './register/register.component';
+import { BaseFormComponent } from './shared/base-form/base-form.component';
 import { BotaoComponent } from './shared/botao/botao.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
@@ -45,6 +46,7 @@ export class Index {
       BotaoComponent,
       ForgotPasswordComponent,
       DocumentsComponent,
+      BaseFormComponent,
     ];
   }
 }

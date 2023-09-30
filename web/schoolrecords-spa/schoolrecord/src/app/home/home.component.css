@@ -5,7 +5,6 @@
 }
 
 .content-container {
-  padding: 10px 25px;
   flex-basis: calc(100% - 60px);
   display: flex;
   flex-direction: column;

@@ -13,7 +13,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
 import { UserGuard } from './shared/services/security/user-guard';
-import { TestComponent } from './test/test.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
@@ -72,12 +71,6 @@ const routes: Routes = [
       {
         path: 'article-relevance',
         component: ArticleRelevanceComponent,
-        pathMatch: 'full',
-        canActivate: [UserGuard],
-      },
-      {
-        path: 'test',
-        component: TestComponent,
         pathMatch: 'full',
         canActivate: [UserGuard],
       },

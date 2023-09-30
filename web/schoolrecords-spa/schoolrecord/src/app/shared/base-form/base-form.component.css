@@ -1,0 +1,66 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.dialog-header {
+  flex-basis: 40px;
+  background: #7f408e;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.dialog-title {
+  color: #fff;
+}
+
+.dialog-close {
+  color: #fff;
+  cursor: pointer;
+}
+
+.dialog-content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.dialog-footer {
+  flex-basis: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: end;
+  border-top: 1px solid #ccc;
+}
+
+.srd-btn {
+  margin: 0 20px 0 0;
+  width: 120px;
+  border: none;
+  color: #fff;
+  background: #0c356a;
+  padding: 5px 0;
+  border-radius: 3px;
+}
+
+.srd-btn-success {
+  background: #40128b;
+}
+
+.srd-btn-cancel {
+  background: #b70404;
+}
+
+.srd-btn-icon {
+  margin-right: 5px;
+}
