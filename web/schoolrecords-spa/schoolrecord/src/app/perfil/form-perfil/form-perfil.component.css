@@ -1,0 +1,64 @@
+#dialog-link-position {
+  display: inline-block;
+  padding: 3px 8px;
+  margin: 15px 0 20px 0;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+#dialog-link-position:hover {
+  background-color: rgba(160, 32, 240, 0.241);
+}
+
+#academicEducations {
+  outline: none;
+  padding: 4px;
+  border: 1px groove #000000;
+  border-radius: 3px;
+}
+
+#academicEducations:hover {
+  border: 2px solid #000000;
+}
+
+#dialog-link-education {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+#dialog-link-education:hover {
+  background-color: rgba(160, 32, 240, 0.241);
+}
+
+#dialog-subtitle-contact {
+  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #2a2a2a;
+  margin: 25px 0px 5px 0px;
+}
+
+#dialog-info-contact {
+  display: flex;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+}
+
+#dialog-link-contact {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#dialog-link-contact:hover {
+  background-color: rgba(160, 32, 240, 0.241);
+}

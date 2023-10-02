@@ -15,7 +15,7 @@
     </span>
   </div>
   <div class="dialog-content">
-    <p>* Indica item obrigatório</p>
+    <p class="dialog-required">* Indica item obrigatório</p>
     <form class="form-perfil-introducao">
       <div class="row form-group">
         <div class="col-12">
@@ -30,7 +30,7 @@
         </div>
       </div> 
       <h2 class="dialog-subtitle">Cargo atual</h2> 
-      <a class="dialog-link">
+      <a id="dialog-link-position">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           width="16" 
@@ -61,7 +61,7 @@
           </select>
         </div>
       </div> 
-      <a class="dialog-link2">
+      <a id="dialog-link-education">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           width="16" 
@@ -77,7 +77,15 @@
           Adicionar nova formação acadêmica
         </span>
       </a>
-      <h2 class="dialog-subtitle">Localidade</h2> 
+      <div class="row form-group">
+        <div class="col-12">
+          <label class="container-checkbox">Exibir formação na minha introdução
+            <input type="checkbox" checked="checked" formControlName="checkboxEducation">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div> 
+      <h2 class="dialog-subtitle">Endereço</h2> 
       <div class="row form-group">
         <div class="col-12">
           <label for="">País/Região*</label>
@@ -86,15 +94,39 @@
       </div> 
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Cidade</label>
+          <label for="">CEP*</label>
+          <input type="text" formControlName="zipCode"/>
+        </div>
+      </div> 
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Logradouro*</label>
+          <input type="text" formControlName="address"/>
+        </div>
+      </div> 
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Bairro*</label>
+          <input type="text" formControlName="neighborhood"/>
+        </div>
+      </div> 
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Cidade*</label>
           <input type="text" formControlName="city"/>
         </div>
       </div> 
-      <h2 class="dialog-subtitle2">Informações de contato</h2> 
-      <span class="dialog-info">
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Número</label>
+          <input type="text" formControlName="number"/>
+        </div>
+      </div> 
+      <h2 id="dialog-subtitle-contact">Informações de contato</h2> 
+      <span id="dialog-info-contact">
         Adicione ou altere a URL do seu perfil, o e-mail e muito mais
       </span>
-      <a class="dialog-link3">
+      <a id="dialog-link-contact">
         <span class="dialog-link-button">
           Editar informações de contato
         </span>

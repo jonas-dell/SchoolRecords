@@ -1,3 +1,10 @@
+::ng-deep .cdk-global-overlay-wrapper div.cdk-overlay-pane {
+  max-width: 80vw !important;
+  width: 50% !important;
+  height: 90% !important;
+  position: static !important;
+}
+
 .dialog-container {
   display: flex;
   flex-direction: column;
@@ -42,52 +49,46 @@
   overflow-y: scroll;
 }
 
-.dialog-content p {
+.dialog-required {
   color: #767676;
   margin-bottom: 20px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: lighter;
-  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
 }
 
 .col-12 {
   display: flex;
   flex-direction: column;
   height: 50px;
+  margin-bottom: 10px;
 }
 
 .dialog-content label {
   outline: none;
-  color: #767676;
+  color: #787878;
   font-size: 15px;
   font-weight: lighter;
-  font-family: Roboto-Regular, Arial, Helvetica, sans-serif; 
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif; 
 }
 
 .dialog-content input {
   outline: none;
-  padding: 2px;
+  padding: 4px;
   border: 1px groove #000000;
   border-radius: 3px;
 }
 
 .dialog-content input:hover {
   border: 2px solid #000000;
-  border-radius: 3px;
 }
 
 .dialog-subtitle {
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: #2a2a2a;
-  margin: 30px 0px 20px 0px;
-}
-
-.dialog-subtitle2 {
-  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  color: #2a2a2a;
-  margin: 30px 0px 3px 0px;
+  margin-top: 25px;
+  margin-bottom: 5px
 }
 
 .dialog-link-svg {
@@ -97,60 +98,82 @@
   font-size: 17px;
 }
 
-.dialog-link {
-  display: block;
-  width: 200px;
-  height: 35px;
-  padding: 5px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-bottom: 20px;
-}
-
-.dialog-link:hover {
-  background-color: rgba(160, 32, 240, 0.241);
-}
-
 .dialog-link-button {
   color: rgb(160 32 240);
   font-size: 17px;
 }
 
-.dialog-link2 {
-  display: block;
-  width: 310px;
-  height: 35px;
-  padding: 5px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-bottom: 20px;
-}
-
-.dialog-link2:hover {
-  background-color: rgba(160, 32, 240, 0.241);
-}
-
-.dialog-link3 {
-  display: block;
-  width: 247px;
-  height: 37px;
-  padding: 8px;
-  border-radius: 4px;
-  text-decoration: none;
+.container-checkbox {
+  position: relative;
+  padding-left: 35px;
   margin-top: 20px;
-  margin-bottom: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.dialog-link3:hover {
-  background-color: rgba(160, 32, 240, 0.241);
+.dialog-content label.container-checkbox {
+  outline: none;
+  color: #616161;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif; 
 }
 
-.dialog-info {
-  color: #767676;
-  margin-bottom: 20px;
-  font-size: 13px;
-  font-weight: lighter;
-  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+.container-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: .2px solid #000000;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.container-checkbox:hover input ~ .checkmark {
+  border: 2px solid #000000;
+}
+
+.container-checkbox:hover input:checked ~ .checkmark {
+  border: 2px solid #01754f;
+}
+
+.container-checkbox input:checked ~ .checkmark {
+  border: none;
+  background-color: #01754f;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container-checkbox .checkmark:after {
+  left: 10px;
+  top: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .dialog-footer {
