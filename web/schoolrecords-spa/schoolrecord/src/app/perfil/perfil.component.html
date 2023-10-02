@@ -1,178 +1,479 @@
-<div class="scaffold-layout">
-  <section class="perfil-container">
-    <section class="grid-item1">
-      <div class="item1-img">
-        <div class="item1-background">
-          <img src="../../assets/img/coca.jpg" alt="profile-background" />
-        </div>
-
-        <div class="item-button">
-          <label class="file-upload">
-            <input type="file" name="file" />
-            <span class="icon" style="cursor: pointer">
-              <i class="fa fa-pencil"></i>
-            </span>
-          </label>
-        </div>
-
-        <div class="photo-item">
-          <div class="upload-circle">
-            <input type="file" id="file-upload-" class="file-upload-button" />
-            <img for="file-upload-button" />
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="item1-date">
-        <div class="item-button-date">
-          <label class="file-upload" (click)="editarUsuario()">
-            <span class="icon">
-              <i class="fa fa-pencil" style="cursor: pointer"></i>
-            </span>
-          </label>
-        </div>
-
-        <div class="container-date">
-          <div class="userName" id="userName">
-            <h1>Jonas Cardoso <sup id="pronouns">(HE/Him)</sup></h1>
-          </div>
-          <div class="info-more">
-            <a href="/">Faculadade de tecnologia de São paulo</a>
-          </div>
-          <div class="softkills">
-            <p>Desenvolvedor Front-end | JavaScript | HTML | CSS | Angular</p>
-          </div>
-          <div class="item-date-city">
-            <p id="city">
-              São Paulo, São Paulo, Brazil<span class="separation"> . </span>
-              <a href="/">Contact info</a>
-            </p>
-          </div>
-          <div class="connections">
-            <a href="/">500+ connections</a>
-          </div>
-
-          <div class="more">
-            <button class="button-more">More</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="container-openToWork">
-        <div class="item-openToWork">
-          <strong>Open to work</strong>
-          <p>Frontend Developer roles</p>
-          <a href="/">Show datails</a>
-        </div>
-      </div>
-
-      <section class="container-bg">
-        <div class="container-education">
-          <h1>Education</h1>
-          <div class="icon-education">
-            <div class="item-plus">
-              <a href="">
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <div class="card">
+          <div class="profile-card">
+            <div class="cover-image">
+              <span class="icon pencil is-pulled-right p-2 edit-cover">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  fill="currentColor"
-                  class="bi bi-plus-circle"
-                  viewBox="0 0 16 16"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                  />
-                  <path
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                    d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
                   />
                 </svg>
-              </a>
+              </span>
             </div>
-            <div class="item-pen">
-              <a href="">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  fill="currentColor"
-                  class="bi bi-pen"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="container-info-education">
-          <div class="info-education-logo">
-            <a href="/">
-              <img src="../../assets/img/cloud-arrow-up.svg" />
-            </a>
-          </div>
-          <div class="item-info-education">
-            <h3>Faculdade Engenheiro Salvador Arena</h3>
-            <p>Bachelor's degree, Engineering</p>
-            <p>Jav 2017 - Nov 2021</p>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <section class="sidebar">
-      <section class="profile-info">
-        <div class="flex-container">
-          <div class="flex-item">
-            <a href="/">Edit public profile & URL</a>
-            <svg width="16" height="16" viewBox="0 0 16 16">
-              <path
-                d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm0 11.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zM8.82 9H7v-.95l.93-.46C8.64 7.24 9 6.89 9 6.6S8.57 6 8 6a6.49 6.49 0 00-3 .91V4.84A6.35 6.35 0 018.1 4c2 0 2.9 1 2.9 2.4 0 .9-.5 1.83-2.18 2.6z"
-              ></path>
-            </svg>
-          </div>
-
-          <hr />
-          <div class="flex-item">
-            <a href="/">Add profile in another language</a>
-            <svg width="16" height="16" viewBox="0 0 16 16">
-              <path
-                d="M8 1a7 7 0 107 7 7 7 0 00-7-7zm0 11.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zM8.82 9H7v-.95l.93-.46C8.64 7.24 9 6.89 9 6.6S8.57 6 8 6a6.49 6.49 0 00-3 .91V4.84A6.35 6.35 0 018.1 4c2 0 2.9 1 2.9 2.4 0 .9-.5 1.83-2.18 2.6z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      <section class="container-premium">
-        <div class="profile-info">
-          <div class="flex-container">
-            <div class="flex-item-premium">
-              <p>Jonas, unlock your full potential with Linkedln Premium</p>
-
-              <div class="flex-item-premium-row">
-                <div class="premium-row-perfil">
-                  <img src="../../assets/img/invitation.png" />
+            <div class="columns">
+              <div class="column is-two-thirds">
+                <div>
+                  <label for="profile-image" class="profile-image-label">
+                    <img
+                      id="profile-image-preview"
+                      class="profile-image"
+                      src="../../assets/img/people.svg"
+                      alt="Imagem de perfil"
+                    />
+                    <input
+                      type="file"
+                      id="profile-image"
+                      class="profile-image-input"
+                      accept="image/*"
+                      style="display: none"
+                      onchange="previewProfileImage(this)"
+                    />
+                  </label>
                 </div>
-                <div class="premium-row-logo">
-                  <img src="../../assets/img/sr-logo-white.png" />
+
+                <p class="profile-name has-text-black-bis" id="userName">
+                  Name <sup id="pronouns" class="subtitle is-7">(HE/Him)</sup>
+                </p>
+                <p class="profile-title">Title</p>
+                <p class="profile-location">
+                  São Paulo, São Paulo, Brazil<span class="separation">
+                    .
+                  </span>
+                  <a href="/">Contact info</a>
+                </p>
+                <p class="profile-connections">
+                  <a href="/">+500connections</a>
+                </p>
+
+                <div class="buttons">
+                  <button class="button is-link is-rounded">Open to</button>
+                  <button class="button is-link is-outlined is-rounded">
+                    Add profile section
+                  </button>
+                  <button class="button is-outlined is-rounded is-dark">
+                    More
+                  </button>
+                </div>
+
+                <div class="column button-details is-four-fifths">
+                  <div class="card work-status">
+                    <p class="title is-6 has-text-grey-darker">
+                      Open to work
+                      <span class="icon pencil is-pulled-right p-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                          />
+                        </svg>
+                      </span>
+                    </p>
+                    <div class="subtitle is-6 has-text-grey-darker">
+                      <p>Frontend developer roles</p>
+
+                      <a class="subtitle is-6 has-text-link" href="/"
+                        >Show details</a
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <p>See who's viewed your profile in the last 90 days</p>
+              <div class="column">
+                <div (click)="editarUsuario()">
+                  <span class="icon pencil is-pulled-right edit-profile">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="card-content college">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img
+                          src="https://bulma.io/images/placeholders/96x96.png"
+                          alt="Placeholder image"
+                          style="width: 100%; height: auto"
+                        />
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="has-text-black-bis college-name">
+                        FATEC São Caetano do Sul - Antonio Russo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="button-premium">
-              <button class="button-premium-item" type="submit">
-                Try for Free
+          </div>
+        </div>
+
+        <div class="card about">
+          <div class="card-content">
+            <div class="content">
+              <h3 class="title is-4 has-text-black-bis">
+                About
+
+                <span class="icon pencil p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+
+                <span class="icon add p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </span>
+              </h3>
+              <p class="p-1 has-text-black-ter">
+                I'm a passionate and dedicated programmer with a love for
+                turning ideas into reality through code. My journey in the world
+                of programming started when I was a teenager, and since then,
+                I've been on a continuous quest to learn, create, and innovate.
+              </p>
+
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <div>
+                        <span class="icon is-pulled-left">
+                          <svg
+                            clip-rule="evenodd"
+                            fill-rule="evenodd"
+                            stroke-linejoin="round"
+                            stroke-miterlimit="2"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
+                              fill-rule="nonzero"
+                            />
+                          </svg>
+                        </span>
+                        <p class="title has-text-black-bis is-6 pl-6">
+                          Main Skills
+                        </p>
+                        <p class="subtitle is-7 pl-6">
+                          Information technology<span class="separation">
+                            .
+                          </span>
+                          IT <span class="separation"> . </span>Operating
+                          systems
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card education">
+          <div class="card-content">
+            <div class="content">
+              <h3 class="title is-4 has-text-black-bis">
+                Education
+                <span class="icon pencil p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+                <span class="icon add p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </span>
+              </h3>
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img
+                          src="https://bulma.io/images/placeholders/96x96.png"
+                          alt="Placeholder image"
+                        />
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-6 has-text-black-bis">
+                        FATEC São Caetano do Sul - Antonio Russo
+                      </p>
+                      <div class="subtitle is-6 has-text-grey-darker">
+                        Analise e Desenvolvimento de Sistemas
+                        <p class="subtitle is-7 has-text-grey">
+                          jan de 2020<span class="separation"> - </span> jun de
+                          2023
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card skills">
+          <div class="card-content">
+            <div class="content">
+              <h3 class="title is-4 has-text-black-bis">
+                Skills
+
+                <span class="icon pencil p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+
+                <span class="icon add p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </span>
+              </h3>
+
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">Angular</div>
+                </div>
+                <hr />
+                <div class="card-content">
+                  <div class="content">.NET Framework</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card analytics">
+          <div class="card-content">
+            <div class="content">
+              <h3 class="title is-4 has-text-black-bis">
+                Analytics
+
+                <span class="icon pencil p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+
+                <span class="icon add p-1 is-pulled-right pr-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </span>
+              </h3>
+              <span class="icon is-pulled-left p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"
+                  />
+                </svg>
+              </span>
+              <p class="subtitle is-6">Shown just for you</p>
+              <div class="columns">
+                <div class="column is-one-third views">
+                  <div>
+                    <span class="icon is-pulled-left">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10.118 16.064c2.293-.529 4.428-.993 3.394-2.945-3.146-5.942-.834-9.119 2.488-9.119 3.388 0 5.644 3.299 2.488 9.119-1.065 1.964 1.149 2.427 3.394 2.945 1.986.459 2.118 1.43 2.118 3.111l-.003.825h-15.994c0-2.196-.176-3.407 2.115-3.936zm-10.116 3.936h6.001c-.028-6.542 2.995-3.697 2.995-8.901 0-2.009-1.311-3.099-2.998-3.099-2.492 0-4.226 2.383-1.866 6.839.775 1.464-.825 1.812-2.545 2.209-1.49.344-1.589 1.072-1.589 2.333l.002.619z"
+                        />
+                      </svg>
+                    </span>
+                    <p class="title is-6 pl-6">7 profile views</p>
+                    <p class="subtitle is-7 pl-6">
+                      Find out who viewed your profile.
+                    </p>
+                  </div>
+                </div>
+                <div class="column is-one-third search">
+                  <div>
+                    <span class="icon is-pulled-left">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"
+                        />
+                      </svg>
+                    </span>
+                    <p class="title is-6 pl-6">
+                      1 occurrence in search results
+                    </p>
+                    <p class="subtitle is-7 pl-6">
+                      See how often your profile appears in search results.
+                    </p>
+                  </div>
+                </div>
+                <div class="column is-one-third"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-quarter">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <p class="subtitle is-6 has-text-grey-darker">
+                Edit Public profile & URL
+                <span class="icon pencil p-1 is-pulled-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+              </p>
+            </div>
+            <hr />
+            <div class="content">
+              <p class="subtitle is-6 has-text-grey-darker">
+                Add profile in another language
+                <span class="icon pencil p-1 is-pulled-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+                    />
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card advertising is-flex">
+          <div class="card-content has-text-centered">
+            <div class="content">
+              <p class="has-text-centered has-text-black-ter">
+                Name, unlock your full potential with SchoolRecord premium
+              </p>
+
+              <figure class="image is-square">
+                <img
+                  src="../../assets/img/sr-premium.png"
+                  alt="Imagem de perfil"
+                  style="width: 100%; height: auto"
+                />
+              </figure>
+              <p class="has-text-centered premium-desc has-text-black-ter">
+                See who's viewed your profile in the last 90 days
+              </p>
+              <button class="button is-link is-outlined is-rounded">
+                Try for free
               </button>
             </div>
           </div>
         </div>
-      </section>
-    </section>
-  </section>
-</div>
+      </div>
+    </div>
+  </div>
+</section>
