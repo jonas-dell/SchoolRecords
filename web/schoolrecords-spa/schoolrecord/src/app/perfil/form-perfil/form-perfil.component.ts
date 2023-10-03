@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
+import { FormPerfilEducationComponent } from '../form-perfil-education/form-perfil-education.component';
 
 @Component({
   selector: 'form-perfil',
@@ -12,6 +14,7 @@ import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component'
 })
 export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   constructor(
+    public dialog: MatDialog,
     public dialogRef: MatDialogRef<FormPerfilComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
@@ -24,5 +27,18 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
   save() {
     alert('Salvar alguma coisa');
+  }
+
+  editarPerfilEducation() {
+    let dialogRef = this.dialog.open(FormPerfilEducationComponent, {
+      height: '90%',
+      width: '50%',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
   }
 }

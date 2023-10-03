@@ -17,6 +17,7 @@ import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigService } from './core/config/config.services';
+import { FormPerfilEducationComponent } from './perfil/form-perfil-education/form-perfil-education.component';
 
 export function initWithDependencyFactory(configService: ConfigService) {
   return () => {
@@ -28,7 +29,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [...Index.getComponents()],
+  declarations: [...Index.getComponents(), FormPerfilEducationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

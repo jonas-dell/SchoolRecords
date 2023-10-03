@@ -19,10 +19,10 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  editarUsuario() {
+  editarPerfilIntroduction() {
     let dialogRef = this.dialog.open(FormPerfilComponent, {
-      height: '400px',
-      width: '600px',
+      height: '90%',
+      width: '50%',
       data: {
         user: {
           id: 1,
