@@ -14,10 +14,12 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loading: boolean = false;
+  
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
+
   loginSuccess = (resp: RequestResponse) => {
     this.loading = false;
 
@@ -47,25 +49,44 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // if (this.configService.getConfig().windowsAuthentication) {
-    //   this.loginService
-    //     .loginWindowsAuthentication()
-    //     .subscribe(this.loginSuccess, this.loginError);
-    // }
+    if (this.configService.getConfig().windowsAuthentication) {
+      this.loginService
+        .loginWindowsAuthentication()
+        .subscribe(this.loginSuccess, this.loginError);
+    }
   }
 
   login(e: any) {
-    console.log(e);
-
-    console.log(this.user);
-
     if (!this.user.valid) {
       return this.notificationService.errorFields();
     }
 
     this.loading = true;
-    this.loginService
-      .login(this.user.value)
-      .subscribe(this.loginSuccess, this.loginError);
+    
+    // Crie um objeto user com os campos necessários para autenticação
+    const user = {
+      userName: this.user.value.userName,
+      password: this.user.value.password,
+    };
+
+    this.loginService.login(user).subscribe(
+      (response: any) => {
+        console.log(response.data.token);
+        if (response && response.data.token) {
+          // Salve o token JWT no localStorage 
+          localStorage.setItem('token', response.data.token);
+          
+          // Redirecione o usuário para a página de destino após o login bem-sucedido
+          this.router.navigate(['/home']);
+        } else {
+          this.toastr.error('Falha ao fazer login. Por favor, verifique suas credenciais.');
+        }
+        this.loading = false;
+      },
+      (error) => {
+        this.toastr.error('Falha ao fazer login. Por favor, verifique suas credenciais.');
+        this.loading = false;
+      }
+    );
   }
 }

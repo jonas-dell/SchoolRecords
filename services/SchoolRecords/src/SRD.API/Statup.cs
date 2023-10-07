@@ -1,13 +1,17 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using SRD.API.Configuration;
+using SRD.Application.Services;
 using SRD.Infra.Context;
 using System;
+using System.Text;
 
 namespace SRD.API
 {
@@ -37,19 +41,14 @@ namespace SRD.API
 
             services.AddSwaggerGen();
 
-            //services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
             services.AddCors(options =>
             {
                 options.AddPolicy("MyPolicy", builder =>
                 {
-                    //builder.AllowAnyOrigin();
-                    //builder.WithHeaders("Content-Type");
-                    //builder.WithHeaders("Authorization");
                     builder.AllowAnyHeader();
                     builder.AllowAnyMethod();
                     builder.AllowAnyOrigin();
-                    //builder.WithOrigins("http://localhost:4200");
                 });
             });
 
@@ -60,6 +59,26 @@ namespace SRD.API
             services.AddDependencyInjectConfiguration();
 
             services.AddSwaggerConfiguration();
+
+
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+                 {
+                     x.RequireHttpsMetadata = false;
+                     x.SaveToken = true;
+                     x.TokenValidationParameters = new TokenValidationParameters
+                     {
+                         ValidateIssuerSigningKey = true,
+                         IssuerSigningKey = new SymmetricSecurityKey(key),
+                         ValidateIssuer = false,
+                         ValidateAudience = false,
+                     };
+                 });
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
@@ -74,10 +93,9 @@ namespace SRD.API
             app.UseRouting();
 
             app.UseCors("MyPolicy");
-
-            app.UseAuthentication();
-
-            app.UseAuthorization();
+             
+            app.UseAuthentication(); //Quem é você ?
+            app.UseAuthorization(); //Se você tem acesso ou não?
 
             app.UseEndpoints(endpoints =>
             {

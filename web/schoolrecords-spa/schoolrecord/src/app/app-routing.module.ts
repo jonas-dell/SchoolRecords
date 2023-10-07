@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleRelevanceComponent } from './article-relevance/article-relevance.component';
-import { DocumentsComponent } from './documents/documents.component';
 import { EditTextComponent } from './edit-text/edit-text.component';
 import { FeedComponent } from './feed/feed.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -20,13 +19,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  {
-    path: 'documents',
-    component: DocumentsComponent,
-    pathMatch: 'full',
-    children: [],
-    canActivate: [UserGuard],
-  },
   {
     path: 'home',
     component: HomeComponent,

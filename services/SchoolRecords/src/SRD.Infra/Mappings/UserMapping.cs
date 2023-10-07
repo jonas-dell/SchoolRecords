@@ -40,6 +40,11 @@ namespace SRD.Infra.Mappings
                    .UsingEntity<Domain.User.Entities.UserContact>(
                         x => x.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId),
                         x => x.HasOne(x => x.Contact).WithMany().HasForeignKey(x => x.ContactId));
+
+            builder.HasOne(x => x.Perfil)
+                .WithOne(p => p.User)
+                .HasForeignKey<Domain.Perfil.Entities.Perfil>(x => x.UserId);
+
         }
     }
 }

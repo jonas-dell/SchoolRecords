@@ -3,14 +3,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SRD.Application.Login.UseCases;
-using SRD.Domain.Login.DTO;
 using SRD.Domain.User.DTO;
 using System.Threading.Tasks;
 
 namespace SRD.API.Controllers
 {
+    //[Authorize]
     [ApiController]
-    [AllowAnonymous]
     [Route("api/[controller]/[action]")]
     public class LoginController : ControllerBase
     {
@@ -20,10 +19,10 @@ namespace SRD.API.Controllers
         {
             _mediator = mediator;
         }
-
         [HttpPost]
+        //[Authorize]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
-        {
+            {
             var command = new Login.Command() { LoginDTO = loginDTO };
 
             var result = await _mediator.Send(command);

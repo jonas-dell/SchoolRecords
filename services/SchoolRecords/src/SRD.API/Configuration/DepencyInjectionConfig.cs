@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using SRD.Domain.Test.Repositories;
+using SRD.Domain.Perfil.Repositories;
 using SRD.Domain.User.Repositories;
 using SRD.Infra.Context;
-using SRD.Infra.Test.Repositories;
+using SRD.Infra.Perfil.Repositories;
 using SRD.Infra.User.Repositories;
 
 namespace SRD.API.Configuration
@@ -14,7 +14,7 @@ namespace SRD.API.Configuration
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ITestRepository,TestRepository>();
+            services.AddScoped<IPerfilRepository, PerfilRepository>();
             services.AddScoped<DataContext>();
         }
     }

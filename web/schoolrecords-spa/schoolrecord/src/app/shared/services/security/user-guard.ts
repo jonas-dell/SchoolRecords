@@ -4,7 +4,6 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CurrentUserService } from '../current-user.service';
@@ -15,18 +14,21 @@ export class UserGuard implements CanActivate {
     private router: Router,
     private currentUserService: CurrentUserService
   ) {}
-  canActivate(
+  canActivate( 
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    if (!this.currentUserService.isLoggedUser()) {
-      this.router.navigate(['login']);
-      return false;
+    state: RouterStateSnapshot ) : | boolean {//| UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> 
+      const token = window.localStorage.getItem('token');
+
+      if(token){
+        return true;
+      }else{
+        this.router.navigate(['login']);
+        return false;
+      }
+      // if (!this.currentUserService.isLoggedUser()) {
+      //   this.router.navigate(['login']);
+      //   return false;
+      // }
+      // return true;
     }
-    return true;
-  }
 }

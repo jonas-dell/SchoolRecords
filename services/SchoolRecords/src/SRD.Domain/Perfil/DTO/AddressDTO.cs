@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SRD.Domain.Test.Repositories
+namespace SRD.Domain.Perfil.DTO
 {
-    public interface ITestRepository
+    public class AddressDTO
     {
-        Entities.Teste Logar(string username);
         
     }
 }

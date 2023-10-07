@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRD.Domain", "src\SRD.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRD.Infra", "src\SRD.Infra\SRD.Infra.csproj", "{579ECD9B-6EC0-49CA-A063-974534DE3174}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRD.Core", "src\SRD.Core\SRD.Core.csproj", "{606B62E8-B5E2-4358-9371-7F8293D43DBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRD.Core", "src\SRD.Core\SRD.Core.csproj", "{606B62E8-B5E2-4358-9371-7F8293D43DBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,11 +1,13 @@
 ﻿using MediatR;
+using SRD.Application.Services;
 using SRD.Core.Commands;
 using SRD.Core.Responses;
-using SRD.Domain.Login.DTO;
+using SRD.Domain.User.DTO;
 using SRD.Domain.User.Repositories;
 
 namespace SRD.Application.Login.UseCases
 {
+    
     public class Login
     {
         public class Command : IRequest<IRequestResponse>
@@ -33,7 +35,9 @@ namespace SRD.Application.Login.UseCases
                 if (user != null && user.Password != request.LoginDTO.Password)
                     return RequestResponse.ErrorResponse("Usuário ou senha incorretos");
 
-                return RequestResponse.SuccessResponse($"Bem-Vindo, {user?.Username}", user);
+                user.Token = TokenService.GenerateToken(user);
+
+                return RequestResponse.SuccessResponse($"Bem-Vindo, {user?.Token}", user);
             }
         }
     }
