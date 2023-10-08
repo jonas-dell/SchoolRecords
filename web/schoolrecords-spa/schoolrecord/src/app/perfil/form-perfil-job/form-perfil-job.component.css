@@ -1,0 +1,33 @@
+#info-title-perfil {
+  color: #767676;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: lighter;
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+}
+
+.margin-info-job {
+  margin-bottom: 0px !important;
+}
+
+.info-job {
+  color: #767676;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: lighter;
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+}
+
+.hide-job {
+  display: none;
+}
+
+.opacity-job-false {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.opacity-job {
+  opacity: 0.2;
+  pointer-events: none;
+}

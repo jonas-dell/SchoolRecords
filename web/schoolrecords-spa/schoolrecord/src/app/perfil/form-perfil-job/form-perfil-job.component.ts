@@ -20,6 +20,18 @@ export class FormPerfilJobComponent extends BaseFormComponent implements OnInit 
   }
 
   ngOnInit(): void {
+    
+    var checkboxJob = document.getElementById("check-job");
+
+    checkboxJob?.addEventListener("click", function() {
+      var hideContainer = document.getElementById("hide-container");
+      var opacityMonth = document.getElementById("opacity-month")
+      var opacityYear = document.getElementById("opacity-year");
+
+      hideContainer?.classList.toggle("hide-job");
+      opacityMonth?.classList.toggle("opacity-job-false");
+      opacityYear?.classList.toggle("opacity-job-false");
+    })
   }
 
   save() {
