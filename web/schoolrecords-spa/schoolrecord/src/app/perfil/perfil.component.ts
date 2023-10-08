@@ -47,8 +47,8 @@ export class PerfilComponent implements OnInit {
 
   editarPerfilIntroduction() {
     let dialogRef = this.dialog.open(FormPerfilComponent, {
-      height: '90%',
-      width: '50%',
+      height: '650px',
+      width: '750px',
       data: {
         user: {
           id: 1,

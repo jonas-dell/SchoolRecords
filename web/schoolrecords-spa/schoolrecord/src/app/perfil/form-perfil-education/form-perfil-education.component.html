@@ -4,8 +4,8 @@
     <span class="dialog-close" (click)="closeDialog()">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        width="25" 
-        height="25" 
+        width="20" 
+        height="20" 
         fill="currentColor" 
         class="bi bi-x-lg" 
         viewBox="0 0 16 16"
@@ -15,7 +15,144 @@
     </span>
   </div>
   <div class="dialog-content">
-
+    <p class="dialog-content-required">* Indica item obrigatório</p>
+    <form class="form-perfil-education">
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Instituição de ensino*</label>
+          <input 
+            type="text" 
+            placeholder="Ex.: Fundação Getúlio Vargas" formControlName="educationInstitution" 
+            class="form-control form-control-sm"
+          />
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Diploma</label>
+          <input 
+            type="text" 
+            placeholder="Ex.: Bacharelado" 
+            formControlName="educationType" 
+            class="form-control form-control-sm"
+          />
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-12">
+          <label for="">Área de estudo</label>
+          <input 
+            type="text" 
+            placeholder="Ex.: Administração" 
+            formControlName="educationCourse" 
+            class="form-control form-control-sm"
+          />
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-6">
+          <label for="">Data de início</label>
+          <select  
+            formControlName="educationStartMonth"
+            class="form-control form-control-sm"
+          >
+            <option selected>Mês</option>
+          </select>
+        </div>
+        <div class="col-md-6 dialog-content-date">
+          <select 
+            formControlName="educationStartYear"
+            class="form-control form-control-sm" 
+          >
+            <option selected>Ano</option>
+          </select>  
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-6">
+          <label for="">Data de término (ou prevista)</label>
+          <select  
+            formControlName="educationEndMonth"
+            class="form-control form-control-sm"
+          >
+            <option selected>Mês</option>
+          </select>
+        </div>
+        <div class="col-md-6 dialog-content-date">
+          <select 
+            formControlName="educationEndYear"
+            class="form-control form-control-sm" 
+          >
+            <option selected>Ano</option>
+          </select>  
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label for="">Nota</label>
+          <input 
+            type="text" 
+            formControlName="educationNote" 
+            class="form-control form-control-sm"
+          />
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label for="">Atividades e grupos</label>
+          <textarea 
+            placeholder="Ex.: teatro, dança, vôlei" 
+            formControlName="educationActivities" 
+            rows="3" 
+            class="form-control form-control-sm"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label for="">Descrição</label>
+          <textarea
+            formControlName="educationDescription" 
+            rows="3" 
+            class="form-control form-control-sm"
+          ></textarea>
+        </div>
+      </div>
+      <h2 class="dialog-content-subtitle">Competências</h2> 
+      <p class="dialog-content-info">
+        Recomendamos adicionar as 5 que você mais utiliza nesta experência. Elas também serão exibidas na sua seção de Competências.
+      </p>
+      <button id="dialog-button-skills" class="dialog-button">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="25" 
+          height="25" 
+          fill="currentColor" 
+          class="bi bi-plus dialog-button-svg" 
+          viewBox="0 1 16 16"
+        >
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+        <span class="dialog-button-span">Adicione competências</span>
+      </button>
+      <h2 class="dialog-content-subtitle">Conteúdos de mídia</h2>
+      <p class="dialog-content-info">
+        Adicione mídia como imagens, documentos, sites ou apresentações. Saiba mais sobre <a class="dialog-link-info">os tipos de arquivos de mídia compatíveis</a>
+      </p>
+      <button id="dialog-button-media" class="dialog-button">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="25" 
+          height="25" 
+          fill="currentColor" 
+          class="bi bi-plus dialog-button-svg" 
+          viewBox="0 1 16 16"
+        >
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+        <span class="dialog-button-span">Adicionar mídia</span>
+      </button>
+    </form>
   </div>
   <div class="dialog-footer">
     <button class="dialog-success" (click)="save()">Salvar</button>

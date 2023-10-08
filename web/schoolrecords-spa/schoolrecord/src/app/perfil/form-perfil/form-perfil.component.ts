@@ -31,8 +31,8 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
   editarPerfilEducation() {
     let dialogRef = this.dialog.open(FormPerfilEducationComponent, {
-      height: '90%',
-      width: '50%',
+      height: '650px',
+      width: '750px',
       data: {
         user: {
           id: 1,
