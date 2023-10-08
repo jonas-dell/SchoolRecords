@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
 import { FormPerfilEducationComponent } from '../form-perfil-education/form-perfil-education.component';
+import { FormPerfilJobComponent } from '../form-perfil-job/form-perfil-job.component';
 
 @Component({
   selector: 'form-perfil',
@@ -31,6 +32,19 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
   editarPerfilEducation() {
     let dialogRef = this.dialog.open(FormPerfilEducationComponent, {
+      height: '650px',
+      width: '750px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
+  }
+
+  editarPerfilJob() {
+    let dialogRef = this.dialog.open(FormPerfilJobComponent, {
       height: '650px',
       width: '750px',
       data: {
