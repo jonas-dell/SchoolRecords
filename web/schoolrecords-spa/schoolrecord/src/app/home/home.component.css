@@ -41,6 +41,10 @@ footer {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 767px) {
+  .home-container {
+    display: block;
+  }
+
   side-bar {
     display: none;
   }
