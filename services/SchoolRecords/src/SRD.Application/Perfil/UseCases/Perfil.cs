@@ -5,6 +5,7 @@ using SRD.Core.Commands;
 using SRD.Core.Responses;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
+using System.Security.Claims;
 
 namespace SRD.Application.Perfil.UseCases
 {
@@ -31,20 +32,26 @@ namespace SRD.Application.Perfil.UseCases
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                // Recupere o ID do usuário autenticado a partir do objeto Command
-                var userId = request.Id;
-                
+                //var username = _httpContextAccessor.HttpContext.User.Identity.Name;  //Nome do usuário
+                var idClaim =  _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
 
+                if (idClaim != null)
+                {
+                    int userId = int.Parse(idClaim.Value);
+                    
+                    var perfil = _perfilRepository.GetById(userId);
 
-                var perfil = _perfilRepository.GetById(userId);
-                
-                var perfilToUpdate = _mapper.Map<Domain.Perfil.Entities.Perfil>(request.PerfilDTO);
+                    if(perfil == null)
+                        RequestResponse.ErrorResponse("Perfil não cadastrado");
+                    else
+                    {
+                        var perfilToUpdate = _mapper.Map(request.PerfilDTO, perfil);
+                        _perfilRepository.Update(perfilToUpdate);
 
-                _perfilRepository.Update(perfilToUpdate);
-
-                return await SaveData(_perfilRepository.UnitOfWork);
+                    }
+                }
+                return await SaveData(_perfilRepository.UnitOfWork);    
             }
         }
-
     }
 }

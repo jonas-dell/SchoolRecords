@@ -21,8 +21,6 @@ namespace SRD.Infra.Perfil.Repositories
         }
         public void Update(Domain.Perfil.Entities.Perfil perfil)
         {
-
-
             _context.Perfis.Update(perfil);
         }
 
@@ -39,7 +37,7 @@ namespace SRD.Infra.Perfil.Repositories
 
         public Domain.Perfil.Entities.Perfil? GetById(int id)
         {
-            return _context.Perfis.FirstOrDefault(p => p.Id == id);
+            return _context.Perfis.Where(p => p.UserId == id).First();
         }
         public Domain.Perfil.Entities.Perfil? GetByPerfilName(string perfilName)
         {

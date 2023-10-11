@@ -12,8 +12,8 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231004233858_update-pefil")]
-    partial class updatepefil
+    [Migration("20231011002242_RelacionamentoPerfilUser")]
+    partial class RelacionamentoPerfilUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -162,8 +162,7 @@ namespace SRD.Infra.Migrations
 
             modelBuilder.Entity("SRD.Domain.User.Entities.User", b =>
                 {
-                    b.Navigation("Perfil")
-                        .IsRequired();
+                    b.Navigation("Perfil");
                 });
 #pragma warning restore 612, 618
         }

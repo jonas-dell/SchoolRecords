@@ -4,7 +4,7 @@
 
 namespace SRD.Infra.Migrations
 {
-    public partial class updatepefil : Migration
+    public partial class RelacionamentoPerfilUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

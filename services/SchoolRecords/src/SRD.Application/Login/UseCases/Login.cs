@@ -37,7 +37,7 @@ namespace SRD.Application.Login.UseCases
 
                 user.Token = TokenService.GenerateToken(user);
 
-                return RequestResponse.SuccessResponse($"Bem-Vindo, {user?.Token}", user);
+                return RequestResponse.SuccessResponse("Bem-Vindo",user);
             }
         }
     }

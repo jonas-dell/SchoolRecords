@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { InvitesComponent } from './invitation/invitation.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormPerfilComponent } from './perfil/form-perfil/form-perfil.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { RegisterComponent } from './register/register.component';
@@ -45,6 +46,7 @@ export class Index {
       BotaoComponent,
       ForgotPasswordComponent,
       BaseFormComponent,
+      FormPerfilComponent
     ];
   }
 }

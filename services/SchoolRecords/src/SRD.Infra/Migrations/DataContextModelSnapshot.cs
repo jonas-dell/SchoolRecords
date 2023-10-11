@@ -160,8 +160,7 @@ namespace SRD.Infra.Migrations
 
             modelBuilder.Entity("SRD.Domain.User.Entities.User", b =>
                 {
-                    b.Navigation("Perfil")
-                        .IsRequired();
+                    b.Navigation("Perfil");
                 });
 #pragma warning restore 612, 618
         }

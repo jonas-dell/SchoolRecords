@@ -12,7 +12,7 @@ namespace SRD.Application.Login.UseCases
     {
         public class Command : IRequest<IRequestResponse>
         {
-            public RegisterDTO RegisterDTO { get; set; }
+            public RegisterDTO? RegisterDTO { get; set; }
         }
 
         public class CommandHandler :
@@ -31,6 +31,9 @@ namespace SRD.Application.Login.UseCases
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 var user = _mapper.Map<User>(request.RegisterDTO);
+
+                var perfil = new Domain.Perfil.Entities.Perfil();
+                user.Perfil = perfil;
 
                 _userRepository.Insert(user);
 

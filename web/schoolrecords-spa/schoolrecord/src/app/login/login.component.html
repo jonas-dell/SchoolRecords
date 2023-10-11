@@ -15,14 +15,18 @@
       <form class="form-login" [formGroup]="user">
         <div class="row form-group">
           <div class="col-12">
-            <input type="text" placeholder="Email" formControlName="userName" />
+            <input type="text" placeholder="Username" formControlName="userName" />
           </div>
         </div>
         <div class="row form-group">
           <div class="col-12">
-            <input type="password" placeholder="Password" formControlName="password" />
+            <div class="input-field password-field">
+              <input [type]="type" placeholder="Password" formControlName="password" />
+              <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+            </div>
           </div>
         </div>
+
         <div class="row form-group">
           <div class="col-12">
             <button class="btn-login" (click)="login($event)">Login</button>

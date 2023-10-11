@@ -40,7 +40,7 @@
   font-family: Nunito, sans-serif;
 }
 
-.has-account > span {
+.has-account>span {
   color: #9441b7;
   font-weight: bold;
   font-family: Nunito, sans-serif;
@@ -65,9 +65,10 @@
 }
 
 .form-login input:focus {
-  border-color: #65cbf3;
+  border-color: #7f408e;
   background: none;
 }
+
 
 .btn-login {
   width: 400px;
@@ -103,7 +104,8 @@
   align-items: center;
   text-align: center;
 }
-.divider > p {
+
+.divider>p {
   color: #ddd;
   font-weight: normal;
 }
@@ -134,7 +136,7 @@
   background: none;
 }
 
-.btn-login.btn-login-google > svg {
+.btn-login.btn-login-google>svg {
   height: 20px;
 }
 
@@ -200,6 +202,7 @@
   .form-login {
     width: 100%;
     margin: auto;
+    border: 1px solid #000;
   }
 
   .signup-label {

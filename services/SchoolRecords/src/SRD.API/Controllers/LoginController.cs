@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace SRD.API.Controllers
 {
-    //[Authorize]
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class LoginController : ControllerBase
@@ -20,7 +19,16 @@ namespace SRD.API.Controllers
             _mediator = mediator;
         }
         [HttpPost]
-        //[Authorize]
+        public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
+        {
+            var command = new RegisterUser.Command() { RegisterDTO = registerDTO };
+
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
+        }
+        
+        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
             {
             var command = new Login.Command() { LoginDTO = loginDTO };
@@ -30,15 +38,6 @@ namespace SRD.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
-        {
-            var command = new RegisterUser.Command() { RegisterDTO = registerDTO };
-
-            var result = await _mediator.Send(command);
-
-            return Ok(result);
-        }
 
         [HttpGet]
         public async Task<IActionResult> LoginWindowsAuthentication()

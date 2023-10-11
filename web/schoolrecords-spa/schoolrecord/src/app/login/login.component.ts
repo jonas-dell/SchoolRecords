@@ -14,7 +14,10 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loading: boolean = false;
-  
+  type: string = "password";
+  isText: boolean = false;
+  eyeIcon: string = "fa-eye-slash"; 
+ 
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -63,7 +66,6 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     
-    // Crie um objeto user com os campos necessários para autenticação
     const user = {
       userName: this.user.value.userName,
       password: this.user.value.password,
@@ -88,5 +90,11 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  hideShowPass(){
+    this.isText = !this.isText;
+    this.isText ? this.eyeIcon = "fa-eye": this.eyeIcon = "fa-eye-slash";
+    this.isText ? this.type = "text" : this.type = "password";
   }
 }

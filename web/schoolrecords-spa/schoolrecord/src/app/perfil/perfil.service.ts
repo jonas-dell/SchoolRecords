@@ -16,4 +16,8 @@ export class PerfilService {
     return this.http.post<RequestResponse>(
       `${this.configService.config.apiUrl}/api/perfil/imageUploadPerfil`, formData);
   }
+
+  
+
+
 }

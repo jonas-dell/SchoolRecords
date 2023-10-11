@@ -19,7 +19,6 @@ namespace SRD.Infra.Mappings
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.Password)
-
                 .IsRequired()
                 .HasColumnType("VARCHAR(100)");
 
