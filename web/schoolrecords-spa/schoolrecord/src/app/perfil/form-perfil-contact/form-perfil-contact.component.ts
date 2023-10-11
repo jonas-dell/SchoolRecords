@@ -26,4 +26,24 @@ export class FormPerfilContactComponent extends BaseFormComponent implements OnI
     alert('Salvar alguma coisa');
   }
 
+  sites: any[] = [];
+
+  adicionarCamposSites() {
+    this.sites.push({ id: this.sites.length + 1 });
+  }
+
+  excluirCamposSite(indexSite: number) {
+    this.sites.splice(indexSite, 1);
+  }
+
+  messages: any[] = [];
+
+  adicionarCamposMessage() {
+    this.messages.push({ id: this.messages.length + 1 });
+  }
+
+  excluirCamposMessage(indexMessage: number) {
+    this.messages.splice(indexMessage, 1);
+  }
+
 }
