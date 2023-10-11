@@ -4,9 +4,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
 import { FormPerfilEducationComponent } from '../form-perfil-education/form-perfil-education.component';
 import { FormPerfilJobComponent } from '../form-perfil-job/form-perfil-job.component';
+<<<<<<< HEAD
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConsultaCepService } from './consulta-cep.service';
 import { FormPerfilService } from './form-perfil.service';
+=======
+import { FormPerfilContactComponent } from '../form-perfil-contact/form-perfil-contact.component';
+>>>>>>> e8079d30235842e93a68d4561c139ecf27a9ab29
 
 @Component({
   selector: 'form-perfil',
@@ -79,6 +83,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   cepDataFilled = false; // Variável para rastrear se os dados do CEP foram preenchidos
 
   consultaCep() {
@@ -104,5 +109,18 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
       //this.dialogRef.close(this.perfil.value); // Fecha o diálogo após o preenchimento dos dados do CEP
     }
+=======
+  editarPerfilContact() {
+    let dialogRef = this.dialog.open(FormPerfilContactComponent, {
+      height: '650px',
+      width: '750px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
+>>>>>>> e8079d30235842e93a68d4561c139ecf27a9ab29
   }
 }

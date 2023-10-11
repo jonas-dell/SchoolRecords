@@ -1,0 +1,69 @@
+.subtitle-gray-contact {
+  color: #787878;
+  font-size: 15px;
+  font-weight: lighter;
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif; 
+  margin: 10px 0px 5px 0px;
+}
+
+#link-contact-url {
+  margin: 15px 0px 10px 0px;
+  padding: 6px 10px 3px 10px !important;
+}
+
+#link-contact-email {
+  margin: 15px 0px 30px 0px;
+  padding: 6px 10px 3px 10px !important;
+}
+
+.svg-link-contact {
+  margin-left: 5px;
+  position: relative;
+  top: -3px;
+  color: rgb(160 32 240);
+}
+
+.dialog-link-contact {
+  margin: 10px 0px 10px 0px;
+}
+
+.dialog-contact-subtitle {
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #2a2a2a;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+#dialog-container-site {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dialog-container-margin {
+  height: 20px;
+}
+
+.dialog-button-delete {
+  display: inline-block;
+  height: 30px;
+  padding: 0px 8px 0px 8px;
+  border-radius: 4px;
+  background-color: white;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  border: none;
+}
+
+.dialog-button-delete:hover {
+  background-color: #e7e7e7bf;
+}
+
+.dialog-button-delete-svg {
+  color: #000000bf;
+}
+
+.dialog-button-delete-span {
+  color: #000000bf;
+  margin-left: 5px;
+}

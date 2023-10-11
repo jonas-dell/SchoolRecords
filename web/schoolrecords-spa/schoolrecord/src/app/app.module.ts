@@ -19,7 +19,11 @@ import { AppComponent } from './app.component';
 import { ConfigService } from './core/config/config.services';
 import { FormPerfilEducationComponent } from './perfil/form-perfil-education/form-perfil-education.component';
 import { FormPerfilJobComponent } from './perfil/form-perfil-job/form-perfil-job.component';
+<<<<<<< HEAD
 import { InterceptorModule } from './interceptor/interceptor.module';
+=======
+import { FormPerfilContactComponent } from './perfil/form-perfil-contact/form-perfil-contact.component';
+>>>>>>> e8079d30235842e93a68d4561c139ecf27a9ab29
 
 export function initWithDependencyFactory(configService: ConfigService) {
   return () => {
@@ -31,7 +35,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [...Index.getComponents(), FormPerfilEducationComponent, FormPerfilJobComponent],
+  declarations: [...Index.getComponents(), FormPerfilEducationComponent, FormPerfilJobComponent, FormPerfilContactComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -145,3 +145,24 @@
 .premium-desc {
   margin-top: -7vh;
 }
+
+/* responsividade */
+@media (max-width: 768px) {
+  .perfil {
+    padding: 10px 0px 60px 0px;
+    margin: 0;
+  }
+
+  .card {
+    border-radius: 0px;
+  }
+
+  .college .media-left {
+    display: none;
+  }
+
+  .college .media-content {
+    width: 100%;
+    margin-top: -5vh;
+  }
+}
