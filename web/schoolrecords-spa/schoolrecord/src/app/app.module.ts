@@ -17,8 +17,6 @@ import { Index } from '.';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigService } from './core/config/config.services';
-import { FormPerfilEducationComponent } from './perfil/form-perfil-education/form-perfil-education.component';
-import { FormPerfilJobComponent } from './perfil/form-perfil-job/form-perfil-job.component';
 import { InterceptorModule } from './interceptor/interceptor.module';
 
 export function initWithDependencyFactory(configService: ConfigService) {
@@ -31,7 +29,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [...Index.getComponents(), FormPerfilEducationComponent, FormPerfilJobComponent, FormPerfilContactComponent],
+  declarations: [...Index.getComponents(),],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -49,7 +47,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
-    InterceptorModule
+    InterceptorModule 
   ],
   providers: [
     {

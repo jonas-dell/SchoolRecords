@@ -53,7 +53,7 @@
       <div class="row form-group">
         <div class="col-12">
           <label class="container-checkbox">Exibir formação na minha introdução
-            <input type="checkbox" checked="checked" formControlName="checkboxEducation" class="form-control form-control-sm">
+            <input type="checkbox" checked="checked" formControlName="education" class="form-control form-control-sm">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -74,13 +74,13 @@
       <div class="row form-group">
         <div class="col-12">
           <label for="">Logradouro*</label>
-          <input type="text" formControlName="address" class="form-control form-control-sm" />
+          <input type="text" formControlName="street" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
           <label for="">Número</label>
-          <input type="text" formControlName="number" #numberField class="form-control form-control-sm" />
+          <input type="text" formControlName="number" id="number" #numberField class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
@@ -111,11 +111,7 @@
       <span id="dialog-info-contact">
         Adicione ou altere a URL do seu perfil, o e-mail e muito mais
       </span>
-      <a 
-        id="dialog-link-contact" 
-        class="dialog-link"
-        (click)="editarPerfilContact()"
-      >
+      <a id="dialog-link-contact" class="dialog-link" (click)="editarPerfilContact()">
         <span class="dialog-link-span">
           Editar informações de contato
         </span>

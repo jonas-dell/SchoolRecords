@@ -20,4 +20,12 @@ export class NotificationService {
       text: errorMessage,
     });
   }
+
+  success(message: string) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      text: message,
+    });
+  }
 }

@@ -32,7 +32,6 @@ namespace SRD.Application.Perfil.UseCases
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                //var username = _httpContextAccessor.HttpContext.User.Identity.Name;  //Nome do usuário
                 var idClaim =  _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
 
                 if (idClaim != null)
@@ -45,7 +44,8 @@ namespace SRD.Application.Perfil.UseCases
                         RequestResponse.ErrorResponse("Perfil não cadastrado");
                     else
                     {
-                        var perfilToUpdate = _mapper.Map(request.PerfilDTO, perfil);
+                        var perfilToUpdate = _mapper.Map(request.PerfilDTO,perfil);
+
                         _perfilRepository.Update(perfilToUpdate);
 
                     }
