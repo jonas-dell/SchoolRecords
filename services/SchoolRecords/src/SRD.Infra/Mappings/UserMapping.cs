@@ -15,24 +15,30 @@ namespace SRD.Infra.Mappings
                 .UseIdentityColumn();
 
             builder.Property(x => x.Username)
+                .HasColumnName("username")
                 .IsRequired()
                 .HasColumnType("VARCHAR(100)");
 
+            builder.Property(x => x.Email)
+              .HasColumnName("email")
+              .IsRequired()
+              .HasColumnType("VARCHAR(100)");
+
             builder.Property(x => x.Password)
+                .HasColumnName("password")
                 .IsRequired()
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.Role)
+                .HasColumnName("role")
                 .IsRequired(false)
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.Token)
+                .HasColumnName ("token")
                .IsRequired(false)
                .HasColumnType("VARCHAR(100)");
 
-            builder.Property(x => x.Email)
-              .IsRequired()
-              .HasColumnType("VARCHAR(100)");
 
             builder.HasMany(x => x.Contacts)
                    .WithMany(x => x.Users)

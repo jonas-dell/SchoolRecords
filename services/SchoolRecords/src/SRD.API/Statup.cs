@@ -57,9 +57,10 @@ namespace SRD.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddDependencyInjectConfiguration();
+            
 
             services.AddSwaggerConfiguration();
-
+            services.AddHttpClient<ConsultaCepService>();
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>

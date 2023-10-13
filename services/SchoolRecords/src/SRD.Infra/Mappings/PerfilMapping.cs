@@ -41,13 +41,26 @@ namespace SRD.Infra.Mappings
                 .HasColumnName("street")
                 .HasColumnType("VARCHAR(200)");
 
-            builder.Property(x => x.District)
-                .HasColumnName("district")
-                .HasColumnType("VARCHAR(100)");
+            builder.Property(x => x.Number)
+                .HasColumnName("number")
+                .HasColumnType("INT");
+
+            builder.Property(x => x.Complement)
+                .HasColumnName("complement")
+                .HasColumnType("VARCHAR(200)");
+
+            builder.Property(x => x.Neighborhood)
+                .HasColumnName("neighborhood")
+                .HasColumnType("VARCHAR(400)");
 
             builder.Property(x => x.City)
                 .HasColumnName("city")
-                .HasColumnType("VARCHAR(100)");
+                .HasColumnType("VARCHAR(200)");
+
+            builder.Property(x => x.State)
+                .HasColumnName("state")
+                .HasColumnType("VARCHAR(10)");
+
 
             builder.Property(x => x.Number)
                 .HasColumnName("number")

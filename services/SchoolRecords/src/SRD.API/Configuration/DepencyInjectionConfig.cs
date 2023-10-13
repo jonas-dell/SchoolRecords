@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using SRD.Application.Services;
 using SRD.Domain.Perfil.Repositories;
 using SRD.Domain.User.Repositories;
 using SRD.Infra.Context;
@@ -16,6 +17,7 @@ namespace SRD.API.Configuration
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPerfilRepository, PerfilRepository>();
             services.AddScoped<DataContext>();
+            services.AddScoped<ConsultaCepService>();
         }
     }
 }

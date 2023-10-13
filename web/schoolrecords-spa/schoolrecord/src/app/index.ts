@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { InvitesComponent } from './invitation/invitation.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormPerfilContactComponent } from './perfil/form-perfil-contact/form-perfil-contact.component';
+import { FormPerfilEducationComponent } from './perfil/form-perfil-education/form-perfil-education.component';
+import { FormPerfilJobComponent } from './perfil/form-perfil-job/form-perfil-job.component';
 import { FormPerfilComponent } from './perfil/form-perfil/form-perfil.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PersonalDataComponent } from './personal-data/personal-data.component';
@@ -46,7 +49,10 @@ export class Index {
       BotaoComponent,
       ForgotPasswordComponent,
       BaseFormComponent,
-      FormPerfilComponent
+      FormPerfilComponent,
+      FormPerfilEducationComponent,
+      FormPerfilJobComponent,
+      FormPerfilContactComponent
     ];
   }
 }

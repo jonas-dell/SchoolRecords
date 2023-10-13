@@ -1,21 +1,22 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable} from 'rxjs';
+import { ConfigService } from 'src/app/core/config/config.services';
+import { RequestResponse } from 'src/app/shared/responses/request-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultaCepService {
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigService 
+  ) { }
 
-  constructor(private http: HttpClient) { }
-
-  consultaCep(cep) {
-    cep = cep.replace(/\D/g, ''); //somente digítos
-    if(cep !== ''){
-        var validacep = /^[0-9]{8}$/;  //Regex para validar CEP
-        if (validacep.test(cep)) {
-          return this.http.get(`//viacep.com.br/ws/${cep}/json`)
-        }
-      }
-      return null;
+  consultaCep(cep:any){
+    return this.http.get<RequestResponse>(
+      `${this.configService.config.apiUrl}/api/ConsultaCep/ConsultaCep/${cep}`,
+      cep
+    );
   }
 }
