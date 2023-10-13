@@ -43,7 +43,13 @@ namespace SRD.Infra.Perfil.Repositories
         {
             return _context.Perfis.Where(x => x.PerfilName == perfilName).FirstOrDefault();
         }
-        
-        
+
+        public void UpdateFoto(int id , string foto)
+        {
+            var perfil = _context.Perfis.Where(p => p.UserId == id).First();
+            perfil.Foto = foto;
+            _context.Perfis.Update(perfil);
+    
+        }
     }
 }

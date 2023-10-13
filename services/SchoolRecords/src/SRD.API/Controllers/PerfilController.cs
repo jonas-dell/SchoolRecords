@@ -13,6 +13,7 @@ namespace SRD.API.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]/[action]")]
+   
     public class PerfilController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -33,6 +34,15 @@ namespace SRD.API.Controllers
 
             var result = await _mediator.Send(command);
 
+            return Ok(result);
+        }
+
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateFoto([FromBody] string foto)
+        {
+            var command = new PerfilFoto.Command() { Foto = foto };
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
     }

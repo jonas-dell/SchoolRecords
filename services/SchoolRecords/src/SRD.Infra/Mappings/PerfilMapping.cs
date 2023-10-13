@@ -52,6 +52,10 @@ namespace SRD.Infra.Mappings
             builder.Property(x => x.Number)
                 .HasColumnName("number")
                 .HasColumnType("INT");
+            
+            builder.Property(x => x.Foto)
+                .HasColumnName("foto")
+                .HasColumnType("TEXT");
         }
     }
 }

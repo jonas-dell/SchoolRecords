@@ -14,6 +14,7 @@
         public string? City { get; set; }
         public int Number { get; set; }
         public int UserId { get; set; }
+        public string? Foto { get; set; }
         public User.Entities.User? User { get; set; }
     }
 }
