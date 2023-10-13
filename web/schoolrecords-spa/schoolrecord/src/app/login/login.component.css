@@ -26,9 +26,14 @@
 }
 
 .login {
+  display: flex;
   flex-grow: 1;
   flex-basis: 0;
   padding: 10% 0 0 0;
+}
+
+.container {
+  flex-grow: 0 !important;
 }
 
 .container-login {
@@ -69,6 +74,12 @@
   background: none;
 }
 
+#toggleBtn {
+  position: absolute;
+  top: 17px;
+  right: 35px;
+  cursor: pointer;
+}
 
 .btn-login {
   width: 400px;
@@ -215,6 +226,10 @@
     width: 90%;
   }
 
+  #toggleBtn {
+    right: 65px;
+  }
+
   .btn-login {
     width: 90%;
   }
@@ -292,6 +307,10 @@
     width: 90%;
   }
 
+  #toggleBtn {
+    right: 75px;
+  }
+
   .btn-login {
     width: 90%;
   }
@@ -315,6 +334,10 @@
     flex-grow: 1.5;
   }
 
+  #toggleBtn {
+    right: 35px;
+  }
+
   .col-divider {
     padding: 0 100px;
   }
@@ -332,5 +355,9 @@
 
   .login {
     flex-grow: 1.5;
+  }
+
+  #toggleBtn {
+    right: 35px;
   }
 }
