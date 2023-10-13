@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SRD.Application.JobExperience.UseCases;
 using SRD.Application.Perfil.UseCases;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
@@ -25,11 +26,22 @@ namespace SRD.API.Controllers
             _perfilRepository = perfilRepository;
             _httpContextAccessor = httpContextAccessor;
         }
-        
+
+
         [HttpPut]
         public async Task<IActionResult> UpdatePerfil([FromBody] PerfilDTO perfilDTO)
         {
             var command = new Perfil.Command() { PerfilDTO = perfilDTO };
+
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateJobExperience([FromBody] JobExperienceDTO jobExperienceDTO)
+        {
+            var command = new JobExperience.Command() { JobExperienceDTO = jobExperienceDTO };
 
             var result = await _mediator.Send(command);
 

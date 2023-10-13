@@ -26,7 +26,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     sector: new FormControl('',[Validators.nullValidator]),
     education: new FormControl('',[Validators.nullValidator]),
     country: new FormControl('',[Validators.nullValidator]),
-    zipCode: new FormControl('',[Validators.required]),
+    zipCode: new FormControl('',[Validators.nullValidator]),
     street: new FormControl('',[Validators.nullValidator]),
     number: new FormControl('',[Validators.nullValidator]),
     complement: new FormControl('',[Validators.nullValidator]),
@@ -48,11 +48,8 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Dado que chegou da outra tela', this.data);
-
     const token = localStorage.getItem('token');
   }
-
-  cepDataFilled = false; 
 
   consultaCep() {
     let cep = this.perfil.get('zipCode')?.value;

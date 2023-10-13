@@ -60,8 +60,6 @@ namespace SRD.Infra.Mappings
             builder.Property(x => x.State)
                 .HasColumnName("state")
                 .HasColumnType("VARCHAR(10)");
-
-
         }
     }
 }

@@ -23,8 +23,6 @@ namespace SRD.Infra.Perfil.Repositories
         {
             _context.Perfis.Update(perfil);
         }
-
-        
         public IList<Domain.Perfil.Entities.Perfil> GetAll()
         {
             return _context.Perfis.ToList();

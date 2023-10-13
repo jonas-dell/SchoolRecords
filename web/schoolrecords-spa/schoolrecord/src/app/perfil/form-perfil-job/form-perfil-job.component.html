@@ -2,39 +2,24 @@
   <div class="dialog-header">
     <h1 class="dialog-title">Adicionar experiência</h1>
     <span class="dialog-close" (click)="closeDialog()">
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="20" 
-        height="20" 
-        fill="currentColor" 
-        class="bi bi-x-lg" 
-        viewBox="0 0 16 16"
-      >
-        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
       </svg>
     </span>
   </div>
   <div class="dialog-content">
     <p class="dialog-content-required">* Indica item obrigatório</p>
-    <form class="form-perfil-job">
+    <form class="form-perfil-job" [formGroup]="formulario">
       <div class="row form-group">
         <div class="col-12">
           <label for="">Título*</label>
-          <input 
-            type="text" 
-            placeholder="Ex: Gerente de vendas de varejo" 
-            formControlName="jobTitle" 
-            class="form-control form-control-sm"
-          />
+          <input type="text" placeholder="Ex: Gerente de vendas de varejo" formControlName="jobTitle" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
           <label for="">Tipo de emprego</label>
-          <select  
-            formControlName="jobType"
-            class="form-control form-control-sm"
-          >
+          <select formControlName="jobType" class="form-control form-control-sm">
             <option selected>Selecione</option>
           </select>
         </div>
@@ -42,32 +27,19 @@
       <div class="row form-group">
         <div class="col-12">
           <label for="">Nome da empresa*</label>
-          <input 
-            type="text" 
-            placeholder="Ex.: Microsoft" 
-            formControlName="companyName" 
-            class="form-control form-control-sm"
-          />
+          <input type="text" placeholder="Ex.: Microsoft" formControlName="companyName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
           <label for="">Localidade</label>
-          <input 
-            type="text" 
-            placeholder="Ex: Rio de Janeiro" 
-            formControlName="companyLocation" 
-            class="form-control form-control-sm"
-          />
+          <input type="text" placeholder="Ex: Rio de Janeiro" formControlName="companyLocation" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group margin-info-job">
         <div class="col-12">
           <label for="">Tipo de localidade</label>
-          <select  
-            formControlName="typeLocation"
-            class="form-control form-control-sm margin-info-job"
-          >
+          <select formControlName="typeLocation" class="form-control form-control-sm margin-info-job">
             <option selected>Selecione</option>
           </select>
         </div>
@@ -78,67 +50,45 @@
       <div class="row form-group">
         <div class="col-12">
           <label class="container-checkbox">Trabalho atualmente neste cargo
-            <input 
-              type="checkbox" 
-              checked="checked" 
-              formControlName="checkboxJob"
-              class="form-control form-control-sm"
-              id="check-job"
-            >
+            <input type="checkbox" checked="checked" formControlName="checkboxJob" class="form-control form-control-sm" id="check-job">
             <span class="checkmark"></span>
           </label>
-        </div>
-      </div> 
-      <div class="row form-group">
-        <div class="col-md-6">
-          <label for="">Início*</label>
-          <select  
-            formControlName="jobStartMonth"
-            class="form-control form-control-sm"
-          >
-            <option selected>Mês</option>
-          </select>
-        </div>
-        <div class="col-md-6 dialog-content-date">
-          <select 
-            formControlName="jobStartYear"
-            class="form-control form-control-sm" 
-          >
-            <option selected>Ano</option>
-          </select>  
         </div>
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="">Término*</label>
-          <select  
-            formControlName="jobEndMonth"
-            class="form-control form-control-sm opacity-job"
-            id="opacity-month"
-          >
+          <label for="">Início*</label>
+          <select formControlName="jobStartMonth" class="form-control form-control-sm">
             <option selected>Mês</option>
           </select>
         </div>
         <div class="col-md-6 dialog-content-date">
-          <select 
-            formControlName="jobEndYear"
-            class="form-control form-control-sm opacity-job"
-            id="opacity-year"
-          >
-            <option selected>Ano</option>
-          </select>  
+          <select formControlName="jobStartYear" class="form-control form-control-sm">
+            <option value="Ano" selected></option>
+            <option *ngFor="let ano of anos" [value]="ano">{{ ano }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-6">
+          <label for="">Término*</label>
+          <select formControlName="jobEndMonth" class="form-control form-control-sm opacity-job" id="opacity-month">
+            <option selected>Mês</option>
+          </select>
+        </div>
+        <div class="col-md-6 dialog-content-date">
+          <select formControlName="jobEndYear" class="form-control form-control-sm opacity-job" id="opacity-year">
+            <option value="Ano" selected></option>
+            <option *ngFor="let ano of anos" [value]="ano">{{ ano }}</option>
+          </select>
         </div>
       </div>
       <div id="hide-container">
         <div class="row form-group margin-info-job">
           <div class="col-12">
             <label for="">Setor*</label>
-            <input 
-              type="text" 
-              placeholder="Ex: varejo" 
-              formControlName="jobSector" 
-              class="form-control form-control-sm margin-info-job"
-            />
+            <input type="text" placeholder="Ex: varejo" formControlName="jobSector" class="form-control form-control-sm margin-info-job" />
           </div>
         </div>
         <p class="info-job">
@@ -148,41 +98,25 @@
       <div class="row form-group">
         <div class="col-md-12">
           <label for="">Descrição</label>
-          <textarea
-            formControlName="jobDescription" 
-            rows="3" 
-            class="form-control form-control-sm"
-          ></textarea>
+          <textarea formControlName="jobDescription" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
       <div class="row form-group margin-info-job">
         <div class="col-12">
           <label for="">Título do perfil</label>
-          <input 
-            type="text" 
-            placeholder="--" 
-            formControlName="jobTitlePerfil" 
-            class="form-control form-control-sm margin-info-job"
-          />
+          <input type="text" placeholder="--" formControlName="jobTitlePerfil" class="form-control form-control-sm margin-info-job" />
         </div>
       </div>
       <p id="info-title-perfil">
         Aparece abaixo do seu nome na parte superior do perfil
       </p>
-      <h2 class="dialog-content-subtitle">Competências</h2> 
+      <h2 class="dialog-content-subtitle">Competências</h2>
       <p class="dialog-content-info">
         Mais de 50% das empresas no SchoolRecords usam dados de competências para preencher suas vagas
       </p>
       <button class="dialog-button dialog-button-skills">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="25" 
-          height="25" 
-          fill="currentColor" 
-          class="bi bi-plus dialog-button-svg" 
-          viewBox="0 1 16 16"
-        >
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
         <span class="dialog-button-span">Adicione competências</span>
       </button>
@@ -191,15 +125,8 @@
         Adicione mídia como imagens, documentos, sites ou apresentações. Saiba mais sobre <a class="dialog-link-info">os tipos de arquivos de mídia compatíveis</a>
       </p>
       <button class="dialog-button dialog-button-media">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="25" 
-          height="25" 
-          fill="currentColor" 
-          class="bi bi-plus dialog-button-svg" 
-          viewBox="0 1 16 16"
-        >
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
         <span class="dialog-button-span">Adicionar mídia</span>
       </button>

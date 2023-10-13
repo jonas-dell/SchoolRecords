@@ -22,6 +22,8 @@ export class PerfilComponent implements OnInit {
     fileButtonContainer?.addEventListener('click', () => {
       file?.click();
     });
+
+  
   }
 
   file: File | null = null;
