@@ -60,6 +60,18 @@ namespace SRD.Infra.Mappings
             builder.Property(x => x.State)
                 .HasColumnName("state")
                 .HasColumnType("VARCHAR(10)");
+<<<<<<< HEAD
+=======
+
+
+            builder.Property(x => x.Number)
+                .HasColumnName("number")
+                .HasColumnType("INT");
+            
+            builder.Property(x => x.Foto)
+                .HasColumnName("foto")
+                .HasColumnType("TEXT");
+>>>>>>> 409cc6581ae59d667bc9305a9f57f70e6b415705
         }
     }
 }

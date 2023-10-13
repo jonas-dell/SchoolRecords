@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRD.Infra.Context;
 
@@ -11,9 +12,10 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231012004248_UpdateFoto")]
+    partial class UpdateFoto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,83 +23,6 @@ namespace SRD.Infra.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("SRD.Domain.Perfil.Entities.JobExperience", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("CheckboxJob")
-                        .HasColumnType("bit")
-                        .HasColumnName("CheckboxJob");
-
-                    b.Property<string>("CompanyLocation")
-                        .HasMaxLength(200)
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("CompanyLocation");
-
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("VARCHAR(255)")
-                        .HasColumnName("CompanyName");
-
-                    b.Property<string>("JobDescription")
-                        .HasColumnType("text")
-                        .HasColumnName("JobDescription");
-
-                    b.Property<string>("JobEndMonth")
-                        .HasMaxLength(25)
-                        .HasColumnType("VARCHAR(25)")
-                        .HasColumnName("JobEndMonth");
-
-                    b.Property<int>("JobEndYear")
-                        .HasColumnType("int")
-                        .HasColumnName("JobEndYear");
-
-                    b.Property<string>("JobSector")
-                        .HasMaxLength(100)
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("JobSector");
-
-                    b.Property<string>("JobStartMonth")
-                        .HasMaxLength(25)
-                        .HasColumnType("VARCHAR(25)")
-                        .HasColumnName("JobStartMonth");
-
-                    b.Property<int>("JobStartYear")
-                        .HasColumnType("int")
-                        .HasColumnName("JobStartYear");
-
-                    b.Property<string>("JobTitle")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("VARCHAR(255)")
-                        .HasColumnName("JobTitle");
-
-                    b.Property<string>("JobTitlePerfil")
-                        .HasMaxLength(50)
-                        .HasColumnType("VARCHAR(50)")
-                        .HasColumnName("JobTitlePerfil");
-
-                    b.Property<string>("JobType")
-                        .HasMaxLength(100)
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("JobType");
-
-                    b.Property<string>("TypeLocation")
-                        .HasMaxLength(200)
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("TypeLocation");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("JobExperiences", (string)null);
-                });
 
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.Perfil", b =>
                 {
@@ -109,24 +34,25 @@ namespace SRD.Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("City")
-                        .HasColumnType("VARCHAR(200)")
+                        .HasColumnType("VARCHAR(100)")
                         .HasColumnName("city");
-
-                    b.Property<string>("Complement")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("complement");
 
                     b.Property<string>("Country")
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("country");
 
+                    b.Property<string>("District")
+                        .HasColumnType("VARCHAR(100)")
+                        .HasColumnName("district");
+
                     b.Property<string>("Education")
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("education");
-                    
+
                     b.Property<string>("Foto")
-                  .HasColumnType("TEXT")
-                  .HasColumnName("foto");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("foto");
+
                     b.Property<int>("Number")
                         .HasColumnType("INT")
                         .HasColumnName("number");
@@ -142,10 +68,6 @@ namespace SRD.Infra.Migrations
                     b.Property<string>("Sector")
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("sector");
-
-                    b.Property<string>("State")
-                        .HasColumnType("VARCHAR(10)")
-                        .HasColumnName("state");
 
                     b.Property<string>("Street")
                         .HasColumnType("VARCHAR(200)")
@@ -176,26 +98,21 @@ namespace SRD.Infra.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("email");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("password");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("Role")
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("role");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("Token")
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("token");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100)")
-                        .HasColumnName("username");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("Id");
 

@@ -14,6 +14,7 @@ namespace SRD.API.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]/[action]")]
+   
     public class PerfilController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -38,6 +39,7 @@ namespace SRD.API.Controllers
             return Ok(result);
         }
 
+<<<<<<< HEAD
         [HttpPut]
         public async Task<IActionResult> UpdateJobExperience([FromBody] JobExperienceDTO jobExperienceDTO)
         {
@@ -45,6 +47,14 @@ namespace SRD.API.Controllers
 
             var result = await _mediator.Send(command);
 
+=======
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateFoto([FromBody] string foto)
+        {
+            var command = new PerfilFoto.Command() { Foto = foto };
+            var result = await _mediator.Send(command);
+>>>>>>> 409cc6581ae59d667bc9305a9f57f70e6b415705
             return Ok(result);
         }
     }
