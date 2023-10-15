@@ -14,8 +14,4 @@ export class FormPerfilService {
       data
     );
   }
-
-  
-
-
 }

@@ -68,6 +68,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   }
 
   populaDadosForm(dados) {
+   
     if (dados) {
       this.perfil.patchValue({
         street: dados.logradouro || '',
@@ -75,8 +76,6 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
         city: dados.localidade || '',
         state: dados.uf || ''
       });
-
-      
     }
   }
 
