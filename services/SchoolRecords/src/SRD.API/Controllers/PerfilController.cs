@@ -38,6 +38,13 @@ namespace SRD.API.Controllers
 
             return Ok(result);
         }
+        [HttpPut]
+        public async Task<IActionResult> UpdateFoto([FromBody] string foto)
+        {
+            var command = new PerfilFoto.Command() { Foto = foto };
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
 
 <<<<<<< HEAD
         [HttpPut]
