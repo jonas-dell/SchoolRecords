@@ -32,11 +32,12 @@
                 </div>
                 <p class="profile-name has-text-black-bis" name="userName" type="text" *ngIf="dados">
                   {{dados.perfilName}}
+                
                   <sup id="pronouns" class="subtitle is-7">(HE/Him)</sup>
                 </p>
                 <p class="profile-title">Title</p>
                 <p class="profile-location">
-                  São Paulo, São Paulo, Brazil<span class="separation">
+                  {{dados.city}}, {{dados.state}}, {{dados.country}}<span class="separation">
                     .
                   </span>
                   <a href="/">Contact info</a>
