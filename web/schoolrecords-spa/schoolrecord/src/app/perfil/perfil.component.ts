@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormPerfilComponent } from './form-perfil/form-perfil.component';
-import { PerfilService } from './perfil.service';
-import { ConsultaCepService } from './form-perfil/consulta-cep.service';
 import { NotificationService } from '../shared/services/notification.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { SafeResourceUrl } from '@angular/platform-browser';
+import { ConvertBase64 } from '../shared/services/perfil-data-utils.service';
+import { PerfilDataService } from '../shared/services/perfil-data.service';
 
 export class Perfil {
-  profilePic = '';
+ 
 }
 
 @Component({
@@ -25,9 +22,8 @@ export class PerfilComponent implements OnInit {
   constructor(
     private notificationService: NotificationService,
     public dialog: MatDialog,
-    private perfilService: PerfilService,
-    private formBuilder: FormBuilder,
-    private sanitizer: DomSanitizer
+    private perfilService: PerfilDataService,
+    private convertBase64: ConvertBase64,
     ){ }
      
 
@@ -39,15 +35,13 @@ export class PerfilComponent implements OnInit {
       file?.click();
     });
   }
-e
+
   getPerfilData(){
     const token = localStorage.getItem('token');
     this.perfilService.getPerfil().
     subscribe((dados) => {
-      console.log("DADOS RECEBIDOS DA API:", dados);
       this.dados = dados;
-      this.dados.foto = this.converterBase64ParaImagem(this.dados.foto);
-      console.log(this.dados.foto);
+      this.dados.foto = this.convertBase64.converterBase64ParaImagem(this.dados.foto);
     },
      (error) => {
       console.error("Erro ao buscar dados da API:", error);
@@ -65,23 +59,7 @@ e
   }
 
 
-  converterBase64ParaBlob(base64: string):Blob{
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    return new Blob([byteArray], { type: 'image/jpeg' }); 
-  }
-
-  converterBase64ParaImagem(base64String: string): SafeResourceUrl {
-    const imageBlob = this.converterBase64ParaBlob(base64String);
-    const imageUrl = URL.createObjectURL(imageBlob);
-    return this.sanitizer.bypassSecurityTrustResourceUrl(imageUrl);
-  }
   
-
   editarPerfilIntroduction() {
     let dialogRef = this.dialog.open(FormPerfilComponent, {
       height: '650px',

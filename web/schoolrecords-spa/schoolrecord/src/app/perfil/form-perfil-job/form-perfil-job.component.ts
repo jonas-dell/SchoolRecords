@@ -22,7 +22,7 @@ export class FormPerfilJobComponent extends BaseFormComponent implements OnInit 
     jobStartMonth: new FormControl('', [Validators.nullValidator]),
     jobStartYear: new FormControl('', [Validators.nullValidator]),
     jobEndMonth: new FormControl('', [Validators.nullValidator]),
-    jobEndYear: new FormControl('', [Validators.nullValidator]),
+    jobEndYear: new FormControl('Ano', [Validators.nullValidator]),
     jobSector: new FormControl('', [Validators.nullValidator]),
     jobDescription: new FormControl('', [Validators.nullValidator]),
     jobTitlePerfil: new FormControl('', [Validators.nullValidator])
