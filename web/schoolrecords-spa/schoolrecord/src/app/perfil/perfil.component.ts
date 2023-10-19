@@ -4,6 +4,7 @@ import { FormPerfilComponent } from './form-perfil/form-perfil.component';
 import { NotificationService } from '../shared/services/notification.service';
 import { ConvertBase64 } from '../shared/services/perfil-data-utils.service';
 import { PerfilDataService } from '../shared/services/perfil-data.service';
+import { CoverPhotoComponent } from './cover-photo/cover-photo.component';
 
 export class Perfil {
  
@@ -72,6 +73,19 @@ export class PerfilComponent implements OnInit {
       },
     });
   }
+
+  editarPerfilCoverPhoto() {
+    let dialogRef = this.dialog.open(CoverPhotoComponent, {
+      height: '400px',
+      width: '750px',
+      data: {
+        user: {
+
+        },
+      },
+    });
+  }
+
 }
 
 

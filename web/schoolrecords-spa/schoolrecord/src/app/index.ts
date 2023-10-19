@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { BaseFormComponent } from './shared/base-form/base-form.component';
 import { BotaoComponent } from './shared/botao/botao.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { CoverPhotoComponent } from './perfil/cover-photo/cover-photo.component';
 
 export class Index {
   static getComponents() {
@@ -52,7 +53,8 @@ export class Index {
       FormPerfilComponent,
       FormPerfilEducationComponent,
       FormPerfilJobComponent,
-      FormPerfilContactComponent
+      FormPerfilContactComponent,
+      CoverPhotoComponent
     ];
   }
 }
