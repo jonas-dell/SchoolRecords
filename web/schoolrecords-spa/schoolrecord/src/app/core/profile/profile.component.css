@@ -9,12 +9,12 @@
   padding: 20px;
 }
 
-.profile-header > p {
+.profile-header>p {
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
   color: #fff;
 }
 
-.profile-header > img {
+.profile-header>img {
   width: 15px;
   height: 15px;
 }
@@ -38,6 +38,11 @@
   border: 13px solid #fff;
   border-radius: 50%;
   cursor: pointer;
+  background-image: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-color: darkgray;
+  background-position: center;
+  background-size: 85%;
 }
 
 .profile-name {

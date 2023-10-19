@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRD.Infra.Context;
 
@@ -10,9 +11,10 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231018090700_RelacionamentoJobEPerfil")]
+    partial class RelacionamentoJobEPerfil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,8 +53,8 @@ namespace SRD.Infra.Migrations
                         .HasColumnType("VARCHAR(25)")
                         .HasColumnName("JobEndMonth");
 
-                    b.Property<string>("JobEndYear")
-                        .HasColumnType("VARCHAR(50)")
+                    b.Property<int>("JobEndYear")
+                        .HasColumnType("int")
                         .HasColumnName("JobEndYear");
 
                     b.Property<string>("JobSector")
@@ -65,8 +67,8 @@ namespace SRD.Infra.Migrations
                         .HasColumnType("VARCHAR(25)")
                         .HasColumnName("JobStartMonth");
 
-                    b.Property<string>("JobStartYear")
-                        .HasColumnType("VARCHAR(50)")
+                    b.Property<int>("JobStartYear")
+                        .HasColumnType("int")
                         .HasColumnName("JobStartYear");
 
                     b.Property<string>("JobTitle")

@@ -22,17 +22,20 @@ namespace SRD.Application.Perfil.UseCases
             private readonly IMapper _mapper;
             private readonly IPerfilRepository _perfilRepository;
             private readonly IHttpContextAccessor _httpContextAccessor;
+            private readonly IJobExperienceRepository _jobExperienceRepository;
 
-            public CommandHandler(IPerfilRepository perfilRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+            public CommandHandler(IPerfilRepository perfilRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor, IJobExperienceRepository jobExperienceRepository)
             {
                 _perfilRepository = perfilRepository;
                 _mapper = mapper;
                 _httpContextAccessor = httpContextAccessor;
+                _jobExperienceRepository = jobExperienceRepository;
             }
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 var idClaim =  _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                
 
                 if (idClaim != null)
                 {
@@ -40,10 +43,18 @@ namespace SRD.Application.Perfil.UseCases
                     
                     var perfil = _perfilRepository.GetById(userId);
 
-                    if(perfil == null)
+                    if (perfil == null)
                         RequestResponse.ErrorResponse("Perfil não cadastrado");
                     else
                     {
+                       var job = _jobExperienceRepository.GetJobExperienceFkByPerfilId(userId);
+
+                        
+                        if (perfil.JobExperience == null && perfil.UserId != job) 
+                        {
+                            perfil.JobExperience = new Domain.Perfil.Entities.JobExperience();
+                        }
+
                         var perfilToUpdate = _mapper.Map(request.PerfilDTO,perfil);
 
                         _perfilRepository.Update(perfilToUpdate);

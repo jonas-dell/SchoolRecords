@@ -22,8 +22,8 @@
   display: none;
 }
 
-.opacity-job-false {
-  opacity: 1 !important;
+.opacity-job-true {
+  opacity: 0 !important;
   pointer-events: all !important;
 }
 

@@ -48,7 +48,7 @@ namespace SRD.API.Controllers
         {
             if (image == null)
             {
-                return BadRequest("A IMAGEM NULA OTÁRIO!!!");
+                return BadRequest("Imagem não atualizada");
             }
 
             // Lê os bytes da imagem

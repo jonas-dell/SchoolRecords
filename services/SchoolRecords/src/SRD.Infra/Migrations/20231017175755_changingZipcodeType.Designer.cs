@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRD.Infra.Context;
 
@@ -10,9 +11,10 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231017175755_changingZipcodeType")]
+    partial class changingZipcodeType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,15 +37,18 @@ namespace SRD.Infra.Migrations
                         .HasColumnName("CheckboxJob");
 
                     b.Property<string>("CompanyLocation")
+                        .HasMaxLength(200)
                         .HasColumnType("VARCHAR(200)")
                         .HasColumnName("CompanyLocation");
 
                     b.Property<string>("CompanyName")
-                        .HasColumnType("VARCHAR(200)")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR(255)")
                         .HasColumnName("CompanyName");
 
                     b.Property<string>("JobDescription")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("JobDescription");
 
                     b.Property<string>("JobEndMonth")
@@ -51,8 +56,8 @@ namespace SRD.Infra.Migrations
                         .HasColumnType("VARCHAR(25)")
                         .HasColumnName("JobEndMonth");
 
-                    b.Property<string>("JobEndYear")
-                        .HasColumnType("VARCHAR(50)")
+                    b.Property<int>("JobEndYear")
+                        .HasColumnType("int")
                         .HasColumnName("JobEndYear");
 
                     b.Property<string>("JobSector")
@@ -65,33 +70,32 @@ namespace SRD.Infra.Migrations
                         .HasColumnType("VARCHAR(25)")
                         .HasColumnName("JobStartMonth");
 
-                    b.Property<string>("JobStartYear")
-                        .HasColumnType("VARCHAR(50)")
+                    b.Property<int>("JobStartYear")
+                        .HasColumnType("int")
                         .HasColumnName("JobStartYear");
 
                     b.Property<string>("JobTitle")
-                        .HasColumnType("VARCHAR(200)")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR(255)")
                         .HasColumnName("JobTitle");
 
                     b.Property<string>("JobTitlePerfil")
-                        .HasColumnType("VARCHAR(400)")
+                        .HasMaxLength(50)
+                        .HasColumnType("VARCHAR(50)")
                         .HasColumnName("JobTitlePerfil");
 
                     b.Property<string>("JobType")
-                        .HasColumnType("VARCHAR(200)")
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR(100)")
                         .HasColumnName("JobType");
 
-                    b.Property<int>("PerfilId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TypeLocation")
+                        .HasMaxLength(200)
                         .HasColumnType("VARCHAR(200)")
                         .HasColumnName("TypeLocation");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PerfilId")
-                        .IsUnique();
 
                     b.ToTable("JobExperiences", (string)null);
                 });
@@ -219,17 +223,6 @@ namespace SRD.Infra.Migrations
                     b.ToTable("UserContact", (string)null);
                 });
 
-            modelBuilder.Entity("SRD.Domain.Perfil.Entities.JobExperience", b =>
-                {
-                    b.HasOne("SRD.Domain.Perfil.Entities.Perfil", "Perfil")
-                        .WithOne("JobExperience")
-                        .HasForeignKey("SRD.Domain.Perfil.Entities.JobExperience", "PerfilId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Perfil");
-                });
-
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.Perfil", b =>
                 {
                     b.HasOne("SRD.Domain.User.Entities.User", "User")
@@ -258,11 +251,6 @@ namespace SRD.Infra.Migrations
                     b.Navigation("Contact");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("SRD.Domain.Perfil.Entities.Perfil", b =>
-                {
-                    b.Navigation("JobExperience");
                 });
 
             modelBuilder.Entity("SRD.Domain.User.Entities.User", b =>

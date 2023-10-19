@@ -4,6 +4,8 @@ import { FormPerfilComponent } from './form-perfil/form-perfil.component';
 import { NotificationService } from '../shared/services/notification.service';
 import { ConvertBase64 } from '../shared/services/perfil-data-utils.service';
 import { PerfilDataService } from '../shared/services/perfil-data.service';
+import { FormPerfilService } from './form-perfil/form-perfil.service';
+import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service';
 
 export class Perfil {
  
@@ -16,6 +18,7 @@ export class Perfil {
 })
 export class PerfilComponent implements OnInit {
   dados: any;
+  formJob: any;
   perfil = new Perfil(); 
   file: File | null = null;
 
@@ -23,12 +26,14 @@ export class PerfilComponent implements OnInit {
     private notificationService: NotificationService,
     public dialog: MatDialog,
     private perfilService: PerfilDataService,
+    private formPerfilJobService: FormPerfilJobService,
     private convertBase64: ConvertBase64,
     ){ }
      
 
   ngOnInit(): void {
     this.getPerfilData();
+    this.getJobExperience();
     let fileButtonContainer = document.getElementById('button-file-container');
     let file = document.getElementById('file-img-input');
     fileButtonContainer?.addEventListener('click', () => {
@@ -48,6 +53,20 @@ export class PerfilComponent implements OnInit {
       }
     );
   }
+
+  getJobExperience(){
+    this.formPerfilJobService.getJobExperience().
+      subscribe((data) => {
+        console.log(data);
+        this.formJob = data;
+      },
+      (error) => {
+        console.error("Erro ao buscar dados da api:", error);
+        }
+      );
+  }
+
+  
 
   fileChanged(event: any) {
     const selectedFile = event.target.files[0];

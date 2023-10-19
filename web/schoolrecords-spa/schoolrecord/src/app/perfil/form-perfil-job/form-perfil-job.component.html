@@ -12,41 +12,43 @@
     <form class="form-perfil-job" [formGroup]="formulario">
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Título*</label>
-          <input type="text" placeholder="Ex: Gerente de vendas de varejo" formControlName="jobTitle" class="form-control form-control-sm" />
+          <label for="titulo">Título*</label>
+          <input id="titulo" type="text" placeholder="Ex: Gerente de vendas de varejo" formControlName="jobTitle" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Tipo de emprego</label>
+          <label>Tipo de emprego</label>
           <select formControlName="jobType" class="form-control form-control-sm">
-            <option selected>Selecione</option>
+            <option *ngFor="let tipoEmprego of tipoDeEmprego">{{ tipoEmprego }}</option>
           </select>
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Nome da empresa*</label>
-          <input type="text" placeholder="Ex.: Microsoft" formControlName="companyName" class="form-control form-control-sm" />
+          <label for="companyName">Nome da empresa*</label>
+          <input id="companyName" type="text" placeholder="Ex.: Microsoft" formControlName="companyName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Localidade</label>
-          <input type="text" placeholder="Ex: Rio de Janeiro" formControlName="companyLocation" class="form-control form-control-sm" />
+          <label for="localidade">Localidade</label>
+          <input id="localidade" type="text" placeholder="Ex: Rio de Janeiro" formControlName="companyLocation" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group margin-info-job">
         <div class="col-12">
-          <label for="">Tipo de localidade</label>
-          <select formControlName="typeLocation" class="form-control form-control-sm margin-info-job">
-            <option selected>Selecione</option>
+          <label>Tipo de localidade</label>
+          <select formControlName="typeLocation" class="form-control form-control-sm ">
+            <option *ngFor="let tipoLocal of tipoDeLocais">{{ tipoLocal }}</option>
           </select>
         </div>
       </div>
       <p class="info-job">
         Selecionar tipo de localidade (ex: remota)
       </p>
+
+
       <div class="row form-group">
         <div class="col-12">
           <label class="container-checkbox">Trabalho atualmente neste cargo
@@ -59,35 +61,34 @@
         <div class="col-md-6">
           <label for="">Início*</label>
           <select formControlName="jobStartMonth" class="form-control form-control-sm">
-            <option selected>Mês</option>
+            <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
         </div>
         <div class="col-md-6 dialog-content-date">
           <select formControlName="jobStartYear" class="form-control form-control-sm">
-            <option value="Ano" pleaceholder="Ano" selected></option>
-            <option *ngFor="let ano of anos" [value]="ano">{{ ano }}</option>
+            <option *ngFor="let ano of anos">{{ ano }}</option>
           </select>
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-md-6">
+        <div class="col-md-6" id="opacity-month">
           <label for="">Término*</label>
-          <select formControlName="jobEndMonth" class="form-control form-control-sm opacity-job" id="opacity-month">
-            <option selected>Mês</option>
+          <select formControlName="jobEndMonth" class="form-control form-control-sm">
+            <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
         </div>
         <div class="col-md-6 dialog-content-date">
-          <select formControlName="jobEndYear" class="form-control form-control-sm opacity-job" id="opacity-year">
-            <option value="Ano" selected></option>
-            <option *ngFor="let ano of anos" [value]="ano">{{ ano }}</option>
+          <select formControlName="jobEndYear" class="form-control form-control-sm" id="opacity-year">
+            <option *ngFor="let ano of anos">{{ ano }}</option>
           </select>
         </div>
       </div>
+
       <div id="hide-container">
         <div class="row form-group margin-info-job">
           <div class="col-12">
-            <label for="">Setor*</label>
+            <label>Setor*</label>
             <input type="text" placeholder="Ex: varejo" formControlName="jobSector" class="form-control form-control-sm margin-info-job" />
           </div>
         </div>
@@ -95,16 +96,19 @@
           O SchoolRecords utiliza informações do setor para oferecer recomendações mais relevantes
         </p>
       </div>
+
+
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="">Descrição</label>
-          <textarea formControlName="jobDescription" rows="3" class="form-control form-control-sm"></textarea>
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" rows="3" formControlName="jobDescription" class="form-control form-control-sm"></textarea>
         </div>
       </div>
+
       <div class="row form-group margin-info-job">
         <div class="col-12">
-          <label for="">Título do perfil</label>
-          <input type="text" placeholder="--" formControlName="jobTitlePerfil" class="form-control form-control-sm margin-info-job" />
+          <label for="jobTitlePerfil">Título do perfil</label>
+          <input id="jobTitlePerfil" type="text" formControlName="jobTitlePerfil" placeholder="headline" class="form-control form-control-sm margin-info-job" />
         </div>
       </div>
       <p id="info-title-perfil">

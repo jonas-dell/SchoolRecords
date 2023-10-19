@@ -8,13 +8,11 @@ namespace SRD.Infra.Perfil.Repositories
     public class PerfilRepository : IPerfilRepository
     {
         private readonly DataContext _context;
-
         public PerfilRepository(DataContext dataContext)
         {
             _context = dataContext;
         }
         public IUnitOfWork UnitOfWork => _context;
-
         public void Insert(Domain.Perfil.Entities.Perfil perfil)
         {
             _context.Perfis.Add(perfil);
@@ -27,12 +25,10 @@ namespace SRD.Infra.Perfil.Repositories
         {
             return _context.Perfis.ToList();
         }
-
         public void Dispose()
         {
             _context.Dispose();
         }
-
         public Domain.Perfil.Entities.Perfil? GetById(int id)
         {
             return _context.Perfis.Where(p => p.UserId == id).First();
@@ -41,7 +37,6 @@ namespace SRD.Infra.Perfil.Repositories
         {
             return _context.Perfis.Where(x => x.PerfilName == perfilName).FirstOrDefault();
         }
-
         public void UpdateFoto(int id , string foto)
         {
             var perfil = _context.Perfis.Where(p => p.UserId == id).First();

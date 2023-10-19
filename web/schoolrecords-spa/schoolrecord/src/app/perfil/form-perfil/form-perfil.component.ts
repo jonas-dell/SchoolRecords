@@ -9,6 +9,7 @@ import { ConsultaCepService } from './consulta-cep.service';
 import { FormPerfilService } from './form-perfil.service';
 import { FormPerfilContactComponent } from '../form-perfil-contact/form-perfil-contact.component';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { PerfilService } from '../perfil.service';
 
 @Component({
   selector: 'form-perfil',
@@ -19,7 +20,6 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
   ],
 })
 export class FormPerfilComponent extends BaseFormComponent implements OnInit {
-
   perfil = new FormGroup({
     perfilName: new FormControl('',[Validators.nullValidator]),
     perfilLastName: new FormControl('',[Validators.nullValidator]),
@@ -37,6 +37,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
+    private perfilService: PerfilService,
     private cepService: ConsultaCepService,
     private formPerfilService: FormPerfilService,  
     public dialog: MatDialog,
@@ -47,8 +48,21 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Dado que chegou da outra tela', this.data);
     const token = localStorage.getItem('token');
+    this.ConsultaPerfil();
+  }
+  save() {
+    this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
+      this.notificationService.success('Perfil salvo com sucesso!');
+      this.closeDialog();
+    });
+  }
+
+  ConsultaPerfil(){
+    this.perfilService.getPerfil()
+      .subscribe((dados) => {
+        this.populaDadosForm(dados);
+      }); 
   }
 
   consultaCep() {
@@ -56,10 +70,8 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     if (cep != null && cep !== '') {
       this.cepService.consultaCep(cep).
         subscribe((dados) => {
-        this.populaDadosForm(dados);
-
+        this.populaDadosCep(dados);
         const numberInput = document.getElementById('number') as HTMLInputElement;
-
         if (numberInput) {
           numberInput.focus();
         }
@@ -67,8 +79,26 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     }
   }
 
-  populaDadosForm(dados) {
-   
+  populaDadosForm(dados){
+    if(dados){
+      this.perfil.patchValue({
+        perfilName: dados.perfilName || '',
+        perfilLastName: dados.perfilLastName || '',
+        sector: dados.sector || '',
+        education: dados.education || '',
+        country: dados.country || '',
+        zipCode: dados.zipCode || '',
+        street: dados.street || '',
+        number: dados.number || '',
+        complement: dados.complement || '',
+        neighborhood: dados.neighborhood || '',
+        city: dados.city || '',
+        state: dados.state || '',
+      });
+    }
+  }
+
+  populaDadosCep(dados) {
     if (dados) {
       this.perfil.patchValue({
         street: dados.logradouro || '',
@@ -79,11 +109,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     }
   }
 
-  save() {
-    this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
-      this.notificationService.success('Perfil salvo com sucesso!');
-    });
-  }
+ 
 
   editarPerfilEducation() {
     let dialogRef = this.dialog.open(FormPerfilEducationComponent, {

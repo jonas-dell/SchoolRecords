@@ -4,12 +4,10 @@
     <img src="../../../assets/img/config.svg" alt="Config" />
   </div>
   <div class="profile-content">
-    <div class="img-container">
-      <img
-        routerLink="/personalData"
-        [src]="dados?.foto" 
-        alt="Config"
-      />
+    <div class="upload-circle">
+      <div class="img-container ">
+        <img routerLink="/personalData" [src]="dados?.foto" />
+      </div>
     </div>
     <p class="profile-name">{{dados?.perfilName}}</p>
     <p class="role">Admin</p>

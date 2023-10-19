@@ -19,25 +19,23 @@ namespace SRD.Infra.Mappings
 
             builder.Property(x => x.JobTitle)
                 .HasColumnName("JobTitle")
-                .HasMaxLength(255)
-                .IsRequired();
+                .HasColumnType("VARCHAR(200)");
 
             builder.Property(x => x.JobType)
                 .HasColumnName("JobType")
-                .HasMaxLength(100);
+                .HasColumnType("VARCHAR(200)");
 
             builder.Property(x => x.CompanyName)
                 .HasColumnName("CompanyName")
-                .HasMaxLength(255) 
-                .IsRequired();
+                .HasColumnType("VARCHAR(200)");
 
             builder.Property(x => x.CompanyLocation)
                 .HasColumnName("CompanyLocation")
-                .HasMaxLength(200); 
+                .HasColumnType("VARCHAR(200)"); 
 
             builder.Property(x => x.TypeLocation)
                 .HasColumnName("TypeLocation")
-                .HasMaxLength(200);
+                .HasColumnType("VARCHAR(200)");
 
             builder.Property(x => x.CheckboxJob)
                 .HasColumnName("CheckboxJob");
@@ -47,6 +45,7 @@ namespace SRD.Infra.Mappings
                 .HasMaxLength(25);
 
             builder.Property(x => x.JobStartYear)
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnName("JobStartYear");
 
             builder.Property(x => x.JobEndMonth)
@@ -54,6 +53,7 @@ namespace SRD.Infra.Mappings
                 .HasMaxLength(25); 
 
             builder.Property(x => x.JobEndYear)
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnName("JobEndYear");
 
             builder.Property(x => x.JobSector)
@@ -62,11 +62,11 @@ namespace SRD.Infra.Mappings
 
             builder.Property(x => x.JobDescription)
                 .HasColumnName("JobDescription")
-                .HasColumnType("text"); 
+                .HasColumnType("TEXT"); 
 
             builder.Property(x => x.JobTitlePerfil)
                 .HasColumnName("JobTitlePerfil")
-                .HasMaxLength(50);
+                .HasColumnType("VARCHAR(400)");
         }
     }
 }

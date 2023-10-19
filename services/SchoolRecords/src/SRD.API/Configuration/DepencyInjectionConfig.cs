@@ -16,7 +16,7 @@ namespace SRD.API.Configuration
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPerfilRepository, PerfilRepository>();
-            services.AddScoped<IJobExperience, JobExperience>();
+            services.AddScoped<IJobExperienceRepository, JobExperienceRepository>();
             services.AddScoped<DataContext>();
             services.AddScoped<ConsultaCepService>();
         }

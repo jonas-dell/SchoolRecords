@@ -17,7 +17,6 @@ export class PerfilService {
     uploadImage(image: File) {
       const formData = new FormData();
       formData.append('image', image);
-    
       return this.http.post<RequestResponse>(
         `${this.configService.config.apiUrl}/api/Perfil/UpdateFoto`,
         formData
@@ -27,6 +26,6 @@ export class PerfilService {
     getPerfil(){
       return this.http.get<RequestResponse>(
         `${this.configService.config.apiUrl}/api/Perfil/GetUserPerfil`
-      )
+      );
     }
 }

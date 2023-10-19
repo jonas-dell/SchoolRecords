@@ -21,7 +21,7 @@ namespace SRD.API.Controllers
 
         [HttpGet("{cep}")]
         public async Task<ActionResult> ConsultaCep(string cep)
-            {
+        {
             if (string.IsNullOrEmpty(cep))
             {
                 return BadRequest("CEP inválido");

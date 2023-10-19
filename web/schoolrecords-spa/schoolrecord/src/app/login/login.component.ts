@@ -73,7 +73,6 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(user).subscribe(
       (response: any) => {
-        console.log(response.data.token);
         if (response && response.data.token) {
           // Salve o token JWT no localStorage 
           localStorage.setItem('token', response.data.token);

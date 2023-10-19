@@ -35,7 +35,7 @@ namespace SRD.Infra.Mappings
 
             builder.Property(x => x.ZipCode)
                 .HasColumnName("zipCode")
-                .HasColumnType("INT");
+                .HasColumnType("VARCHAR(12)");
 
             builder.Property(x => x.Street)
                 .HasColumnName("street")
@@ -51,7 +51,7 @@ namespace SRD.Infra.Mappings
 
             builder.Property(x => x.Neighborhood)
                 .HasColumnName("neighborhood")
-                .HasColumnType("VARCHAR(400)");
+                .HasColumnType("VARCHAR(300)");
 
             builder.Property(x => x.City)
                 .HasColumnName("city")
@@ -69,6 +69,9 @@ namespace SRD.Infra.Mappings
                 .HasColumnName("foto")
                 .HasColumnType("TEXT");
 
+            builder.HasOne(x => x.JobExperience)
+                .WithOne(p => p.Perfil)
+                .HasForeignKey<Domain.Perfil.Entities.JobExperience>(x => x.PerfilId);
         }
     }
 }

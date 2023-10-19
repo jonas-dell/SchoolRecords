@@ -5,6 +5,7 @@ using SRD.Core.Commands;
 using SRD.Core.Responses;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
+using System.Security.Claims;
 
 namespace SRD.Application.JobExperience.UseCases
 {
@@ -18,19 +19,38 @@ namespace SRD.Application.JobExperience.UseCases
         public class CommandHandler : BaseCommandHandler, IRequestHandler<Command, IRequestResponse>
         {
             private readonly IMapper _mapper;
-            private readonly IPerfilRepository _perfilRepository;
+            private readonly IJobExperienceRepository _jobExperienceRepository;
             private readonly IHttpContextAccessor _httpContextAccessor;
 
-            public CommandHandler(IPerfilRepository perfilRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor)
-            {
-                _perfilRepository = perfilRepository;
+            public CommandHandler(IJobExperienceRepository jobExperienceRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+            {   
+                _jobExperienceRepository = jobExperienceRepository;
                 _mapper = mapper;
                 _httpContextAccessor = httpContextAccessor;
             }
 
-            public Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                throw new NotImplementedException();
+
+                var idClaim = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+
+                if (idClaim != null)
+                {
+                    int jobId = int.Parse(idClaim.Value);
+
+                    var job = _jobExperienceRepository.GetJobExperienceById(jobId);
+
+                    if(job == null)
+                        RequestResponse.ErrorResponse("Trabalho não encontrado");
+                    else
+                    {
+                        var jobToUpdate = _mapper.Map(request.JobExperienceDTO,job);
+                        _jobExperienceRepository.Update(jobToUpdate);
+                    }
+                }
+
+                return await SaveData(_jobExperienceRepository.UnitOfWork);
+
             }
         }
     }

@@ -25,17 +25,17 @@
                   <div class="photo-item">
                     <div class="upload-circle">
                       <input type="file" (change)="fileChanged($event)" id="file-upload" class="file-upload-button">
-                      <img [src]="dados?.foto" alt="Imagem do perfil" />
+                      <img [src]="dados?.foto" />
                       <i class="fas fa-plus"></i>
                     </div>
                   </div>
                 </div>
                 <p class="profile-name has-text-black-bis" name="userName" type="text" *ngIf="dados">
                   {{dados.perfilName}}
-                
+
                   <sup id="pronouns" class="subtitle is-7">(HE/Him)</sup>
                 </p>
-                <p class="profile-title">Title</p>
+                <p class="profile-title">{{formJob?.jobTitlePerfil}}</p>
                 <p class="profile-location">
                   {{dados?.city}}, {{dados?.state}}, {{dados?.country}}<span class="separation">
                     .
