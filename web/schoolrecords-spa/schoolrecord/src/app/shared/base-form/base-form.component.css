@@ -276,6 +276,7 @@
   width: 80px;
   height: 30px;
   color: white;
+  outline: none;
   border: none;
   border-radius: 50px;
   padding-top: 5px;
