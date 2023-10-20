@@ -27,7 +27,7 @@
 .cover-image {
   width: 100%;
   height: 200px;
-  background-image: url("../../assets/img/coca.jpg");
+  background-image: url("../../assets/img/coverPhoto.png");
   background-size: cover;
   background-position: center;
   border-top-left-radius: 10px;
@@ -35,11 +35,12 @@
 }
 
 .edit-cover {
+  position: relative;
   background-color: #fff;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  margin-top: 1vh;
+  margin-top: -26vh;
   margin-right: 0.5vw;
 }
 

@@ -15,9 +15,11 @@
     </span>
   </div>
   <div class="dialog-content">
-    
+    <img class="cover-image" src="../../../assets/img/coverPhoto.png" alt="Imagem de capa" />
   </div>
   <div class="dialog-footer">
+    <label for="photo" class="btn-photo">Carregar foto</label>
+    <input type="file" name="photo" id="photo" (change)="fileChanged($event)">
     <button class="dialog-success" (click)="save()">Salvar</button>
     <button class="dialog-cancel" (click)="closeDialog()">Cancelar</button>
   </div>

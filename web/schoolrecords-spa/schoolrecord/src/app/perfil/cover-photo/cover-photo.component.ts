@@ -26,4 +26,8 @@ export class CoverPhotoComponent extends BaseFormComponent implements OnInit {
     alert('Salvar alguma coisa');
   }
 
+  fileChanged(event: any) {
+    alert("Funcionou")
+  }
+
 }

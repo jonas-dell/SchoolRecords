@@ -146,6 +146,7 @@
 
 .dialog-button {
   display: inline-block;
+  outline: none;
   height: 35px;
   padding: 4px 15px 0px 10px;
   border-radius: 20px;
