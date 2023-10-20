@@ -19,5 +19,6 @@
         public int UserId { get; set; }
         public User.Entities.User? User { get; set; }
         public virtual JobExperience? JobExperience { get; set; }
+        public virtual AcademicEducation? AcademicEducation { get; set; }
     }
 }

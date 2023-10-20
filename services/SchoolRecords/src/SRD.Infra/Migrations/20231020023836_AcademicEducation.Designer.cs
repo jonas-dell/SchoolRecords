@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRD.Infra.Context;
 
@@ -10,9 +11,10 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231020023836_AcademicEducation")]
+    partial class AcademicEducation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,8 +79,7 @@ namespace SRD.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PerfilId")
-                        .IsUnique();
+                    b.HasIndex("PerfilId");
 
                     b.ToTable("AcademicEducation", (string)null);
                 });
@@ -284,8 +285,8 @@ namespace SRD.Infra.Migrations
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.AcademicEducation", b =>
                 {
                     b.HasOne("SRD.Domain.Perfil.Entities.Perfil", "Perfil")
-                        .WithOne("AcademicEducation")
-                        .HasForeignKey("SRD.Domain.Perfil.Entities.AcademicEducation", "PerfilId")
+                        .WithMany()
+                        .HasForeignKey("PerfilId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -335,8 +336,6 @@ namespace SRD.Infra.Migrations
 
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.Perfil", b =>
                 {
-                    b.Navigation("AcademicEducation");
-
                     b.Navigation("JobExperience");
                 });
 

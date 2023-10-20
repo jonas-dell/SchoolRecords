@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { User } from 'src/app/shared/models/user';
 import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';

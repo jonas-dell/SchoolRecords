@@ -64,7 +64,7 @@ namespace SRD.Infra.Mappings
             builder.Property(x => x.Number)
                 .HasColumnName("number")
                 .HasColumnType("INT");
-            
+
             builder.Property(x => x.Foto)
                 .HasColumnName("foto")
                 .HasColumnType("TEXT");
@@ -72,6 +72,10 @@ namespace SRD.Infra.Mappings
             builder.HasOne(x => x.JobExperience)
                 .WithOne(p => p.Perfil)
                 .HasForeignKey<Domain.Perfil.Entities.JobExperience>(x => x.PerfilId);
+            
+            builder.HasOne(x => x.AcademicEducation)
+             .WithOne(p => p.Perfil)
+             .HasForeignKey<Domain.Perfil.Entities.AcademicEducation>(x => x.PerfilId);
         }
     }
 }
