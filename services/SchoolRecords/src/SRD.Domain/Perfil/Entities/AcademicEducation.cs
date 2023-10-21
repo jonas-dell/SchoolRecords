@@ -23,3 +23,4 @@ namespace SRD.Domain.Perfil.Entities
         public Perfil? Perfil { get; set; }
     }
 }
+

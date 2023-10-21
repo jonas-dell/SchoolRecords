@@ -7,7 +7,7 @@ using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
 using System.Security.Claims;
 
-namespace SRD.Application.JobExperience.UseCases
+namespace SRD.Application.AcademicEducation.UseCases
 {
     public class AcademicEducation
     {

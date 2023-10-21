@@ -30,7 +30,7 @@ namespace SRD.API.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateAcademicEducation([FromBody] AcademicEducationDTO academicEducation)
         {
-            var command = new Application.JobExperience.UseCases.AcademicEducation.Command() 
+            var command = new Application.AcademicEducation.UseCases.AcademicEducation.Command() 
             { 
                 AcademicEducationDTO = academicEducation 
             };

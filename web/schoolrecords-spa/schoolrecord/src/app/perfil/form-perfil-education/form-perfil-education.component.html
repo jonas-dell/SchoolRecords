@@ -16,15 +16,12 @@
   </div>
   <div class="dialog-content">
     <p class="dialog-content-required">* Indica item obrigatório</p>
-    <form class="form-perfil-education">
+    <form class="form-perfil-education" [formGroup]="formulario">
       <div class="row form-group">
         <div class="col-12">
           <label for="">Instituição de ensino*</label>
-          <input 
-            type="text" 
-            placeholder="Ex.: Fundação Getúlio Vargas" formControlName="educationInstitution" 
-            class="form-control form-control-sm"
-          />
+          <input id="titulo" type="text" placeholder="Ex.: Fundação Getúlio Vargas" 
+          formControlName="title" class="form-control form-control-sm" /> 
         </div>
       </div>
       <div class="row form-group">
@@ -33,7 +30,7 @@
           <input 
             type="text" 
             placeholder="Ex.: Bacharelado" 
-            formControlName="educationType" 
+            formControlName="academicType" 
             class="form-control form-control-sm"
           />
         </div>
@@ -44,7 +41,7 @@
           <input 
             type="text" 
             placeholder="Ex.: Administração" 
-            formControlName="educationCourse" 
+            formControlName="studyArea" 
             class="form-control form-control-sm"
           />
         </div>
@@ -53,18 +50,18 @@
         <div class="col-md-6">
           <label for="">Data de início</label>
           <select  
-            formControlName="educationStartMonth"
+            formControlName="studyStartMonth"
             class="form-control form-control-sm"
           >
-            <option selected>Mês</option>
+          <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
         </div>
         <div class="col-md-6 dialog-content-date">
           <select 
-            formControlName="educationStartYear"
+            formControlName="studyStartYear"
             class="form-control form-control-sm" 
           >
-            <option selected>Ano</option>
+          <option *ngFor="let ano of anos">{{ ano }}</option>
           </select>  
         </div>
       </div>
@@ -72,18 +69,18 @@
         <div class="col-md-6">
           <label for="">Data de término (ou prevista)</label>
           <select  
-            formControlName="educationEndMonth"
+            formControlName="studyEndMonth"
             class="form-control form-control-sm"
           >
-            <option selected>Mês</option>
+          <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
         </div>
         <div class="col-md-6 dialog-content-date">
           <select 
-            formControlName="educationEndYear"
+            formControlName="studyEndYear"
             class="form-control form-control-sm" 
           >
-            <option selected>Ano</option>
+          <option *ngFor="let ano of anos">{{ ano }}</option>
           </select>  
         </div>
       </div>
@@ -92,7 +89,7 @@
           <label for="">Nota</label>
           <input 
             type="text" 
-            formControlName="educationNote" 
+            formControlName="note" 
             class="form-control form-control-sm"
           />
         </div>
@@ -102,7 +99,7 @@
           <label for="">Atividades e grupos</label>
           <textarea 
             placeholder="Ex.: teatro, dança, vôlei" 
-            formControlName="educationActivities" 
+            formControlName="activitiesGroups" 
             rows="3" 
             class="form-control form-control-sm"
           ></textarea>
@@ -112,7 +109,7 @@
         <div class="col-md-12">
           <label for="">Descrição</label>
           <textarea
-            formControlName="educationDescription" 
+            formControlName="description" 
             rows="3" 
             class="form-control form-control-sm"
           ></textarea>

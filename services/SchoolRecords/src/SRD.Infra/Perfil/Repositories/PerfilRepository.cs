@@ -29,6 +29,7 @@ namespace SRD.Infra.Perfil.Repositories
         {
             _context.Dispose();
         }
+
         public Domain.Perfil.Entities.Perfil? GetById(int id)
         {
             return _context.Perfis.Where(p => p.UserId == id).First();
@@ -42,7 +43,6 @@ namespace SRD.Infra.Perfil.Repositories
             var perfil = _context.Perfis.Where(p => p.UserId == id).First();
             perfil.Foto = foto;
             _context.Perfis.Update(perfil);
-    
         }
     }
 }
