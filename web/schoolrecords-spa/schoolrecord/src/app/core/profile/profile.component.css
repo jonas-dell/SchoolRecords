@@ -77,16 +77,8 @@
   cursor: pointer;
 }
 
-.actions li:nth-of-type(2) {
+.actions li:nth-of-type(1) {
   background: #7f408e;
-}
-
-.clock {
-  background: url(../../../assets/img/clock.svg);
-  background-size: auto;
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
 }
 
 .person {
@@ -98,15 +90,6 @@
   margin-left: 4px;
 }
 
-.phone {
-  background: url(../../../assets/img/phone.svg);
-  background-size: auto;
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
-  margin-top: 4px;
-  margin-left: 2px;
-}
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -114,7 +97,4 @@
     background-color: rgb(207, 236, 42);
   } */
 
-  .actions li:last-of-type {
-    display: none;
-  }
 }

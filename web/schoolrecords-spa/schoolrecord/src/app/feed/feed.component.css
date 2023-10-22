@@ -2,7 +2,7 @@
   display: flex;
   padding: 30px 0;
   flex-wrap: wrap;
-  padding: 10px 25px;
+  padding: 20px 25px;
 }
 
 .info-container {
@@ -16,10 +16,10 @@
 
 .timeline {
   /* width: calc(100% - 300px); */
-  padding: 0 30px 0 15px;
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 80%;
+  padding-left: 10px;
 }
 
 ::ng-deep .botao-home button {
