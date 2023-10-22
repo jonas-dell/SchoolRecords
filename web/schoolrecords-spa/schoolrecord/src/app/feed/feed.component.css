@@ -22,11 +22,6 @@
   flex-basis: 80%;
 }
 
-.contacts {
-  position: sticky;
-  top: 70px;
-}
-
 ::ng-deep .botao-home button {
   background-color: aquamarine !important;
 }

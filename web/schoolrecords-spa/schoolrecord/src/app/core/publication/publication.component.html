@@ -1,0 +1,26 @@
+<section class="publication-container" (scroll)="onScroll($event)" #publication>
+  <h2 class="title">Publications</h2>
+  <ul class="publications">
+    <li *ngFor="let publication of publications">
+      <img [src]="publication.image" alt="Publication" />
+      <div class="publication-info">
+        <p class="publication-title">{{ publication.title }}</p>
+        <p class="publication-author">{{ publication.author }}</p>
+      </div>
+    </li>
+    <li class="loading">
+      <ngx-loading
+        [show]="loading"
+        [config]="{
+          backdropBorderRadius: '3px',
+          primaryColour: '#f4f4f4',
+          secondaryColour: '#f4f4f4',
+          tertiaryColour: '#f4f4f4'
+        }"
+      ></ngx-loading>
+    </li>
+    <li class="publications-loaded" *ngIf="publicationsLoaded">
+      <p>Publicações carregadas!</p>
+    </li>
+  </ul>
+</section>

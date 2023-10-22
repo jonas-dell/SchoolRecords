@@ -24,6 +24,7 @@ import { BaseFormComponent } from './shared/base-form/base-form.component';
 import { BotaoComponent } from './shared/botao/botao.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { CoverPhotoComponent } from './perfil/cover-photo/cover-photo.component';
+import { PublicationComponent } from './core/publication/publication.component';
 
 export class Index {
   static getComponents() {
@@ -54,7 +55,8 @@ export class Index {
       FormPerfilEducationComponent,
       FormPerfilJobComponent,
       FormPerfilContactComponent,
-      CoverPhotoComponent
+      CoverPhotoComponent,
+      PublicationComponent
     ];
   }
 }

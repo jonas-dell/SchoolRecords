@@ -168,71 +168,6 @@ input[type="file"] {
   font-family: Popins-Regular, sans-serif;
 }
 
-.recent-pub {
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 15px;
-  font-family: "Cousine-Bold", sans-serif;
-}
-
-.recent-card {
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0 35px 0;
-  border-radius: 10px;
-  min-height: 400px;
-  max-height: 400px;
-}
-
-.recent-img {
-  border-radius: 10px;
-  min-height: 200px;
-}
-
-.recent-title {
-  font-family: "Cousine-Bold", "sans-serif";
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 0;
-  margin-top: 15px;
-  text-align: center;
-  min-height: 30px;
-}
-
-.recent-info {
-  font-family: "Cousine-Regular", "sans-serif";
-  font-size: 1rem;
-  color: #46b5a7;
-  letter-spacing: 0;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-.recent-button {
-  background: #292d32;
-  color: #fff;
-  width: 70%;
-  border-radius: 20px;
-  margin-top: 15px;
-  padding: 5px 0;
-  font-family: "Popins-Regular", "sans-serif";
-}
-
-.recent-button:hover {
-  border: 2px solid #46b5a7;
-  color: #46b5a7;
-}
-
-.recent-publications {
-  justify-content: space-between;
-}
-
-.recent-publication {
-  width: 30%;
-}
-
 .timeline-container {
   width: 65%;
 }
@@ -333,26 +268,7 @@ input[type="file"] {
     align-self: center;
   }
 
-  .recent-pub {
-    width: 100%;
-    text-align: center;
-    align-self: center;
-    justify-self: center;
-  }
-
-  .recent-publications {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  .recent-publication {
-    width: 100%;
-  }
-
-  .visu-container {
+  .saved-items-container {
     display: none;
   }
 
@@ -382,10 +298,6 @@ input[type="file"] {
     width: 100%;
   }
 
-  .recent-publications {
-    justify-content: space-between;
-  }
-
   .recent-card {
     padding-left: 0;
     padding-right: 0;
@@ -394,7 +306,7 @@ input[type="file"] {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .visualization-container {
+  .saved-items-container {
     display: none;
   }
 
