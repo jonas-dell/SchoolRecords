@@ -88,8 +88,13 @@
                     </div>
                     <div class="media-content">
                       <p class="has-text-black-bis college-name">
-                        FATEC São Caetano do Sul - Antonio Russo
+                        {{formEducation?.title}}
+                     
                       </p>
+                      <p class="subtitle is-7 has-text-grey-darker">
+                        {{formEducation?.academicType}}
+                      </p>
+
                     </div>
                   </div>
                 </div>
@@ -178,14 +183,22 @@
                     </div>
                     <div class="media-content">
                       <p class="title is-6 has-text-black-bis">
-                        FATEC São Caetano do Sul - Antonio Russo
+                        {{formEducation?.title}}
                       </p>
+                    
                       <div class="subtitle is-6 has-text-grey-darker">
-                        Analise e Desenvolvimento de Sistemas
+                        {{formEducation?.academicType}}
+                        
+                        <br/>
+                        <p class="title is-7 has-text-black-bis">
+                          {{formEducation?.description}}
+                        </p> 
+                        <br/>
                         <p class="subtitle is-7 has-text-grey">
-                          jan de 2020<span class="separation"> - </span> jun de
-                          2023
+                          {{formEducation?.studyStartMonth}} de {{formEducation?.studyStartYear}}<span class="separation"> - 
+                          </span> {{formEducation?.studyEndMonth}} de {{formEducation?.studyEndYear}}
                         </p>
+   
                       </div>
                     </div>
                   </div>
