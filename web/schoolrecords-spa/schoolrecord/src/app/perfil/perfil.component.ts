@@ -7,6 +7,7 @@ import { PerfilDataService } from '../shared/services/perfil-data.service';
 import { CoverPhotoComponent } from './cover-photo/cover-photo.component';
 import { FormPerfilService } from './form-perfil/form-perfil.service';
 import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service';
+import { FormPerfilEducation } from './form-perfil-education/form-perfil-education.service';
 
 export class Perfil {
  
@@ -20,6 +21,7 @@ export class Perfil {
 export class PerfilComponent implements OnInit {
   dados: any;
   formJob: any;
+  formEducation: any;
   perfil = new Perfil(); 
   file: File | null = null;
 
@@ -28,6 +30,7 @@ export class PerfilComponent implements OnInit {
     public dialog: MatDialog,
     private perfilService: PerfilDataService,
     private formPerfilJobService: FormPerfilJobService,
+    private formPerfilEducation: FormPerfilEducation,
     private convertBase64: ConvertBase64,
     ){ }
      
@@ -35,6 +38,7 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.getPerfilData();
     this.getJobExperience();
+    this.getEducation();
     let fileButtonContainer = document.getElementById('button-file-container');
     let file = document.getElementById('file-img-input');
     fileButtonContainer?.addEventListener('click', () => {
@@ -60,6 +64,17 @@ export class PerfilComponent implements OnInit {
       subscribe((data) => {
         console.log(data);
         this.formJob = data;
+      },
+      (error) => {
+        console.error("Erro ao buscar dados da api:", error);
+        }
+      );
+  }
+  getEducation(){
+    this.formPerfilEducation.getEducation().
+      subscribe((educData) => {
+        console.log(educData);
+        this.formEducation = educData;
       },
       (error) => {
         console.error("Erro ao buscar dados da api:", error);
