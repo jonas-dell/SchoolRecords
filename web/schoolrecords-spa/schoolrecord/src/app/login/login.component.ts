@@ -14,10 +14,10 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loading: boolean = false;
-  type: string = "password";
+  type: string = 'password';
   isText: boolean = false;
-  eyeIcon: string = "fa-eye-slash"; 
- 
+  eyeIcon: string = 'fa-eye-slash';
+
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -32,14 +32,17 @@ export class LoginComponent implements OnInit {
     }
 
     this.toastr.success(resp.message);
-    console.log(resp.data);
+    localStorage.setItem('token', resp.data.token);
+    console.log(resp);
     this.currentUserService.setCurrentUser(resp.data);
     this.user.reset();
     this.router.navigate(['/home']);
   };
   loginError = (resp: RequestResponse) => {
     this.loading = false;
-    console.log(resp.message);
+    this.toastr.error(
+      'Falha ao fazer login. Por favor, verifique suas credenciais.'
+    );
   };
 
   constructor(
@@ -65,7 +68,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    
+
     const user = {
       userName: this.user.value.userName,
       password: this.user.value.password,
@@ -73,27 +76,23 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(user).subscribe(
       (response: any) => {
-        if (response && response.data.token) {
-          // Salve o token JWT no localStorage 
-          localStorage.setItem('token', response.data.token);
-          
-          // Redirecione o usuário para a página de destino após o login bem-sucedido
-          this.router.navigate(['/home']);
-        } else {
-          this.toastr.error('Falha ao fazer login. Por favor, verifique suas credenciais.');
-        }
-        this.loading = false;
+        if (response && response.data?.token)
+          return this.loginSuccess(response);
+
+        return this.loginError(response);
       },
       (error) => {
-        this.toastr.error('Falha ao fazer login. Por favor, verifique suas credenciais.');
+        this.toastr.error(
+          'Falha ao fazer login. Por favor, verifique suas credenciais.'
+        );
         this.loading = false;
       }
     );
   }
 
-  hideShowPass(){
+  hideShowPass() {
     this.isText = !this.isText;
-    this.isText ? this.eyeIcon = "fa-eye": this.eyeIcon = "fa-eye-slash";
-    this.isText ? this.type = "text" : this.type = "password";
+    this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
+    this.isText ? (this.type = 'text') : (this.type = 'password');
   }
 }

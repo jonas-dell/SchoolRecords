@@ -1,9 +1,13 @@
-<section class="contact-container" (scroll)="onScroll($event)" #contact> 
+<section class="contact-container" (scroll)="onScroll($event)" #contact>
   <h2 class="title">Contacts</h2>
   <p class="last-infos">Last Payments Sent 2 Days Ago</p>
   <ul class="contacts">
     <li *ngFor="let contact of contacts">
-      <img [src]="contact.image" alt="Profile" />
+      <img
+        [src]="convertBase64.converterBase64ParaImagem(contact.image)"
+        alt="Profile"
+        style="width: 50px; height: 50px; border-radius: 50%"
+      />
       <div class="contact-info">
         <p class="contact-name">{{ contact.name }}</p>
         <p class="contact-address">{{ contact.address }}</p>
@@ -25,3 +29,5 @@
     </li>
   </ul>
 </section>
+
+<!-- [src]="convertBase64.converterBase64ParaImagem(contact.image)" -->

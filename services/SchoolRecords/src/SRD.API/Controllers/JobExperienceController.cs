@@ -50,6 +50,7 @@ namespace SRD.API.Controllers
 
                 return Ok(jobExperience);
             }
+
             return BadRequest();
         }
     }

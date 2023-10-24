@@ -29,7 +29,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [...Index.getComponents(),],
+  declarations: [...Index.getComponents()],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,7 +47,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
     MatTableModule,
     MatDialogModule,
     MatButtonModule,
-    InterceptorModule 
+    InterceptorModule,
   ],
   providers: [
     {

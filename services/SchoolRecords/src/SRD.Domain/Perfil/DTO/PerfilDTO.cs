@@ -2,6 +2,7 @@
 {
     public class PerfilDTO
     {
+        public int Id { get; set; }
         public string? PerfilName { get; set; }
         public string? PerfilLastName { get; set; }
         public string? Sector { get; set; }
@@ -14,5 +15,6 @@
         public string? Neighborhood { get; set; }
         public string? City { get; set; }
         public string? State { get; set; }
+        public string? Foto { get; set; }
     }
 }

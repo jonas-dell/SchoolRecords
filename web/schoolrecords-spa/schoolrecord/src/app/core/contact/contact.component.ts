@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { skipWhile, tap } from 'rxjs/operators';
+import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';
 import { ContactService } from './contact.service';
 
 @Component({
@@ -16,8 +17,11 @@ export class ContactComponent implements OnInit {
   contactsLoaded: boolean = false;
   contacts: Array<any> = new Array<any>();
 
-  constructor(private contactService: ContactService) {
-    this.loadContacts();
+  constructor(
+    public convertBase64: ConvertBase64,
+    public contactService: ContactService
+  ) {
+    this.loadContactsTest();
   }
 
   ngOnInit(): void {}
@@ -28,10 +32,11 @@ export class ContactComponent implements OnInit {
 
     if (currentScroll > 0 && this.lastScroll <= currentScroll) {
       this.lastScroll = currentScroll;
-      this.page++;
+      this.page = this.page + this.pageSize;
     } else this.lastScroll = currentScroll;
 
-    this.loadContacts();
+    // this.loadContacts();
+    this.loadContactsTest();
   }
 
   private loadContacts() {
@@ -48,6 +53,25 @@ export class ContactComponent implements OnInit {
         })
       )
       .subscribe((resp: Array<any>) => {
+        console.log(resp);
+        this.contacts = [...this.contacts, ...resp];
+      });
+  }
+
+  private loadContactsTest() {
+    if (this.loading !== false || this.contactsLoaded !== false) return;
+    this.loading = true;
+    this.contactService
+      .getContactsTest({ pageSize: this.pageSize, page: this.page })
+      .pipe(
+        tap(() => (this.loading = false)),
+        skipWhile((resp) => {
+          if (resp.length !== 0) return false;
+          this.showContactsLoadedMessage('contactsLoaded');
+          return true;
+        })
+      )
+      .subscribe((resp: any) => {
         this.contacts = [...this.contacts, ...resp];
       });
   }

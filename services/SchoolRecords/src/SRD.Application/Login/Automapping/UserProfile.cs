@@ -9,6 +9,7 @@ namespace SRD.Application.Login.Automapping
         public UserProfile()
         {
             CreateMap<RegisterDTO, User>();
+            CreateMap<User, UserDTO>();
         }
     }
 }

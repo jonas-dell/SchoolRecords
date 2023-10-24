@@ -7,7 +7,8 @@ namespace SRD.Application.Perfil.Automapping
     {
         public PerfilProfile()
         {
-            CreateMap<PerfilDTO, Domain.Perfil.Entities.Perfil>();
+            CreateMap<PerfilDTO, Domain.Perfil.Entities.Perfil>()
+                .ReverseMap();
         }
     }
 }

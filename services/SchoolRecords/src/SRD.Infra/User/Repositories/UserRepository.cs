@@ -34,9 +34,23 @@ namespace SRD.Infra.User.Repositories
         public Domain.User.Entities.User GetById(int id)
         {
             return _context.Users
+                        .Include(u => u.Perfil!)
+                        .Include(x => x.Contacts!)
+                        .ThenInclude(x => x.Perfil)
                         .Where(x => x.Id == id)
-                        .Include(x => x.Contacts)
-                        .ThenInclude(x => x.Users)
+                        .Select(x => new Domain.User.Entities.User
+                        {
+                            Id = x.Id,
+                            Username = x.Username,
+                            Contacts = x.Contacts.Select(c => new Domain.User.Entities.User
+                            {
+                                Id = c.Id,
+                                Username = c.Username,
+                                Perfil = c.Perfil,
+                            }).ToList()
+                        })
+                        //.Include(x => x.Contacts)
+                        //.ThenInclude(x => x.Users)
                         .First();
         }
 
@@ -48,6 +62,17 @@ namespace SRD.Infra.User.Repositories
         public Domain.User.Entities.User? GetByUserName(string username)
         {
             return _context.Users.FirstOrDefault(x => x.Username == username);
+        }
+
+        public IList<Domain.User.Entities.User> GetContactsByUserId(int userId)
+        {
+            var contactsId = _context.UserContacts
+                .Where(x => x.UserId == userId).Select(x => x.ContactId);
+
+            return _context.Users
+                        .Include(u => u.Perfil!)
+                        .Where(x => contactsId.Contains(x.Id))
+                        .ToList();
         }
     }
 }

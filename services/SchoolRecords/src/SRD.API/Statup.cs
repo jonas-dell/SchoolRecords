@@ -12,6 +12,7 @@ using SRD.Application.Services;
 using SRD.Infra.Context;
 using System;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace SRD.API
 {
@@ -41,7 +42,6 @@ namespace SRD.API
 
             services.AddSwaggerGen();
 
-
             services.AddCors(options =>
             {
                 options.AddPolicy("MyPolicy", builder =>
@@ -58,8 +58,8 @@ namespace SRD.API
 
             services.AddDependencyInjectConfiguration();
             
-
             services.AddSwaggerConfiguration();
+            
             services.AddHttpClient<ConsultaCepService>();
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
