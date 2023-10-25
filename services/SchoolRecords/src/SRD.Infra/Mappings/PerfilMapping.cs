@@ -20,6 +20,10 @@ namespace SRD.Infra.Mappings
             builder.Property(x => x.PerfilLastName)
             .HasColumnName("perfilLastName")
             .HasColumnType("VARCHAR(200)");
+            
+            builder.Property(x => x.About)
+            .HasColumnName("about")
+            .HasColumnType("VARCHAR(4000)");
 
             builder.Property(x => x.Sector)
                 .HasColumnName("sector")

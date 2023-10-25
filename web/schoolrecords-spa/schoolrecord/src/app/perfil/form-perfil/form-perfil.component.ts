@@ -21,8 +21,10 @@ import { PerfilService } from '../perfil.service';
 })
 export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   perfil = new FormGroup({
+    id: new FormControl('',[Validators.nullValidator]),
     perfilName: new FormControl('',[Validators.nullValidator]),
     perfilLastName: new FormControl('',[Validators.nullValidator]),
+    about: new FormControl('',[Validators.nullValidator]),
     sector: new FormControl('',[Validators.nullValidator]),
     education: new FormControl('',[Validators.nullValidator]),
     country: new FormControl('',[Validators.nullValidator]),
@@ -82,8 +84,10 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   populaDadosForm(dados){
     if(dados){
       this.perfil.patchValue({
+        id: dados.id || '',
         perfilName: dados.perfilName || '',
         perfilLastName: dados.perfilLastName || '',
+        about: dados.about || '',
         sector: dados.sector || '',
         education: dados.education || '',
         country: dados.country || '',

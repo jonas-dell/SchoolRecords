@@ -22,6 +22,16 @@
           <input type="text" formControlName="perfilLastName" class="form-control form-control-sm" />
         </div>
       </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label for="">About</label>
+          <textarea
+            formControlName="about" 
+            rows="3" 
+            class="form-control form-control-sm"
+          ></textarea>
+        </div>
+      </div>
       <h2 class="dialog-content-subtitle">Cargo atual</h2>
       <a id="dialog-link-job" class="dialog-link" (click)="editarPerfilJob()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
