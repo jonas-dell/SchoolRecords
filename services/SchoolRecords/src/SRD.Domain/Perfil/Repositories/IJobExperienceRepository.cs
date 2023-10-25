@@ -12,7 +12,7 @@ namespace SRD.Domain.Perfil.Repositories
         void Insert(Entities.JobExperience entity);
         void Update(Entities.JobExperience entity);
         IList<Entities.JobExperience> GetAllJobs();
-        Entities.JobExperience GetJobExperienceById(int id);
+        Entities.JobExperience? GetJobExperienceById(int id);
         int GetJobExperienceFkByPerfilId(int id);
 
     }

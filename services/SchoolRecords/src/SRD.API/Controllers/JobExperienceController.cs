@@ -19,7 +19,7 @@ namespace SRD.API.Controllers
         private readonly IJobExperienceRepository _jobExperience;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public JobExperienceController(IMediator mediator,IJobExperienceRepository jobExperience,IHttpContextAccessor httpContextAccessor)
+        public JobExperienceController(IMediator mediator, IJobExperienceRepository jobExperience, IHttpContextAccessor httpContextAccessor)
         {
             _mediator = mediator;
             _jobExperience = jobExperience;
@@ -40,18 +40,11 @@ namespace SRD.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetJobExperience()
         {
-            var idClaim = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+            var userId = await Task.Run(() => int.Parse((_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)).Value));
 
-            if(idClaim != null)
-            {
-                int userId = int.Parse(idClaim.Value);
+            var jobExperience = _jobExperience.GetJobExperienceById(userId);
 
-                var jobExperience = _jobExperience.GetJobExperienceById(userId);
-
-                return Ok(jobExperience);
-            }
-
-            return BadRequest();
+            return Ok(jobExperience);
         }
     }
 }

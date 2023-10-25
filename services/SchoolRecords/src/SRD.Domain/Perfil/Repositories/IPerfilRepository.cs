@@ -9,7 +9,7 @@ namespace SRD.Domain.Perfil.Repositories
         void Update(Entities.Perfil entiy);
         void UpdateFoto(int id, string foto);
         IList<Entities.Perfil> GetAll();
-        Entities.Perfil GetById(int id);
-        Entities.Perfil GetByPerfilName(string perfilName);
+        Entities.Perfil? GetById(int id);
+        Entities.Perfil? GetByPerfilName(string perfilName);
     }
 }

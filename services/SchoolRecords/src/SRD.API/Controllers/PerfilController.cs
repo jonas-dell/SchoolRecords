@@ -17,7 +17,7 @@ namespace SRD.API.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]/[action]")]
-   
+
     public class PerfilController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -31,7 +31,6 @@ namespace SRD.API.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-
         [HttpPut]
         public async Task<IActionResult> UpdatePerfil([FromBody] PerfilDTO perfilDTO)
         {
@@ -41,7 +40,6 @@ namespace SRD.API.Controllers
 
             return Ok(result);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> UpdateFoto([FromForm] IFormFile image)
@@ -61,7 +59,7 @@ namespace SRD.API.Controllers
 
 
                 var command = new PerfilFoto.Command() { Foto = base64String };
-          
+
 
                 var result = await _mediator.Send(command);
 
@@ -69,27 +67,15 @@ namespace SRD.API.Controllers
             }
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> GetUserPerfil()
         {
-            var idClaim = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+            var userId = await Task.Run(() => int.Parse((_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)).Value));
 
-            if (idClaim != null)
-            {
-                int userId = int.Parse(idClaim.Value);
+            var perfil = _perfilRepository.GetById(userId);
 
-                var perfil = _perfilRepository.GetById(userId);
-                
-                return Ok(perfil);
-            }
-            return BadRequest();
+            return Ok(perfil);
         }
-
-
-
-
 
         [HttpPut]
         public async Task<IActionResult> UpdateJobExperience([FromBody] JobExperienceDTO jobExperienceDTO)
@@ -100,6 +86,5 @@ namespace SRD.API.Controllers
 
             return Ok(result);
         }
-
     }
 }

@@ -32,7 +32,9 @@ namespace SRD.Infra.Perfil.Repositories
 
         public Domain.Perfil.Entities.Perfil? GetById(int id)
         {
-            return _context.Perfis.Where(p => p.UserId == id).First();
+            var perfil = _context.Perfis.Where(p => p.UserId == id).FirstOrDefault();
+
+            return perfil;
         }
         public Domain.Perfil.Entities.Perfil? GetByPerfilName(string perfilName)
         {

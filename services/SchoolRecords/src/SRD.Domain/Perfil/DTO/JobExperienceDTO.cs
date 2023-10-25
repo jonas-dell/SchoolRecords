@@ -7,7 +7,7 @@
         public string? CompanyName { get; set; }
         public string? CompanyLocation { get; set; }
         public string? TypeLocation { get; set; }
-        public bool CheckboxJob { get; set; }
+        public bool? CheckboxJob { get; set; }
         public string? JobStartMonth { get; set; }
         public string? JobStartYear { get; set; }
         public string? JobEndMonth { get; set; }
