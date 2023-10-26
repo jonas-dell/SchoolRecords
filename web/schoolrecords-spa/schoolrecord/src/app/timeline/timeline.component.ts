@@ -1,5 +1,7 @@
 import * as am4charts from '@amcharts/amcharts4/charts';
 import { TimelineService } from './timeline.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PublishArticleComponent } from './publish-article/publish-article.component';
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
 import {
@@ -29,6 +31,7 @@ export class TimelineComponent implements OnInit {
 
   constructor(
     private zone: NgZone,
+    public dialog: MatDialog,
     @Inject(PLATFORM_ID) private platformId: any,
     private timelineService: TimelineService
   ) {}
@@ -42,20 +45,6 @@ export class TimelineComponent implements OnInit {
     this.timelineService
       .getPubs()
       .subscribe((resp) => (this.publications = resp));
-
-    const openAddArticleButton = document.querySelector("#open-add-article");
-    const closeAddArticleButton = document.querySelector("#close-add-article");
-    const AddArticleContainer = document.querySelector("#add-article-container");
-    const fade = document.querySelector("#fade");
-    
-    const toggleAddArticle = () => {
-      AddArticleContainer?.classList.toggle("hide");
-      fade?.classList.toggle("hide");
-    };
-    
-    [openAddArticleButton, closeAddArticleButton, fade].forEach((el) => {
-      el?.addEventListener("click", () => toggleAddArticle());
-    });
 
     let fileButton = document.getElementById('button-file');
     let file = document.getElementById('file-input');
@@ -171,4 +160,15 @@ export class TimelineComponent implements OnInit {
     chart.scrollbarX = new am4core.Scrollbar();
     this.chart = chart;
   }
+
+  publishArticle() {
+    let dialogRef = this.dialog.open(PublishArticleComponent, {
+      height: '650px',
+      width: '750px',
+      data: {
+    
+      },
+    });
+  }
+
 }

@@ -1,0 +1,25 @@
+input[type="file"] {
+  display: none;
+}
+
+.btn-article {
+  position: relative;
+  width: 130px;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 4px 0px 1px 0px;
+  border-radius: 20px;
+  border: 2px solid rgb(160 32 240);
+  color: rgb(160 32 240);
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+
+.btn-article:hover {
+  background-color: rgba(193, 130, 233, 0.241);
+  border: 3px solid rgb(160 32 240);
+}

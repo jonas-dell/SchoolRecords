@@ -2,22 +2,7 @@
   <div class="principal-info">
     <div class="share-now">
       <p>Publish Scientific Article It's Essential to Your Academic Success!</p>
-      <button id="open-add-article" class="btn-share-now">Public Now</button>
-      <div id="fade" class="hide"></div>
-      <div id="add-article-container" class="hide">
-        <div class="add-article-header">
-          <h2>Scientific Article</h2>
-          <button id="close-add-article">Fechar</button>
-        </div>
-        <div class="add-article-footer">
-          <button id="button-file">Open file</button>
-          <input
-            type="file"
-            id="file-input"
-          />
-          <button>Publish</button>
-        </div>
-      </div>
+      <button id="open-add-article" class="btn-share-now" (click)="publishArticle()">Public Now</button>
     </div>
     <div class="start-post-container">
       <div class="start-post">
