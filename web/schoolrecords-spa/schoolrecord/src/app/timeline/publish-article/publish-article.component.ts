@@ -25,8 +25,19 @@ export class PublishArticleComponent extends BaseFormComponent implements OnInit
     alert('Salvar alguma coisa');
   }
 
-  fileChanged(event: any) {
-    alert("Funcionou")
+  articleSelected: boolean = false;
+  selectedFileArticleName: string = '';
+  
+  fileChangedArticle(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFileArticleName = file.name;
+      this.articleSelected = true;
+    }
   }
 
+  fileChangedPhoto(event: any): void {
+    alert("Funcionou")
+  }
+  
 }
