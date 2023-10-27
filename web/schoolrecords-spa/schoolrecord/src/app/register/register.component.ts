@@ -13,6 +13,9 @@ import { RegisterService } from './register.service';
 })
 export class RegisterComponent implements OnInit {
   loading: boolean = false;
+  type: string = 'password';
+  isText: boolean = false;
+  eyeIcon: string = 'fa-eye-slash';
 
   user = new FormGroup({
     userName: new FormControl('', [Validators.required]),
@@ -51,5 +54,11 @@ export class RegisterComponent implements OnInit {
         this.notificationService.error(resp.message);
       }
     );
+  }
+
+  hideShowPass() {
+    this.isText = !this.isText;
+    this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
+    this.isText ? (this.type = 'text') : (this.type = 'password');
   }
 }

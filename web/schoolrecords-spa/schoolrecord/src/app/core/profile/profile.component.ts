@@ -6,7 +6,6 @@ import { CurrentUserService } from 'src/app/shared/services/current-user.service
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { PerfilDataService } from 'src/app/shared/services/perfil-data.service';
 
-
 @Component({
   selector: 'profile',
   templateUrl: './profile.component.html',
@@ -16,29 +15,40 @@ export class ProfileComponent implements OnInit {
   dados: any;
   user: User | null;
 
-
   constructor(
     private currentUserService: CurrentUserService,
     private notificationService: NotificationService,
     private perfilService: PerfilDataService,
     private convertBase64: ConvertBase64
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.getPerfilData();
-  };
+  }
 
-  getPerfilData(){
+  getPerfilData() {
     const token = localStorage.getItem('token');
-    this.perfilService.getPerfil().
-    subscribe((dados) => {
-      this.dados = dados;
-      this.dados.foto = this.convertBase64.converterBase64ParaImagem(this.dados.foto);
-    },
-    (error) => {
-      console.error("Erro ao buscar dados da API:", error);
+    this.perfilService.getPerfil().subscribe(
+      (dados) => {
+        this.dados = dados;
+        this.dados.foto = this.convertBase64.converterBase64ParaImagem(
+          this.dados.foto
+        );
+      },
+      (error) => {
+        console.error('Erro ao buscar dados da API:', error);
       }
     );
   }
-}
 
+  fileChanged(event: any) {
+    const selectedFile = event.target.files[0];
+
+    if (selectedFile) {
+      this.perfilService.uploadImage(selectedFile).subscribe(() => {
+        this.notificationService.success('Perfil salvo com sucesso!');
+      });
+      this.getPerfilData();
+    }
+  }
+}

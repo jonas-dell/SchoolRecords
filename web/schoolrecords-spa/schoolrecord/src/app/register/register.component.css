@@ -58,8 +58,15 @@
 }
 
 .form-login input:focus {
-  border-color: #65cbf3;
+  border-color: #7f408e;
   background: none;
+}
+
+#toggleBtn {
+  position: absolute;
+  top: 17px;
+  right: 35px;
+  cursor: pointer;
 }
 
 .btn-login {
@@ -102,7 +109,7 @@
   margin: 5px;
   text-align: center;
   cursor: pointer;
-  color: #000;
+  color: #780a7e;
 }
 
 .to-go-back:hover {
