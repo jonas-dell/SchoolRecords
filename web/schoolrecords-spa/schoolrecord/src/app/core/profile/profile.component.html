@@ -6,8 +6,7 @@
   <div class="profile-content">
     <div class="upload-circle">
       <div class="img-container ">
-        <input type="file" (change)="fileChanged($event)" id="file-upload" class="file-upload-button">
-        <img [src]="dados?.foto" />
+        <img routerLink="perfil" [src]="dados?.foto" />
       </div>
     </div>
     <p class="profile-name">{{dados?.perfilName}}</p>

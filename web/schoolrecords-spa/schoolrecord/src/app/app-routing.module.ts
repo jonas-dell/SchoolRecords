@@ -13,6 +13,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterComponent } from './register/register.component';
 import { UserGuard } from './shared/services/security/user-guard';
 import { TimelineComponent } from './timeline/timeline.component';
+import { ImageUpdateService } from './perfil/cover-photo/cover-photo.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -74,6 +75,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes), RouterModule],
   exports: [RouterModule],
-  providers: [UserGuard],
+  providers: [UserGuard,ImageUpdateService],
 })
 export class AppRoutingModule {}

@@ -2,8 +2,10 @@
   <div class="dialog-header">
     <h1 class="dialog-title">Editar introdução</h1>
     <span class="dialog-close" (click)="closeDialog()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg"
+        viewBox="0 0 16 16">
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
       </svg>
     </span>
   </div>
@@ -25,17 +27,15 @@
       <div class="row form-group">
         <div class="col-md-12">
           <label for="">About</label>
-          <textarea
-            formControlName="about" 
-            rows="3" 
-            class="form-control form-control-sm"
-          ></textarea>
+          <textarea formControlName="about" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
       <h2 class="dialog-content-subtitle">Cargo atual</h2>
       <a id="dialog-link-job" class="dialog-link" (click)="editarPerfilJob()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+          class="dialog-link-svg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
         </svg>
         <span class="dialog-link-span">Adicionar novo cargo</span>
       </a>
@@ -55,8 +55,10 @@
         </div>
       </div>
       <a id="dialog-link-education" class="dialog-link" (click)="editarPerfilEducation()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+          class="dialog-link-svg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
         </svg>
         <span class="dialog-link-span">Adicionar nova formação acadêmica</span>
       </a>
@@ -78,7 +80,8 @@
       <div class="row form-group">
         <div class="col-12">
           <label for="cep">CEP*</label>
-          <input type="text" class="form-control form-control-sm" id="cep" name="cep" formControlName="zipCode" (blur)="consultaCep()" />
+          <input type="text" class="form-control form-control-sm" id="cep" name="cep" formControlName="zipCode"
+            (blur)="consultaCep()" />
         </div>
       </div>
       <div class="row form-group">

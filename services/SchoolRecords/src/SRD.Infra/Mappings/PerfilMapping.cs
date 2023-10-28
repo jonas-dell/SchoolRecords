@@ -73,6 +73,10 @@ namespace SRD.Infra.Mappings
                 .HasColumnName("foto")
                 .HasColumnType("TEXT");
 
+            builder.Property(x => x.Imagem)
+                .HasColumnName("imagem")
+                .HasColumnType("TEXT");
+
             builder.HasOne(x => x.JobExperience)
                 .WithOne(p => p.Perfil)
                 .HasForeignKey<Domain.Perfil.Entities.JobExperience>(x => x.PerfilId);

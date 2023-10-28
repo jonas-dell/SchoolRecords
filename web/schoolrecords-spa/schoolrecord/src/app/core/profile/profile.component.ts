@@ -40,15 +40,4 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-
-  fileChanged(event: any) {
-    const selectedFile = event.target.files[0];
-
-    if (selectedFile) {
-      this.perfilService.uploadImage(selectedFile).subscribe(() => {
-        this.notificationService.success('Perfil salvo com sucesso!');
-      });
-      this.getPerfilData();
-    }
-  }
 }

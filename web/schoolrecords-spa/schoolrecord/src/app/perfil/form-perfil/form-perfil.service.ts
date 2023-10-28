@@ -10,7 +10,7 @@ export class FormPerfilService {
   salvarPerfil(data: any) {
     return this.http.put<RequestResponse>(
       `${this.configService.config.apiUrl}/api/perfil/UpdatePerfil`,
-      { id: 1 }
+      data
     );
   }
 }

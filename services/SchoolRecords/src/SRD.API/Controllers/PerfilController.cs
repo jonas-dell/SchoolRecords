@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SRD.Application.JobExperience.UseCases;
 using SRD.Application.Perfil.UseCases;
-using SRD.Core.Responses;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
 using System;
@@ -49,7 +48,6 @@ namespace SRD.API.Controllers
                 return BadRequest("Imagem não atualizada");
             }
 
-            // Lê os bytes da imagem
             using (var ms = new MemoryStream())
             {
                 await image.CopyToAsync(ms);
@@ -57,9 +55,30 @@ namespace SRD.API.Controllers
 
                 string base64String = Convert.ToBase64String(imageBytes);
 
-
                 var command = new PerfilFoto.Command() { Foto = base64String };
 
+                var result = await _mediator.Send(command);
+
+                return Ok(result);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateImagem([FromForm] IFormFile imagem)
+            {
+            if (imagem == null)
+            {
+                return BadRequest("Imagem não atualizada");
+            }
+
+            using (var ms = new MemoryStream())
+            {
+                await imagem.CopyToAsync(ms);
+                byte[] imagemBytes = ms.ToArray();
+
+                string base64String = Convert.ToBase64String(imagemBytes);
+
+                var command = new PerfilImagem.Command() { Imagem = base64String };
 
                 var result = await _mediator.Send(command);
 

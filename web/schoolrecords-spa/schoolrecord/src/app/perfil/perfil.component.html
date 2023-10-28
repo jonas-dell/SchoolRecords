@@ -4,9 +4,11 @@
       <div class="column is-two-thirds is-full-mobile">
         <div class="card">
           <div class="profile-card">
+
+
             <div class="cover-photo">
               <div class="cover-photo-background">
-                <img src="../../assets/img/coverPhoto.png" alt="Cover photo" />
+                <img [src]="dados?.image" />
               </div>
               <div class="cover-photo-button" (click)="editarPerfilCoverPhoto()">
                 <span class="icon">
@@ -14,6 +16,7 @@
                 </span>
               </div>
             </div>
+
 
             <div (click)="editarPerfilIntroduction()">
               <span class="icon pencil is-pulled-right edit-profile">
@@ -89,7 +92,7 @@
                     <div class="media-content">
                       <p class="has-text-black-bis college-name">
                         {{formEducation?.title}}
-                     
+
                       </p>
                       <p class="subtitle is-7 has-text-grey-darker">
                         {{formEducation?.academicType}}
@@ -182,20 +185,20 @@
                       <p class="title is-6 has-text-black-bis">
                         {{formEducation?.title}}
                       </p>
-                    
+
                       <div class="subtitle is-6 has-text-grey-darker">
                         {{formEducation?.academicType}}
-                        
-                        <br/>
+
+                        <br />
                         <p class="title is-7 has-text-black-bis">
                           {{formEducation?.description}}
-                        </p> 
-                        <br/>
+                        </p>
+                        <br />
                         <p class="subtitle is-7 has-text-grey">
-                          {{formEducation?.studyStartMonth}} de {{formEducation?.studyStartYear}}<span class="separation"> - 
+                          {{formEducation?.studyStartMonth}} de {{formEducation?.studyStartYear}}<span class="separation"> -
                           </span> {{formEducation?.studyEndMonth}} de {{formEducation?.studyEndYear}}
                         </p>
-   
+
                       </div>
                     </div>
                   </div>

@@ -17,6 +17,7 @@
         public string? City { get; set; }
         public string? State { get; set; }
         public string? Foto { get; set; }
+        public string? Imagem { get; set; }
         public int UserId { get; set; }
         public User.Entities.User? User { get; set; }
         public virtual JobExperience? JobExperience { get; set; }

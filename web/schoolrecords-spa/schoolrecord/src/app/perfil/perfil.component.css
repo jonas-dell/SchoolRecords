@@ -28,7 +28,7 @@
   position: relative;
   min-height: 196px;
   border-radius: 8px 8px 0px 0px;
-  background-image: url("../../assets/img/coverPhoto.png");
+  /* background-image: url("../../assets/img/coverPhoto.png"); */
   background-size: cover;
   background-position: center;
 }

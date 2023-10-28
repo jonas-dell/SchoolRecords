@@ -8,11 +8,11 @@ using System.Security.Claims;
 
 namespace SRD.Application.Perfil.UseCases
 {
-    public class PerfilFoto
+    public class PerfilImagem
     {
         public class Command : IRequest<IRequestResponse>
         {
-            public string? Foto { get; set; }
+            public string? Imagem { get; set; }
         }
 
         public class CommandHandler : BaseCommandHandler, IRequestHandler<Command, IRequestResponse>
@@ -42,9 +42,8 @@ namespace SRD.Application.Perfil.UseCases
                         RequestResponse.ErrorResponse("Perfil não cadastrado");
                     else
                     {
-                        var perfilToUpdate = _mapper.Map(request.Foto, perfil.Foto);
-                        _perfilRepository.UpdateFoto(userId, perfilToUpdate.ToString());
-
+                        var perfilToUpdate = _mapper.Map(request.Imagem, perfil.Imagem);
+                        _perfilRepository.UpdateImagem(userId, perfilToUpdate.ToString());
                     }
                 }
                 return await SaveData(_perfilRepository.UnitOfWork);
