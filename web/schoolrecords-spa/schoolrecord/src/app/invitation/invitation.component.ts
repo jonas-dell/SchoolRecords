@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { skipWhile, tap } from 'rxjs/operators';
+import { NotificationService } from '../shared/services/notification.service';
+import { ConvertBase64 } from '../shared/services/perfil-data-utils.service';
 import { InvitesService } from './invitation.service';
 @Component({
   selector: 'invitation',
@@ -15,38 +17,41 @@ export class InvitesComponent implements OnInit {
   invitesLoaded: boolean = false;
   invites: Array<any> = new Array<any>();
 
-  constructor(private invitesService: InvitesService) {
+  constructor(
+    public convertBase64: ConvertBase64,
+    private invitesService: InvitesService,
+    private notificationService: NotificationService
+  ) {
     this.loadInvites();
   }
 
   ngOnInit(): void {}
 
-  onScroll(e: any) {
-    if (this.loading) return;
-    let currentScroll = e.target.scrollTop;
-
-    if (currentScroll > 0 && this.lastScroll <= currentScroll) {
-      this.lastScroll = currentScroll;
-      this.page++;
-    } else this.lastScroll = currentScroll;
-
-    this.loadInvites();
+  sendInvite(contact: any) {
+    this.invitesService.sendInvite(contact.id).subscribe(
+      (resp) => {
+        this.invites = [];
+        this.loadInvites();
+        this.notificationService.success('Contato adicionado com sucesso!');
+      },
+      (error) => {
+        console.error('Erro ao buscar dados da api:', error);
+      }
+    );
   }
 
   private loadInvites() {
-    if (this.loading !== false || this.invitesLoaded !== false) return;
-    this.loading = true;
     this.invitesService
       .getInvites({ pageSize: this.pageSize, page: this.page })
       .pipe(
         tap(() => (this.loading = false)),
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
-          this.showInvitesLoadedMessage('invitesLoaded');
+          this.showInvitesLoadedMessage('contactsLoaded');
           return true;
         })
       )
-      .subscribe((resp: Array<any>) => {
+      .subscribe((resp: any) => {
         this.invites = [...this.invites, ...resp];
       });
   }

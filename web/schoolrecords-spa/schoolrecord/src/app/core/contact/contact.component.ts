@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
     public convertBase64: ConvertBase64,
     public contactService: ContactService
   ) {
-    this.loadContactsTest();
+    this.loadContacts();
   }
 
   ngOnInit(): void {}
@@ -35,8 +35,7 @@ export class ContactComponent implements OnInit {
       this.page = this.page + this.pageSize;
     } else this.lastScroll = currentScroll;
 
-    // this.loadContacts();
-    this.loadContactsTest();
+    this.loadContacts();
   }
 
   private loadContacts() {
@@ -44,25 +43,6 @@ export class ContactComponent implements OnInit {
     this.loading = true;
     this.contactService
       .getContacts({ pageSize: this.pageSize, page: this.page })
-      .pipe(
-        tap(() => (this.loading = false)),
-        skipWhile((resp) => {
-          if (resp.length !== 0) return false;
-          this.showContactsLoadedMessage('contactsLoaded');
-          return true;
-        })
-      )
-      .subscribe((resp: Array<any>) => {
-        console.log(resp);
-        this.contacts = [...this.contacts, ...resp];
-      });
-  }
-
-  private loadContactsTest() {
-    if (this.loading !== false || this.contactsLoaded !== false) return;
-    this.loading = true;
-    this.contactService
-      .getContactsTest({ pageSize: this.pageSize, page: this.page })
       .pipe(
         tap(() => (this.loading = false)),
         skipWhile((resp) => {

@@ -21,6 +21,11 @@ namespace SRD.Infra.User.Repositories
             _context.Users.Add(user);
         }
 
+        public void InsertContact(Domain.User.Entities.UserContact userContact)
+        {
+            _context.UserContacts.Add(userContact);
+        }
+
         public IList<Domain.User.Entities.User> FindAll()
         {
             return _context.Users.ToList();
@@ -49,8 +54,6 @@ namespace SRD.Infra.User.Repositories
                                 Perfil = c.Perfil,
                             }).ToList()
                         })
-                        //.Include(x => x.Contacts)
-                        //.ThenInclude(x => x.Users)
                         .First();
         }
 
@@ -72,6 +75,18 @@ namespace SRD.Infra.User.Repositories
             return _context.Users
                         .Include(u => u.Perfil!)
                         .Where(x => contactsId.Contains(x.Id))
+                        .ToList();
+        }
+
+        public IList<Domain.User.Entities.User> GetInvites(int userId)
+        {
+            var contactsId = _context.UserContacts
+                .Where(x => x.UserId == userId).Select(x => x.ContactId);
+
+            return _context.Users
+                        .Include(u => u.Perfil!)
+                        .Where(x => !contactsId.Contains(x.Id))
+                        .Where(x => x.Id != userId)
                         .ToList();
         }
     }

@@ -35,9 +35,5 @@ export class PublishArticleComponent extends BaseFormComponent implements OnInit
       this.articleSelected = true;
     }
   }
-
-  fileChangedPhoto(event: any): void {
-    alert("Funcionou")
-  }
   
 }
