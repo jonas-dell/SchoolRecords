@@ -101,6 +101,11 @@
   border: 4px solid white;
 }
 
+.upload-circle img {
+  height: 100%;
+  width: 100%;
+}
+
 .file-upload-button {
   top: 0;
   left: 0;
