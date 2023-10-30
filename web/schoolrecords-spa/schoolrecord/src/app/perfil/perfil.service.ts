@@ -23,4 +23,5 @@ export class PerfilService {
       `${this.configService.config.apiUrl}/api/perfil/getUserPerfil`
     );
   }
+  
 }

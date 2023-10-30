@@ -18,6 +18,7 @@ namespace SRD.API.Configuration
             services.AddScoped<IPerfilRepository, PerfilRepository>();
             services.AddScoped<IJobExperienceRepository, JobExperienceRepository>();
             services.AddScoped<IAcademicEducationRepository, AcademicEducationRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<DataContext>();
             services.AddScoped<ConsultaCepService>();
         }

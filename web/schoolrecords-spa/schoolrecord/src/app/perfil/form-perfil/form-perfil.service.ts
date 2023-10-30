@@ -10,7 +10,13 @@ export class FormPerfilService {
   salvarPerfil(data: any) {
     return this.http.put<RequestResponse>(
       `${this.configService.config.apiUrl}/api/perfil/UpdatePerfil`,
-      { id: 1 }
+      data
     );
+  }
+
+  getAcademicEducations(){
+    return this.http.get<RequestResponse>(
+      `${this.configService.config.apiUrl}/api/AcademicEducation/GetAcademicEducation`
+    )
   }
 }

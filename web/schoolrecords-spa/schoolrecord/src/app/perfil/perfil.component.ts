@@ -50,9 +50,12 @@ export class PerfilComponent implements OnInit {
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
         );
+        this.dados.image = this.convertBase64.converterBase64ParaImagem(
+          this.dados.imagem
+        );
       },
       (error) => {
-        console.error('Erro ao buscar dados da API:', error);
+        console.error('Erro ao buscar os dados da API:', error);
       }
     );
   }
@@ -64,7 +67,7 @@ export class PerfilComponent implements OnInit {
         this.formJob = data;
       },
       (error) => {
-        console.error('Erro ao buscar dados da api:', error);
+        console.error('Erro ao buscar os dados da api:', error);
       }
     );
   }
@@ -75,7 +78,7 @@ export class PerfilComponent implements OnInit {
         this.formEducation = educData;
       },
       (error) => {
-        console.error('Erro ao buscar dados da api:', error);
+        console.error('Erro ao buscar os dados da api:', error);
       }
     );
   }

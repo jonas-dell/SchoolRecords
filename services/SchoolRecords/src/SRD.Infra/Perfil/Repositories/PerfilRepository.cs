@@ -46,5 +46,12 @@ namespace SRD.Infra.Perfil.Repositories
             perfil.Foto = foto;
             _context.Perfis.Update(perfil);
         }
+
+        public void UpdateImagem(int id, string imagem)
+        {
+            var perfil = _context.Perfis.Where(p => p.UserId == id).First();
+            perfil.Imagem = imagem;
+            _context.Perfis.Update(perfil);
+        }
     }
 }

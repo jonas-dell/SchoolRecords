@@ -3,28 +3,29 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using SRD.Core.Commands;
 using SRD.Core.Responses;
+using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
 using System.Security.Claims;
 
-namespace SRD.Application.Perfil.UseCases
+namespace SRD.Application.Contact.UseCase
 {
-    public class PerfilFoto
+    public class Contact
     {
         public class Command : IRequest<IRequestResponse>
         {
-            public string? Foto { get; set; }
+            public ContactDTO? ContactDTO { get; set; }
         }
 
         public class CommandHandler : BaseCommandHandler, IRequestHandler<Command, IRequestResponse>
         {
             private readonly IMapper _mapper;
-            private readonly IPerfilRepository _perfilRepository;
+            private readonly IContactRepository _contactRepository;
             private readonly IHttpContextAccessor _httpContextAccessor;
 
-            public CommandHandler(IPerfilRepository perfilRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+            public CommandHandler(IMapper mapper, IContactRepository contactRepository, IHttpContextAccessor httpContextAccessor)
             {
-                _perfilRepository = perfilRepository;
                 _mapper = mapper;
+                _contactRepository = contactRepository;
                 _httpContextAccessor = httpContextAccessor;
             }
 
@@ -34,20 +35,19 @@ namespace SRD.Application.Perfil.UseCases
 
                 if (idClaim != null)
                 {
-                    int userId = int.Parse(idClaim.Value);
+                    int contactId = int.Parse(idClaim.Value);
 
-                    var perfil = _perfilRepository.GetById(userId);
+                    var contact = _contactRepository.GetContactById(contactId);
 
-                    if (perfil == null)
-                        RequestResponse.ErrorResponse("Perfil não cadastrado");
+                    if (contact == null)
+                        RequestResponse.ErrorResponse("Contato não encontrado");
                     else
                     {
-                        var perfilToUpdate = _mapper.Map(request.Foto, perfil.Foto);
-                        _perfilRepository.UpdateFoto(userId, perfilToUpdate.ToString());
-
+                        var contactToUpdate = _mapper.Map(request.ContactDTO, contact);
+                        _contactRepository.Update(contactToUpdate);
                     }
                 }
-                return await SaveData(_perfilRepository.UnitOfWork);
+                return await SaveData(_contactRepository.UnitOfWork);
             }
         }
     }

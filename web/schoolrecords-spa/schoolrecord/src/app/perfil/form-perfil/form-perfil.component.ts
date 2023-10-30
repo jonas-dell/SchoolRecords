@@ -23,6 +23,9 @@ import { FormPerfilService } from './form-perfil.service';
   ],
 })
 export class FormPerfilComponent extends BaseFormComponent implements OnInit {
+  public academicEducations: string[] = [];
+  public dadosAcademico: any;
+
   perfil = new FormGroup({
     id: new FormControl('', [Validators.nullValidator]),
     perfilName: new FormControl('', [Validators.nullValidator]),
@@ -51,9 +54,10 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   ) {
     super(dialogRef);
   }
-
+  
   ngOnInit(): void {
     this.getPerfil();
+    this.popularFormacaoAcademica();
   }
 
   save() {
@@ -153,5 +157,21 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
         },
       },
     });
+  }
+
+
+  popularFormacaoAcademica(){
+    this.formPerfilService.getAcademicEducations().subscribe(
+      (dados) => {
+        this.dadosAcademico = dados;
+        console.log(dados);
+      }
+    )
+    var formacaoAcademica: string[] = [
+      'Please select'
+    ];
+    for(var item of formacaoAcademica){
+      this.academicEducations.push(item);
+    }
   }
 }

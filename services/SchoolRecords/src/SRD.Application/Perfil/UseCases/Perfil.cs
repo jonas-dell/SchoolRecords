@@ -24,24 +24,34 @@ namespace SRD.Application.Perfil.UseCases
             private readonly IHttpContextAccessor _httpContextAccessor;
             private readonly IJobExperienceRepository _jobExperienceRepository;
             private readonly IAcademicEducationRepository _academicEducationRepository;
-            public CommandHandler(IAcademicEducationRepository academicEducationRepository,IPerfilRepository perfilRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor, IJobExperienceRepository jobExperienceRepository)
+            private readonly IContactRepository _contactRepository;
+
+
+            public CommandHandler(
+                IAcademicEducationRepository academicEducationRepository,
+                IPerfilRepository perfilRepository,
+                IMapper mapper,
+                IHttpContextAccessor httpContextAccessor,
+                IJobExperienceRepository jobExperienceRepository,
+                IContactRepository contactRepository)
             {
                 _perfilRepository = perfilRepository;
                 _mapper = mapper;
                 _httpContextAccessor = httpContextAccessor;
                 _jobExperienceRepository = jobExperienceRepository;
                 _academicEducationRepository = academicEducationRepository;
+                _contactRepository = contactRepository;
             }
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var idClaim =  _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
-                
+                var idClaim = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+
 
                 if (idClaim != null)
                 {
                     int userId = int.Parse(idClaim.Value);
-                    
+
                     var perfil = _perfilRepository.GetById(userId);
 
                     if (perfil == null)
@@ -50,9 +60,9 @@ namespace SRD.Application.Perfil.UseCases
                     {
                         var educ = _academicEducationRepository.GetAcadEducationFkByPerfilId(userId);
                         var job = _jobExperienceRepository.GetJobExperienceFkByPerfilId(userId);
-                        
+                        var contact = _contactRepository.GetContactFKById(userId);
 
-                        if (perfil.JobExperience == null && perfil.UserId != job) 
+                        if (perfil.JobExperience == null && perfil.UserId != job)
                         {
                             perfil.JobExperience = new Domain.Perfil.Entities.JobExperience();
                         }
@@ -61,13 +71,20 @@ namespace SRD.Application.Perfil.UseCases
                         {
                             perfil.AcademicEducation = new Domain.Perfil.Entities.AcademicEducation();
                         }
-                        var perfilToUpdate = _mapper.Map(request.PerfilDTO,perfil);
+
+                        if (perfil.Contact == null && perfil.UserId != contact)
+                        {
+                            perfil.Contact = new Domain.Perfil.Entities.Contact();
+                        }
+
+
+                        var perfilToUpdate = _mapper.Map(request.PerfilDTO, perfil);
 
                         _perfilRepository.Update(perfilToUpdate);
 
                     }
                 }
-                return await SaveData(_perfilRepository.UnitOfWork);    
+                return await SaveData(_perfilRepository.UnitOfWork);
             }
         }
     }

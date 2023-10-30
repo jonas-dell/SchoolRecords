@@ -12,24 +12,20 @@
     <form class="form-perfil-introducao" [formGroup]="perfil">
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Nome*</label>
-          <input type="text" formControlName="perfilName" class="form-control form-control-sm" />
+          <label for="nome">Nome*</label>
+          <input id="nome" type="text" formControlName="perfilName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Sobrenome*</label>
-          <input type="text" formControlName="perfilLastName" class="form-control form-control-sm" />
+          <label for="sobrenome">Sobrenome*</label>
+          <input id="sobrenome" type="text" formControlName="perfilLastName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="">About</label>
-          <textarea
-            formControlName="about" 
-            rows="3" 
-            class="form-control form-control-sm"
-          ></textarea>
+          <label for="about">About</label>
+          <textarea id="about" formControlName="about" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
       <h2 class="dialog-content-subtitle">Cargo atual</h2>
@@ -41,16 +37,16 @@
       </a>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Setor*</label>
-          <input type="text" placeholder="Ex: varejo" formControlName="sector" class="form-control form-control-sm" />
+          <label for="setor">Setor*</label>
+          <input id="setor" type="text" placeholder="Ex: varejo" formControlName="sector" class="form-control form-control-sm" />
         </div>
       </div>
       <h2 class="dialog-content-subtitle">Formação acadêmica</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Formação acadêmica*</label>
-          <select name="academicEducations" id="academicEducations" class="form-control form-control-sm">
-            <option selected>Selecione</option>
+          <label for="academicEducations">Formação acadêmica*</label>
+          <select id="academicEducations" name="academicEducations" class="form-control form-control-sm">
+            <option *ngFor="let academicEducation of academicEducations">{{academicEducation}}</option>
           </select>
         </div>
       </div>
@@ -62,8 +58,8 @@
       </a>
       <div class="row form-group">
         <div class="col-12">
-          <label class="container-checkbox">Exibir formação na minha introdução
-            <input type="checkbox" checked="checked" formControlName="education" class="form-control form-control-sm">
+          <label for="checkbox" class="container-checkbox">Exibir formação na minha introdução
+            <input id="checkbox" type="checkbox" checked="checked" formControlName="education" class="form-control form-control-sm">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -71,50 +67,50 @@
       <h2 class="dialog-content-subtitle">Endereço</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">País/Região*</label>
-          <input type="text" formControlName="country" class="form-control form-control-sm" />
+          <label for="pais">País/Região*</label>
+          <input id="pais" type="text" formControlName="country" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
           <label for="cep">CEP*</label>
-          <input type="text" class="form-control form-control-sm" id="cep" name="cep" formControlName="zipCode" (blur)="consultaCep()" />
+          <input id="cep" type="text" class="form-control form-control-sm" name="cep" formControlName="zipCode" (blur)="consultaCep()" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Logradouro*</label>
-          <input type="text" formControlName="street" class="form-control form-control-sm" />
+          <label for="logradouro">Logradouro*</label>
+          <input id="logradouro" type="text" formControlName="street" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Número</label>
-          <input type="text" formControlName="number" id="number" #numberField class="form-control form-control-sm" />
+          <label for="number">Número</label>
+          <input id="number" type="text" formControlName="number" #numberField class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Complemento</label>
-          <input type="text" formControlName="complement" class="form-control form-control-sm" />
+          <label for="complemento">Complemento</label>
+          <input id="complemento" type="text" formControlName="complement" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Bairro*</label>
-          <input type="text" formControlName="neighborhood" class="form-control form-control-sm" />
+          <label for="bairro">Bairro*</label>
+          <input id="bairro" type="text" formControlName="neighborhood" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Cidade*</label>
-          <input type="text" formControlName="city" class="form-control form-control-sm" />
+          <label for="cidade">Cidade*</label>
+          <input id="cidade" type="text" formControlName="city" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="">Estado*</label>
-          <input type="text" formControlName="state" class="form-control form-control-sm" />
+          <label for="estado">Estado*</label>
+          <input id="estado" type="text" formControlName="state" class="form-control form-control-sm" />
         </div>
       </div>
       <h2 id="dialog-subtitle-contact">Informações de contato</h2>

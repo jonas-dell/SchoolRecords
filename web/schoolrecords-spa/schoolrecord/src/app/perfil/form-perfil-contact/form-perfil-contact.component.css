@@ -2,7 +2,7 @@
   color: #787878;
   font-size: 15px;
   font-weight: lighter;
-  font-family: Roboto-Light, Arial, Helvetica, sans-serif; 
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
   margin: 10px 0px 5px 0px;
 }
 
@@ -20,7 +20,7 @@
   margin-left: 5px;
   position: relative;
   top: -3px;
-  color: rgb(160 32 240);
+  color: #7f408e;
 }
 
 .dialog-link-contact {
