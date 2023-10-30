@@ -135,13 +135,14 @@
 .dialog-link-svg {
   position: relative;
   top: -2px;
-  color: rgb(160 32 240);
+  color: #7f408e;
   font-size: 17px;
 }
 
 .dialog-link-span {
-  color: rgb(160 32 240);
+  color: #7f408e;
   font-size: 17px;
+  margin-left: 5px;
 }
 
 .dialog-button {
@@ -150,24 +151,24 @@
   height: 35px;
   padding: 4px 15px 0px 10px;
   border-radius: 20px;
-  color: rgb(160 32 240);
+  color: #7f408e;
   background-color: white;
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
-  border: 2px solid rgb(160 32 240);
+  border: 2px solid #7f408e;
   margin: 15px 0px 10px 0px;
 }
 
 .dialog-button:hover {
   background-color: rgba(193, 130, 233, 0.241);
-  border: 3px solid rgb(160 32 240);
+  border: 3px solid #7f408e;
 }
 
 .dialog-button-svg {
-  color: rgb(160 32 240);
+  color: #7f408e;
 }
 
 .dialog-button-span {
-  color: rgb(160 32 240);
+  color: #7f408e;
 }
 
 .dialog-button-media {
@@ -186,7 +187,7 @@
 
 .dialog-link-info {
   font-weight: bold;
-  color: rgb(160 32 240);
+  color: #7f408e;
 }
 
 .container-checkbox {
@@ -283,7 +284,7 @@
   padding-top: 5px;
   font-size: 14px;
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
-  background-color: rgb(160 32 240);
+  background-color: #7f408e;
 }
 
 .dialog-success:hover {

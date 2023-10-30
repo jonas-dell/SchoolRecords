@@ -1,20 +1,32 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
-import invites from '../data/invites.json';
+import { Observable } from 'rxjs';
+import { ConfigService } from '../core/config/config.services';
+import { CurrentUserService } from '../shared/services/current-user.service';
 
 @Injectable({ providedIn: 'root' })
 export class InvitesService {
-  invitesDb: Array<any> = new Array<any>();
+  constructor(
+    private http: HttpClient,
 
-  constructor() {
-    this.invitesDb = invites;
-  }
+    private configService: ConfigService,
+    private currentUserService: CurrentUserService
+  ) {}
 
-  getInvites({ pageSize, page }) {
+  getInvites({ pageSize, page }): Observable<any> {
     let skip = (page - 1) * pageSize;
     let take = page * pageSize;
-    let invitesFiltered = this.invitesDb.slice(skip, take);
-    return of(invitesFiltered).pipe(delay(500));
+    let user = this.currentUserService.getCurrentUser();
+
+    return this.http.get<any>(
+      `${this.configService.config.apiUrl}/api/user/getInvites?id=${user?.id}&skip=${skip}&take=${take}`
+    );
+  }
+
+  sendInvite(userId: number): Observable<any> {
+    return this.http.post<any>(
+      `${this.configService.config.apiUrl}/api/user/sendInvite`,
+      userId
+    );
   }
 }

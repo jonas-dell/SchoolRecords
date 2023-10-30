@@ -8,7 +8,9 @@ import { RequestResponse } from 'src/app/shared/responses/request-response';
   providedIn: 'root',
 })
 export class CoverPhotoService {
-  constructor(private http: HttpClient, private configService: ConfigService) {}
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigService) {}
 
   uploadImagem(imagem: File) {
     const formData = new FormData();
@@ -25,6 +27,7 @@ export class CoverPhotoService {
     );
   }
 }
+
 
 export class ImageUpdateService {
   private imageUpdatedSource = new Subject<void>();

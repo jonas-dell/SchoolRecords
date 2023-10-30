@@ -40,8 +40,7 @@
   margin-bottom: 20px;
   padding: 15px;
   border-radius: 20px;
-  background-color: #fafcfe;
-  box-shadow: 2px 1px 5px #707070;
+  box-shadow: 1px 1px 3px 0px #0000008a;
 }
 
 .start-post {
@@ -70,7 +69,8 @@
   font-size: 15px;
   font-weight: 700;
   font-family: Roboto-Light, Arial, Helvetica, sans-serif;
-  background-color: #fafcfe;
+  background-color: white;
+  margin-left: 10px;
 }
 
 .btn-start-post:hover {
@@ -89,7 +89,6 @@
   height: 50px;
   padding: 13px 10px 10px 10px;
   border-radius: 5px;
-  background-color: #fafcfe;
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
   margin: 3px 0px 3px 0px;
   border: none;
@@ -101,7 +100,7 @@
 }
 
 .start-post-button-svg {
-  color: rgb(160 32 240);
+  color: #7f408e;
   margin-right: 10px;
   position: relative;
   top: -2px;
@@ -118,7 +117,7 @@
 
 .saved-items-container {
   padding-right: 0;
-  height: 46%;
+  height: 900px;
   margin-left: 10px;
 }
 
@@ -208,7 +207,231 @@
 }
 
 .timeline-container {
-  /*width: 65%;*/
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 3px 0px #0000008a;
+  width: 100%;
+}
+
+.post-header {
+  padding: 20px 20px 8px 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.post-header img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: darkgray;
+  cursor: pointer;
+  /*background-image: url(../../assets/img/people.svg);*/
+}
+
+.post-header-info {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -3px;
+}
+
+.info-post {
+  display: flex;
+  flex-direction: row;
+}
+
+.name-user {
+  text-decoration: none;
+  color: #3c3c3c;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;;
+  /*font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;*/
+}
+
+.name-user:hover {
+  color: #7f408e;
+  text-decoration: underline;
+}
+
+.user-contact {
+  margin-left: 10px;
+  font-size: 15px;
+  color: #4e4e4e;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+.title-user {
+  position: relative;
+  max-height: 20px;
+  overflow: hidden;
+  top: -2px;
+  font-size: 13px;
+  color: #4e4e4e;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+.date-post {
+  position: relative;
+  max-height: 20px;
+  overflow: hidden;
+  top: -2px;
+  font-size: 13px;
+  color: #4e4e4e;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+.public-post {
+  margin-left: 10px;
+}
+
+.post-body {
+  padding: 0px 20px 0px 20px;
+  text-align: justify;
+  font-family: Helvetica;
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-info-reactions {
+  display: flex;
+  justify-content: flex-end;
+  height: 33px;
+  border-bottom: 1px solid #dddddd;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.post-comments {
+  position: relative;
+  max-height: 20px;
+  overflow: hidden;
+  top: 4px;
+  font-size: 13px;
+  color: #5e5e5e;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+.post-comments:hover {
+  color: #7f408e;
+  text-decoration: underline;
+}
+
+.post-buttons-container {
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2px;
+}
+
+.post-button {
+  display: inline-block;
+  outline: none;
+  height: 50px;
+  padding: 13px 25px 10px 25px;
+  border-radius: 5px;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  margin: 3px 0px 3px 0px;
+  border: none;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: rgba(166, 165, 166, 0.241);
+}
+
+.post-button-svg {
+  color: #474747eb;
+  margin-right: 6px;
+  position: relative;
+  top: -2px;
+}
+
+.post-button-span {
+  color: #898989;
+  font-size: 14px;
+}
+
+.react-me {
+  font-family: Helvetica;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.react-me .inner {
+  position: absolute;
+  bottom: 100%;
+  padding-bottom: 15px;
+}
+
+.react-me:hover .react-box {
+  display: block;
+}
+
+.react-box {
+  list-style-type: none;
+  margin: 0;
+  display: none;
+  padding: 2px 5px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: -1px 2px 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+.react-box ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.react-box li svg {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  transform: scale(0.8) translateY(0);
+  background-size: cover;
+  transition: transform 200ms ease;
+  position: relative;
+  fill: #7f408e;
+}
+
+.react-box li:before {
+  content: attr(data-hover);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 0 8px;
+  border-radius: 20px;
+  font-family: Helvetica, Verdana, Arial;
+  font-weight: lighter;
+  line-height: 20px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.76);
+  display: none;
+}
+
+.react-box li:hover {
+  transform: scale(1.3) translateY(-10px);
+  transition: transform 200ms ease;
+}
+
+.react-box li:hover:before {
+  display: inline-block;
 }
 
 .ad-container {
@@ -283,10 +506,6 @@
     justify-content: center;
   }
 
-  .start-post-container {
-    width: 100%;
-  }
-
   .share-now {
     width: 100%;
     margin: auto;
@@ -295,6 +514,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    height: 185px;
   }
 
   .share-now p {
@@ -312,12 +532,39 @@
     align-self: center;
   }
 
+  .start-post-container {
+    width: 100%;
+  }
+
+  .start-post-button-svg {
+    display: none;
+  }
+
   .saved-items-container {
     display: none;
   }
 
   .timeline-container {
     width: 100%;
+  }
+
+  .post-buttons-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .post-header img {
+    height: 50px;
+  }
+
+  .post-button {
+    height: 45px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+  }
+
+  .post-button-svg {
+    display: none;
   }
 
   .ad-container {
@@ -351,10 +598,6 @@
     width: 100%;
   }
 
-  .timeline-container p {
-    width: 100%;
-  }
-
   .recent-card {
     padding-left: 0;
     padding-right: 0;
@@ -369,6 +612,10 @@
 
   .share-now {
     width: 100%;
+  }
+
+  .post-button-svg {
+    display: none;
   }
 
   .ad-container {

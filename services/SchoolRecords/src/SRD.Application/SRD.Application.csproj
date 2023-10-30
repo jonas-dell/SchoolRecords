@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Invites\Automapping\" />
     <Folder Include="Login\Specifications\" />
   </ItemGroup>
 

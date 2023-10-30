@@ -16,7 +16,7 @@ SchoolRecords é uma plataforma semelhante ao LinkedIn, com foco em permitir que
 
 - **Front-end:** Angular
 - **Back-end:** C#
-- **Banco de Dados:** [Nome do banco de dados]
+- **Banco de Dados:** SQL Server
 
 ## Pré-requisitos
 
@@ -26,7 +26,6 @@ SchoolRecords é uma plataforma semelhante ao LinkedIn, com foco em permitir que
 - Banco de Dados:
   - **SQL Server:** Microsoft SQL Server (ou outro SGBD SQL Server) instalado e configurado
   - **SQLite:** SQLite (ou outro SGBD SQLite) instalado e configurado
-- [Outros pré-requisitos, se houver]
 
 ## Instalação
 

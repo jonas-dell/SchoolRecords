@@ -2,6 +2,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import { TimelineService } from './timeline.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PublishArticleComponent } from './publish-article/publish-article.component';
+import { PublishPostComponent } from '../publish-post/publish-post.component';
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
 import {
@@ -163,7 +164,17 @@ export class TimelineComponent implements OnInit {
 
   publishArticle() {
     let dialogRef = this.dialog.open(PublishArticleComponent, {
-      height: '650px',
+      height: '630px',
+      width: '750px',
+      data: {
+    
+      },
+    });
+  }
+
+  publishPost() {
+    let dialogRef = this.dialog.open(PublishPostComponent, {
+      height: '550px',
       width: '750px',
       data: {
     

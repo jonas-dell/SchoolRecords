@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SRD.Application.JobExperience.UseCases;
 using SRD.Application.Perfil.UseCases;
-using SRD.Core.Responses;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
 using System;

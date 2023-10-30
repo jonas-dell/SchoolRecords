@@ -28,36 +28,6 @@
   margin-right: 5px;
 }
 
-.upload-photo-article {
-  width: 150px;
-  height: 150px;
-  background-image: url(../../../assets/img/document.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  border: 4px solid white;
-  cursor: pointer;
-}
-
-.file-upload-button {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.upload-photo-article .file-upload-button {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-}
-
 #article {
   display: none;
 }
@@ -71,8 +41,8 @@
   text-align: center;
   padding: 4px 0px 1px 0px;
   border-radius: 20px;
-  border: 2px solid rgb(160 32 240);
-  color: rgb(160 32 240);
+  border: 2px solid #7f408e;
+  color: #7f408e;
   background-color: white;
   cursor: pointer;
   outline: none;
@@ -81,5 +51,5 @@
 
 .btn-article:hover {
   background-color: rgba(193, 130, 233, 0.241);
-  border: 3px solid rgb(160 32 240);
+  border: 3px solid #7f408e;
 }
