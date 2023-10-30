@@ -70,6 +70,7 @@
   font-weight: 700;
   font-family: Roboto-Light, Arial, Helvetica, sans-serif;
   background-color: white;
+  margin-left: 10px;
 }
 
 .btn-start-post:hover {
@@ -533,10 +534,6 @@
 
   .start-post-container {
     width: 100%;
-  }
-
-  .start-post img {
-    width: 65px;
   }
 
   .start-post-button-svg {

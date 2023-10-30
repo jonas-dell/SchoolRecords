@@ -26,6 +26,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { CoverPhotoComponent } from './perfil/cover-photo/cover-photo.component';
 import { PublicationComponent } from './core/publication/publication.component';
 import { PublishArticleComponent } from './timeline/publish-article/publish-article.component';
+import { PublishPostComponent } from './publish-post/publish-post.component';
 
 export class Index {
   static getComponents() {
@@ -58,7 +59,8 @@ export class Index {
       FormPerfilContactComponent,
       CoverPhotoComponent,
       PublicationComponent,
-      PublishArticleComponent
+      PublishArticleComponent,
+      PublishPostComponent
     ];
   }
 }
