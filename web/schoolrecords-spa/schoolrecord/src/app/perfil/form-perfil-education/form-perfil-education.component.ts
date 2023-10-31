@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -29,8 +39,6 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
 
   public anos: string[] = [];
   public meses: string[] = [];
-  
-
 
   constructor(
     private formPerfilEducation: FormPerfilEducation,

@@ -23,6 +23,16 @@
         </div>
       </div>
       <div class="row form-group">
+        <div class="col-12">
+          <label for="pronomes">Pronomes*</label>
+          <select id="pronomes" name="pronomes" class="form-control form-control-sm" formControlName="pronome">
+            <option *ngFor="let pronome of pronomes">{{pronome}}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row form-group">
         <div class="col-md-12">
           <label for="about">About</label>
           <textarea id="about" formControlName="about" rows="3" class="form-control form-control-sm"></textarea>

@@ -34,7 +34,7 @@
                 </div>
                 <p class="profile-name has-text-black-bis" name="userName" type="text" *ngIf="dados">
                   {{dados.perfilName}}
-                  <sup id="pronouns" class="subtitle is-7">(HE/Him)</sup>
+                  <sup id="pronouns" class="subtitle is-7">{{dados?.pronome}}</sup>
                 </p>
                 <p class="profile-title">{{formJob?.jobTitlePerfil}}</p>
                 <p class="profile-location">
