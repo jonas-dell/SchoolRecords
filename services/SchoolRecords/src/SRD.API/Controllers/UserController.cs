@@ -55,6 +55,17 @@ namespace SRD.API.Controllers
             return Ok(await Task.Run(() => contatos.Skip(skip).Take(take)));
         }
 
+        [HttpGet] 
+        public async Task<IActionResult> GetContactsById([FromQuery] int id)
+        {
+
+            var contatos = _userRepository.GetContactsByUserId(id).Select(x => new
+            {
+                x.Id,
+            });
+            return Ok(contatos);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetInvites([FromQuery] int id, [FromQuery] int skip = 10, [FromQuery] int take = 10)
         {
@@ -69,6 +80,8 @@ namespace SRD.API.Controllers
 
             return Ok(await Task.Run(() => contatos.Skip(skip).Take(take)));
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> SendInvite([FromBody] int contactId)

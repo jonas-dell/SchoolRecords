@@ -159,19 +159,30 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     });
   }
 
-
   popularFormacaoAcademica(){
     this.formPerfilService.getAcademicEducations().subscribe(
       (dados) => {
         this.dadosAcademico = dados;
-        console.log(dados);
+        if(this.dadosAcademico === null){
+          var formacaoAcademica: string[] = [
+            'Please select',
+          ];
+          for(var item of formacaoAcademica){
+            this.academicEducations.push(item);
+          }
+        }else{
+          var formacaoAcademica: string[] = [
+            'Please select',
+            this.dadosAcademico.title
+          ];
+          for(var item of formacaoAcademica){
+            this.academicEducations.push(item);
+          }
+        }
+
+
       }
     )
-    var formacaoAcademica: string[] = [
-      'Please select'
-    ];
-    for(var item of formacaoAcademica){
-      this.academicEducations.push(item);
-    }
+    
   }
 }

@@ -7,6 +7,7 @@ import { CoverPhotoComponent } from './cover-photo/cover-photo.component';
 import { FormPerfilEducation } from './form-perfil-education/form-perfil-education.service';
 import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service';
 import { FormPerfilComponent } from './form-perfil/form-perfil.component';
+import { PerfilService } from './perfil.service';
 
 export class Perfil {}
 
@@ -21,11 +22,13 @@ export class PerfilComponent implements OnInit {
   formEducation: any;
   perfil = new Perfil();
   file: File | null = null;
+  numeroDeContatosResult: number | undefined;
 
   constructor(
     private notificationService: NotificationService,
     public dialog: MatDialog,
-    private perfilService: PerfilDataService,
+    private perfilDataService: PerfilDataService,
+    private perfilService: PerfilService,
     private formPerfilJobService: FormPerfilJobService,
     private formPerfilEducation: FormPerfilEducation,
     private convertBase64: ConvertBase64
@@ -35,6 +38,7 @@ export class PerfilComponent implements OnInit {
     this.getPerfilData();
     this.getJobExperience();
     this.getEducation();
+    this.numeroDeContatos();
     let fileButtonContainer = document.getElementById('button-file-container');
     let file = document.getElementById('file-img-input');
     fileButtonContainer?.addEventListener('click', () => {
@@ -42,9 +46,11 @@ export class PerfilComponent implements OnInit {
     });
   }
 
+  
+
   getPerfilData() {
     const token = localStorage.getItem('token');
-    this.perfilService.getPerfil().subscribe(
+    this.perfilDataService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
@@ -63,7 +69,6 @@ export class PerfilComponent implements OnInit {
   getJobExperience() {
     this.formPerfilJobService.getJobExperience().subscribe(
       (data) => {
-        console.log(data);
         this.formJob = data;
       },
       (error) => {
@@ -74,7 +79,6 @@ export class PerfilComponent implements OnInit {
   getEducation() {
     this.formPerfilEducation.getEducation().subscribe(
       (educData) => {
-        console.log(educData);
         this.formEducation = educData;
       },
       (error) => {
@@ -87,7 +91,7 @@ export class PerfilComponent implements OnInit {
     const selectedFile = event.target.files[0];
 
     if (selectedFile) {
-      this.perfilService.uploadImage(selectedFile).subscribe(() => {
+      this.perfilDataService.uploadImage(selectedFile).subscribe(() => {
         this.notificationService.success('Perfil salvo com sucesso!');
       });
       this.getPerfilData();
@@ -116,4 +120,13 @@ export class PerfilComponent implements OnInit {
       },
     });
   }
+
+  numeroDeContatos() {
+    this.perfilService. getContactsConnections()
+      .subscribe((dados) => {
+        this.numeroDeContatosResult = dados?.length;
+        console.log(this.numeroDeContatosResult);
+      });
+  }
+  
 }
