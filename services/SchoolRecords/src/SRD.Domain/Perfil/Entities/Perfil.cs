@@ -22,5 +22,7 @@
         public User.Entities.User? User { get; set; }
         public virtual JobExperience? JobExperience { get; set; }
         public virtual AcademicEducation? AcademicEducation { get; set; }
+
+        public virtual ICollection<UserPost?> UserPosts { get; set; } = new List<UserPost>();
     }
 }
