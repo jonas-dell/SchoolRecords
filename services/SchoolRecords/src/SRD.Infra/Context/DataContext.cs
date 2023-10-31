@@ -32,6 +32,7 @@ namespace SRD.Infra.Context
         public DbSet<Domain.Perfil.Entities.Perfil> Perfis { get; set; }
         public DbSet<Domain.Perfil.Entities.JobExperience> JobExperiences { get; set; }
         public DbSet<Domain.Perfil.Entities.AcademicEducation> AcademicEducation { get; set; }
+        public DbSet<Domain.Perfil.Entities.UserPost> UserPost { get; set; }
         public DbSet<Domain.Perfil.Entities.Contact> Contacts { get; set; }
 
         public async Task<bool> Commit()

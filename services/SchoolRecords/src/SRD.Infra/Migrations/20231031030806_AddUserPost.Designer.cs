@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRD.Infra.Context;
 
@@ -10,9 +11,10 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231031030806_AddUserPost")]
+    partial class AddUserPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,62 +83,6 @@ namespace SRD.Infra.Migrations
                         .IsUnique();
 
                     b.ToTable("AcademicEducation", (string)null);
-                });
-
-            modelBuilder.Entity("SRD.Domain.Perfil.Entities.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Day")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("Day");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("VARCHAR(300)")
-                        .HasColumnName("Email");
-
-                    b.Property<string>("Month")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("Month");
-
-                    b.Property<string>("NumberPhone")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("NumberPhone");
-
-                    b.Property<int>("PerfilId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TypePhone")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("TypePhone");
-
-                    b.Property<string>("TypeSite")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("TypeSite");
-
-                    b.Property<string>("UrlPerfil")
-                        .HasColumnType("VARCHAR(800)")
-                        .HasColumnName("UrlPerfil");
-
-                    b.Property<string>("UrlSite")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("UrlSite");
-
-                    b.Property<string>("Year")
-                        .HasColumnType("VARCHAR(200)")
-                        .HasColumnName("Year");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PerfilId")
-                        .IsUnique();
-
-                    b.ToTable("Contact", (string)null);
                 });
 
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.JobExperience", b =>
@@ -393,17 +339,6 @@ namespace SRD.Infra.Migrations
                     b.Navigation("Perfil");
                 });
 
-            modelBuilder.Entity("SRD.Domain.Perfil.Entities.Contact", b =>
-                {
-                    b.HasOne("SRD.Domain.Perfil.Entities.Perfil", "Perfil")
-                        .WithOne("Contact")
-                        .HasForeignKey("SRD.Domain.Perfil.Entities.Contact", "PerfilId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Perfil");
-                });
-
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.JobExperience", b =>
                 {
                     b.HasOne("SRD.Domain.Perfil.Entities.Perfil", "Perfil")
@@ -459,8 +394,6 @@ namespace SRD.Infra.Migrations
             modelBuilder.Entity("SRD.Domain.Perfil.Entities.Perfil", b =>
                 {
                     b.Navigation("AcademicEducation");
-
-                    b.Navigation("Contact");
 
                     b.Navigation("JobExperience");
 
