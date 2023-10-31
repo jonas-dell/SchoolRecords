@@ -4,8 +4,6 @@
       <div class="column is-two-thirds is-full-mobile">
         <div class="card">
           <div class="profile-card">
-
-
             <div class="cover-photo">
               <div class="cover-photo-background">
                 <img [src]="dados?.image" />
@@ -16,8 +14,6 @@
                 </span>
               </div>
             </div>
-
-
             <div (click)="editarPerfilIntroduction()">
               <span class="icon pencil is-pulled-right edit-profile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -38,7 +34,6 @@
                 </div>
                 <p class="profile-name has-text-black-bis" name="userName" type="text" *ngIf="dados">
                   {{dados.perfilName}}
-
                   <sup id="pronouns" class="subtitle is-7">(HE/Him)</sup>
                 </p>
                 <p class="profile-title">{{formJob?.jobTitlePerfil}}</p>

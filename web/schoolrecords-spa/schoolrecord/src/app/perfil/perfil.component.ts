@@ -125,7 +125,6 @@ export class PerfilComponent implements OnInit {
     this.perfilService. getContactsConnections()
       .subscribe((dados) => {
         this.numeroDeContatosResult = dados?.length;
-        console.log(this.numeroDeContatosResult);
       });
   }
   
