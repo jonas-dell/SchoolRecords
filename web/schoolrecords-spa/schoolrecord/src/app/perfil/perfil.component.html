@@ -34,7 +34,7 @@
                 </div>
                 <p class="profile-name has-text-black-bis" name="userName" type="text" *ngIf="dados">
                   {{dados.perfilName}}
-                  <sup id="pronouns" class="subtitle is-7">{{dados?.pronome}}</sup>
+                  <sup id="pronouns" class="subtitle is-7">(HE/Him)</sup>
                 </p>
                 <p class="profile-title">{{formJob?.jobTitlePerfil}}</p>
                 <p class="profile-location">
@@ -81,19 +81,17 @@
                 <div class="card-content college">
                   <div class="media">
                     <div class="media-left">
-                      <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" style="width: 100%; height: auto" />
+                      <figure class="image is-64x64">
+                        <img [src]="imagemSrc" alt="faculdade" style="width: auto ; height: auto" />
                       </figure>
                     </div>
                     <div class="media-content">
                       <p class="has-text-black-bis college-name">
                         {{formEducation?.title}}
-
                       </p>
                       <p class="subtitle is-7 has-text-grey-darker">
                         {{formEducation?.academicType}}
                       </p>
-
                     </div>
                   </div>
                 </div>
@@ -173,8 +171,8 @@
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
-                      <figure class="image is-48x48">
-                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                      <figure class="image is-64x64">
+                        <img [src]="imagemSrc" alt="faculdade" />
                       </figure>
                     </div>
                     <div class="media-content">

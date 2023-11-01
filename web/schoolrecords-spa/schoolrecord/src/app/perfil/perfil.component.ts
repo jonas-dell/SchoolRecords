@@ -23,6 +23,7 @@ export class PerfilComponent implements OnInit {
   perfil = new Perfil();
   file: File | null = null;
   numeroDeContatosResult: number | undefined;
+  imagemSrc: string = '';
 
   constructor(
     private notificationService: NotificationService,
@@ -76,16 +77,47 @@ export class PerfilComponent implements OnInit {
       }
     );
   }
+
+  //Interface em typescript - estrutura de dicionário Record<K,V>
+  imagemFaculdade: Record<string, string> = {
+    'fatec':'fatec.jpg',
+    'fam':'fam.png',
+    'usp':'usp.png',
+    'ftt':'ftt.jpg',
+    'fundacao': 'fundacao.jpg',
+    'abc':'abc.png',
+    'default': 'default.jpg.png',
+    'federaldesaopaulo': 'federalDeSaoPaulo.png',
+    'federalminasgerais' : 'federalminasgerais.png',
+    'fgv':'fgv.png',
+    'mackenzie': 'mackenzie.png',
+    'puc': 'puc.png',
+    'unicamp': 'unicamp.png',
+    'unifesp':'unifesp.jpg',
+  }
+
   getEducation() {
     this.formPerfilEducation.getEducation().subscribe(
       (educData) => {
         this.formEducation = educData;
+        let tituloFaculdade = this.formEducation?.title;
+        tituloFaculdade = tituloFaculdade.toLowerCase();
+        console.log(tituloFaculdade);
+        
+        if(tituloFaculdade){
+          const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
+          console.log(nomeDoArquivo);
+          this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`
+        }else{
+          this.imagemSrc = `./../../assets/img/default.png`
+        }
       },
       (error) => {
         console.error('Erro ao buscar os dados da api:', error);
       }
     );
   }
+
 
   fileChanged(event: any) {
     const selectedFile = event.target.files[0];
