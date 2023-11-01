@@ -27,12 +27,9 @@ namespace SRD.API.Controllers
             _perfilRepository = perfilRepository;
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> AddPost([FromBody] UserPostDTO userPost)
         {
-
-
-
             var command = new Application.UserPost.UserCases.UserPost.Command()
             {
                 userPostDTO = userPost
