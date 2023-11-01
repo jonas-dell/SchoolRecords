@@ -84,8 +84,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0px 10px 30px 20px;
+  padding: 0px 10px 0px 20px;
   width: 100%;
+  overflow-y: scroll;
 }
 
 form {
@@ -109,10 +110,16 @@ textarea {
   padding-right: 5px;
 }
 
+.dialog-content img {
+  width: 100%;
+  border-radius: 10px;
+}
+
 .publication-media-container {
-  display: flex;
-  height: 50px;
+  height: 80px;
   margin-top: 25px;
+  width: 100%;
+  padding-left: 20px;
 }
 
 .add-media {
@@ -150,10 +157,11 @@ input[type="file"] {
   position: absolute;
   bottom: 100%;
   padding-bottom: 10px;
-  left: -15px;
+  left: -35px;
+  top: -60px;
 }
 
-.add-media:hover .add-media-box {
+.publication-media-btn:hover .add-media-box {
   display: block;
 }
 

@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BaseFormComponent } from '../shared/base-form/base-form.component';
 import { NotificationService } from '../shared/services/notification.service';
-import { PostService } from './publish-post.services';
+import { PostService } from './publish-post.service';
 
 @Component({
   selector: 'app-publish-post',
@@ -12,7 +11,7 @@ import { PostService } from './publish-post.services';
 })
 
 
-export class PublishPostComponent extends BaseFormComponent implements OnInit {
+export class PublishPostComponent implements OnInit {
   formulario = new FormGroup({
     Id: new FormControl(0, [Validators.nullValidator]),
     Name: new FormControl('', [Validators.nullValidator]),
@@ -30,9 +29,7 @@ export class PublishPostComponent extends BaseFormComponent implements OnInit {
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<PublishPostComponent>,
     @Inject(MAT_DIALOG_DATA) public data) 
-   { 
-    super(dialogRef);
-   }
+   { }
 
   ngOnInit(): void {
 
