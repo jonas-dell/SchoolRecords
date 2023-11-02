@@ -2,13 +2,23 @@ import { Injectable } from '@angular/core';
 import { interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 import pubs from '../data/pub.json';
+import { RequestResponse } from '../shared/responses/request-response';
+import { HttpClient } from '@angular/common/http';
+import { ConfigService } from '../core/config/config.services';
 
 @Injectable({ providedIn: 'root' })
 export class TimelineService {
   pubsDb: Array<any> = new Array<any>();
 
-  constructor() {
+  constructor(private http: HttpClient,private configService: ConfigService) {
     this.pubsDb = pubs;
+  }
+  
+  GetListPost(){
+    return this.http.get<RequestResponse>(
+      `${this.configService.config.apiUrl}/api/UserPost/GetListPost`
+    
+    );
   }
 
   getPubs() {

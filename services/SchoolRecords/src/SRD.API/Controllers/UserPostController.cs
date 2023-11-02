@@ -38,5 +38,11 @@ namespace SRD.API.Controllers
 
             return Ok(result);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetListPost()
+        {
+            var perfil = _userPostRepository.GetAllPost();
+            return Ok(perfil);
+        }
     }
 }

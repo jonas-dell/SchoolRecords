@@ -16,6 +16,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ParseSourceFile } from '@angular/compiler';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'timeline',
@@ -23,8 +24,17 @@ import { ParseSourceFile } from '@angular/compiler';
   styleUrls: ['./timeline.component.css'],
 })
 export class TimelineComponent implements OnInit {
+  formulario = new FormGroup({
+    Id: new FormControl(0, [Validators.nullValidator]),
+    Name: new FormControl('', [Validators.nullValidator]),
+    Image: new FormControl('', [Validators.nullValidator]),
+    Post: new FormControl('', [Validators.nullValidator]),
+    Date: new FormControl('', [Validators.nullValidator]),
+    PerfilId: new FormControl(0, [Validators.nullValidator]),
+  });
   pubOriginalPos: number = 0;
   publications: Array<any> = new Array<any>();
+  posts: Array<any> = new Array<any>();
   private chart!: am4charts.XYChart;
 
   @ViewChild('pub', { static: true }) pub!: ElementRef;
@@ -42,7 +52,7 @@ export class TimelineComponent implements OnInit {
     this.pubOriginalPos = this.pub.nativeElement.getBoundingClientRect().top;
     this.pubElement = this.pub.nativeElement;
     this.getPubs();
-
+     this.getListPost();
     this.timelineService
       .getPubs()
       .subscribe((resp) => (this.publications = resp));
@@ -65,6 +75,23 @@ export class TimelineComponent implements OnInit {
     if (scrollPos <= this.pubOriginalPos)
       this.pubElement.classList.remove('pub-container-fixed');
   }
+
+  private getListPost(){
+    this.timelineService.GetListPost().subscribe((dados) => {
+       this.populaDadosForm(dados);
+       console.log(this.posts);
+    });
+  }
+
+  populaDadosForm(dados : any) {
+
+      this.posts = [
+        {
+          dados
+      }
+    ]
+  }
+
 
   private getPubs() {
     this.publications = [
