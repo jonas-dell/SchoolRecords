@@ -119,3 +119,34 @@
   font-weight: 600px;
   text-decoration: none;
 }
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .register-container {
+    flex-direction: column;
+  }
+
+  .register-info {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0;
+  }
+
+  .login{
+    padding: 0;
+  }
+
+  .container-login {
+    padding: 0;
+    max-width: 100vw;
+  }
+
+  .form-login input {
+    width: 100%;
+  }
+
+  .btn-login {
+    width: 100%;
+  }
+}

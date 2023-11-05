@@ -98,3 +98,11 @@
   color: #fff;
   font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .article-relevance-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
