@@ -3,6 +3,9 @@ import { TimelineService } from './timeline.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PublishArticleComponent } from './publish-article/publish-article.component';
 import { PublishPostComponent } from '../publish-post/publish-post.component';
+import { skipWhile, tap } from 'rxjs/operators';
+import { timer } from 'rxjs';
+
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
 import {
@@ -24,17 +27,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./timeline.component.css'],
 })
 export class TimelineComponent implements OnInit {
-  formulario = new FormGroup({
-    Id: new FormControl(0, [Validators.nullValidator]),
-    Name: new FormControl('', [Validators.nullValidator]),
-    Image: new FormControl('', [Validators.nullValidator]),
-    Post: new FormControl('', [Validators.nullValidator]),
-    Date: new FormControl('', [Validators.nullValidator]),
-    PerfilId: new FormControl(0, [Validators.nullValidator]),
-  });
   pubOriginalPos: number = 0;
   publications: Array<any> = new Array<any>();
   posts: Array<any> = new Array<any>();
+  loading: boolean = false;
+  postsLoaded: boolean = false;
   private chart!: am4charts.XYChart;
 
   @ViewChild('pub', { static: true }) pub!: ElementRef;
@@ -48,11 +45,11 @@ export class TimelineComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadPosts();
     this.getChart();
     this.pubOriginalPos = this.pub.nativeElement.getBoundingClientRect().top;
     this.pubElement = this.pub.nativeElement;
     this.getPubs();
-     this.getListPost();
     this.timelineService
       .getPubs()
       .subscribe((resp) => (this.publications = resp));
@@ -62,6 +59,29 @@ export class TimelineComponent implements OnInit {
 
     fileButton?.addEventListener('click', () => {
       file?.click();
+    });
+  }
+
+  private loadPosts() {
+    this.timelineService
+      .getListPost({ })
+      .pipe(
+        tap(() => (this.loading = false)),
+        skipWhile((resp) => {
+          if (resp.length !== 0) return false;
+          this.showPostsLoadedMessage('postsLoaded');
+          return true;
+        })
+      )
+      .subscribe((resp: any) => {
+        this.posts = [...this.posts, ...resp];
+      });
+  }
+
+  private showPostsLoadedMessage(controller: string) {
+    this[controller] = true;
+    timer(5000).subscribe(() => {
+      this[controller] = false;
     });
   }
 
@@ -75,23 +95,6 @@ export class TimelineComponent implements OnInit {
     if (scrollPos <= this.pubOriginalPos)
       this.pubElement.classList.remove('pub-container-fixed');
   }
-
-  private getListPost(){
-    this.timelineService.GetListPost().subscribe((dados) => {
-       this.populaDadosForm(dados);
-       console.log(this.posts);
-    });
-  }
-
-  populaDadosForm(dados : any) {
-
-      this.posts = [
-        {
-          dados
-      }
-    ]
-  }
-
 
   private getPubs() {
     this.publications = [
