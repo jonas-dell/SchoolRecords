@@ -15,6 +15,7 @@ export class InvitesComponent implements OnInit {
   lastScroll: number = 0;
   loading: boolean = false;
   invitesLoaded: boolean = false;
+  noUsers: boolean = false;
   invites: Array<any> = new Array<any>();
 
   constructor(
@@ -48,6 +49,7 @@ export class InvitesComponent implements OnInit {
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
           this.showInvitesLoadedMessage('contactsLoaded');
+          this.noUsers = true; 
           return true;
         })
       )

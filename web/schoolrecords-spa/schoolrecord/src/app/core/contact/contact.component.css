@@ -48,6 +48,29 @@
   margin-bottom: 0;
 }
 
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+  background-image: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ccc;
+}
+
+.image img {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .contact-info {
   margin-left: 20px;
 }
