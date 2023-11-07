@@ -17,7 +17,7 @@
     <form action="" [formGroup]="formulario">
       <textarea type="text" placeholder="What are you thinking?" formControlName="Post"  ></textarea>
     </form>
-    <img src="../../assets/img/animals.jpg" />
+    <img *ngIf="formulario.get('Image')?.value" [src]="formulario.get('Image')?.value" alt="Post image" />
   </div>
   <div class="publication-media-container">
     <label for="media" class="publication-media-btn">

@@ -65,7 +65,7 @@
           <div class="post-body">{{ post.post }}</div>
         </div>
         <div class="post-body-media ">
-          <img src="../../assets/img/animals.jpg" alt="">
+          <img *ngIf="post.image" [src]="post.image" alt="Post image">
         </div>
         <div class="post-info-reactions">
           <a href="" class="post-comments">5 comments</a>
