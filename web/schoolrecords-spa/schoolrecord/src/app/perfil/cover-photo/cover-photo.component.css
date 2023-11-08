@@ -35,8 +35,8 @@ input[type="file"] {
   text-align: center;
   padding: 4px 0px 1px 0px;
   border-radius: 20px;
-  border: 2px solid rgb(160 32 240);
-  color: rgb(160 32 240);
+  border: 2px solid #7f408e;
+  color: #7f408e;
   background-color: white;
   cursor: pointer;
   outline: none;
@@ -46,5 +46,5 @@ input[type="file"] {
 
 .btn-photo:hover {
   background-color: rgba(193, 130, 233, 0.241);
-  border: 3px solid rgb(160 32 240);
+  border: 3px solid #7f408e;
 }

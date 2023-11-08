@@ -9,6 +9,7 @@ import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service'
 import { FormPerfilComponent } from './form-perfil/form-perfil.component';
 import { PerfilService } from './perfil.service';
 import { SharedService } from './cover-photo/shared.service';
+import { User } from 'src/app/shared/models/user';
 
 export class Perfil {}
 
@@ -26,6 +27,8 @@ export class PerfilComponent implements OnInit {
   file: File | null = null;
   numeroDeContatosResult: number | undefined;
   imagemSrc: string = '';
+  dadosUser: any;
+  user: User | null;
 
   constructor(
     private notificationService: NotificationService,
