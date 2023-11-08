@@ -1,6 +1,6 @@
 <div mat-dialog-container class="dialog-container">
   <div class="dialog-header">
-    <h1 class="dialog-title">Imagem de Fundo</h1>
+    <h1 class="dialog-title">Background Image</h1>
     <span class="dialog-close" (click)="closeDialog()">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fll="currentColor" class="bi bi-x-lg"
         viewBox="0 0 16 16">
@@ -17,9 +17,9 @@
     </div>
   </div>
   <div class="dialog-footer">
-    <label for="photo" class="btn-photo">Carregar foto</label>
+    <label for="photo" class="btn-photo">Upload photo</label>
     <input type="file" (change)="fileChanged($event)" id="photo">
-    <button class=" dialog-success" (click)="save()">Salvar</button>
-    <button class="dialog-cancel" (click)="cancel()">Cancelar</button>
+    <button class=" dialog-success" (click)="save()">Save</button>
+    <button class="dialog-cancel" (click)="cancel()">Cancel</button>
   </div>
 </div>

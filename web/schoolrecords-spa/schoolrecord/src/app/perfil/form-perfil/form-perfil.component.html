@@ -1,6 +1,6 @@
 <div mat-dialog-container class="dialog-container">
   <div class="dialog-header">
-    <h1 class="dialog-title">Editar introdução</h1>
+    <h1 class="dialog-title">Edit profile</h1>
     <span class="dialog-close" (click)="closeDialog()">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
@@ -8,23 +8,23 @@
     </span>
   </div>
   <div class="dialog-content">
-    <p class="dialog-content-required">* Indica item obrigatório</p>
+    <p class="dialog-content-required">* Indicates mandatory item</p>
     <form class="form-perfil-introducao" [formGroup]="perfil">
       <div class="row form-group">
         <div class="col-12">
-          <label for="nome">Nome*</label>
+          <label for="nome">Name*</label>
           <input id="nome" type="text" formControlName="perfilName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="sobrenome">Sobrenome*</label>
+          <label for="sobrenome">Last name*</label>
           <input id="sobrenome" type="text" formControlName="perfilLastName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="pronomes">Pronomes*</label>
+          <label for="pronomes">Pronouns*</label>
           <select id="pronomes" name="pronomes" class="form-control form-control-sm" formControlName="pronome">
             <option *ngFor="let pronome of pronomes">{{pronome}}</option>
           </select>
@@ -38,23 +38,23 @@
           <textarea id="about" formControlName="about" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
-      <h2 class="dialog-content-subtitle">Cargo atual</h2>
+      <h2 class="dialog-content-subtitle">Current position</h2>
       <a id="dialog-link-job" class="dialog-link" (click)="editarPerfilJob()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
         </svg>
-        <span class="dialog-link-span">Adicionar novo cargo</span>
+        <span class="dialog-link-span">Add new role</span>
       </a>
       <div class="row form-group">
         <div class="col-12">
-          <label for="setor">Setor*</label>
-          <input id="setor" type="text" placeholder="Ex: varejo" formControlName="sector" class="form-control form-control-sm" />
+          <label for="setor">Sector*</label>
+          <input id="setor" type="text" placeholder="Ex: retail" formControlName="sector" class="form-control form-control-sm" />
         </div>
       </div>
-      <h2 class="dialog-content-subtitle">Formação acadêmica</h2>
+      <h2 class="dialog-content-subtitle">Academic education</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="academicEducations">Formação acadêmica*</label>
+          <label for="academicEducations">Academic education*</label>
           <select id="academicEducations" name="academicEducations" class="form-control form-control-sm">
             <option *ngFor="let academicEducation of academicEducations">{{academicEducation}}</option>
           </select>
@@ -64,78 +64,78 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
         </svg>
-        <span class="dialog-link-span">Adicionar formação acadêmica</span>
+        <span class="dialog-link-span">Add academic education</span>
       </a>
       <div class="row form-group">
         <div class="col-12">
-          <label for="checkbox" class="container-checkbox">Exibir formação na minha introdução
+          <label for="checkbox" class="container-checkbox">Show academic education in my intro
             <input id="checkbox" type="checkbox" checked="checked" formControlName="education" class="form-control form-control-sm">
             <span class="checkmark"></span>
           </label>
         </div>
       </div>
-      <h2 class="dialog-content-subtitle">Endereço</h2>
+      <h2 class="dialog-content-subtitle">Address</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="pais">País/Região*</label>
+          <label for="pais">Country/Region*</label>
           <input id="pais" type="text" formControlName="country" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="cep">CEP*</label>
+          <label for="cep">Zip code*</label>
           <input id="cep" type="text" class="form-control form-control-sm" name="cep" formControlName="zipCode" (blur)="consultaCep()" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="logradouro">Logradouro*</label>
+          <label for="logradouro">Street*</label>
           <input id="logradouro" type="text" formControlName="street" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="number">Número</label>
+          <label for="number">Number</label>
           <input id="number" type="text" formControlName="number" #numberField class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="complemento">Complemento</label>
+          <label for="complemento">Complement</label>
           <input id="complemento" type="text" formControlName="complement" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="bairro">Bairro*</label>
+          <label for="bairro">Neighborhood*</label>
           <input id="bairro" type="text" formControlName="neighborhood" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="cidade">Cidade*</label>
+          <label for="cidade">City*</label>
           <input id="cidade" type="text" formControlName="city" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="estado">Estado*</label>
+          <label for="estado">State*</label>
           <input id="estado" type="text" formControlName="state" class="form-control form-control-sm" />
         </div>
       </div>
-      <h2 id="dialog-subtitle-contact">Informações de contato</h2>
+      <h2 id="dialog-subtitle-contact">Contact information</h2>
       <span id="dialog-info-contact">
-        Adicione ou altere a URL do seu perfil, o e-mail e muito mais
+        Add or change your profile URL, email and more
       </span>
       <a id="dialog-link-contact" class="dialog-link" (click)="editarPerfilContact()">
         <span class="dialog-link-span">
-          Editar informações de contato
+          Edit contact information
         </span>
       </a>
     </form>
   </div>
   <div class="dialog-footer">
-    <button class="dialog-success" (click)="save()">Salvar</button>
-    <button class="dialog-cancel" (click)="closeDialog()">Cancelar</button>
+    <button class="dialog-success" (click)="save()">Save</button>
+    <button class="dialog-cancel" (click)="closeDialog()">Cancel</button>
   </div>
 </div>
