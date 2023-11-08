@@ -1,6 +1,6 @@
 <div mat-dialog-container class="dialog-container">
   <div class="dialog-header">
-    <h1 class="dialog-title">Adicionar experiência</h1>
+    <h1 class="dialog-title">Add Experience</h1>
     <span class="dialog-close" (click)="closeDialog()">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
@@ -8,17 +8,17 @@
     </span>
   </div>
   <div class="dialog-content">
-    <p class="dialog-content-required">* Indica item obrigatório</p>
+    <p class="dialog-content-required">* Indicates mandatory item</p>
     <form class="form-perfil-job" [formGroup]="formulario">
       <div class="row form-group">
         <div class="col-12">
-          <label for="titulo">Título*</label>
-          <input id="titulo" type="text" placeholder="Ex: Gerente de vendas de varejo" formControlName="jobTitle" class="form-control form-control-sm" />
+          <label for="titulo">Title*</label>
+          <input id="titulo" type="text" placeholder="Ex: Retail sales manager" formControlName="jobTitle" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label>Tipo de emprego</label>
+          <label>Job type</label>
           <select formControlName="jobType" class="form-control form-control-sm">
             <option *ngFor="let tipoEmprego of tipoDeEmprego">{{ tipoEmprego }}</option>
           </select>
@@ -26,32 +26,32 @@
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="companyName">Nome da empresa*</label>
+          <label for="companyName">Company Name*</label>
           <input id="companyName" type="text" placeholder="Ex.: Microsoft" formControlName="companyName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="localidade">Localidade</label>
+          <label for="localidade">Location</label>
           <input id="localidade" type="text" placeholder="Ex: Rio de Janeiro" formControlName="companyLocation" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group margin-info-job">
         <div class="col-12">
-          <label>Tipo de localidade</label>
+          <label>Type of location</label>
           <select formControlName="typeLocation" class="form-control form-control-sm ">
             <option *ngFor="let tipoLocal of tipoDeLocais">{{ tipoLocal }}</option>
           </select>
         </div>
       </div>
       <p class="info-job">
-        Selecionar tipo de localidade (ex: remota)
+        Select location type (ex: remote)
       </p>
 
 
       <div class="row form-group">
         <div class="col-12">
-          <label class="container-checkbox">Trabalho atualmente neste cargo
+          <label class="container-checkbox">I currently work in this position
             <input type="checkbox" checked="checked" formControlName="checkboxJob" class="form-control form-control-sm" id="check-job">
             <span class="checkmark"></span>
           </label>
@@ -59,7 +59,7 @@
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="">Início*</label>
+          <label for="">Start*</label>
           <select formControlName="jobStartMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -73,7 +73,7 @@
 
       <div class="row form-group">
         <div class="col-md-6" id="opacity-month">
-          <label for="">Término*</label>
+          <label for="">End*</label>
           <select formControlName="jobEndMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -88,56 +88,56 @@
       <div id="hide-container">
         <div class="row form-group margin-info-job">
           <div class="col-12">
-            <label>Setor*</label>
+            <label>Sector*</label>
             <input type="text" placeholder="Ex: varejo" formControlName="jobSector" class="form-control form-control-sm margin-info-job" />
           </div>
         </div>
         <p class="info-job">
-          O SchoolRecords utiliza informações do setor para oferecer recomendações mais relevantes
+          SchoolRecords uses industry insights to provide more relevant recommendations
         </p>
       </div>
 
 
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="descricao">Descrição</label>
+          <label for="descricao">Description</label>
           <textarea id="descricao" rows="3" formControlName="jobDescription" class="form-control form-control-sm"></textarea>
         </div>
       </div>
 
       <div class="row form-group margin-info-job">
         <div class="col-12">
-          <label for="jobTitlePerfil">Título do perfil</label>
+          <label for="jobTitlePerfil">Profile title</label>
           <input id="jobTitlePerfil" type="text" formControlName="jobTitlePerfil" placeholder="headline" class="form-control form-control-sm margin-info-job" />
         </div>
       </div>
       <p id="info-title-perfil">
-        Aparece abaixo do seu nome na parte superior do perfil
+        Appears below your name at the top of your profile
       </p>
-      <h2 class="dialog-content-subtitle">Competências</h2>
+      <h2 class="dialog-content-subtitle">Skills</h2>
       <p class="dialog-content-info">
-        Mais de 50% das empresas no SchoolRecords usam dados de competências para preencher suas vagas
+        More than 50% of companies in SchoolRecords use skills data to fill their vacancies
       </p>
       <button class="dialog-button dialog-button-skills">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
-        <span class="dialog-button-span">Adicione competências</span>
+        <span class="dialog-button-span">Add skills</span>
       </button>
-      <h2 class="dialog-content-subtitle">Conteúdos de mídia</h2>
+      <h2 class="dialog-content-subtitle">Media contents</h2>
       <p class="dialog-content-info">
-        Adicione mídia como imagens, documentos, sites ou apresentações. Saiba mais sobre <a class="dialog-link-info">os tipos de arquivos de mídia compatíveis</a>
+        Add media like images, documents, websites or presentations. know more about <a class="dialog-link-info">supported media file types</a>
       </p>
       <button class="dialog-button dialog-button-media">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
-        <span class="dialog-button-span">Adicionar mídia</span>
+        <span class="dialog-button-span">Add media</span>
       </button>
     </form>
   </div>
   <div class="dialog-footer">
-    <button class="dialog-success" (click)="save()">Salvar</button>
-    <button class="dialog-cancel" (click)="closeDialog()">Cancelar</button>
+    <button class="dialog-success" (click)="save()">Save</button>
+    <button class="dialog-cancel" (click)="closeDialog()">Cancel</button>
   </div>
 </div>

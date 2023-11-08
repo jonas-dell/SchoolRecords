@@ -1,6 +1,6 @@
 <div mat-dialog-container class="dialog-container">
   <div class="dialog-header">
-    <h1 class="dialog-title">Adicionar formação acadêmica</h1>
+    <h1 class="dialog-title">Add Academic Education</h1>
     <span class="dialog-close" (click)="closeDialog()">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
@@ -8,29 +8,29 @@
     </span>
   </div>
   <div class="dialog-content">
-    <p class="dialog-content-required">* Indica item obrigatório</p>
+    <p class="dialog-content-required">* Indicates mandatory item</p>
     <form class="form-perfil-education" [formGroup]="formulario">
       <div class="row form-group">
         <div class="col-12">
-          <label for="titulo">Instituição de ensino*</label>
-          <input id="titulo" type="text" placeholder="Ex.: Fundação Getúlio Vargas" formControlName="title" class="form-control form-control-sm" />
+          <label for="titulo">Educational institution*</label>
+          <input id="titulo" type="text" placeholder="Ex.: Getúlio Vargas Foundation" formControlName="title" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="diploma">Diploma</label>
-          <input id="diploma" type="text" placeholder="Ex.: Bacharelado" formControlName="academicType" class="form-control form-control-sm" />
+          <label for="diploma">University Degree</label>
+          <input id="diploma" type="text" placeholder="Ex.: Bachelor degree" formControlName="academicType" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="areaDeEstudo">Área de estudo</label>
-          <input id="areaDeEstudo" type="text" placeholder="Ex.: Administração" formControlName="studyArea" class="form-control form-control-sm" />
+          <label for="areaDeEstudo">Study area</label>
+          <input id="areaDeEstudo" type="text" placeholder="Ex.: Administration" formControlName="studyArea" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="dataInicio">Data de início</label>
+          <label for="dataInicio">Start date</label>
           <select id="dataInicio" formControlName="studyStartMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -43,7 +43,7 @@
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="dataTermino">Data de término (ou prevista)</label>
+          <label for="dataTermino">End date (or predicted)</label>
           <select id="dataTermino" formControlName="studyEndMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -56,46 +56,46 @@
       </div>
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="nota">Nota</label>
+          <label for="nota">Note</label>
           <input id="nota" type="text" formControlName="note" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="atividadeGrupos">Atividades e grupos</label>
-          <textarea id="atividadeGrupos" placeholder="Ex.: teatro, dança, vôlei" formControlName="activitiesGroups" rows="3" class="form-control form-control-sm"></textarea>
+          <label for="atividadeGrupos">Activities and groups</label>
+          <textarea id="atividadeGrupos" placeholder="Ex.: theater, dance, volleyball" formControlName="activitiesGroups" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="descricao">Descrição</label>
+          <label for="descricao">Description</label>
           <textarea id="descricao" formControlName="description" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
-      <h2 class="dialog-content-subtitle">Competências</h2>
+      <h2 class="dialog-content-subtitle">Skills</h2>
       <p class="dialog-content-info">
-        Recomendamos adicionar as 5 que você mais utiliza nesta experência. Elas também serão exibidas na sua seção de Competências.
+        We recommend adding the 5 that you use most in this experience. They will also be displayed in your Skills section.
       </p>
       <button class="dialog-button dialog-button-skills">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
-        <span class="dialog-button-span">Adicione competências</span>
+        <span class="dialog-button-span">Add skills</span>
       </button>
-      <h2 class="dialog-content-subtitle">Conteúdos de mídia</h2>
+      <h2 class="dialog-content-subtitle">Media contents</h2>
       <p class="dialog-content-info">
-        Adicione mídia como imagens, documentos, sites ou apresentações. Saiba mais sobre <a class="dialog-link-info">os tipos de arquivos de mídia compatíveis</a>
+        Add media like images, documents, websites or presentations. know more about <a class="dialog-link-info">supported media file types</a>
       </p>
       <button class="dialog-button dialog-button-media">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
-        <span class="dialog-button-span">Adicionar mídia</span>
+        <span class="dialog-button-span">Add media</span>
       </button>
     </form>
   </div>
   <div class="dialog-footer">
-    <button class="dialog-success" (click)="save()">Salvar</button>
-    <button class="dialog-cancel" (click)="closeDialog()">Cancelar</button>
+    <button class="dialog-success" (click)="save()">Save</button>
+    <button class="dialog-cancel" (click)="closeDialog()">Cancel</button>
   </div>
 </div>

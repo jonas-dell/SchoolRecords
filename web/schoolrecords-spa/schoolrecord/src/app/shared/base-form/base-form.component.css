@@ -98,7 +98,7 @@
 .dialog-content textarea {
   height: 70px;
   outline: none;
-  padding: 4px;
+  padding: 4px 8px 4px 8px;
   border: 1px groove #000000;
   border-radius: 3px;
   box-shadow: inset 0px 0px 1.5px rgba(0, 0, 0, 0.75);
@@ -172,11 +172,11 @@
 }
 
 .dialog-button-media {
-  width: 170px;
+  width: 150px;
 }
 
 .dialog-button-skills {
-  width: 230px;
+  width: 145px;
 }
 
 .dialog-content-info {
