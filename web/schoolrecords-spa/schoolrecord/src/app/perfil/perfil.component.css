@@ -18,22 +18,21 @@
 }
 
 .profile-card {
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
 .cover-photo {
+  background-image: linear-gradient(to bottom, #6a0b88, #800080);
   position: relative;
   min-height: 196px;
   border-radius: 8px 8px 0px 0px;
-  /* background-image: url("../../assets/img/coverPhoto.png"); */
   background-size: cover;
   background-position: center;
 }
 
-.cover-photo-background>img {
+.cover-photo-background > img {
   width: 100%;
   max-height: 196px;
   border-radius: 8px 8px 0 0;

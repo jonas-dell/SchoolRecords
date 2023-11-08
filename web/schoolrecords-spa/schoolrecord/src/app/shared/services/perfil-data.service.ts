@@ -10,9 +10,9 @@ export class PerfilDataService {
   constructor(private http: HttpClient, private configService: ConfigService) {}
 
   uploadImage(image: File) {
+    console.log(image);
     const formData = new FormData();
     formData.append('image', image);
-
     return this.http.post<RequestResponse>(
       `${this.configService.config.apiUrl}/api/Perfil/UpdateFoto`,
       formData

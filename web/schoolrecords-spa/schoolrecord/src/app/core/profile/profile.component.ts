@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
     private notificationService: NotificationService,
     private perfilService: PerfilDataService,
     private convertBase64: ConvertBase64,
-    private formPerfilJobService: FormPerfilJobService,
+    private formPerfilJobService: FormPerfilJobService
   ) {}
 
   ngOnInit(): void {
@@ -48,9 +48,7 @@ export class ProfileComponent implements OnInit {
   getJobExperience() {
     this.formPerfilJobService.getJobExperience().subscribe(
       (data) => {
-        console.log(data);
-        this.formJob = data;
-        console.log(this.formJob);
+        this.formJob = data || '';
       },
       (error) => {
         console.error('Erro ao buscar os dados da api:', error);

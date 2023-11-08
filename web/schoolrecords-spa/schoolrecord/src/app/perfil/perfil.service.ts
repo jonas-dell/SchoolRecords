@@ -16,32 +16,23 @@ export class PerfilService {
     private http: HttpClient,
     private configService: ConfigService,
     private currentUserService: CurrentUserService
-    ) {}
-
-  uploadImage(image: File) {
-    const formData = new FormData();
-    formData.append('image', image);
-    return this.http.post<RequestResponse>(
-      `${this.configService.config.apiUrl}/api/Perfil/UpdateFoto`,
-      formData
-    );
-  }
+  ) {}
 
   getPerfil() {
     return this.http.get<RequestResponse>(
       `${this.configService.config.apiUrl}/api/perfil/getUserPerfil`
     );
   }
-  
+
   getContactsConnections() {
     if (!this.contactsFetched) {
       let user = this.currentUserService.getCurrentUser();
-  
-      return this.http.get<any>(
-        `${this.configService.config.apiUrl}/api/user/GetContactsById?id=${user?.id}`
-      ).pipe(
-        tap(() => this.contactsFetched = true)
-      );
+
+      return this.http
+        .get<any>(
+          `${this.configService.config.apiUrl}/api/user/GetContactsById?id=${user?.id}`
+        )
+        .pipe(tap(() => (this.contactsFetched = true)));
     }
     return of([]);
   }

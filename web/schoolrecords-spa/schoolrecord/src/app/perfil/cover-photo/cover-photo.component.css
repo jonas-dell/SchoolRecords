@@ -8,12 +8,16 @@
 .cover-photo {
   position: relative;
   min-height: 196px;
-  background-image: url("../../../assets/img/coverPhoto.png");
+  background-image: linear-gradient(to bottom, #6a0b88, #800080);
   background-size: cover;
   background-position: center;
 }
 
-.cover-photo-background>img {
+.cover-photo.image-changed {
+  background-image: none;
+}
+
+.cover-photo-background > img {
   width: 100%;
   max-height: 196px;
 }

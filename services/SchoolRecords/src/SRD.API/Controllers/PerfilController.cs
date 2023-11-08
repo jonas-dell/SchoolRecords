@@ -64,16 +64,17 @@ namespace SRD.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateImagem([FromForm] IFormFile imagem)
-            {
-            if (imagem == null)
+        public async Task<IActionResult> UpdateImagem([FromForm] IFormFile image)
+        
+        {
+            if (image == null)
             {
                 return BadRequest("Imagem não atualizada");
             }
 
             using (var ms = new MemoryStream())
             {
-                await imagem.CopyToAsync(ms);
+                await image.CopyToAsync(ms);
                 byte[] imagemBytes = ms.ToArray();
 
                 string base64String = Convert.ToBase64String(imagemBytes);

@@ -8,6 +8,7 @@ import { FormPerfilEducation } from './form-perfil-education/form-perfil-educati
 import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service';
 import { FormPerfilComponent } from './form-perfil/form-perfil.component';
 import { PerfilService } from './perfil.service';
+import { SharedService } from './cover-photo/shared.service';
 
 export class Perfil {}
 
@@ -32,7 +33,8 @@ export class PerfilComponent implements OnInit {
     private perfilService: PerfilService,
     private formPerfilJobService: FormPerfilJobService,
     private formPerfilEducation: FormPerfilEducation,
-    private convertBase64: ConvertBase64
+    private convertBase64: ConvertBase64,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -40,14 +42,16 @@ export class PerfilComponent implements OnInit {
     this.getJobExperience();
     this.getEducation();
     this.numeroDeContatos();
+    this.sharedService.getImageUpdatedObservable().subscribe(() => {
+      this.getPerfilData();
+    });
+
     let fileButtonContainer = document.getElementById('button-file-container');
     let file = document.getElementById('file-img-input');
     fileButtonContainer?.addEventListener('click', () => {
       file?.click();
     });
   }
-
-  
 
   getPerfilData() {
     const token = localStorage.getItem('token');
@@ -57,7 +61,7 @@ export class PerfilComponent implements OnInit {
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
         );
-        this.dados.image = this.convertBase64.converterBase64ParaImagem(
+        this.dados.imagem = this.convertBase64.converterBase64ParaImagem(
           this.dados.imagem
         );
       },
@@ -78,38 +82,38 @@ export class PerfilComponent implements OnInit {
     );
   }
 
-  //Interface em typescript - estrutura de dicionário Record<K,V>
   imagemFaculdade: Record<string, string> = {
-    'fatec':'fatec.jpg',
-    'fam':'fam.png',
-    'usp':'usp.png',
-    'ftt':'ftt.jpg',
-    'fundacao': 'fundacao.jpg',
-    'abc':'abc.png',
-    'default': 'default.jpg.png',
-    'federaldesaopaulo': 'federalDeSaoPaulo.png',
-    'federalminasgerais' : 'federalminasgerais.png',
-    'fgv':'fgv.png',
-    'mackenzie': 'mackenzie.png',
-    'puc': 'puc.png',
-    'unicamp': 'unicamp.png',
-    'unifesp':'unifesp.jpg',
-  }
+    fatec: 'fatec.jpg',
+    fam: 'fam.png',
+    usp: 'usp.png',
+    ftt: 'ftt.jpg',
+    fundacao: 'fundacao.jpg',
+    abc: 'abc.png',
+    default: 'default.jpg.png',
+    federaldesaopaulo: 'federalDeSaoPaulo.png',
+    federalminasgerais: 'federalminasgerais.png',
+    fgv: 'fgv.png',
+    mackenzie: 'mackenzie.png',
+    puc: 'puc.png',
+    unicamp: 'unicamp.png',
+    unifesp: 'unifesp.jpg',
+  };
 
   getEducation() {
     this.formPerfilEducation.getEducation().subscribe(
       (educData) => {
         this.formEducation = educData;
-        let tituloFaculdade = this.formEducation?.title;
-        tituloFaculdade = tituloFaculdade.toLowerCase();
-        console.log(tituloFaculdade);
-        
-        if(tituloFaculdade){
-          const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
-          console.log(nomeDoArquivo);
-          this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`
-        }else{
-          this.imagemSrc = `./../../assets/img/default.png`
+        if (this.formEducation !== null) {
+          let tituloFaculdade = this.formEducation?.title;
+          tituloFaculdade = tituloFaculdade.toLowerCase();
+          console.log(tituloFaculdade);
+          if (tituloFaculdade) {
+            const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
+            console.log(nomeDoArquivo);
+            this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`;
+          } else {
+            this.imagemSrc = `./../../assets/img/default.png`;
+          }
         }
       },
       (error) => {
@@ -117,7 +121,6 @@ export class PerfilComponent implements OnInit {
       }
     );
   }
-
 
   fileChanged(event: any) {
     const selectedFile = event.target.files[0];
@@ -154,10 +157,8 @@ export class PerfilComponent implements OnInit {
   }
 
   numeroDeContatos() {
-    this.perfilService. getContactsConnections()
-      .subscribe((dados) => {
-        this.numeroDeContatosResult = dados?.length;
-      });
+    this.perfilService.getContactsConnections().subscribe((dados) => {
+      this.numeroDeContatosResult = dados?.length;
+    });
   }
-  
 }

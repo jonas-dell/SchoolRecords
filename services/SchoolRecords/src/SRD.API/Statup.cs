@@ -84,7 +84,7 @@ namespace SRD.API
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
         {
-            if (app.Environment.IsDevelopment())
+            if (environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
