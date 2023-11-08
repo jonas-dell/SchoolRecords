@@ -19,6 +19,7 @@ export class Perfil {}
 })
 export class PerfilComponent implements OnInit {
   dados: any;
+  dadosUser: any;
   formJob: any;
   formEducation: any;
   perfil = new Perfil();
@@ -40,7 +41,7 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.getPerfilData();
     this.getJobExperience();
-    this.getEducation();
+    // this.getEducation();
     this.numeroDeContatos();
     this.sharedService.getImageUpdatedObservable().subscribe(() => {
       this.getPerfilData();
@@ -58,6 +59,19 @@ export class PerfilComponent implements OnInit {
     this.perfilDataService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
+        if (this.dados.perfilName === null) {
+          this.perfilDataService.getUser().subscribe((dados) => {
+            this.dadosUser = dados;
+            function primeiraLetraMaiuscula(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+            const capitalizeString = primeiraLetraMaiuscula(
+              this.dadosUser.username
+            );
+            this.dados.perfilName = capitalizeString;
+          });
+        }
+
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
         );
@@ -99,28 +113,28 @@ export class PerfilComponent implements OnInit {
     unifesp: 'unifesp.jpg',
   };
 
-  getEducation() {
-    this.formPerfilEducation.getEducation().subscribe(
-      (educData) => {
-        this.formEducation = educData;
-        if (this.formEducation !== null) {
-          let tituloFaculdade = this.formEducation?.title;
-          tituloFaculdade = tituloFaculdade.toLowerCase();
-          console.log(tituloFaculdade);
-          if (tituloFaculdade) {
-            const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
-            console.log(nomeDoArquivo);
-            this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`;
-          } else {
-            this.imagemSrc = `./../../assets/img/default.png`;
-          }
-        }
-      },
-      (error) => {
-        console.error('Erro ao buscar os dados da api:', error);
-      }
-    );
-  }
+  // getEducation() {
+  //   this.formPerfilEducation.getEducation().subscribe(
+  //     (educData) => {
+  //       this.formEducation = educData;
+  //       if (this.formEducation !== null) {
+  //         let tituloFaculdade = this.formEducation?.title;
+  //         tituloFaculdade = tituloFaculdade;
+  //         console.log(tituloFaculdade);
+  //         if (tituloFaculdade) {
+  //           const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
+  //           console.log(nomeDoArquivo);
+  //           this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`;
+  //         } else {
+  //           this.imagemSrc = `./../../assets/img/default.png`;
+  //         }
+  //       }
+  //     },
+  //     (error) => {
+  //       console.error('Erro ao buscar os dados da api:', error);
+  //     }
+  //   );
+  // }
 
   fileChanged(event: any) {
     const selectedFile = event.target.files[0];

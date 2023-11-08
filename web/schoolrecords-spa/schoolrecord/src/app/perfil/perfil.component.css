@@ -198,3 +198,22 @@
     margin-top: -5vh;
   }
 }
+
+/* profile-location: seletor 
+  .city.empty 
+*/
+.profile-location .city:empty + .state:empty + .country:empty {
+  display: none;
+}
+
+.profile-location .state:empty + .country:empty {
+  display: none;
+}
+
+.profile-location .country:empty {
+  display: none;
+}
+
+.profile-location .separation {
+  display: none;
+}

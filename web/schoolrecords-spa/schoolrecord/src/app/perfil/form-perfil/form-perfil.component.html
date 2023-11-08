@@ -2,8 +2,10 @@
   <div class="dialog-header">
     <h1 class="dialog-title">Edit Profile</h1>
     <span class="dialog-close" (click)="closeDialog()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg"
+        viewBox="0 0 16 16">
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
       </svg>
     </span>
   </div>
@@ -12,19 +14,19 @@
     <form class="form-perfil-introducao" [formGroup]="perfil">
       <div class="row form-group">
         <div class="col-12">
-          <label for="nome">Name*</label>
+          <label for="nome">Name<span class="purple">*</span></label>
           <input id="nome" type="text" formControlName="perfilName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="sobrenome">Last name*</label>
+          <label for="sobrenome">Last name<span class="purple">*</span></label>
           <input id="sobrenome" type="text" formControlName="perfilLastName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="pronomes">Pronouns*</label>
+          <label for="pronomes">Pronouns<span class="purple">*</span></label>
           <select id="pronomes" name="pronomes" class="form-control form-control-sm" formControlName="pronome">
             <option *ngFor="let pronome of pronomes">{{pronome}}</option>
           </select>
@@ -40,36 +42,42 @@
       </div>
       <h2 class="dialog-content-subtitle">Current position</h2>
       <a id="dialog-link-job" class="dialog-link" (click)="editarPerfilJob()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+          class="dialog-link-svg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
         </svg>
         <span class="dialog-link-span">Add new role</span>
       </a>
       <div class="row form-group">
         <div class="col-12">
-          <label for="setor">Sector*</label>
-          <input id="setor" type="text" placeholder="Ex: retail" formControlName="sector" class="form-control form-control-sm" />
+          <label for="setor">Sector<span class="purple">*</span></label>
+          <input id="setor" type="text" placeholder="Ex: retail" formControlName="sector"
+            class="form-control form-control-sm" />
         </div>
       </div>
       <h2 class="dialog-content-subtitle">Academic education</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="academicEducations">Academic education*</label>
+          <label for="academicEducations">Academic education<span class="purple">*</span></label>
           <select id="academicEducations" name="academicEducations" class="form-control form-control-sm">
             <option *ngFor="let academicEducation of academicEducations">{{academicEducation}}</option>
           </select>
         </div>
       </div>
       <a id="dialog-link-education" class="dialog-link" (click)="editarPerfilEducation()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" class="dialog-link-svg" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+          class="dialog-link-svg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
         </svg>
         <span class="dialog-link-span">Add academic education</span>
       </a>
       <div class="row form-group">
         <div class="col-12">
           <label for="checkbox" class="container-checkbox">Show academic education in my intro
-            <input id="checkbox" type="checkbox" checked="checked" formControlName="education" class="form-control form-control-sm">
+            <input id="checkbox" type="checkbox" checked="checked" formControlName="education"
+              class="form-control form-control-sm">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -77,19 +85,20 @@
       <h2 class="dialog-content-subtitle">Address</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="pais">Country/Region*</label>
+          <label for="pais">Country/Region<span class="purple">*</span></label>
           <input id="pais" type="text" formControlName="country" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="cep">Zip code*</label>
-          <input id="cep" type="text" class="form-control form-control-sm" name="cep" formControlName="zipCode" (blur)="consultaCep()" />
+          <label for="cep">Zip code<span class="purple">*</span></label>
+          <input id="cep" type="text" class="form-control form-control-sm" name="cep" formControlName="zipCode"
+            (blur)="consultaCep()" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="logradouro">Street*</label>
+          <label for="logradouro">Street<span class="purple">*</span></label>
           <input id="logradouro" type="text" formControlName="street" class="form-control form-control-sm" />
         </div>
       </div>
@@ -107,19 +116,19 @@
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="bairro">Neighborhood*</label>
+          <label for="bairro">Neighborhood<span class="purple">*</span></label>
           <input id="bairro" type="text" formControlName="neighborhood" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="cidade">City*</label>
+          <label for="cidade">City<span class="purple">*</span></label>
           <input id="cidade" type="text" formControlName="city" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="estado">State*</label>
+          <label for="estado">State<span class="purple">*</span></label>
           <input id="estado" type="text" formControlName="state" class="form-control form-control-sm" />
         </div>
       </div>

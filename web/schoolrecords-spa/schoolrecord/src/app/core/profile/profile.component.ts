@@ -36,13 +36,17 @@ export class ProfileComponent implements OnInit {
     this.perfilService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
-        if(this.dados.perfilName === null){
-          this.perfilService.getUser().subscribe(
-            (dados) => {
-              this.dadosUser = dados;
-              this.dados.perfilName = this.dadosUser.username.toUpperCase();
+        if (this.dados.perfilName === null) {
+          this.perfilService.getUser().subscribe((dados) => {
+            this.dadosUser = dados;
+            function primeiraLetraMaiuscula(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
             }
-          )
+            const capitalizeString = primeiraLetraMaiuscula(
+              this.dadosUser.username
+            );
+            this.dados.perfilName = capitalizeString;
+          });
         }
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
