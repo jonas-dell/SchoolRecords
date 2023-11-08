@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
 import { CurrentUserService } from '../../shared/services/current-user.service';
 import { PerfilService } from 'src/app/perfil/perfil.service';
+import { PerfilDataService } from '../../shared/services/perfil-data.service';
 
 @Component({
   selector: 'header',
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
   showHeader: boolean = false;
   saudacao: string;
   dados: any;
+  dadosUser: any;
 
   toggleHeader(): void {
     this.showHeader = !this.showHeader;
@@ -21,6 +23,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private currentUserService: CurrentUserService,
     private perfilService: PerfilService,
+    private PerfilDataService: PerfilDataService
     ) {}
 
   ngOnInit(): void {
@@ -46,6 +49,14 @@ export class HeaderComponent implements OnInit {
     this.perfilService.getPerfil().
     subscribe((dados) => {
       this.dados = dados;
+      if(this.dados.perfilName === null){
+        this.PerfilDataService.getUser().subscribe(
+          (dados) => {
+            this.dadosUser = dados;
+            this.dados.perfilName = this.dadosUser.username.toUpperCase();
+          }
+        )
+      }
     },
      (error) => {
       console.error("Erro ao buscar dados da API:", error);

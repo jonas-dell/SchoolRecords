@@ -9,6 +9,7 @@ import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service'
 import { FormPerfilComponent } from './form-perfil/form-perfil.component';
 import { PerfilService } from './perfil.service';
 import { SharedService } from './cover-photo/shared.service';
+import { User } from 'src/app/shared/models/user';
 
 export class Perfil {}
 
@@ -25,6 +26,8 @@ export class PerfilComponent implements OnInit {
   file: File | null = null;
   numeroDeContatosResult: number | undefined;
   imagemSrc: string = '';
+  dadosUser: any;
+  user: User | null;
 
   constructor(
     private notificationService: NotificationService,
@@ -58,6 +61,14 @@ export class PerfilComponent implements OnInit {
     this.perfilDataService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
+        if(this.dados.perfilName === null){
+          this.perfilDataService.getUser().subscribe(
+            (dados) => {
+              this.dadosUser = dados;
+              this.dados.perfilName = this.dadosUser.username.toUpperCase();
+            }
+          )
+        }
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
         );
