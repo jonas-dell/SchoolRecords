@@ -14,6 +14,7 @@ import { FormPerfilJobService } from 'src/app/perfil/form-perfil-job/form-perfil
 })
 export class ProfileComponent implements OnInit {
   dados: any;
+  dadosUser: any;
   user: User | null;
   formJob: any;
 
@@ -35,6 +36,14 @@ export class ProfileComponent implements OnInit {
     this.perfilService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
+        if(this.dados.perfilName === null){
+          this.perfilService.getUser().subscribe(
+            (dados) => {
+              this.dadosUser = dados;
+              this.dados.perfilName = this.dadosUser.username.toUpperCase();
+            }
+          )
+        }
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
         );

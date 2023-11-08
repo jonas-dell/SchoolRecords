@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SRD.Application.JobExperience.UseCases;
@@ -9,6 +10,7 @@ using SRD.Domain.User.Repositories;
 using SRD.Infra.Context;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace SRD.API.Controllers
@@ -21,19 +23,24 @@ namespace SRD.API.Controllers
         private readonly IMediator _mediator;
         private readonly DataContext _authContext;
         private readonly IUserRepository _userRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserController(DataContext appDbContext, IUserRepository userRepository, IMapper mapper, IMediator mediator)
+        public UserController(DataContext appDbContext, IUserRepository userRepository, IMapper mapper, IMediator mediator, IHttpContextAccessor httpContextAccessor)
         {
             _authContext = appDbContext;
             _userRepository = userRepository;
             _mapper = mapper;
             _mediator = mediator;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        public async Task<IActionResult> GetUser()
         {
-            var user = await _authContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+
+            var userId = await Task.Run(() => int.Parse((_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)).Value));
+
+            var user = await _authContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
 
             if (user != null)
                 return Ok(user);

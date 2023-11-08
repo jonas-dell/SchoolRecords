@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
 
     this.toastr.success(resp.message);
     localStorage.setItem('token', resp.data.token);
-    console.log(resp);
     this.currentUserService.setCurrentUser(resp.data);
     this.user.reset();
     this.router.navigate(['/home']);

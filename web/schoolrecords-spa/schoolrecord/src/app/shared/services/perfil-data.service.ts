@@ -24,4 +24,10 @@ export class PerfilDataService {
       `${this.configService.config.apiUrl}/api/Perfil/GetUserPerfil`
     );
   }
+
+  getUser(){
+    return this.http.get<RequestResponse>(
+      `${this.configService.config.apiUrl}/api/user/GetUser`
+    )
+  }
 }
