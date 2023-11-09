@@ -29,20 +29,20 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
 
   perfil = new FormGroup({
     id: new FormControl('', [Validators.nullValidator]),
-    perfilName: new FormControl('', [Validators.nullValidator]),
-    perfilLastName: new FormControl('', [Validators.nullValidator]),
+    perfilName: new FormControl('', [Validators.required]),
+    perfilLastName: new FormControl('', [Validators.required]),
     pronome: new FormControl('',[Validators.nullValidator]),
     about: new FormControl('', [Validators.nullValidator]),
     sector: new FormControl('', [Validators.nullValidator]),
     education: new FormControl('', [Validators.nullValidator]),
-    country: new FormControl('', [Validators.nullValidator]),
-    zipCode: new FormControl('', [Validators.nullValidator]),
-    street: new FormControl('', [Validators.nullValidator]),
+    country: new FormControl('', [Validators.required]),
+    zipCode: new FormControl('', [Validators.required]),
+    street: new FormControl('', [Validators.required]),
     number: new FormControl('', [Validators.nullValidator]),
     complement: new FormControl('', [Validators.nullValidator]),
-    neighborhood: new FormControl('', [Validators.nullValidator]),
-    city: new FormControl('', [Validators.nullValidator]),
-    state: new FormControl('', [Validators.nullValidator]),
+    neighborhood: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
   });
 
   constructor(
@@ -64,10 +64,14 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   }
 
   save() {
-    this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
-      this.notificationService.success('Perfil salvo com sucesso!');
-      this.closeDialog();
-    });
+    if(this.perfil.valid){
+      this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
+        this.notificationService.success('Perfil salvo com sucesso!');
+        this.closeDialog();
+      });
+    }else{
+      this.notificationService.error('Por favor, preencha todos os campos obrigatórios.');
+    }
   }
 
   getPerfil() {

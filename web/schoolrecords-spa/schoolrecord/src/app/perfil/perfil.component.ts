@@ -27,7 +27,6 @@ export class PerfilComponent implements OnInit {
   file: File | null = null;
   numeroDeContatosResult: number | undefined;
   imagemSrc: string = '';
-  dadosUser: any;
   user: User | null;
 
   constructor(
@@ -44,7 +43,7 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.getPerfilData();
     this.getJobExperience();
-    // this.getEducation();
+    this.getEducation();
     this.numeroDeContatos();
     this.sharedService.getImageUpdatedObservable().subscribe(() => {
       this.getPerfilData();
@@ -116,28 +115,28 @@ export class PerfilComponent implements OnInit {
     unifesp: 'unifesp.jpg',
   };
 
-  // getEducation() {
-  //   this.formPerfilEducation.getEducation().subscribe(
-  //     (educData) => {
-  //       this.formEducation = educData;
-  //       if (this.formEducation !== null) {
-  //         let tituloFaculdade = this.formEducation?.title;
-  //         tituloFaculdade = tituloFaculdade;
-  //         console.log(tituloFaculdade);
-  //         if (tituloFaculdade) {
-  //           const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
-  //           console.log(nomeDoArquivo);
-  //           this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`;
-  //         } else {
-  //           this.imagemSrc = `./../../assets/img/default.png`;
-  //         }
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('Erro ao buscar os dados da api:', error);
-  //     }
-  //   );
-  // }
+  getEducation() {
+    this.formPerfilEducation.getEducation().subscribe(
+      (educData) => {
+        this.formEducation = educData;
+        if (this.formEducation !== null) {
+          let tituloFaculdade = this.formEducation?.title;
+          tituloFaculdade = tituloFaculdade;
+          console.log(tituloFaculdade);
+          if (tituloFaculdade) {
+            const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
+            console.log(nomeDoArquivo);
+            this.imagemSrc = `./../../assets/img/${nomeDoArquivo}`;
+          } else {
+            this.imagemSrc = `./../../assets/img/default.png`;
+          }
+        }
+      },
+      (error) => {
+        console.error('Erro ao buscar os dados da api:', error);
+      }
+    );
+  }
 
   fileChanged(event: any) {
     const selectedFile = event.target.files[0];
