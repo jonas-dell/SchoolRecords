@@ -9,48 +9,47 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: [
     './form-perfil-contact.component.css',
     '../../shared/base-form/base-form.component.css',
-  ]
+  ],
 })
-export class FormPerfilContactComponent 
-  extends BaseFormComponent 
-  implements OnInit {
+export class FormPerfilContactComponent
+  extends BaseFormComponent
+  implements OnInit
+{
+  formulario = new FormGroup({
+    phoneNumber: new FormControl('', [Validators.nullValidator]),
+    phoneType: new FormControl('', [Validators.nullValidator]),
+    birthday: new FormControl('', [Validators.nullValidator]),
+    birthdayMonth: new FormControl('', [Validators.nullValidator]),
+    birthdayYear: new FormControl('', [Validators.nullValidator]),
+    companyName: new FormControl('', [Validators.nullValidator]),
+    jobType: new FormControl('', [Validators.nullValidator]),
+  });
 
-    formulario = new FormGroup({
-      phoneNumber: new FormControl('',[Validators.nullValidator]),
-      phoneType: new FormControl('',[Validators.nullValidator]),
-      birthday: new FormControl('',[Validators.nullValidator]),
-      birthdayMonth: new FormControl('',[Validators.nullValidator]),
-      birthdayYear: new FormControl('',[Validators.nullValidator]),
-      companyName: new FormControl('',[Validators.nullValidator]),
-      jobType: new FormControl('',[Validators.nullValidator]),
-    });
-
-    public anos: string[] = [];
-    public meses: string[] = [];
-    public dias: string[] = [];
-    public typePhones: string[] = [];
-    public typeSites: string[] = [];
-    public servicos: string[] = [];
-
+  public anos: string[] = [];
+  public meses: string[] = [];
+  public dias: string[] = [];
+  public typePhones: string[] = [];
+  public typeSites: string[] = [];
+  public servicos: string[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<FormPerfilContactComponent>,
     @Inject(MAT_DIALOG_DATA) public data
-  ) { 
+  ) {
     super(dialogRef);
   }
 
   ngOnInit(): void {
     this.list();
   }
-  
-  list(){
+
+  list() {
     this.popularMeses();
     this.popularDias();
     this.popularAnos();
     this.popularType();
     this.popularSites();
-    this.popularServicos()
+    this.popularServicos();
   }
 
   save() {
@@ -77,14 +76,9 @@ export class FormPerfilContactComponent
     this.messages.splice(indexMessage, 1);
   }
 
-  popularType(){
-    var typePhones: string[] = [
-      'Please select',
-      'Home',
-      'Work',
-      'Mobile',
-    ];
-    for(var item of typePhones){
+  popularType() {
+    var typePhones: string[] = ['Please select', 'Home', 'Work', 'Mobile'];
+    for (var item of typePhones) {
       this.typePhones.push(item);
     }
   }
@@ -123,35 +117,34 @@ export class FormPerfilContactComponent
 
   popularDias() {
     this.dias.push('Days');
-    for(var i = 1;i <= 31;i++){
+    for (var i = 1; i <= 31; i++) {
       this.dias.push(i.toString());
     }
   }
 
-  popularSites(){
+  popularSites() {
     var typeSites: string[] = [
       'Personal',
       'Company',
       'Blog',
       'Portfólio',
-      'Other'
+      'Other',
     ];
-    for(var item of typeSites){
+    for (var item of typeSites) {
       this.typeSites.push(item);
     }
   }
 
-  popularServicos(){
+  popularServicos() {
     var servicos: string[] = [
       'Skype',
       'ICQ',
       'Google Hangouts',
       'QG',
-      'WeChat'
+      'WeChat',
     ];
-    for(var item of servicos){
+    for (var item of servicos) {
       this.servicos.push(item);
     }
   }
-
 }

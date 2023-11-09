@@ -31,3 +31,35 @@
   opacity: 0.2;
   pointer-events: none;
 }
+
+#dialog-container-site {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dialog-container-margin {
+  height: 20px;
+}
+
+.dialog-button-delete {
+  display: inline-block;
+  height: 30px;
+  padding: 0px 8px 0px 8px;
+  border-radius: 4px;
+  background-color: white;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  border: none;
+}
+
+.dialog-button-delete:hover {
+  background-color: #e7e7e7bf;
+}
+
+.dialog-button-delete-svg {
+  color: #000000bf;
+}
+
+.dialog-button-delete-span {
+  color: #000000bf;
+  margin-left: 5px;
+}

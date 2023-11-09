@@ -31,18 +31,18 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     id: new FormControl('', [Validators.nullValidator]),
     perfilName: new FormControl('', [Validators.required]),
     perfilLastName: new FormControl('', [Validators.required]),
-    pronome: new FormControl('',[Validators.nullValidator]),
-    about: new FormControl('', [Validators.nullValidator]),
+    pronome: new FormControl('', [Validators.nullValidator]),
+    about: new FormControl('', [Validators.required]),
     sector: new FormControl('', [Validators.nullValidator]),
     education: new FormControl('', [Validators.nullValidator]),
     country: new FormControl('', [Validators.required]),
     zipCode: new FormControl('', [Validators.required]),
-    street: new FormControl('', [Validators.required]),
+    street: new FormControl('', [Validators.nullValidator]),
     number: new FormControl('', [Validators.nullValidator]),
     complement: new FormControl('', [Validators.nullValidator]),
-    neighborhood: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    state: new FormControl('', [Validators.required]),
+    neighborhood: new FormControl('', [Validators.nullValidator]),
+    city: new FormControl('', [Validators.nullValidator]),
+    state: new FormControl('', [Validators.nullValidator]),
   });
 
   constructor(
@@ -56,7 +56,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   ) {
     super(dialogRef);
   }
-  
+
   ngOnInit(): void {
     this.getPerfil();
     this.popularFormacaoAcademica();
@@ -64,13 +64,15 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   }
 
   save() {
-    if(this.perfil.valid){
+    if (this.perfil.valid) {
       this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
         this.notificationService.success('Perfil salvo com sucesso!');
         this.closeDialog();
       });
-    }else{
-      this.notificationService.error('Por favor, preencha todos os campos obrigatórios.');
+    } else {
+      this.notificationService.error(
+        'Por favor, preencha todos os campos obrigatórios.'
+      );
     }
   }
 
@@ -167,41 +169,34 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     });
   }
 
-  popularFormacaoAcademica(){
-    this.formPerfilService.getAcademicEducations().subscribe(
-      (dados) => {
-        this.dadosAcademico = dados;
-        if(this.dadosAcademico === null){
-          var formacaoAcademica: string[] = [
-            'Please select',
-          ];
-          for(var item of formacaoAcademica){
-            this.academicEducations.push(item);
-          }
-        }else{
-          var formacaoAcademica: string[] = [
-            'Please select',
-            this.dadosAcademico.title
-          ];
-          for(var item of formacaoAcademica){
-            this.academicEducations.push(item);
-          }
+  popularFormacaoAcademica() {
+    this.formPerfilService.getAcademicEducations().subscribe((dados) => {
+      this.dadosAcademico = dados;
+      if (this.dadosAcademico === null) {
+        var formacaoAcademica: string[] = ['Please select'];
+        for (var item of formacaoAcademica) {
+          this.academicEducations.push(item);
         }
-
-
+      } else {
+        var formacaoAcademica: string[] = [
+          'Please select',
+          this.dadosAcademico.title,
+        ];
+        for (var item of formacaoAcademica) {
+          this.academicEducations.push(item);
+        }
       }
-    )
+    });
   }
 
-
-  popularPronomes(){
+  popularPronomes() {
     var pronomes: string[] = [
       'Please select',
       'She/Her',
       'He/Him',
       'They/Them',
     ];
-    for(var item of pronomes){
+    for (var item of pronomes) {
       this.pronomes.push(item);
     }
   }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SRD.Domain.Perfil.Entities
+﻿namespace SRD.Domain.Perfil.Entities
 {
     public class JobExperience
     {
@@ -22,6 +16,9 @@ namespace SRD.Domain.Perfil.Entities
         public string? JobSector { get; set; }
         public string? JobDescription { get; set; }
         public string? JobTitlePerfil { get; set; }
+
+        public List<string>? Skills { get; set; }
+
         public int PerfilId{ get; set; }
         public Perfil? Perfil { get; set; }
     }

@@ -2,8 +2,10 @@
   <div class="dialog-header">
     <h1 class="dialog-title">Add Experience</h1>
     <span class="dialog-close" (click)="closeDialog()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg"
+        viewBox="0 0 16 16">
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
       </svg>
     </span>
   </div>
@@ -13,7 +15,8 @@
       <div class="row form-group">
         <div class="col-12">
           <label for="titulo">Title*</label>
-          <input id="titulo" type="text" placeholder="Ex: Retail sales manager" formControlName="jobTitle" class="form-control form-control-sm" />
+          <input id="titulo" type="text" placeholder="Ex: Retail sales manager" formControlName="jobTitle"
+            class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
@@ -27,13 +30,15 @@
       <div class="row form-group">
         <div class="col-12">
           <label for="companyName">Company Name*</label>
-          <input id="companyName" type="text" placeholder="Ex.: Microsoft" formControlName="companyName" class="form-control form-control-sm" />
+          <input id="companyName" type="text" placeholder="Ex.: Microsoft" formControlName="companyName"
+            class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
           <label for="localidade">Location</label>
-          <input id="localidade" type="text" placeholder="Ex: Rio de Janeiro" formControlName="companyLocation" class="form-control form-control-sm" />
+          <input id="localidade" type="text" placeholder="Ex: Rio de Janeiro" formControlName="companyLocation"
+            class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group margin-info-job">
@@ -52,7 +57,8 @@
       <div class="row form-group">
         <div class="col-12">
           <label class="container-checkbox">I currently work in this position
-            <input type="checkbox" checked="checked" formControlName="checkboxJob" class="form-control form-control-sm" id="check-job">
+            <input type="checkbox" checked="checked" formControlName="checkboxJob" class="form-control form-control-sm"
+              id="check-job">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -89,7 +95,8 @@
         <div class="row form-group margin-info-job">
           <div class="col-12">
             <label>Sector*</label>
-            <input type="text" placeholder="Ex: varejo" formControlName="jobSector" class="form-control form-control-sm margin-info-job" />
+            <input type="text" placeholder="Ex: varejo" formControlName="jobSector"
+              class="form-control form-control-sm margin-info-job" />
           </div>
         </div>
         <p class="info-job">
@@ -101,36 +108,81 @@
       <div class="row form-group">
         <div class="col-md-12">
           <label for="descricao">Description</label>
-          <textarea id="descricao" rows="3" formControlName="jobDescription" class="form-control form-control-sm"></textarea>
+          <textarea id="descricao" rows="3" formControlName="jobDescription"
+            class="form-control form-control-sm"></textarea>
         </div>
       </div>
 
       <div class="row form-group margin-info-job">
         <div class="col-12">
           <label for="jobTitlePerfil">Profile title</label>
-          <input id="jobTitlePerfil" type="text" formControlName="jobTitlePerfil" placeholder="headline" class="form-control form-control-sm margin-info-job" />
+          <input id="jobTitlePerfil" type="text" formControlName="jobTitlePerfil" placeholder="headline"
+            class="form-control form-control-sm margin-info-job" />
         </div>
       </div>
       <p id="info-title-perfil">
         Appears below your name at the top of your profile
       </p>
+
+
+
+
+
+
+
       <h2 class="dialog-content-subtitle">Skills</h2>
       <p class="dialog-content-info">
         More than 50% of companies in SchoolRecords use skills data to fill their vacancies
       </p>
-      <button class="dialog-button dialog-button-skills">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+      <button class="dialog-button dialog-button-skills" (click)="adicionarCamposSkills()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+          class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
         <span class="dialog-button-span">Add skills</span>
       </button>
+
+      <div id="dialog-container-site">
+        <div *ngFor="let skill of skills; let i = index">
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="input{{ skill.id }}">Skills</label>
+              <input type="text" id="input{{ skill.id }}" name="input{{ skill.id }}" formControlName="skills"
+                class="form-control form-control-sm" />
+            </div>
+          </div>
+
+          <button class="dialog-button-delete" (click)="excluirCamposSkills(i)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-trash-fill dialog-button-delete-svg" viewBox="0 0 16 16">
+              <path
+                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+            </svg>
+            <span class="dialog-button-delete-span">Remover</span>
+          </button>
+          <div class="dialog-container-margin"></div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
       <h2 class="dialog-content-subtitle">Media contents</h2>
       <p class="dialog-content-info">
-        Add media like images, documents, websites or presentations. know more about <a class="dialog-link-info">supported media file types</a>
+        Add media like images, documents, websites or presentations. know more about <a
+          class="dialog-link-info">supported media file types</a>
       </p>
       <button class="dialog-button dialog-button-media">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+          class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
         <span class="dialog-button-span">Add media</span>
       </button>

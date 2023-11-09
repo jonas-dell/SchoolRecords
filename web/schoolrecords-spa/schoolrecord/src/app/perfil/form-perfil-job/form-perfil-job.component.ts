@@ -1,5 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+  FormArray,
+} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
 import { NotificationService } from 'src/app/shared/services/notification.service';
@@ -17,21 +23,7 @@ export class FormPerfilJobComponent
   extends BaseFormComponent
   implements OnInit
 {
-  formulario = new FormGroup({
-    jobTitle: new FormControl('', [Validators.nullValidator]),
-    jobType: new FormControl('', [Validators.nullValidator]),
-    companyName: new FormControl('', [Validators.nullValidator]),
-    companyLocation: new FormControl('', [Validators.nullValidator]),
-    typeLocation: new FormControl('', [Validators.nullValidator]),
-    checkboxJob: new FormControl(false, [Validators.nullValidator]),
-    jobStartMonth: new FormControl('', [Validators.nullValidator]),
-    jobStartYear: new FormControl('', [Validators.nullValidator]),
-    jobEndMonth: new FormControl('', [Validators.nullValidator]),
-    jobEndYear: new FormControl('', [Validators.nullValidator]),
-    jobSector: new FormControl('', [Validators.nullValidator]),
-    jobDescription: new FormControl('', [Validators.nullValidator]),
-    jobTitlePerfil: new FormControl('', [Validators.nullValidator]),
-  });
+  formulario: FormGroup;
 
   public anos: string[] = [];
   public tipoDeEmprego: string[] = [];
@@ -41,12 +33,28 @@ export class FormPerfilJobComponent
   constructor(
     private formPerfilJob: FormPerfilJobService,
     private notificationService: NotificationService,
+    private fb: FormBuilder,
     public dialogRef: MatDialogRef<FormPerfilJobComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     super(dialogRef);
+    this.formulario = this.fb.group({
+      jobTitle: ['', [Validators.nullValidator]],
+      jobType: ['', [Validators.nullValidator]],
+      companyName: ['', [Validators.nullValidator]],
+      companyLocation: ['', [Validators.nullValidator]],
+      typeLocation: ['', [Validators.nullValidator]],
+      checkboxJob: [false, [Validators.nullValidator]],
+      jobStartMonth: ['', [Validators.nullValidator]],
+      jobStartYear: ['', [Validators.nullValidator]],
+      jobEndMonth: ['', [Validators.nullValidator]],
+      jobEndYear: ['', [Validators.nullValidator]],
+      jobSector: ['', [Validators.nullValidator]],
+      jobDescription: ['', [Validators.nullValidator]],
+      jobTitlePerfil: ['', [Validators.nullValidator]],
+      skills: this.fb.array([]),
+    });
   }
-
   ngOnInit() {
     this.list();
     this.consultaJobExperience();
@@ -96,6 +104,7 @@ export class FormPerfilJobComponent
   }
 
   save() {
+    console.log(this.formulario.value);
     this.formPerfilJob.salvarJob(this.formulario.value).subscribe(() => {
       this.notificationService.success('Experiência adicionada!');
       this.closeDialog();
@@ -172,5 +181,25 @@ export class FormPerfilJobComponent
         jobTitlePerfil: dados.jobTitlePerfil || '',
       });
     }
+  }
+
+  private adicionarSkill() {
+    const newSkill = this.fb.control('');
+    (this.formulario.get('skills') as FormArray).push(newSkill);
+  }
+
+  private excluirSkill(indexSkill: number) {
+    (this.formulario.get('skills') as FormArray).removeAt(indexSkill);
+  }
+
+  skills: any[] = [];
+  adicionarCamposSkills() {
+    this.adicionarSkill();
+    this.skills.push({ id: this.skills.length + 1 });
+  }
+
+  excluirCamposSkills(indexSkill: number) {
+    this.excluirSkill(indexSkill);
+    this.skills.splice(indexSkill, 1);
   }
 }
