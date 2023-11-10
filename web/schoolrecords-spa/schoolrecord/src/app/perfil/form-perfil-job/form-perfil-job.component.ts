@@ -52,7 +52,7 @@ export class FormPerfilJobComponent
       jobSector: ['', [Validators.nullValidator]],
       jobDescription: ['', [Validators.nullValidator]],
       jobTitlePerfil: ['', [Validators.nullValidator]],
-      skills: this.fb.array([]),
+      skill: ['',[Validators.nullValidator]]
     });
   }
   ngOnInit() {
@@ -162,7 +162,6 @@ export class FormPerfilJobComponent
       this.anos.push(anoAtual.toString());
     }
   }
-
   popularFormulario(dados) {
     if (dados) {
       this.formulario.patchValue({
@@ -183,23 +182,25 @@ export class FormPerfilJobComponent
     }
   }
 
-  private adicionarSkill() {
-    const newSkill = this.fb.control('');
-    (this.formulario.get('skills') as FormArray).push(newSkill);
-  }
-
-  private excluirSkill(indexSkill: number) {
-    (this.formulario.get('skills') as FormArray).removeAt(indexSkill);
-  }
+ 
 
   skills: any[] = [];
+  skillValues: string[] = []; // Nova lista para armazenar os valores dos inputs
+
   adicionarCamposSkills() {
-    this.adicionarSkill();
-    this.skills.push({ id: this.skills.length + 1 });
+    const novoInput = { id: this.skills.length + 1, value: '' };
+    this.skills.push(novoInput);
   }
 
   excluirCamposSkills(indexSkill: number) {
-    this.excluirSkill(indexSkill);
     this.skills.splice(indexSkill, 1);
+    this.atualizarSkillValues(); // Atualizar a lista de valores após a exclusão
   }
+
+  // Atualiza a lista de valores sempre que há uma alteração
+  atualizarSkillValues() {
+    this.skillValues = this.skills.map(skill => skill.value);
+  }
+
+  
 }

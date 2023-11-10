@@ -15,7 +15,7 @@
         public string? JobSector { get; set; }
         public string? JobDescription { get; set; }
         public string? JobTitlePerfil { get; set; }
-        public List<string>? Skills { get; set; }
+        //public List<string>? Skills { get; set; }
     }
 }
 
