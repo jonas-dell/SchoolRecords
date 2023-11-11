@@ -1,10 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
   FormArray,
+  NgForm,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
@@ -23,8 +24,7 @@ export class FormPerfilJobComponent
   extends BaseFormComponent
   implements OnInit
 {
-  formulario: FormGroup;
-
+  @ViewChild('meuFormulario', { static: false }) formulario: NgForm; 
   public anos: string[] = [];
   public tipoDeEmprego: string[] = [];
   public tipoDeLocais: string[] = [];
@@ -38,8 +38,10 @@ export class FormPerfilJobComponent
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     super(dialogRef);
-    this.formulario = this.fb.group({
-      jobTitle: ['', [Validators.nullValidator]],
+  }
+  ngOnInit() {
+    this.meuFormulario = this.fb.group({
+      jobTitle: ['', [Validators.required]],
       jobType: ['', [Validators.nullValidator]],
       companyName: ['', [Validators.nullValidator]],
       companyLocation: ['', [Validators.nullValidator]],
@@ -51,13 +53,10 @@ export class FormPerfilJobComponent
       jobEndYear: ['', [Validators.nullValidator]],
       jobSector: ['', [Validators.nullValidator]],
       jobDescription: ['', [Validators.nullValidator]],
-      jobTitlePerfil: ['', [Validators.nullValidator]],
-      skill: ['',[Validators.nullValidator]]
+      jobTitlePerfil: ['', [Validators.required]],
+      skills: this.fb.array([]), 
     });
-  }
-  ngOnInit() {
     this.list();
-    this.consultaJobExperience();
   }
 
   list() {
@@ -66,50 +65,45 @@ export class FormPerfilJobComponent
     this.popularTipoEmprego();
     this.popularLocalidade();
     this.popularMeses();
+    // this.consultaJobExperience();
   }
 
-  consultaJobExperience() {
-    this.formPerfilJob.getJobExperience().subscribe((dados) => {
-      this.popularFormulario(dados);
-      this.checkbox();
-    });
-  }
+  // consultaJobExperience() {
+  //   this.formPerfilJob.getJobExperience().subscribe((dados) => {
+  //     this.popularFormulario(dados);
+  //     this.checkbox();
+  //   });
+  // }
 
   checkbox() {
-    var hideContainer = document.getElementById('hide-container');
+    const checkboxJob = this.meuFormulario.get('checkboxJob');
+    var hideContainer = document.getElementById('hide-container');  //Sector
     var opacityMonth = document.getElementById('opacity-month');
     var opacityYear = document.getElementById('opacity-year');
 
-    var checkboxJob = document.getElementById('check-job') as HTMLInputElement;
+    checkboxJob!.valueChanges.subscribe((value) => {
+      const opacityMonth = document.getElementById('opacity-month');
+      const opacityYear = document.getElementById('opacity-year');
+      const hideContainer = document.getElementById('hide-container');
 
-    const toggleVisibility = () => {
-      if (checkboxJob.checked) {
+      if (value) {
         opacityMonth?.classList.add('opacity-job-true');
         opacityYear?.classList.add('opacity-job-true');
         hideContainer?.classList.remove('hide-job');
 
-        this.formulario.get('jobEndYear')?.setValue('');
+        this.meuFormulario.get('jobEndYear')?.setValue('');
       } else {
         opacityMonth?.classList.remove('opacity-job-true');
         opacityYear?.classList.remove('opacity-job-true');
         hideContainer?.classList.add('hide-job');
 
-        this.formulario.get('jobSector')?.setValue('');
+        this.meuFormulario.get('jobSector')?.setValue('');
       }
-    };
-
-    checkboxJob?.addEventListener('click', toggleVisibility);
-
-    toggleVisibility();
-  }
-
-  save() {
-    console.log(this.formulario.value);
-    this.formPerfilJob.salvarJob(this.formulario.value).subscribe(() => {
-      this.notificationService.success('Experiência adicionada!');
-      this.closeDialog();
     });
+
+    
   }
+  
 
   popularTipoEmprego() {
     var empregos: string[] = [
@@ -162,45 +156,60 @@ export class FormPerfilJobComponent
       this.anos.push(anoAtual.toString());
     }
   }
-  popularFormulario(dados) {
-    if (dados) {
-      this.formulario.patchValue({
-        jobTitle: dados.jobTitle || '',
-        jobType: dados.jobType || '',
-        companyName: dados.companyName || '',
-        companyLocation: dados.companyLocation || '',
-        typeLocation: dados.typeLocation || '',
-        checkboxJob: dados.checkboxJob || '',
-        jobStartMonth: dados.jobStartMonth || '',
-        jobStartYear: dados.jobStartYear || '',
-        jobEndMonth: dados.jobEndMonth || '',
-        jobEndYear: dados.jobEndYear || '',
-        jobSector: dados.jobSector || '',
-        jobDescription: dados.jobDescription || '',
-        jobTitlePerfil: dados.jobTitlePerfil || '',
-      });
-    }
-  }
+
+  // popularFormulario(dados) {
+  //   if (dados) {
+  //     this.formulario.patchValue({
+  //       jobTitle: dados.jobTitle || '',
+  //       jobType: dados.jobType || '',
+  //       companyName: dados.companyName || '',
+  //       companyLocation: dados.companyLocation || '',
+  //       typeLocation: dados.typeLocation || '',
+  //       checkboxJob: dados.checkboxJob || '',
+  //       jobStartMonth: dados.jobStartMonth || '',
+  //       jobStartYear: dados.jobStartYear || '',
+  //       jobEndMonth: dados.jobEndMonth || '',
+  //       jobEndYear: dados.jobEndYear || '',
+  //       jobSector: dados.jobSector || '',
+  //       jobDescription: dados.jobDescription || '',
+  //       jobTitlePerfil: dados.jobTitlePerfil || '',
+  //     });
+  //   }
+  // }
 
  
 
-  skills: any[] = [];
-  skillValues: string[] = []; // Nova lista para armazenar os valores dos inputs
+  meuFormulario!: FormGroup;
+  skill = new FormControl([]);
 
-  adicionarCamposSkills() {
-    const novoInput = { id: this.skills.length + 1, value: '' };
-    this.skills.push(novoInput);
+
+  adicionarSkill() {
+    const novaSkill = this.fb.control('',[Validators.required]);
+    (this.meuFormulario.get('skills') as FormArray).push(novaSkill);
   }
 
-  excluirCamposSkills(indexSkill: number) {
-    this.skills.splice(indexSkill, 1);
-    this.atualizarSkillValues(); // Atualizar a lista de valores após a exclusão
+  excluirCamposSkills(index: number) {
+    (this.meuFormulario.get('skills') as FormArray).removeAt(index);
   }
 
-  // Atualiza a lista de valores sempre que há uma alteração
-  atualizarSkillValues() {
-    this.skillValues = this.skills.map(skill => skill.value);
+  get skills() {
+    return (this.meuFormulario.get('skills') as FormArray).controls;
   }
 
-  
+  save() {
+    console.log(this.meuFormulario.valid);
+    if(this.meuFormulario.valid){
+      console.log(this.meuFormulario.value);
+      const valoresSkills = this.meuFormulario.value.skills;
+      console.log(valoresSkills);
+      this.formPerfilJob.salvarJob(this.meuFormulario.value).subscribe(() => {
+        this.notificationService.success('Experiência adicionada!');
+        // this.closeDialog();
+      });
+    }else {
+      this.notificationService.error(
+        'Por favor, preencha todos os campos obrigatórios.'
+      );
+    }
+  }
 }

@@ -62,11 +62,17 @@ namespace SRD.Infra.Mappings
 
             builder.Property(x => x.JobDescription)
                 .HasColumnName("JobDescription")
-                .HasColumnType("TEXT"); 
+                .HasColumnType("TEXT");
 
-            builder.Property(x => x.JobTitlePerfil)
-                .HasColumnName("JobTitlePerfil")
-                .HasColumnType("VARCHAR(400)");
+            builder.Property(x => x.Skills)
+            .HasColumnName("Skills")
+            .HasColumnType("VARCHAR(MAX)")
+            .HasConversion(
+                v => string.Join(',', v), // converte a lista para uma string separada por vírgulas
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList() // converte a string de volta para uma lista
+            );
+
+
         }
     }
 }

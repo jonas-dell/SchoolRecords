@@ -61,6 +61,7 @@ export class PerfilComponent implements OnInit {
     this.perfilDataService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
+        console.log(this.dados);
         if (this.dados.perfilName === null) {
           this.perfilDataService.getUser().subscribe((dados) => {
             this.dadosUser = dados;

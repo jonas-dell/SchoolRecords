@@ -2,7 +2,6 @@
 {
     public class PerfilDTO
     {
-        public int? Id { get; set; }
         public string? PerfilName { get; set; }
         public string? PerfilLastName { get; set; }
         public string? Pronome { get; set; }

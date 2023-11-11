@@ -36,7 +36,7 @@ namespace SRD.Infra.Perfil.Repositories
             return _context.JobExperiences.ToList();
         }
         
-        public Domain.Perfil.Entities.JobExperience? GetJobExperienceById(int id)
+        public Domain.Perfil.Entities.JobExperience GetJobExperienceById(int id)
         {
             return _context.JobExperiences.Where(p => p.PerfilId == id).FirstOrDefault();
         }

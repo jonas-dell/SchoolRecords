@@ -14,6 +14,7 @@ namespace SRD.Application.JobExperience.UseCases
         public class Command : IRequest<IRequestResponse> 
         {
             public JobExperienceDTO? JobExperienceDTO { get; set; }
+            
         }
 
         public class CommandHandler : BaseCommandHandler, IRequestHandler<Command, IRequestResponse>
