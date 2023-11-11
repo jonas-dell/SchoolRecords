@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserGuard } from './shared/services/security/user-guard';
 import { TimelineComponent } from './timeline/timeline.component';
 import { ImageUpdateService } from './perfil/cover-photo/cover-photo.service';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -64,6 +65,12 @@ const routes: Routes = [
       {
         path: 'article-relevance',
         component: ArticleRelevanceComponent,
+        pathMatch: 'full',
+        canActivate: [UserGuard],
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
         pathMatch: 'full',
         canActivate: [UserGuard],
       },

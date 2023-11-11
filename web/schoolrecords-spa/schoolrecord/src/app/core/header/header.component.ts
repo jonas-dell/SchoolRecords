@@ -50,12 +50,16 @@ export class HeaderComponent implements OnInit {
     subscribe((dados) => {
       this.dados = dados;
       if(this.dados.perfilName === null){
-        this.PerfilDataService.getUser().subscribe(
-          (dados) => {
-            this.dadosUser = dados;
-            this.dados.perfilName = this.dadosUser.username.toUpperCase();
+        this.PerfilDataService.getUser().subscribe((dados) => {
+          this.dadosUser = dados;
+          function primeiraLetraMaiuscula(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
           }
-        )
+          const capitalizeString = primeiraLetraMaiuscula(
+            this.dadosUser.username
+          );
+          this.dados.perfilName = capitalizeString;
+        });
       }
     },
      (error) => {
