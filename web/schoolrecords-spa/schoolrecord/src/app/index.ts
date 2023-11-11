@@ -27,6 +27,7 @@ import { CoverPhotoComponent } from './perfil/cover-photo/cover-photo.component'
 import { PublicationComponent } from './core/publication/publication.component';
 import { PublishArticleComponent } from './timeline/publish-article/publish-article.component';
 import { PublishPostComponent } from './publish-post/publish-post.component';
+import { SettingsComponent } from './settings/settings.component';
 
 export class Index {
   static getComponents() {
@@ -60,7 +61,8 @@ export class Index {
       CoverPhotoComponent,
       PublicationComponent,
       PublishArticleComponent,
-      PublishPostComponent
+      PublishPostComponent,
+      SettingsComponent
     ];
   }
 }

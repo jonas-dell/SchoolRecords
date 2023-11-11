@@ -68,7 +68,11 @@
     >
       <a><span class="icon icon-controller"> </span></a>
     </li>
-    <li routerLink="/home/config">
+    <li 
+      routerLink="/home/settings"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <a><span class="icon icon-config"></span></a>
     </li>
   </ul>
