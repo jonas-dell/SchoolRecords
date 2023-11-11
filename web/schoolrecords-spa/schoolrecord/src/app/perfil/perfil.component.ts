@@ -61,7 +61,6 @@ export class PerfilComponent implements OnInit {
     this.perfilDataService.getPerfil().subscribe(
       (dados) => {
         this.dados = dados;
-        console.log(this.dados);
         if (this.dados.perfilName === null) {
           this.perfilDataService.getUser().subscribe((dados) => {
             this.dadosUser = dados;
@@ -74,7 +73,6 @@ export class PerfilComponent implements OnInit {
             this.dados.perfilName = capitalizeString;
           });
         }
-
         this.dados.foto = this.convertBase64.converterBase64ParaImagem(
           this.dados.foto
         );
@@ -91,6 +89,7 @@ export class PerfilComponent implements OnInit {
   getJobExperience() {
     this.formPerfilJobService.getJobExperience().subscribe(
       (data) => {
+        console.log(data);
         this.formJob = data;
       },
       (error) => {
