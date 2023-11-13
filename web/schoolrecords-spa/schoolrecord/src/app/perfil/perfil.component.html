@@ -99,12 +99,11 @@
           </div>
         </div>
 
-        <div class="card about" *ngIf="dados?.about !== null">
+        <div class="card about" *ngIf="formJob?.jobTitle !== null">
           <div class="card-content">
             <div class="content">
               <h3 class="title is-4 has-text-black-bis">
-                About
-
+                Work Experience
                 <span class="icon pencil p-1 is-pulled-right pr-1">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z" />
@@ -117,33 +116,34 @@
                   </svg>
                 </span>
               </h3>
-              <p class="p-1 has-text-black-ter">
-                {{dados?.about}}
-              </p>
 
               <div class="card">
                 <div class="card-content">
                   <div class="media">
                     <div class="media-content">
                       <div>
-                        <span class="icon is-pulled-left">
+                        <span class="icon is-pulled-left  ">
                           <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z" fill-rule="nonzero" />
                           </svg>
                         </span>
                         <p class="title has-text-black-bis is-6 pl-6">
-                          Main Skills
+                          Main Experience
                         </p>
                         <p class="subtitle is-7 pl-6">
-                          Information technology<span class="separation">
-                            .
-                          </span>
-                          IT <span class="separation"> . </span>Operating
-                          systems
+                          {{formJob?.jobTitle}}
+                          <span class="separation"> . </span>
+                          {{formJob?.jobType}}
+                          <span class="separation"> . </span>
+                          {{formJob?.companyName}}
+                          <span class="separation"> . </span>
+                          {{formJob?.jobSector}}
                         </p>
                       </div>
                     </div>
                   </div>
+
+
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@
           <div class="card-content">
             <div class="content">
               <h3 class="title is-4 has-text-black-bis">
-                Skills
+                Hard Skills
 
                 <span class="icon pencil p-1 is-pulled-right pr-1">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -220,13 +220,9 @@
                 </span>
               </h3>
 
-              <div class="card">
-                <div class="card-content">
-                  <div class="content">Angular</div>
-                </div>
-                <hr />
-                <div class="card-content">
-                  <div class="content">.NET Framework</div>
+              <div *ngFor="let skill of formJob.skills" class="card mt-2">
+                <div class="card-content ">
+                  <div class="content">{{skill}}</div>
                 </div>
               </div>
             </div>
