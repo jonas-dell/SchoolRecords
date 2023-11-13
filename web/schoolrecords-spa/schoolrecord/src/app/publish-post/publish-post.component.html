@@ -1,9 +1,14 @@
 <div mat-dialog-container class="dialog-container">
   <div class="dialog-header">
     <div class="publication-header">
-      <img src="../../assets/img/people.svg" />
+      <div class="image-container">
+        <img             
+          *ngIf="dados?.foto"
+          [src]="dados.foto" 
+        />
+      </div>
       <div class="publication-header-info">
-          <a href="" class="name-user">Elon Musk</a>
+          <a href="" class="name-user">{{ dados?.perfilName }}</a>
           <p class="visibility">Publish to all</p>
       </div>
     </div>

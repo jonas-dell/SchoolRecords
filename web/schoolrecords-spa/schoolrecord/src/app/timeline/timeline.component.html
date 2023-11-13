@@ -6,8 +6,11 @@
     </div>
     <div class="start-post-container">
       <div class="start-post">
-        <div>
-          <img src="../../assets/img/people.svg" />
+        <div class="image-container" routerLink="perfil" >
+          <img
+            *ngIf="dados?.foto"
+            [src]="dados.foto"
+          />
         </div>
         <button class="btn-start-post" (click)="publishPost()">Start a post</button>
       </div>

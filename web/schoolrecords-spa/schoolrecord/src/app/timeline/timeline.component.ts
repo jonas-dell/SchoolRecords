@@ -5,6 +5,8 @@ import { PublishArticleComponent } from './publish-article/publish-article.compo
 import { PublishPostComponent } from '../publish-post/publish-post.component';
 import { skipWhile, tap } from 'rxjs/operators';
 import { timer } from 'rxjs';
+import { PerfilDataService } from 'src/app/shared/services/perfil-data.service';
+import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';
 
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
@@ -33,6 +35,7 @@ export class TimelineComponent implements OnInit {
   loading: boolean = false;
   postsLoaded: boolean = false;
   private chart!: am4charts.XYChart;
+  dados: any;
 
   @ViewChild('pub', { static: true }) pub!: ElementRef;
   pubElement!: HTMLElement;
@@ -40,12 +43,15 @@ export class TimelineComponent implements OnInit {
   constructor(
     private zone: NgZone,
     public dialog: MatDialog,
+    private perfilService: PerfilDataService,
+    public convertBase64: ConvertBase64,
     @Inject(PLATFORM_ID) private platformId: any,
     private timelineService: TimelineService
   ) {}
 
   ngOnInit(): void {
     this.loadPosts();
+    this.getPerfilData();
     this.getChart();
     this.pubOriginalPos = this.pub.nativeElement.getBoundingClientRect().top;
     this.pubElement = this.pub.nativeElement;
@@ -60,6 +66,21 @@ export class TimelineComponent implements OnInit {
     fileButton?.addEventListener('click', () => {
       file?.click();
     });
+  }
+
+  getPerfilData() {
+    const token = localStorage.getItem('token');
+    this.perfilService.getPerfil().subscribe(
+      (dados) => {
+        this.dados = dados;
+        this.dados.foto = this.convertBase64.converterBase64ParaImagem(
+          this.dados.foto
+        );
+      },
+      (error) => {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    );
   }
 
   private loadPosts() {

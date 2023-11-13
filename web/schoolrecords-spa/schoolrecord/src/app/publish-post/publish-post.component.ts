@@ -3,6 +3,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NotificationService } from '../shared/services/notification.service';
 import { PostService } from './publish-post.service';
+import { PerfilDataService } from 'src/app/shared/services/perfil-data.service';
+import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';
+import { User } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-publish-post',
@@ -15,11 +18,15 @@ export class PublishPostComponent implements OnInit {
     
   dados: any;
   formulario: FormGroup;
+  dadosUser: any;
+  user: User | null;  
 
   constructor(
     private postService: PostService,
     private notificationService: NotificationService,
     private formBuilder: FormBuilder,
+    private perfilService: PerfilDataService,
+    private convertBase64: ConvertBase64,
     public dialogRef: MatDialogRef<PublishPostComponent>,
     @Inject(MAT_DIALOG_DATA) public data) 
    {
@@ -34,11 +41,38 @@ export class PublishPostComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
+    this.getPerfilData();
   }
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  getPerfilData() {
+    const token = localStorage.getItem('token');
+    this.perfilService.getPerfil().subscribe(
+      (dados) => {
+        this.dados = dados;
+        if (this.dados.perfilName === null) {
+          this.perfilService.getUser().subscribe((dados) => {
+            this.dadosUser = dados;
+            function primeiraLetraMaiuscula(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+            const capitalizeString = primeiraLetraMaiuscula(
+              this.dadosUser.username
+            );
+            this.dados.perfilName = capitalizeString;
+          });
+        }
+        this.dados.foto = this.convertBase64.converterBase64ParaImagem(
+          this.dados.foto
+        );
+      },
+      (error) => {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    );
   }
 
   fileChangedMedia(event: any) {
