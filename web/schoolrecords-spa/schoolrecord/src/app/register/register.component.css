@@ -85,24 +85,6 @@
   font-weight: bold;
 }
 
-.signup-label {
-  text-align: center;
-  font-family: Nunito, sans-serif;
-  margin-top: 50px;
-  max-width: 400px;
-}
-
-.btn-login.btn-login-google {
-  margin-top: 10px;
-  border-color: #7070702e;
-  color: #000;
-  background: none;
-}
-
-.btn-login.btn-login-google > svg {
-  height: 20px;
-}
-
 .register {
   cursor: pointer;
 }
