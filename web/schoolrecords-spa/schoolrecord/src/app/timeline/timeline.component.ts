@@ -36,6 +36,7 @@ export class TimelineComponent implements OnInit {
   postsLoaded: boolean = false;
   private chart!: am4charts.XYChart;
   dados: any;
+  noPosts: boolean = false;
 
   @ViewChild('pub', { static: true }) pub!: ElementRef;
   pubElement!: HTMLElement;
@@ -91,6 +92,7 @@ export class TimelineComponent implements OnInit {
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
           this.showPostsLoadedMessage('postsLoaded');
+          this.noPosts = true; 
           return true;
         })
       )
