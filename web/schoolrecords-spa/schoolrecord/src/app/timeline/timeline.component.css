@@ -223,6 +223,10 @@
   list-style: none;
 }
 
+.no-posts-container img {
+  border: 3px solid #7f408e;
+}
+
 .post-container {
   display: flex;
   flex-direction: column;

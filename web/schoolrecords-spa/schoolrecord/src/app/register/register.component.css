@@ -17,6 +17,14 @@
   font-family: "IBM_Plex_Sans_Semi_Bold", sans-serif;
 }
 
+.register-info p {
+  max-width: 70%;
+  font-size: 2.3rem;
+  color: #7f408e;
+  font-weight: bold;
+  font-family: "IBM_Plex_Sans_Reg", sans-serif;
+}
+
 .login {
   flex-grow: 1;
   flex-basis: 0;
@@ -85,24 +93,6 @@
   font-weight: bold;
 }
 
-.signup-label {
-  text-align: center;
-  font-family: Nunito, sans-serif;
-  margin-top: 50px;
-  max-width: 400px;
-}
-
-.btn-login.btn-login-google {
-  margin-top: 10px;
-  border-color: #7070702e;
-  color: #000;
-  background: none;
-}
-
-.btn-login.btn-login-google > svg {
-  height: 20px;
-}
-
 .register {
   cursor: pointer;
 }
@@ -112,6 +102,7 @@
   text-align: center;
   cursor: pointer;
   color: #780a7e;
+  margin-bottom: 20px;
 }
 
 .to-go-back:hover {

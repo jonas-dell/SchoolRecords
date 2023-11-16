@@ -47,6 +47,9 @@
       </ul>
     </div>
     <div class="timeline-container">
+      <div *ngIf="noPosts" class="no-posts-container">
+        <img src="../../assets/img/noPosts.jpg" alt="No Posts Yet">
+      </div>
       <div class="post-container" *ngFor="let post of posts">
         <div class="post-header">
           <img src="../../assets/img/people.svg" />

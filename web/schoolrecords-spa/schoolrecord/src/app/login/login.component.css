@@ -102,6 +102,7 @@
   max-width: 400px;
   margin-top: 20px;
   color: #780a7e;
+  margin-bottom: 20px;
 }
 
 .forgot:hover {
@@ -114,41 +115,6 @@
   max-width: 400px;
   align-items: center;
   text-align: center;
-}
-
-.divider>p {
-  color: #ddd;
-  font-weight: normal;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex-grow: 1;
-  height: 1px;
-  background-color: #ddd;
-  margin: 0 10px;
-}
-
-.divider span {
-  font-weight: bold;
-}
-
-.signup-label {
-  text-align: center;
-  font-family: Nunito, sans-serif;
-  margin-top: 50px;
-  max-width: 400px;
-}
-
-.btn-login.btn-login-google {
-  border-color: #7070702e;
-  color: #000;
-  background: none;
-}
-
-.btn-login.btn-login-google>svg {
-  height: 20px;
 }
 
 .register {
@@ -217,7 +183,6 @@
   .form-login {
     width: 100%;
     margin: auto;
-    border: 1px solid #000;
   }
 
   .signup-label {
