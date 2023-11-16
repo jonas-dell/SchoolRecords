@@ -1,121 +1,121 @@
 [
   {
     "id": 1,
-    "title": "The spirit of Ocean",
-    "author": "10/02/2023",
+    "post": "The spirit of Ocean",
+    "date": "10/02/2023",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 2,
-    "title": "The Falcon-9",
-    "author": "10/02/2023",
+    "post": "The Falcon-9",
+    "date": "10/02/2023",
     "image": "../../../assets/img/spacex.png"
   },
   {
     "id": 3,
-    "title": "Native African Animals",
-    "author": "10/02/2023",
+    "post": "Native African Animals",
+    "date": "10/02/2023",
     "image": "../../../assets/img/animals.jpg"
   },
   {
     "id": 4,
-    "title": "The spirit of Ocean",
-    "author": "10/02/2023",
+    "post": "The spirit of Ocean",
+    "date": "10/02/2023",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 5,
-    "title": "The Falcon-9",
-    "author": "10/02/2023",
+    "post": "The Falcon-9",
+    "date": "10/02/2023",
     "image": "../../../assets/img/spacex.png"
   },
   {
     "id": 6,
-    "title": "Native African Animals",
-    "author": "National Geographic",
+    "post": "Native African Animals",
+    "date": "15/05/2023",
     "image": "../../../assets/img/animals.jpg"
   },  {
     "id": 7,
-    "title": "The spirit of Ocean",
-    "author": "James John Markus",
+    "post": "The spirit of Ocean",
+    "date": "09/03/2023",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 8,
-    "title": "The Falcon-9",
-    "author": "Elon Musk",
+    "post": "The Falcon-9",
+    "date": "03/02/2023",
     "image": "../../../assets/img/spacex.png"
   },
   {
     "id": 9,
-    "title": "Native African Animals",
-    "author": "National Geographic",
+    "post": "Native African Animals",
+    "date": "20/01/2023",
     "image": "../../../assets/img/animals.jpg"
   },  
   {
     "id": 10,
-    "title": "The spirit of Ocean",
-    "author": "James John Markus",
+    "post": "The spirit of Ocean",
+    "date": "15/01/2023",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 11,
-    "title": "The Falcon-9",
-    "author": "Elon Musk",
+    "post": "The Falcon-9",
+    "date": "10/01/2023",
     "image": "../../../assets/img/spacex.png"
   },
   {
     "id": 12,
-    "title": "Native African Animals",
-    "author": "National Geographic",
+    "post": "Native African Animals",
+    "date": "10/01/2023",
     "image": "../../../assets/img/animals.jpg"
   },
   {
     "id": 13,
-    "title": "The spirit of Ocean",
-    "author": "James John Markus",
+    "post": "The spirit of Ocean",
+    "date": "05/01/2023",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 14,
-    "title": "The Falcon-9",
-    "author": "Elon Musk",
+    "post": "The Falcon-9",
+    "date": "10/10/2022",
     "image": "../../../assets/img/spacex.png"
   },
   {
     "id": 15,
-    "title": "Native African Animals",
-    "author": "National Geographic",
+    "post": "Native African Animals",
+    "date": "05/10/2022",
     "image": "../../../assets/img/animals.jpg"
   },
   {
     "id": 16,
-    "title": "The spirit of Ocean",
-    "author": "James John Markus",
+    "post": "The spirit of Ocean",
+    "date": "02/10/2022",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 17,
-    "title": "The Falcon-9",
-    "author": "Elon Musk",
+    "post": "The Falcon-9",
+    "date": "20/09/2022",
     "image": "../../../assets/img/spacex.png"
   },
   {
     "id": 18,
-    "title": "Native African Animals",
-    "author": "National Geographic",
+    "post": "Native African Animals",
+    "date": "10/09/2022",
     "image": "../../../assets/img/animals.jpg"
   },
   {
     "id": 19,
-    "title": "The spirit of Ocean",
-    "author": "James John Markus",
+    "post": "The spirit of Ocean",
+    "date": "03/09/2022",
     "image": "../../../assets/img/mundi.png"
   },
   {
     "id": 20,
-    "title": "The Falcon-9",
-    "author": "Elon Musk",
+    "post": "The Falcon-9",
+    "date": "01/09/2023",
     "image": "../../../assets/img/spacex.png"
   }
 ]

@@ -36,14 +36,18 @@
   margin-left: 20px;
 }
 
-.publication-title {
+.publication-post {
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  max-height: 25px;
+  overflow: hidden;
 }
 
-.publication-author {
+.publication-date {
   font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
   font-size: 0.7em;
   color: #959393;
+  max-height: 20px;
+  overflow: hidden;
 }
 
 .loading {
