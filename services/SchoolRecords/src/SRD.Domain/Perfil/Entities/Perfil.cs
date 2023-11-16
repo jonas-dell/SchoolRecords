@@ -5,7 +5,6 @@
         public int Id { get; set; }
         public string? PerfilName { get; set; }
         public string? PerfilLastName { get; set; }
-
         public string? Pronome { get; set; }
         public string? About { get; set; }
         public string? Sector { get; set; }

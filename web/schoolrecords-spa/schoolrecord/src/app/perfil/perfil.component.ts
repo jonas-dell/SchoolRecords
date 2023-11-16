@@ -122,6 +122,7 @@ export class PerfilComponent implements OnInit {
         if (this.formEducation !== null) {
           let tituloFaculdade = this.formEducation?.title;
           tituloFaculdade = tituloFaculdade;
+          
           console.log(tituloFaculdade);
           if (tituloFaculdade) {
             const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
