@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using SRD.Domain.User.Entities;
+using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace SRD.Application.Services
 {
     public interface IEmailService
     {
-        Task SendPasswordRecoveryEmail(string userEmail, string recoveryToken);
+        Task SendPasswordRecoveryEmail(User user, string recoveryToken);
     }
 
     public class EmailService : IEmailService
@@ -18,29 +19,29 @@ namespace SRD.Application.Services
             // Configuração do cliente SMTP
             _smtpClient = new SmtpClient
             {
-                Port = 587,
+                Port = 465,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("jonaseal17@gmail.com", "graduado_288"),
+                Credentials = new NetworkCredential("jonaseal17@gmail.com", "mmhn gjwo axqy mmir"),
                 EnableSsl = true,
                 Host = "smtp.gmail.com"
             };
         }
 
-        public async Task SendPasswordRecoveryEmail(string userEmail, string recoveryToken)
+        public async Task SendPasswordRecoveryEmail(User user, string recoveryToken)
         {
             // Construção do e-mail
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("seuemail@gmail.com", "Nome do Remetente"),
-                Subject = "Recuperação de Senha",
-                Body = $"Use o seguinte link para redefinir sua senha: https://seu-app.com/reset-password?token={recoveryToken}",
-                IsBodyHtml = true
-            };
+            //var mailMessage = new MailMessage
+            //{
+            //    From = new MailAddress(user, "Usuário novo"),
+            //    Subject = "Recuperação de Senha",
+            //    Body = $"Use o seguinte link para redefinir sua senha: https://seu-app.com/reset-password?token={recoveryToken}",
+            //    IsBodyHtml = true
+            //};
 
-            mailMessage.To.Add(new MailAddress(userEmail));
+            //mailMessage.To.Add(new MailAddress(userEmail));
 
-            // Envio do e-mail
-            await _smtpClient.SendMailAsync(mailMessage);
+            //// Envio do e-mail
+            //await _smtpClient.SendMailAsync(mailMessage);
         }
     }
 }

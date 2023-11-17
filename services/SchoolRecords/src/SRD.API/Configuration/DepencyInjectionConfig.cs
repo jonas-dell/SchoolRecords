@@ -20,10 +20,10 @@ namespace SRD.API.Configuration
             services.AddScoped<IAcademicEducationRepository, AcademicEducationRepository>();
             services.AddScoped<IUserPostRepository, UserPostRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IForgotPasswordRepository, ForgotPasswordRepository>();
             services.AddScoped<DataContext>();
             services.AddScoped<ConsultaCepService>();
             services.AddTransient<IEmailService, EmailService>();
-
         }
     }
 }

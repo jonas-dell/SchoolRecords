@@ -90,22 +90,10 @@ namespace SRD.API.Controllers
             return Ok(await Task.Run(() => contatos.Skip(skip).Take(take)));
         }
 
-
-
         [HttpPost]
         public async Task<IActionResult> SendInvite([FromBody] int contactId)
         {
             var command = new InviteUser.Command() { ContactId = contactId };
-
-            var result = await _mediator.Send(command);
-
-            return Ok(result);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDTO forgotPasswordDTO)
-        {
-            var command = new ForgotPassword.Command() { ForgotPasswordDTO = forgotPasswordDTO };
 
             var result = await _mediator.Send(command);
 

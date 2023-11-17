@@ -17,12 +17,14 @@ namespace SRD.Application.Login.UseCases
         public class CommandHandler : BaseCommandHandler, IRequestHandler<Command, IRequestResponse>
         {
             private readonly IUserRepository _userRepository;
+            private readonly IForgotPasswordRepository _forgotPasswordRepository;
             private readonly IEmailService _emailService;
 
-            public CommandHandler(IUserRepository userRepository, IEmailService emailService)
+            public CommandHandler(IUserRepository userRepository, IEmailService emailService, IForgotPasswordRepository forgotPasswordRepository)
             {
                 _userRepository = userRepository;
                 _emailService = emailService;
+                _forgotPasswordRepository = forgotPasswordRepository;
             }
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
@@ -34,13 +36,20 @@ namespace SRD.Application.Login.UseCases
                     return RequestResponse.ErrorResponse("Email não cadastrado");
                 }
 
-                user.Token = TokenService.GenerateToken(user); 
-                //6 primeiras letra no banco de dados
+                string token = TokenService.GenerateToken(user);
 
+                var recoveryToken = new Domain.User.Entities.ForgotPassword
+                {
+                    UserId = user.Id,
+                    Token = token.Substring(0,6),
+                    CreatedAt = DateTime.UtcNow
+                };
 
-                await _emailService.SendPasswordRecoveryEmail(user.Email, user.Token);
+                _forgotPasswordRepository.Insert(recoveryToken);
+                
+                //await _emailService.SendPasswordRecoveryEmail(user, user.Token);
 
-                return RequestResponse.SuccessResponse("Email cadastrado", user);
+                return RequestResponse.SuccessResponse("Email cadastrado", recoveryToken);
             }
         }
     }

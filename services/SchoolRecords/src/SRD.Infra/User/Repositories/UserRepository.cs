@@ -95,7 +95,5 @@ namespace SRD.Infra.User.Repositories
                         .Where(x => x.Id != userId)
                         .ToList();
         }
-
-       
     }
 }

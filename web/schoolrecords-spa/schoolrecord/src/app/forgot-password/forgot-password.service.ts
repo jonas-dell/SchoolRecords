@@ -5,19 +5,15 @@ import { Observable } from 'rxjs';
 import { RequestResponse } from '../shared/responses/request-response';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ForgotPasswordService {
+  constructor(private http: HttpClient, private configService: ConfigService) {}
 
-  constructor(
-    private http: HttpClient,
-    private configService: ConfigService,
-   ) { }
-
-   sendRecoveryRequest(email: string): Observable<RequestResponse> {
+  sendRecoveryRequest(email: string): Observable<RequestResponse> {
     return this.http.post<RequestResponse>(
-      `${this.configService.config.apiUrl}/api/user/ForgotPassword`,
-      { email: email } 
+      `${this.configService.config.apiUrl}/api/ForgotPassword/ForgotPassword`,
+      { email: email }
     );
   }
 }
