@@ -83,11 +83,11 @@
 }
 
 .person {
-  background: url(../../../assets/img/person.svg);
+  background: url(../../../assets/img/people-fill.svg);
   background-size: auto;
   background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin-left: 4px;
 }
 
