@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SRD.Application.JobExperience.UseCases;
+using SRD.Application.Login.UseCases;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.User.DTO;
 using SRD.Domain.User.Repositories;
 using SRD.Infra.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -94,6 +96,16 @@ namespace SRD.API.Controllers
         public async Task<IActionResult> SendInvite([FromBody] int contactId)
         {
             var command = new InviteUser.Command() { ContactId = contactId };
+
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDTO forgotPasswordDTO)
+        {
+            var command = new ForgotPassword.Command() { ForgotPasswordDTO = forgotPasswordDTO };
 
             var result = await _mediator.Send(command);
 

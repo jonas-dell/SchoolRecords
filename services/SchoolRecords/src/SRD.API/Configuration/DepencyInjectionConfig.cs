@@ -22,6 +22,8 @@ namespace SRD.API.Configuration
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<DataContext>();
             services.AddScoped<ConsultaCepService>();
+            services.AddTransient<IEmailService, EmailService>();
+
         }
     }
 }

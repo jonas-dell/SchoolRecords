@@ -67,6 +67,12 @@ namespace SRD.Infra.User.Repositories
             return _context.Users.FirstOrDefault(x => x.Username == username);
         }
 
+        public Domain.User.Entities.User? GetByUserEmail(string email)
+        {
+
+            return _context.Users.FirstOrDefault(x => x.Email == email);
+        }
+
         public IList<Domain.User.Entities.User> GetContactsByUserId(int userId)
         {
             var contactsId = _context.UserContacts
@@ -89,5 +95,7 @@ namespace SRD.Infra.User.Repositories
                         .Where(x => x.Id != userId)
                         .ToList();
         }
+
+       
     }
 }

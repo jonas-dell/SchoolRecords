@@ -11,6 +11,7 @@ namespace SRD.Domain.User.Repositories
         IList<Entities.User> GetInvites(int userId);
         Entities.User GetById(int id);
         Entities.User? GetByUserName(string userName);
+        Entities.User? GetByUserEmail(string email);
         void InsertContact(Entities.UserContact userContact);
     }
 }
