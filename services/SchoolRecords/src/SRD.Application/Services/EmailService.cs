@@ -1,7 +1,6 @@
 ﻿using SRD.Domain.User.Entities;
 using System.Net;
 using System.Net.Mail;
-using System.Threading.Tasks;
 
 namespace SRD.Application.Services
 {
@@ -10,7 +9,7 @@ namespace SRD.Application.Services
         Task SendPasswordRecoveryEmail(User user, string recoveryToken);
     }
 
-    public class EmailService : IEmailService
+    public class EmailService : IEmailService, IDisposable
     {
         private readonly SmtpClient _smtpClient;
 
@@ -30,18 +29,33 @@ namespace SRD.Application.Services
         public async Task SendPasswordRecoveryEmail(User user, string recoveryToken)
         {
             // Construção do e-mail
-            //var mailMessage = new MailMessage
-            //{
-            //    From = new MailAddress(user, "Usuário novo"),
-            //    Subject = "Recuperação de Senha",
-            //    Body = $"Use o seguinte link para redefinir sua senha: https://seu-app.com/reset-password?token={recoveryToken}",
-            //    IsBodyHtml = true
-            //};
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress("jonaseal17@gmail.com", "Usuário novo"),
+                Subject = "Recuperação de Senha",
+                Body = "teste",
+                //Body = $"Use o seguinte link para redefinir sua senha: https://seu-app.com/reset-password?token={recoveryToken}",
+                IsBodyHtml = true
+            };
 
-            //mailMessage.To.Add(new MailAddress(userEmail));
+            mailMessage.To.Add(new MailAddress("jonaseal17@gmail.com")); //destinatário
 
-            //// Envio do e-mail
-            //await _smtpClient.SendMailAsync(mailMessage);
+            try
+            {
+                Console.WriteLine("Enviando e-mail...");
+                await _smtpClient.SendMailAsync(mailMessage);
+                Console.WriteLine("E-mail enviado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceções de envio de e-mail
+                Console.WriteLine($"Erro ao enviar e-mail: {ex.Message}");
+            }
+        }
+
+        public void Dispose()
+        {
+            _smtpClient.Dispose();
         }
     }
 }

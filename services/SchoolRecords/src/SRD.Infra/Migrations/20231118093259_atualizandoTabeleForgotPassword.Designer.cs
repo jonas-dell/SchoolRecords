@@ -12,8 +12,8 @@ using SRD.Infra.Context;
 namespace SRD.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231117211923_addForgotPassword")]
-    partial class addForgotPassword
+    [Migration("20231118093259_atualizandoTabeleForgotPassword")]
+    partial class atualizandoTabeleForgotPassword
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -354,20 +354,21 @@ namespace SRD.Infra.Migrations
                         .HasColumnType("DATETIME")
                         .HasColumnName("CreatedAt");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("VARCHAR(200)")
+                        .HasColumnName("Email");
+
                     b.Property<string>("Token")
-                        .IsRequired()
                         .HasColumnType("VARCHAR(100)")
                         .HasColumnName("Token");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int")
+                        .HasColumnType("INT")
                         .HasColumnName("UserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PasswordRecoveryToken", (string)null);
+                    b.ToTable("ForgotPassword", (string)null);
                 });
 
             modelBuilder.Entity("SRD.Domain.User.Entities.User", b =>
@@ -474,15 +475,6 @@ namespace SRD.Infra.Migrations
                         .IsRequired();
 
                     b.Navigation("Perfil");
-                });
-
-            modelBuilder.Entity("SRD.Domain.User.Entities.ForgotPassword", b =>
-                {
-                    b.HasOne("SRD.Domain.User.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("SRD.Domain.User.Entities.UserContact", b =>

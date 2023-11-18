@@ -38,18 +38,35 @@ namespace SRD.Application.Login.UseCases
 
                 string token = TokenService.GenerateToken(user);
 
+                static string RandomizarToken(string token)
+                {
+                    char[] chars = token.ToCharArray();
+                    Random random = new Random();
+
+                    for (int i = chars.Length - 1; i > 0; i--)
+                    {
+                        int j = random.Next(0, i + 1);
+                        char temp = chars[i];
+                        chars[i] = chars[j];
+                        chars[j] = temp;
+                    }
+
+                    return new string(chars);
+                }
                 var recoveryToken = new Domain.User.Entities.ForgotPassword
                 {
                     UserId = user.Id,
-                    Token = token.Substring(0,6),
+                    Token = RandomizarToken(token.Substring(0,25)),
+                    Email = user.Email,
                     CreatedAt = DateTime.UtcNow
                 };
 
                 _forgotPasswordRepository.Insert(recoveryToken);
-                
-                //await _emailService.SendPasswordRecoveryEmail(user, user.Token);
 
-                return RequestResponse.SuccessResponse("Email cadastrado", recoveryToken);
+
+                await _emailService.SendPasswordRecoveryEmail(user, recoveryToken.Token);
+
+                return await SaveData(_forgotPasswordRepository.UnitOfWork);
             }
         }
     }

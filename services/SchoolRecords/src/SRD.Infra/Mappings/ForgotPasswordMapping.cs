@@ -8,32 +8,30 @@ namespace SRD.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<ForgotPassword> builder)
         {
-            builder.ToTable("PasswordRecoveryToken");
+            builder.ToTable("ForgotPassword");
 
             builder.HasKey(x => x.Id);
-
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).HasColumnName("id").UseIdentityColumn();
+            builder.Property(x => x.Id)
+                .HasColumnName("id")
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
 
             builder.Property(x => x.UserId)
                 .HasColumnName("UserId")
-                .IsRequired();
+                .HasColumnType("INT");
+
+            builder.Property(x => x.Email)
+                .HasColumnName("Email")
+                .HasColumnType("VARCHAR(200)");
+
 
             builder.Property(x => x.Token)
                 .HasColumnName("Token")
-                .IsRequired()
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.CreatedAt)
                 .HasColumnName("CreatedAt")
-                .IsRequired()
                 .HasColumnType("DATETIME");
-
-            // Definindo relacionamento com a entidade User
-            builder.HasOne<Domain.User.Entities.User>()
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade); 
         }
     }
 }
