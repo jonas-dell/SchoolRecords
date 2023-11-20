@@ -3,6 +3,8 @@ import { User } from 'src/app/shared/models/user';
 import { CurrentUserService } from '../../shared/services/current-user.service';
 import { PerfilService } from 'src/app/perfil/perfil.service';
 import { PerfilDataService } from '../../shared/services/perfil-data.service';
+import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';
+import { FormPerfilJobService } from 'src/app/perfil/form-perfil-job/form-perfil-job.service';
 
 @Component({
   selector: 'header',
@@ -15,6 +17,7 @@ export class HeaderComponent implements OnInit {
   saudacao: string;
   dados: any;
   dadosUser: any;
+  formJob: any;
 
   toggleHeader(): void {
     this.showHeader = !this.showHeader;
@@ -23,6 +26,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private currentUserService: CurrentUserService,
     private perfilService: PerfilService,
+    private convertBase64: ConvertBase64,
+    private formPerfilJobService: FormPerfilJobService,
     private PerfilDataService: PerfilDataService
     ) {}
 
@@ -30,6 +35,7 @@ export class HeaderComponent implements OnInit {
     this.user = this.currentUserService.getCurrentUser();
     this.getPerfilData();
     this.saudacao = this.calcularSaudacao();
+    this.getJobExperience();
   }
   calcularSaudacao(): string {
     const agora = new Date();
@@ -43,6 +49,23 @@ export class HeaderComponent implements OnInit {
       return "Good night";
     }
   }
+
+  dropdown() {
+    document.getElementById("dropdown")?.classList.toggle("show");
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown-btn, .dropdown-icon, .dropdown-span, .dropdown-svg')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  }
+
   getPerfilData(){
 
     const token = localStorage.getItem('token');
@@ -61,10 +84,25 @@ export class HeaderComponent implements OnInit {
           this.dados.perfilName = capitalizeString;
         });
       }
+      this.dados.foto = this.convertBase64.converterBase64ParaImagem(
+        this.dados.foto
+      );
     },
      (error) => {
       console.error("Erro ao buscar dados da API:", error);
       }
     );
   }
+
+  getJobExperience() {
+    this.formPerfilJobService.getJobExperience().subscribe(
+      (data) => {
+        this.formJob = data || '';
+      },
+      (error) => {
+        console.error('Erro ao buscar os dados da api:', error);
+      }
+    );
+  }
+
 }
