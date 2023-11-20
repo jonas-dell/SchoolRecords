@@ -25,10 +25,18 @@ namespace SRD.Infra.Mappings
                 .HasColumnName("Name")
                 .HasColumnType("VARCHAR(4000)");
 
+            builder.Property(x => x.JobTitle)
+                .HasColumnName("JobTitle")
+                .HasColumnType("VARCHAR(100)");
+
+            builder.Property(x => x.Foto)
+                .HasColumnName("Foto")
+                .HasColumnType("Text");
+
             builder.Property(x => x.Image)
                 .HasColumnName("Image")
                 .HasColumnType("Text");
-            
+
             builder.Property(x => x.Post)
                 .HasColumnName("Post")
                 .HasColumnType("VARCHAR(4000)");
