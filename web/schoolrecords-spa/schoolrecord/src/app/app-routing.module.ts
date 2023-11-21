@@ -15,12 +15,18 @@ import { UserGuard } from './shared/services/security/user-guard';
 import { TimelineComponent } from './timeline/timeline.component';
 import { ImageUpdateService } from './perfil/cover-photo/cover-photo.service';
 import { SettingsComponent } from './settings/settings.component';
+import { TokenComponent } from './token/token.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { MessageEmailComponent } from './message-email/message-email.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'forgot-password/token', component: TokenComponent, data: { requiresAuthentication: false }},
+  { path: 'forgot-password/messageToken', component: MessageEmailComponent, data: { requiresAuthentication: false }},
+  {path: 'forgot-password/token/resetPassword', component: ResetPasswordComponent, data: { requiresAuthentication: false }},
   {
     path: 'home',
     component: HomeComponent,
