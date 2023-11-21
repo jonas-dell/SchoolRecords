@@ -28,13 +28,15 @@ namespace SRD.Application.UserPost.UserCases
             private readonly IUserPostRepository _userPostRepository;
             private readonly IHttpContextAccessor _httpContextAccessor;
             private readonly IPerfilRepository _perfilRepository;
+            private readonly IJobExperienceRepository _jobExperienceRepository;
 
-            public CommandHandler(IPerfilRepository perfilRepository,IMapper mapper, IUserPostRepository userPostRepository, IHttpContextAccessor httpContextAccessor)
+            public CommandHandler(IJobExperienceRepository jobExperienceRepository, IPerfilRepository perfilRepository,IMapper mapper, IUserPostRepository userPostRepository, IHttpContextAccessor httpContextAccessor)
             {
                 _mapper = mapper;
                 _userPostRepository = userPostRepository;
                 _httpContextAccessor = httpContextAccessor;
                 _perfilRepository = perfilRepository;
+                _jobExperienceRepository= jobExperienceRepository;
             }
 
             public async Task<IRequestResponse> Handle(Command request, CancellationToken cancellationToken)
@@ -45,11 +47,14 @@ namespace SRD.Application.UserPost.UserCases
                 var perfil = _perfilRepository.GetById(userId);
                 request.userPostDTO.PerfilId = perfil.Id;
                 request.userPostDTO.Name = perfil.PerfilName;
-
+                var job = _jobExperienceRepository.GetJobExperienceById(perfil.Id);
+                if (job.JobTitle == null)
+                   job.JobTitle = " ";
+                request.userPostDTO.JobTitle = job.JobTitle;
+                request.userPostDTO.Foto = perfil.Foto;
                 request.userPostDTO.Date = DateTime.Now.ToString();
-
                var userPost = new Domain.Perfil.Entities.UserPost();
-                var userPostUpdate = _mapper.Map(request.userPostDTO,userPost);
+               var userPostUpdate = _mapper.Map(request.userPostDTO,userPost);
                         _userPostRepository.Insert(userPostUpdate);
                     
                 

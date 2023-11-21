@@ -10,6 +10,8 @@ namespace SRD.Domain.Perfil.DTO
     {
         public int? Id { get; set; }
         public string? Name { get; set; }
+        public string? JobTitle { get; set; }
+        public string? Foto { get; set; }
         public string? Image { get; set; }
         public string? Post { get; set; }
         public string? Date { get; set; }

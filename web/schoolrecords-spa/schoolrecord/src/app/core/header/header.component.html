@@ -13,16 +13,38 @@
     </div>
     <div style="flex-basis: 27.55555%" class="header-notifications">
       <ul class="icons">
-        <li class="col-md-3 icon">
+        <li class="col-md-3 icon notifications">
           <i class="fa fa-envelope" style="font-size: 20px; color: #7f408e"></i>
         </li>
-        <li class="col-md-3 icon">
+        <li class="col-md-3 icon notifications">
           <i class="fa fa-bell" style="font-size: 20px; color: #7f408e"></i>
         </li>
 
-        <li class="btn-icon">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <input type="submit" class="user-profile" />
+        <li class="dropdown-container">
+          <div class="dropdown-btn" (click)="dropdown()">
+            <i class="fa fa-user dropdown-icon"></i>
+            <span class="dropdown-span">
+              Me
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill dropdown-svg" viewBox="0 0 16 16">
+                <path class="dropdown-svg" d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+            </span>
+          </div>
+          <div id="dropdown" class="dropdown-content">
+            <div class="dropdown-profile-container">
+              <a routerLink="perfil" class="dropdown-profile">
+                <img [src]="dados?.foto" />
+                <div class="dropdown-profile-info">
+                  <div class="info-profile">
+                    <p class="name-profile">{{dados?.perfilName}}</p>
+                  </div>
+                  <p class="title-profile">{{formJob?.jobTitlePerfil}}</p>
+                </div>
+              </a>
+              <button routerLink="perfil" class="dropdown-profile-button">View profile</button>
+            </div>
+            <a routerLink="/login" class="exit">Exit</a>
+          </div>
         </li>
       </ul>
       <button id="btn-mobile" (click)="toggleHeader()">
