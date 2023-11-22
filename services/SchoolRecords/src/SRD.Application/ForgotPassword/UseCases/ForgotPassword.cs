@@ -70,7 +70,7 @@ namespace SRD.Application.Login.UseCases
                 _forgotPasswordRepository.Insert(recoveryToken);
 
 
-                await _emailService.SendPasswordRecoveryEmail(user, recoveryToken.Token);
+                await _emailService.SendPasswordRecoveryEmail(user, recoveryToken.Token, request.ForgotPasswordDTO) ;
 
                 return await SaveData(_forgotPasswordRepository.UnitOfWork);
             }

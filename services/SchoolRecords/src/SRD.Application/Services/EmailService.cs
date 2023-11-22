@@ -1,5 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
+using SRD.Domain.User.DTO;
 using SRD.Domain.User.Entities;
 
 
@@ -7,7 +8,7 @@ namespace SRD.Application.Services
 {
     public interface IEmailService
     {
-        Task SendPasswordRecoveryEmail(User user, string recoveryToken);
+        Task SendPasswordRecoveryEmail(User user, string recoveryToken, ForgotPasswordDTO forgotPasswordDTO);
     }
 
     public class EmailService : IEmailService
@@ -20,13 +21,13 @@ namespace SRD.Application.Services
             _smtpClient = new SmtpClient();
         }
 
-        public async Task SendPasswordRecoveryEmail(User user, string recoveryToken)
+        public async Task SendPasswordRecoveryEmail(User user, string recoveryToken,ForgotPasswordDTO forgotPasswordDTO)
         {
             try
             {
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress(user.Username, "jonaseal17@gmail.com"));
-                message.To.Add(new MailboxAddress("usuário", "jonaseal17@gmail.com"));
+                message.From.Add(new MailboxAddress("School Records", "schoolrecordss@gmail.com")); //remetente
+                message.To.Add(new MailboxAddress(user.Username, forgotPasswordDTO.Email)); //destinatário
                 message.Subject = "Recuperação de Senha - SchoolRecords";
 
                 var builder = new BodyBuilder();
