@@ -43,16 +43,16 @@ namespace SRD.Application.UserPost.UserCases
             {
 
 
-                var userId = await Task.Run(() => int.Parse((_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)).Value));
-                var perfil = _perfilRepository.GetById(userId);
-                request.userPostDTO.PerfilId = perfil.Id;
-                request.userPostDTO.Name = perfil.PerfilName;
-                var job = _jobExperienceRepository.GetJobExperienceById(perfil.Id);
-                if (job.JobTitle == null)
-                   job.JobTitle = " ";
-                request.userPostDTO.JobTitle = job.JobTitle;
-                request.userPostDTO.Foto = perfil.Foto;
-                request.userPostDTO.Date = DateTime.Now.ToString();
+               var userId = await Task.Run(() => int.Parse((_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)).Value));
+               var perfil = _perfilRepository.GetById(userId);
+               request.userPostDTO.PerfilId = perfil.Id;
+               request.userPostDTO.Name = perfil.PerfilName;
+               var job = _jobExperienceRepository.GetJobExperienceById(perfil.Id);
+               if (job.JobTitlePerfil == null)
+                   job.JobTitlePerfil = " ";
+               request.userPostDTO.JobTitle = job.JobTitlePerfil;
+               request.userPostDTO.Foto = perfil.Foto;
+               request.userPostDTO.Date = DateTime.Now.ToString();
                var userPost = new Domain.Perfil.Entities.UserPost();
                var userPostUpdate = _mapper.Map(request.userPostDTO,userPost);
                         _userPostRepository.Insert(userPostUpdate);
