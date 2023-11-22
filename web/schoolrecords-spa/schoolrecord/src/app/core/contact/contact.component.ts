@@ -15,6 +15,7 @@ export class ContactComponent implements OnInit {
   lastScroll: number = 0;
   loading: boolean = false;
   contactsLoaded: boolean = false;
+  noContacts: boolean = false;
   contacts: Array<any> = new Array<any>();
 
   constructor(
@@ -48,6 +49,7 @@ export class ContactComponent implements OnInit {
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
           this.showContactsLoadedMessage('contactsLoaded');
+          this.noContacts = true; 
           return true;
         })
       )

@@ -2,6 +2,9 @@
   <h2 class="title">Contacts</h2>
   <p class="last-infos">Last Payments Sent 2 Days Ago</p>
   <ul class="contacts">
+    <div *ngIf="noContacts" class="no-contacts-container">
+      <p>No contacts yet</p>
+    </div>
     <li *ngFor="let contact of contacts">
       <div class="img-container">
         <div class="image">

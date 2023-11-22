@@ -38,6 +38,18 @@
   margin-top: 20px;
 }
 
+.no-contacts-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+}
+
+.no-contacts-container p {
+  font-family: Roboto-Light, Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
 .contacts li {
   display: flex;
   align-items: center;
