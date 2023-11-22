@@ -49,6 +49,7 @@
   background-color: white;
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
   border: none;
+  margin-left: 15px;
 }
 
 .dialog-button-delete:hover {
