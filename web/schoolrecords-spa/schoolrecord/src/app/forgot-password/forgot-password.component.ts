@@ -11,11 +11,6 @@ import { NotificationService } from '../shared/services/notification.service';
 })
 export class ForgotPasswordComponent implements OnInit {
   emailForm!: FormGroup;
-  // userForgotPassword = new FormGroup({
-  //   forgotPassword: new FormControl('',[Validators.required])
-  // })
-
-
   
   constructor(
     private router: Router,
@@ -37,13 +32,10 @@ export class ForgotPasswordComponent implements OnInit {
       this.forgotPasswordService.sendRecoveryRequest(email).subscribe(
         (response) => {
           console.log(response);
-          console.log(response.data.token);
-
-          if(response.data && response.data.token){
-            const recoveryToken = response.data.token
+          if(response){
+            console.log('Solicitação de recuperação de senha enviada com sucesso:', response);
+            this.router.navigate(['/forgot-password/messageToken']);
           }
-          console.log('Solicitação de recuperação de senha enviada com sucesso:', response);
-          this.router.navigate(['/reset-password']);
         },
         (error) => {
           console.error('Erro ao enviar solicitação de recuperação de senha:', error);

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SRD.Core.Data;
+using SRD.Domain.User.DTO;
+using SRD.Domain.User.Entities;
 using SRD.Domain.User.Repositories;
 using SRD.Infra.Context;
 
@@ -95,5 +97,47 @@ namespace SRD.Infra.User.Repositories
                         .Where(x => x.Id != userId)
                         .ToList();
         }
+
+
+
+        public Domain.User.Entities.User GetByIdUpdatePassword(int id)
+        {
+            return _context.Users
+                .Where(x => x.Id == id)
+                .Select(x => new Domain.User.Entities.User
+                {
+                    Id = x.Id,
+                    Username = x.Username,
+                    Password = x.Password,
+                    Token = x.Token,
+                    Role = x.Role,
+                    Email = x.Email,
+                })
+                .FirstOrDefault();
+        }
+
+
+
+        public void UpdatePassword(int userId, Domain.User.Entities.User user)
+        {
+            var existingUser = GetByIdUpdatePassword(userId);
+
+            if (existingUser != null)
+            {
+                // Desanexar a entidade se já estiver sendo rastreada
+                _context.Entry(existingUser).State = EntityState.Detached;
+
+                // Atualizar apenas a propriedade de senha
+                existingUser.Password = user.Password;
+
+                // Anexar e atualizar
+                _context.Users.Attach(existingUser);
+                _context.Entry(existingUser).Property(x => x.Password).IsModified = true;
+                _context.SaveChanges();
+            }
+        }
+
+
+
     }
 }

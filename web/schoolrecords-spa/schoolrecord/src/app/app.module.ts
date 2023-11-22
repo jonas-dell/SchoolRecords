@@ -18,6 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigService } from './core/config/config.services';
 import { InterceptorModule } from './interceptor/interceptor.module';
+import { TokenComponent } from './token/token.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { MessageEmailComponent } from './message-email/message-email.component';
 
 export function initWithDependencyFactory(configService: ConfigService) {
   return () => {
@@ -29,7 +32,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [...Index.getComponents()],
+  declarations: [...Index.getComponents(), TokenComponent, ResetPasswordComponent, MessageEmailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

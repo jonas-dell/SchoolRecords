@@ -9,6 +9,8 @@ namespace SRD.Application.Login.UseCases
 {
     public class ForgotPassword
     {
+        public static Domain.User.Entities.ForgotPassword _recovery;
+
         public class Command : IRequest<IRequestResponse>
         {
             public ForgotPasswordDTO? ForgotPasswordDTO { get; set; }
@@ -19,6 +21,7 @@ namespace SRD.Application.Login.UseCases
             private readonly IUserRepository _userRepository;
             private readonly IForgotPasswordRepository _forgotPasswordRepository;
             private readonly IEmailService _emailService;
+
 
             public CommandHandler(IUserRepository userRepository, IEmailService emailService, IForgotPasswordRepository forgotPasswordRepository)
             {
@@ -56,10 +59,13 @@ namespace SRD.Application.Login.UseCases
                 var recoveryToken = new Domain.User.Entities.ForgotPassword
                 {
                     UserId = user.Id,
-                    Token = RandomizarToken(token.Substring(0,25)),
+                    Token = RandomizarToken(token.Substring(0,6)),
                     Email = user.Email,
                     CreatedAt = DateTime.UtcNow
                 };
+
+                _recovery = recoveryToken;
+
 
                 _forgotPasswordRepository.Insert(recoveryToken);
 
@@ -68,6 +74,8 @@ namespace SRD.Application.Login.UseCases
 
                 return await SaveData(_forgotPasswordRepository.UnitOfWork);
             }
+
+           
         }
     }
 }

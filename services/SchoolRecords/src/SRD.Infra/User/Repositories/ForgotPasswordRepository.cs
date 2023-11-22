@@ -26,7 +26,13 @@ namespace SRD.Infra.User.Repositories
         }
         public IList<ForgotPassword> FindAll()
         {
-            throw new NotImplementedException();
+            return _context.PasswordRecoveryTokens.ToList();
+        }
+
+        public ForgotPassword GetByToken(ForgotPassword forgotPassword)
+        {
+            var token = forgotPassword.Token;
+            return _context.PasswordRecoveryTokens.FirstOrDefault(fp => fp.Token == token);
         }
     }
 }

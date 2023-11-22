@@ -8,7 +8,6 @@ export class FormPerfilJobService {
   constructor(private http: HttpClient, private configService: ConfigService) {}
 
   salvarJob(data: any) {
-    console.log('data', data);
     return this.http.put<RequestResponse>(
       `${this.configService.config.apiUrl}/api/jobExperience/updateJobExperience`,
       data
