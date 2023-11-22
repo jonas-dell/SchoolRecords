@@ -25,8 +25,10 @@
 .icon-home {
   background: url(../../../assets/img/home.svg);
   background-repeat: no-repeat;
+  /*
   filter: invert(100%);
   -webkit-filter: invert(100%);
+  */
 }
 
 .icon-people {
@@ -35,7 +37,7 @@
 }
 
 .icon-notification {
-  background: url(../../../assets/img/notification.svg);
+  background: url(../../../assets/img/people-fill.svg);
   background-repeat: no-repeat;
 }
 

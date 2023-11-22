@@ -48,11 +48,11 @@
                 </p>
 
                 <div class="buttons">
-                  <button class="button is-link is-rounded">Open to</button>
-                  <button class="button is-link is-outlined is-rounded">
+                  <button class="button is-link is-rounded" (click)="comingSoon()">Open to</button>
+                  <button class="button is-link is-outlined is-rounded" (click)="comingSoon()">
                     Add profile section
                   </button>
-                  <button class="button is-outlined is-rounded is-dark">
+                  <button class="button is-outlined is-rounded is-dark" (click)="comingSoon()">
                     More
                   </button>
                 </div>
@@ -292,7 +292,7 @@
             <div class="content">
               <p class="subtitle is-6 has-text-grey-darker">
                 Edit Public profile & URL
-                <span class="icon pencil p-1 is-pulled-right">
+                <span class="icon pencil p-1 is-pulled-right" (click)="editPublicUrl()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z" />
                   </svg>
@@ -303,7 +303,7 @@
             <div class="content">
               <p class="subtitle is-6 has-text-grey-darker">
                 Add profile in another language
-                <span class="icon pencil p-1 is-pulled-right">
+                <span class="icon pencil p-1 is-pulled-right" (click)="comingSoon()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z" />
                   </svg>
@@ -326,7 +326,7 @@
               <p class="has-text-centered premium-desc has-text-black-ter">
                 See who's viewed your profile in the last 90 days
               </p>
-              <button class="button is-link is-outlined is-rounded">
+              <button class="button is-link is-outlined is-rounded" (click)="comingSoon()">
                 Try for free
               </button>
             </div>

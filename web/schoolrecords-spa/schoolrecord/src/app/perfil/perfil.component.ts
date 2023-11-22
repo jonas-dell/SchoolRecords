@@ -7,6 +7,8 @@ import { CoverPhotoComponent } from './cover-photo/cover-photo.component';
 import { FormPerfilEducation } from './form-perfil-education/form-perfil-education.service';
 import { FormPerfilJobService } from './form-perfil-job/form-perfil-job.service';
 import { FormPerfilComponent } from './form-perfil/form-perfil.component';
+import { FormPerfilContactComponent } from './form-perfil-contact/form-perfil-contact.component';
+import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
 import { PerfilService } from './perfil.service';
 import { SharedService } from './cover-photo/shared.service';
 import { User } from 'src/app/shared/models/user';
@@ -122,7 +124,7 @@ export class PerfilComponent implements OnInit {
         if (this.formEducation !== null) {
           let tituloFaculdade = this.formEducation?.title;
           tituloFaculdade = tituloFaculdade;
-          
+
           console.log(tituloFaculdade);
           if (tituloFaculdade) {
             const nomeDoArquivo = this.imagemFaculdade[tituloFaculdade];
@@ -163,6 +165,19 @@ export class PerfilComponent implements OnInit {
     });
   }
 
+  editPublicUrl() {
+    let dialogRef = this.dialog.open(FormPerfilContactComponent, {
+      height: '650px',
+      width: '750px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
+  }
+
   editarPerfilCoverPhoto() {
     let dialogRef = this.dialog.open(CoverPhotoComponent, {
       height: '400px',
@@ -176,6 +191,19 @@ export class PerfilComponent implements OnInit {
   numeroDeContatos() {
     this.perfilService.getContactsConnections().subscribe((dados) => {
       this.numeroDeContatosResult = dados?.length;
+    });
+  }
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
     });
   }
 }

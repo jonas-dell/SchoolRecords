@@ -5,6 +5,8 @@ import { PerfilService } from 'src/app/perfil/perfil.service';
 import { PerfilDataService } from '../../shared/services/perfil-data.service';
 import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';
 import { FormPerfilJobService } from 'src/app/perfil/form-perfil-job/form-perfil-job.service';
+import { ComingSoonComponent } from '../coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'header',
@@ -28,7 +30,8 @@ export class HeaderComponent implements OnInit {
     private perfilService: PerfilService,
     private convertBase64: ConvertBase64,
     private formPerfilJobService: FormPerfilJobService,
-    private PerfilDataService: PerfilDataService
+    private PerfilDataService: PerfilDataService,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -105,4 +108,16 @@ export class HeaderComponent implements OnInit {
     );
   }
 
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
+  }
 }

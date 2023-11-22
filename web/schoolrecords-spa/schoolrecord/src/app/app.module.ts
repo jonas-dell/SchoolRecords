@@ -21,6 +21,7 @@ import { InterceptorModule } from './interceptor/interceptor.module';
 import { TokenComponent } from './token/token.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MessageEmailComponent } from './message-email/message-email.component';
+import { ComingSoonComponent } from './core/coming-soon/coming-soon.component';
 
 export function initWithDependencyFactory(configService: ConfigService) {
   return () => {
@@ -32,7 +33,7 @@ export function initWithDependencyFactory(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [...Index.getComponents(), TokenComponent, ResetPasswordComponent, MessageEmailComponent],
+  declarations: [...Index.getComponents(), TokenComponent, ResetPasswordComponent, MessageEmailComponent, ComingSoonComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
