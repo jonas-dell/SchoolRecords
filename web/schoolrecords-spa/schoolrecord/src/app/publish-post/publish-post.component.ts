@@ -37,6 +37,8 @@ export class PublishPostComponent implements OnInit {
         Post: new FormControl('', [Validators.nullValidator]),
         Date: new FormControl('', [Validators.nullValidator]),
         PerfilId: new FormControl(0, [Validators.nullValidator]),
+        Foto: new FormControl('', [Validators.nullValidator]),
+        JobTitle: new FormControl('', [Validators.nullValidator]),
       });
     }
 
