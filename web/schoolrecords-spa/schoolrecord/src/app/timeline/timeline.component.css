@@ -245,11 +245,14 @@
 .post-header img {
   width: 55px;
   height: 55px;
-  border-radius: 50%;
   margin-right: 10px;
-  background-color: darkgray;
+  border-radius: 50%;
   cursor: pointer;
-  /*background-image: url(../../assets/img/people.svg);*/
+  background-size: cover;
+  background-image: url(../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: 55px 55px;
+  background-color: darkgray;
 }
 
 .post-header-info {

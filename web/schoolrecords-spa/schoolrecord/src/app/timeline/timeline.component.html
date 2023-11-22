@@ -52,13 +52,15 @@
       </div>
       <div class="post-container" *ngFor="let post of posts">
         <div class="post-header">
-          <img src="../../assets/img/people.svg" />
+          <img 
+            *ngIf="post.foto"
+            [src]="convertBase64.converterBase64ParaImagem(post.foto)"
+          />
           <div class="post-header-info">
             <div class="info-post">
               <a href="" class="name-user">{{ post.name }}</a>
-              <p class="user-contact">Following</p>
             </div>    
-            <p class="title-user">Empreendedor, empresário e filantropo</p>
+            <p class="title-user">{{ post.jobTitle }}</p>
             <div class="info-post">
               <p class="date-post">{{ post.date }}</p>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas public-post" viewBox="0 0 16 16">
