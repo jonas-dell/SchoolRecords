@@ -19,7 +19,8 @@ export class PublishPostComponent implements OnInit {
   dados: any;
   formulario: FormGroup;
   dadosUser: any;
-  user: User | null;  
+  user: User | null; 
+  fileType: string; 
 
   constructor(
     private postService: PostService,
@@ -33,12 +34,13 @@ export class PublishPostComponent implements OnInit {
       this.formulario = this.formBuilder.group({
         Id: new FormControl(0, [Validators.nullValidator]),
         Name: new FormControl('', [Validators.nullValidator]),
-        Image: new FormControl('', [Validators.nullValidator]),
         Post: new FormControl('', [Validators.nullValidator]),
         Date: new FormControl('', [Validators.nullValidator]),
         PerfilId: new FormControl(0, [Validators.nullValidator]),
         Foto: new FormControl('', [Validators.nullValidator]),
         JobTitle: new FormControl('', [Validators.nullValidator]),
+        Midia: new FormControl('', [Validators.nullValidator]),
+        Tipo: new FormControl('', [Validators.nullValidator]),
       });
     }
 
@@ -81,9 +83,18 @@ export class PublishPostComponent implements OnInit {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (e) => {
-      this.formulario?.get('Image')?.setValue(e.target?.result);
+            
+      if (file.type.startsWith('image')) {
+        this.fileType = 'image';
+        this.formulario?.get('Tipo')?.setValue('image');
+        this.formulario?.get('Midia')?.setValue(e.target?.result);
+      } else if (file.type.startsWith('video')) {
+        this.fileType = 'video';
+        this.formulario?.get('Tipo')?.setValue('video');
+        this.formulario?.get('Midia')?.setValue(e.target?.result);
+      }
       this.formulario.patchValue({
-        Image: e.target?.result,
+        Midia: e.target?.result,
       });
     };
     reader.readAsDataURL(file);

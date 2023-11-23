@@ -73,7 +73,11 @@
           <div class="post-body">{{ post.post }}</div>
         </div>
         <div class="post-body-media ">
-          <img *ngIf="post.image" [src]="post.image" alt="Post image">
+          <video controls *ngIf="post.midia && post.tipo == 'video'">
+            <source [src]="post.midia" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <img *ngIf="post.midia && post.tipo == 'image'" [src]="post.midia" alt="Post image">
         </div>
         <div class="post-info-reactions">
           <a href="" class="post-comments">5 comments</a>
