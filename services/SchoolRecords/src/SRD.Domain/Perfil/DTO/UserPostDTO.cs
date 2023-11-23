@@ -12,7 +12,8 @@ namespace SRD.Domain.Perfil.DTO
         public string? Name { get; set; }
         public string? JobTitle { get; set; }
         public string? Foto { get; set; }
-        public string? Image { get; set; }
+        public string? Midia { get; set; }
+        public string? Tipo { get; set; }
         public string? Post { get; set; }
         public string? Date { get; set; }
         public int? PerfilId { get; set; }

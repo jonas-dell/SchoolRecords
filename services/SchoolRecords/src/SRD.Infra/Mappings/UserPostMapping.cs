@@ -33,9 +33,13 @@ namespace SRD.Infra.Mappings
                 .HasColumnName("Foto")
                 .HasColumnType("Text");
 
-            builder.Property(x => x.Image)
-                .HasColumnName("Image")
+            builder.Property(x => x.Midia)
+                .HasColumnName("Midia")
                 .HasColumnType("Text");
+
+            builder.Property(x => x.Tipo)
+                .HasColumnName("Tipo")
+                .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.Post)
                 .HasColumnName("Post")
