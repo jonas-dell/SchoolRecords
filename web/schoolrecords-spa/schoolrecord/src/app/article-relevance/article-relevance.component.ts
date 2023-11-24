@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import gradient from 'chartjs-plugin-gradient';
+import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-article-relevance',
@@ -481,6 +483,23 @@ export class ArticleRelevanceComponent implements OnInit {
           },
         },
       ],
+    });
+  }
+
+  constructor(
+    public dialog: MatDialog
+    ) {}
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
     });
   }
 }

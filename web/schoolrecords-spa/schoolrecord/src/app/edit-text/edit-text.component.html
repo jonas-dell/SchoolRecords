@@ -5,7 +5,7 @@
         class="input-name-article"
         type="text"
         placeholder="Article title"
-      /> 
+      />
     </div>
     <ckeditor
       [(ngModel)]="ckeditorContent"
@@ -20,9 +20,9 @@
         type="text"
         placeholder="search friends"
       />
-      <div class="search">
-        <img 
-          src="../../../assets/img/search.png" 
+      <div class="search" (click)="comingSoon()">
+        <img
+          src="../../../assets/img/search.png"
           alt="Search friends"
         />
       </div>
@@ -31,8 +31,8 @@
       <h1 class="online">Online - 1</h1>
       <div class="friend" id="open-chat">
         <div class="imgbx">
-          <img 
-            src="../../../assets/img/team.png" 
+          <img
+            src="../../../assets/img/team.png"
             alt="Profile picture"
             class="profile-picture"
           />
@@ -40,12 +40,12 @@
         <h4 class="name-user">Joss Sticks</h4>
       </div>
     </div>
-    <div id="chat-popup" class="hide"> 
+    <div id="chat-popup" class="hide">
       <div class="chat-header">
         <div class="info-user-container">
           <div class="user-img">
-            <img 
-              src="../../../assets/img/team.png" 
+            <img
+              src="../../../assets/img/team.png"
               alt="User picture"
               class="profile-picture"
             />
@@ -56,8 +56,8 @@
           </div>
         </div>
         <div id="close-chat">
-          <img 
-            src="../../../assets/img/close-chat.png" 
+          <img
+            src="../../../assets/img/close-chat.png"
             alt="Close"
           />
         </div>
@@ -77,23 +77,23 @@
           placeholder="Type a message"
           [(ngModel)]="textArea"
         />
-        <img 
+        <img
           class="emoji-btn"
-          src="../../../assets/img/emoji-chat.png" 
-          alt="Smile"  
+          src="../../../assets/img/emoji-chat.png"
+          alt="Smile"
           (click)="isEmojiPickerVisible = !isEmojiPickerVisible;"
         />
-        <emoji-mart 
+        <emoji-mart
           [darkMode]="false"
-          class="emoji-mart" 
-          *ngIf="isEmojiPickerVisible" 
-          (emojiSelect)="addEmoji($event)" 
-          title="Choose your emoji" 
+          class="emoji-mart"
+          *ngIf="isEmojiPickerVisible"
+          (emojiSelect)="addEmoji($event)"
+          title="Choose your emoji"
         >
         </emoji-mart>
-        <img 
+        <img
           class="icon-chat"
-          src="../../../assets/img/file-chat-image.png" 
+          src="../../../assets/img/file-chat-image.png"
           alt="Image file"
           id="button-file-img"
         />
@@ -101,17 +101,17 @@
           type="file"
           id="file-img-input"
         />
-        <img 
-          class="icon-chat"
-          src="../../../assets/img/send-chat.svg" 
+        <img
+          class="icon-chat" (click)="comingSoon()"
+          src="../../../assets/img/send-chat.svg"
           alt="Send"
         />
       </div>
     </div>
   </div>
   <div id="open-div" class="ocultar btn-open-chat-container">
-    <img 
-      src="../../../assets/img/chat.png" 
+    <img
+      src="../../../assets/img/chat.png"
       alt="Chat button"
     />
   </div>
