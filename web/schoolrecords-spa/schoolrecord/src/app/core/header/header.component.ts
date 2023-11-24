@@ -7,6 +7,7 @@ import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service
 import { FormPerfilJobService } from 'src/app/perfil/form-perfil-job/form-perfil-job.service';
 import { ComingSoonComponent } from '../coming-soon/coming-soon.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header',
@@ -31,7 +32,8 @@ export class HeaderComponent implements OnInit {
     private convertBase64: ConvertBase64,
     private formPerfilJobService: FormPerfilJobService,
     private PerfilDataService: PerfilDataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
     ) {}
 
   ngOnInit(): void {
@@ -69,8 +71,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  getPerfilData(){
+  exit(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
+  getPerfilData(){
     const token = localStorage.getItem('token');
     this.perfilService.getPerfil().
     subscribe((dados) => {
