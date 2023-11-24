@@ -242,17 +242,26 @@
   flex-direction: row;
 }
 
-.post-header img {
+.img-container {
+  width: 55px; 
+  height: 55px; 
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url(../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: 55px 55px;
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+.img-container img {
   width: 55px;
   height: 55px;
   margin-right: 10px;
   border-radius: 50%;
   cursor: pointer;
   background-size: cover;
-  background-image: url(../../assets/img/people.svg);
   background-repeat: no-repeat;
-  background-size: 55px 55px;
-  background-color: darkgray;
 }
 
 .post-header-info {
@@ -272,8 +281,7 @@
   color: #3c3c3c;
   font-size: 15px;
   font-weight: 500;
-  font-family: Segoe UI, Helvetica, Arial, sans-serif;;
-  /*font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;*/
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
 }
 
 .name-user:hover {

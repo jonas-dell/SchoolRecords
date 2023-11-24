@@ -173,18 +173,27 @@ p {
   text-decoration: none;
 }
 
-.dropdown-notification-profile img {
+.img-container {
+  width: 60px; 
+  height: 55px; 
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: darkgray;
+  background-position: center;
+  cursor: pointer;
+}
+
+.img-container img {
   width: 60px;
   height: 55px;
   border-radius: 50%;
   margin-right: 10px;
-  background-color: darkgray;
   cursor: pointer;
-  background-image: url(../../../assets/img/people.svg);
   background-repeat: no-repeat;
-  background-color: darkgray;
   background-position: center;
-  background-size: 80%;
 }
 
 .dropdown-notification-profile-info {
@@ -316,18 +325,27 @@ p {
   text-decoration: none;
 }
 
-.dropdown-profile img {
+.image-container {
+  width: 60px; 
+  height: 55px; 
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: darkgray;
+  background-position: center;
+  cursor: pointer;
+}
+
+.image-container img {
   width: 60px;
   height: 55px;
   border-radius: 50%;
   margin-right: 10px;
-  background-color: darkgray;
   cursor: pointer;
-  background-image: url(../../../assets/img/people.svg);
   background-repeat: no-repeat;
-  background-color: darkgray;
   background-position: center;
-  background-size: 80%;
 }
 
 .dropdown-profile-info {

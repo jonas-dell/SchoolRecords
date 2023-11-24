@@ -8,6 +8,7 @@
       <div class="start-post">
         <div class="image-container" routerLink="perfil" >
           <img
+            onerror="this.style.display = 'none'"
             *ngIf="dados?.foto"
             [src]="dados.foto"
           />
@@ -52,10 +53,13 @@
       </div>
       <div class="post-container" *ngFor="let post of posts">
         <div class="post-header">
-          <img
-            *ngIf="post.foto"
-            [src]="convertBase64.converterBase64ParaImagem(post.foto)"
-          />
+          <div class="img-container">
+            <img
+              onerror="this.style.display = 'none'"
+              *ngIf="post.foto"
+              [src]="convertBase64.converterBase64ParaImagem(post.foto)"
+            />
+          </div>
           <div class="post-header-info">
             <div class="info-post">
               <a href="" class="name-user">{{ post.name }}</a>
