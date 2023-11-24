@@ -7,6 +7,7 @@ import { skipWhile, tap } from 'rxjs/operators';
 import { timer } from 'rxjs';
 import { PerfilDataService } from 'src/app/shared/services/perfil-data.service';
 import { ConvertBase64 } from 'src/app/shared/services/perfil-data-utils.service';
+import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
 
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
@@ -92,7 +93,7 @@ export class TimelineComponent implements OnInit {
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
           this.showPostsLoadedMessage('postsLoaded');
-          this.noPosts = true; 
+          this.noPosts = true;
           return true;
         })
       )
@@ -220,7 +221,7 @@ export class TimelineComponent implements OnInit {
       height: '630px',
       width: '750px',
       data: {
-    
+
       },
     });
   }
@@ -230,7 +231,20 @@ export class TimelineComponent implements OnInit {
       height: '550px',
       width: '750px',
       data: {
-    
+
+      },
+    });
+  }
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
       },
     });
   }

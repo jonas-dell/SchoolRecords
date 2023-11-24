@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SettingsService } from './settings.service';
 import { User } from 'src/app/shared/models/user';
 import { PerfilDataService } from '../shared/services/perfil-data.service';
+import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-settings',
@@ -17,6 +19,7 @@ export class SettingsComponent implements OnInit {
   constructor(
     private perfilDataService: PerfilDataService,
     private settingsService: SettingsService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -57,4 +60,16 @@ export class SettingsComponent implements OnInit {
     alert("Funcionou!")
   }
 
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
+  }
 }
