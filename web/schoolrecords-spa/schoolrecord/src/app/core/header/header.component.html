@@ -16,10 +16,28 @@
         <li class="col-md-3 icon notifications">
           <i class="fa fa-envelope" style="font-size: 20px; color: #7f408e" (click)="comingSoon()"></i>
         </li>
-        <li class="col-md-3 icon notifications">
-          <i class="fa fa-bell" style="font-size: 20px; color: #7f408e" (click)="comingSoon()"></i>
+        <li class="dropdown-notification-container notifications">
+          <div class="dropdown-notification-btn" (click)="dropdownNotification()">
+            <i class="fa fa-bell dropdown-notification-icon"></i>
+          </div>
+          <div id="dropdown-notification" class="dropdown-notification-content">
+            <div class="dropdown-notification-profile-container">
+              <a class="dropdown-notification-profile">
+                <img src="../../assets/img/people.svg" />
+                <div class="dropdown-notification-profile-info">
+                  <div class="info-notification-profile">
+                    <p class="name-notification-profile">Elon Musk</p>
+                  </div>
+                  <p class="title-notification-profile">Empreendedor e empresário</p>
+                </div>
+              </a>
+              <div class="dropdown-notification-button-container">
+                <button class="dropdown-notification-button">Accept</button>
+                <button class="dropdown-notification-button">Decline</button>
+              </div>
+            </div>
+          </div>
         </li>
-
         <li class="dropdown-container">
           <div class="dropdown-btn" (click)="dropdown()">
             <i class="fa fa-user dropdown-icon"></i>
