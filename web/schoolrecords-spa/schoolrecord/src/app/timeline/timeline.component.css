@@ -121,99 +121,14 @@
   font-size: 14px;
 }
 
-.saved-pub-container {
-  width: 35%;
-}
-
-.saved-items-container {
-  padding-right: 0;
-  height: 900px;
-  margin-left: 10px;
-}
-
-.items-container {
+.article-pub-container {
+  flex-basis: 35%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  border-radius: 20px;
-  padding: 20px;
-  margin-left: 15px;
-  box-shadow: 1px 1px 3px 0px #0000008a;
 }
 
-.items-title {
-  font-size: 22px;
-  font-weight: bold;
-  font-family: "Cousine-Bold", sans-serif;
-  margin-bottom: 15px;
-}
-
-.items-lock {
-  margin-bottom: 15px;
-}
-
-.items-lock-svg {
-  color: #646464;
-}
-
-.items-lock-span {
-  margin-left: 3px;
-  font-size: 0.9em;
-  color: #959393;
-  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
-}
-
-.item-container {
-  display: flex;
-  flex-direction: row;
-  height: 60px;
-  padding: 0px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.item-container img {
-  width: 45px;
-  height: 45px;
-}
-
-.item-name-container {
-  margin: 0px 0px 10px 10px;
-}
-
-.item-name {
-  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
-}
-
-.item-info-container {
-  display: flex;
-  margin-right: 10px;
-}
-
-.item-info {
-  margin-top: 5px;
-  margin-right: 10px;
-  font-size: 0.9em;
-  color: #959393;
-  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
-}
-
-.show-more-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.show-more-btn {
-  border-radius: 30px;
-  width: 180px;
-  background-color: #ebebeb;
-  padding: 5px 0 5px 0px;
-  border: none;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  font-family: Popins-Regular, sans-serif;
+.article-container {
+  margin-left: 25px;
 }
 
 .timeline-container {
@@ -592,7 +507,7 @@
     display: none;
   }
 
-  .saved-items-container {
+  .article-container {
     display: none;
   }
 
@@ -642,7 +557,7 @@
     display: none;
   }
 
-  .saved-pub-container {
+  .article-pub-container {
     display: none;
   }
 
@@ -658,7 +573,7 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .saved-items-container {
+  .article-container {
     display: none;
   }
 
