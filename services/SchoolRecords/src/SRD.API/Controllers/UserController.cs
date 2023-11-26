@@ -99,5 +99,15 @@ namespace SRD.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var command = new DeleteUser.Command() { Id = id };
+
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
+        }
     }
 }

@@ -16,5 +16,6 @@ namespace SRD.Domain.User.Repositories
         void InsertContact(Entities.UserContact userContact);
         Entities.User GetByIdUpdatePassword(int id);
         void UpdatePassword(int userId, Domain.User.Entities.User newPassword);
+        void Delete(int id);
     }
 }
