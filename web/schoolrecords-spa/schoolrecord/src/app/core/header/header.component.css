@@ -123,6 +123,146 @@ p {
   display: none;
 }
 
+.dropdown-notification-container {
+  position: relative;
+  display: flex;
+  margin-right: 20px;
+}
+
+.dropdown-notification-btn {
+  display: flex;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background: #fff;
+  padding: 0px 0 0px 12px;
+  font-family: Popins-Regular, sans-serif;
+  cursor: pointer;
+}
+
+.dropdown-notification-icon {
+  font-size: 20px;
+  color: #7f408e;
+}
+
+.dropdown-notification-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-notification-profile-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-notification-profile {
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.img-container {
+  width: 60px; 
+  height: 55px; 
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: darkgray;
+  background-position: center;
+  cursor: pointer;
+}
+
+.img-container img {
+  width: 60px;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.dropdown-notification-profile-info {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 5px;
+}
+
+.info-notification-profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.name-notification-profile {
+  text-decoration: none;
+  color: #3c3c3c;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+.title-notification-profile {
+  position: relative;
+  max-height: 20px;
+  overflow: hidden;
+  top: -2px;
+  font-size: 13px;
+  color: #4e4e4e;
+  font-family: Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+.dropdown-notification-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 10px 10px;
+  gap: 10px;
+}
+
+.dropdown-notification-button {
+  display: inline-block;
+  outline: none;
+  width: 50%;
+  height: 29px;
+  padding: 2px 0px 0px 0px;
+  border-radius: 20px;
+  color: #7f408e;
+  background-color: white;
+  font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
+  border: 2px solid #7f408e;
+  font-size: 15px;
+}
+
+.dropdown-notification-button:hover {
+  background-color: rgba(193, 130, 233, 0.241);
+  border: 3px solid #7f408e;
+}
+
+.show-notification {
+  display: block;
+  right: 0;
+  position: absolute;
+  width: 290px;
+  top: 50px;
+  background-color: white;
+  border-radius: 10px 0px 10px 10px;
+  box-shadow: 0px 2px 4px 0px #00000061;
+}
+
 .dropdown-container {
   position: relative;
   display: inline-block;
@@ -185,18 +325,27 @@ p {
   text-decoration: none;
 }
 
-.dropdown-profile img {
+.image-container {
+  width: 60px; 
+  height: 55px; 
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url(../../../assets/img/people.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: darkgray;
+  background-position: center;
+  cursor: pointer;
+}
+
+.image-container img {
   width: 60px;
   height: 55px;
   border-radius: 50%;
   margin-right: 10px;
-  background-color: darkgray;
   cursor: pointer;
-  background-image: url(../../../assets/img/people.svg);
   background-repeat: no-repeat;
-  background-color: darkgray;
   background-position: center;
-  background-size: 80%;
 }
 
 .dropdown-profile-info {

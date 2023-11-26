@@ -2,7 +2,8 @@
   <div class="dialog-header">
     <div class="publication-header">
       <div class="image-container">
-        <img             
+        <img    
+          onerror="this.style.display = 'none'"          
           *ngIf="dados?.foto"
           [src]="dados.foto" 
         />

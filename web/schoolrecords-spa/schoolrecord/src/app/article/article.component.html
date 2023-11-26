@@ -1,0 +1,29 @@
+<section class="article-container" (scroll)="onScroll($event)" #article>
+  <h2 class="title">Recent Articles</h2>
+  <ul class="articles">
+    <li *ngFor="let article of articles">
+      <img src="../../../assets/img/document.png" alt="Article" />
+      <div class="article">
+        <p class="article-name">{{ article.name }}</p>
+        <div class="article-info-container">
+          <p class="article-author">{{ article.author }}</p>
+          <p class="article-date">{{ article.date }}</p>
+        </div>
+      </div>
+    </li>
+    <li class="loading">
+      <ngx-loading
+        [show]="loading"
+        [config]="{
+          backdropBorderRadius: '3px',
+          primaryColour: '#f4f4f4',
+          secondaryColour: '#f4f4f4',
+          tertiaryColour: '#f4f4f4'
+        }"
+      ></ngx-loading>
+    </li>
+    <li class="articles-loaded" *ngIf="articlesLoaded">
+      <p>Loaded Articles!</p>
+    </li>
+  </ul>
+</section>

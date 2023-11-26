@@ -55,7 +55,25 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  dropdownNotification() {
+    document.getElementById("dropdown")?.classList.remove("show");
+    document.getElementById("dropdown-notification")?.classList.toggle("show-notification");
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown-notification-btn, .dropdown-notification-icon')) {
+        var dropdownsNotification = document.getElementsByClassName("dropdown-notification-content");
+        var i;
+        for (i = 0; i < dropdownsNotification.length; i++) {
+          var openDropdownNotification = dropdownsNotification[i];
+          if (openDropdownNotification.classList.contains('show-notification')) {
+            openDropdownNotification.classList.remove('show-notification');
+          }
+        }
+      }
+    }
+  }
+
   dropdown() {
+    document.getElementById("dropdown-notification")?.classList.remove("show-notification");
     document.getElementById("dropdown")?.classList.toggle("show");
     window.onclick = function(event) {
       if (!event.target.matches('.dropdown-btn, .dropdown-icon, .dropdown-span, .dropdown-svg')) {
