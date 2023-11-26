@@ -39,7 +39,6 @@ namespace SRD.Infra.Mappings
                .IsRequired(false)
                .HasColumnType("VARCHAR(100)");
 
-
             builder.HasMany(x => x.Contacts)
                    .WithMany(x => x.Users)
                    .UsingEntity<Domain.User.Entities.UserContact>(
@@ -49,6 +48,11 @@ namespace SRD.Infra.Mappings
             builder.HasOne(x => x.Perfil)
                 .WithOne(p => p.User)
                 .HasForeignKey<Domain.Perfil.Entities.Perfil>(x => x.UserId);
+
+            builder.HasOne(x => x.Article)
+                .WithOne(p => p.User)
+                .HasForeignKey<Domain.Perfil.Entities.Article>(x => x.UserId);
+
 
         }
     }

@@ -54,3 +54,8 @@
   background-color: rgba(193, 130, 233, 0.241);
   border: 3px solid #7f408e;
 }
+
+.star {
+  color: #7f408e;
+  font-weight: bold;
+}

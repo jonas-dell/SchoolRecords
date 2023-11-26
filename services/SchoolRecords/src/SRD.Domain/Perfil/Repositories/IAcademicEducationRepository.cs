@@ -1,5 +1,4 @@
-﻿
-using SRD.Core.Data;
+﻿using SRD.Core.Data;
 namespace SRD.Domain.Perfil.Repositories
 {
     public interface IAcademicEducationRepository : IRepository<Entities.AcademicEducation>
@@ -9,6 +8,5 @@ namespace SRD.Domain.Perfil.Repositories
         IList<Entities.AcademicEducation> GetAllAcadEducation();
         Entities.AcademicEducation GetAcadEducationById(int id);
         int GetAcadEducationFkByPerfilId(int id);
-
     }
 }

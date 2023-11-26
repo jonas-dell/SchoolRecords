@@ -9,6 +9,7 @@
         public string? Role { get; set; }
         public string? Email { get; set; }
         public virtual Perfil.Entities.Perfil? Perfil { get; set; } = null;
+        public virtual Perfil.Entities.Article? Article { get; set; } = null;
         public IList<User>? Contacts { get; set; }
         public IList<User>? Users { get; set; }
     }

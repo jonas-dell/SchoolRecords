@@ -35,6 +35,11 @@ namespace SRD.Application.Login.UseCases
                 var perfil = new Domain.Perfil.Entities.Perfil();
                 user.Perfil = perfil;
 
+
+                //instancia article gerando id inicial no banco de dados
+                var article = new Domain.Perfil.Entities.Article();
+                user.Article = article;
+
                 _userRepository.Insert(user);
 
                 return await SaveData(_userRepository.UnitOfWork);

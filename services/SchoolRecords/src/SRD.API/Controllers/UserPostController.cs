@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SRD.Application.Article.UseCase;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Repositories;
+using System;
+using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -43,6 +46,21 @@ namespace SRD.API.Controllers
         {
             var perfil = _userPostRepository.GetAllPost();
             return Ok(perfil);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Uploadpdf([FromForm] ArticleDTO articleDTO)
+        {
+            if (articleDTO.PdfFile == null)
+            {
+                Console.WriteLine("Deu ruim");
+            }
+            var command = new Article.Command() { ArticleDTO = articleDTO };
+
+            var result = await _mediator.Send(command);
+
+            return Ok(result);
         }
     }
 }
