@@ -28,7 +28,10 @@ namespace SRD.Infra.Perfil.Repositories
 
         public IList<UserPost> GetAllPost()
         {
-            return _context.UserPost.ToList();
+            List<UserPost> posts = new List<UserPost>();
+            posts = _context.UserPost.ToList();
+            posts.Reverse();
+            return posts;
         }
 
         public UserPost GetUserPostById(int perfilId)

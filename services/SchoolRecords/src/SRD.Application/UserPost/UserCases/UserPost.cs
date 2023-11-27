@@ -6,6 +6,7 @@ using SRD.Core.Responses;
 using SRD.Domain.Perfil.DTO;
 using SRD.Domain.Perfil.Entities;
 using SRD.Domain.Perfil.Repositories;
+using SRD.Domain.User.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,13 @@ namespace SRD.Application.UserPost.UserCases
             private readonly IHttpContextAccessor _httpContextAccessor;
             private readonly IPerfilRepository _perfilRepository;
             private readonly IJobExperienceRepository _jobExperienceRepository;
-
-            public CommandHandler(IJobExperienceRepository jobExperienceRepository, IPerfilRepository perfilRepository,IMapper mapper, IUserPostRepository userPostRepository, IHttpContextAccessor httpContextAccessor)
+            private readonly IUserRepository _userRepository;
+            public CommandHandler(IUserRepository userRepository,IJobExperienceRepository jobExperienceRepository, IPerfilRepository perfilRepository,IMapper mapper, IUserPostRepository userPostRepository, IHttpContextAccessor httpContextAccessor)
+            
             {
+
                 _mapper = mapper;
+                _userRepository = userRepository;
                 _userPostRepository = userPostRepository;
                 _httpContextAccessor = httpContextAccessor;
                 _perfilRepository = perfilRepository;
@@ -44,20 +48,26 @@ namespace SRD.Application.UserPost.UserCases
 
 
                var userId = await Task.Run(() => int.Parse((_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)).Value));
-               var perfil = _perfilRepository.GetById(userId);
+               var user = _userRepository.GetById(userId);
+                var perfil = _perfilRepository.GetById(userId);
                request.userPostDTO.PerfilId = perfil.Id;
-               request.userPostDTO.Name = perfil.PerfilName;
-               var job = _jobExperienceRepository.GetJobExperienceById(perfil.Id);
-               if (job.JobTitlePerfil == null)
-                   job.JobTitlePerfil = " ";
-               request.userPostDTO.JobTitle = job.JobTitlePerfil;
+               var job = " ";
+                if (perfil.PerfilName != null)
+                {
+                     request.userPostDTO.Name = perfil.PerfilName;
+                    job = _jobExperienceRepository.GetJobExperienceById(perfil.Id).JobTitlePerfil;
+                }
+                else {
+                    request.userPostDTO.Name = user.Username;
+                }
+               
+               request.userPostDTO.JobTitle = job;
                request.userPostDTO.Foto = perfil.Foto;
                request.userPostDTO.Date = DateTime.Now.ToString();
                var userPost = new Domain.Perfil.Entities.UserPost();
                var userPostUpdate = _mapper.Map(request.userPostDTO,userPost);
                         _userPostRepository.Insert(userPostUpdate);
                     
-                
                 return await SaveData(_userPostRepository.UnitOfWork);
             }
 
