@@ -19,15 +19,17 @@ namespace SRD.API.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IUserPostRepository _userPostRepository;
+        private readonly IArticleRepository _articleRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IPerfilRepository _perfilRepository;
 
-        public UserPostController(IPerfilRepository perfilRepository, IMediator mediator, IUserPostRepository userPostRepository, IHttpContextAccessor httpContextAccessor)
+        public UserPostController(IPerfilRepository perfilRepository, IMediator mediator, IUserPostRepository userPostRepository, IHttpContextAccessor httpContextAccessor, IArticleRepository articleRepository)
         {
             _mediator = mediator;
             _userPostRepository = userPostRepository;
             _httpContextAccessor = httpContextAccessor;
             _perfilRepository = perfilRepository;
+            _articleRepository = articleRepository;
         }
 
         [HttpPost]
@@ -61,6 +63,14 @@ namespace SRD.API.Controllers
             var result = await _mediator.Send(command);
 
             return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPdf()
+        {
+            var pdf = _articleRepository.GetAll();
+
+            return Ok(pdf);
         }
     }
 }

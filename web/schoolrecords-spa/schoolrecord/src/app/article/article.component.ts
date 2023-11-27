@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { skipWhile, tap } from 'rxjs/operators';
-import { ArticleService } from './article.service';
+import { ArticleService, Pdf } from './article.service';
 
 @Component({
   selector: 'app-article',
@@ -14,30 +14,38 @@ export class ArticleComponent implements OnInit {
   pageSize: number = 12;
   lastScroll: number = 0;
   loading: boolean = false;
-  articlesLoaded: boolean = false;
-  articles: Array<any> = new Array<any>();
+  pdfsLoaded: boolean = false;
+  pdfs: Pdf[] = [];
 
-  constructor(private articleService: ArticleService) {
-    this.loadArticles();
-  }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    this.articleService.getPdf().subscribe(
+      pdfs => {
+        this.pdfs = pdfs;
+        this.pdfsLoaded = true;
+      },
+      error => {
+        console.error('Erro ao obter a lista de PDFs', error);
+      }
+    );
   }
 
   onScroll(e: any) {
-    if (this.loading) return;
+    if (this.loading || this.pdfsLoaded) return;
+
     let currentScroll = e.target.scrollTop;
 
     if (currentScroll > 0 && this.lastScroll <= currentScroll) {
       this.lastScroll = currentScroll;
       this.page++;
-    } else this.lastScroll = currentScroll;
-
-    this.loadArticles();
+      this.loadArticles();
+    } else {
+      this.lastScroll = currentScroll;
+    }
   }
 
   private loadArticles() {
-    if (this.loading !== false || this.articlesLoaded !== false) return;
     this.loading = true;
     this.articleService
       .getArticles({ pageSize: this.pageSize, page: this.page })
@@ -45,12 +53,12 @@ export class ArticleComponent implements OnInit {
         tap(() => (this.loading = false)),
         skipWhile((resp) => {
           if (resp.length !== 0) return false;
-          this.showArticlesLoadedMessage('articlesLoaded');
+          this.showArticlesLoadedMessage('pdfsLoaded');
           return true;
         })
       )
-      .subscribe((resp: Array<any>) => {
-        this.articles = [...this.articles, ...resp];
+      .subscribe((resp: Pdf[]) => {
+        this.pdfs = [...this.pdfs, ...resp];
       });
   }
 
@@ -60,5 +68,4 @@ export class ArticleComponent implements OnInit {
       this[controller] = false;
     });
   }
-
 }

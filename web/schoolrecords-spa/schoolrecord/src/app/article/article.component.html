@@ -1,28 +1,29 @@
 <section class="article-container" (scroll)="onScroll($event)" #article>
   <h2 class="title">Recent Articles</h2>
   <ul class="articles">
-    <li *ngFor="let article of articles">
-      <img src="../../../assets/img/document.png" alt="Article" />
+    <li *ngFor="let pdf of pdfs">
+      <a href="">
+        <ng-container *ngIf="pdf.pdfFile">
+          <img src="../../../assets/img/document.png" alt="Article" />
+        </ng-container>
+      </a>
       <div class="article">
-        <p class="article-name">{{ article.name }}</p>
+        <p class="article-name">{{ pdf.title }}</p>
         <div class="article-info-container">
-          <p class="article-author">{{ article.author }}</p>
-          <p class="article-date">{{ article.date }}</p>
+          <p class="article-author">{{ pdf.authors }}</p>
+          <p class="article-date" *ngIf="pdf.day && pdf.month && pdf.year">{{ pdf.day }}/{{ pdf.month }}/{{ pdf.year }}</p>
         </div>
       </div>
     </li>
     <li class="loading">
-      <ngx-loading
-        [show]="loading"
-        [config]="{
+      <ngx-loading [show]="loading" [config]="{
           backdropBorderRadius: '3px',
           primaryColour: '#f4f4f4',
           secondaryColour: '#f4f4f4',
           tertiaryColour: '#f4f4f4'
-        }"
-      ></ngx-loading>
+        }"></ngx-loading>
     </li>
-    <li class="articles-loaded" *ngIf="articlesLoaded">
+    <li class="articles-loaded" *ngIf="pdfsLoaded">
       <p>Loaded Articles!</p>
     </li>
   </ul>
