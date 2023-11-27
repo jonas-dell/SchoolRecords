@@ -29,6 +29,7 @@ import { PublishArticleComponent } from './timeline/publish-article/publish-arti
 import { PublishPostComponent } from './publish-post/publish-post.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ArticleComponent } from './article/article.component';
+import { ViewPdfComponent } from './view-pdf/view-pdf.component';
 
 export class Index {
   static getComponents() {
@@ -64,7 +65,8 @@ export class Index {
       PublishArticleComponent,
       PublishPostComponent,
       SettingsComponent,
-      ArticleComponent
+      ArticleComponent,
+      ViewPdfComponent
     ];
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { skipWhile, tap } from 'rxjs/operators';
 import { ArticleService, Pdf } from './article.service';
+import { ViewPdfComponent } from '../view-pdf/view-pdf.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-article',
@@ -17,7 +19,10 @@ export class ArticleComponent implements OnInit {
   pdfsLoaded: boolean = false;
   pdfs: Pdf[] = [];
 
-  constructor(private articleService: ArticleService) { }
+  constructor(
+    private articleService: ArticleService,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
     this.articleService.getPdf().subscribe(
@@ -68,4 +73,14 @@ export class ArticleComponent implements OnInit {
       this[controller] = false;
     });
   }
+
+  viewPDF() {
+    let dialogRef = this.dialog.open(ViewPdfComponent, {
+      height: '650px',
+      width: '750px',
+      data: {
+      },
+    });
+  }
+
 }

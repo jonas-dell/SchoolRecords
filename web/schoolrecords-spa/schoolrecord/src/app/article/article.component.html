@@ -2,7 +2,7 @@
   <h2 class="title">Recent Articles</h2>
   <ul class="articles">
     <li *ngFor="let pdf of pdfs">
-      <a href="">
+      <a (click)="viewPDF()">
         <ng-container *ngIf="pdf.pdfFile">
           <img src="../../../assets/img/document.png" alt="Article" />
         </ng-container>
