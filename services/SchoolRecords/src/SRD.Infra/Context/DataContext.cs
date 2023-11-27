@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SRD.Core.Data;
+using SRD.Domain.Perfil.DTO;
 
 namespace SRD.Infra.Context
 {
@@ -20,6 +21,7 @@ namespace SRD.Infra.Context
                 property.SetColumnType("VARCHAR(250)");
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataContext).Assembly);
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -35,6 +37,7 @@ namespace SRD.Infra.Context
         public DbSet<Domain.Perfil.Entities.UserPost> UserPost { get; set; }
         public DbSet<Domain.Perfil.Entities.Contact> Contacts { get; set; }
         public DbSet<Domain.User.Entities.ForgotPassword> PasswordRecoveryTokens { get; set; }
+        public DbSet<Domain.Perfil.Entities.Article> Articles { get; set; }
 
         public async Task<bool> Commit()
         {

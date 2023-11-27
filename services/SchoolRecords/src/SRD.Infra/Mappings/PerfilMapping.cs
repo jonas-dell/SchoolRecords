@@ -86,12 +86,12 @@ namespace SRD.Infra.Mappings
                 .HasForeignKey<Domain.Perfil.Entities.JobExperience>(x => x.PerfilId);
 
             builder.HasOne(x => x.AcademicEducation)
-             .WithOne(p => p.Perfil)
-             .HasForeignKey<Domain.Perfil.Entities.AcademicEducation>(x => x.PerfilId);
-           
+                .WithOne(p => p.Perfil)
+                .HasForeignKey<Domain.Perfil.Entities.AcademicEducation>(x => x.PerfilId);
+
             builder.HasMany(x => x.UserPosts)
-            .WithOne(p => p.Perfil)
-            .HasForeignKey(x => x.PerfilId);
+                .WithOne(p => p.Perfil)
+                .HasForeignKey(x => x.PerfilId);
 
             builder.HasOne(x => x.Contact)
                .WithOne(p => p.Perfil)

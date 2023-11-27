@@ -7,53 +7,58 @@
       </svg>
     </span>
   </div>
-  <div class="dialog-content">
+  <form [formGroup]="formulario" class="dialog-content">
     <p class="dialog-content-required">* Indicates mandatory item</p>
     <p *ngIf="!articleSelected" class="noArticle">No article selected</p>
     <div *ngIf="articleSelected">
       <p class="article">Selected article</p>
       <div class="article-container">
         <img src="../../../assets/img/icon-pdf.png" alt="PDF Standard Image">
-      <p class="article"> {{ selectedFileArticleName }} </p>
+        <p class="article"> {{ selectedFileArticleName }} </p>
       </div>
     </div>
+
     <div class="row form-group">
       <div class="col-12">
-        <label for="">Title*</label>
-        <input type="text" placeholder="Ex.: Artificial Intelligence" class="form-control form-control-sm" />
+        <label for="title">Title<span class="star">*</span></label>
+        <input id="title" type="text" placeholder="Ex.: Artificial Intelligence" class="form-control form-control-sm" formControlName="title" />
       </div>
     </div>
+
     <div class="row form-group">
       <div class="col-md-12">
-        <label for="">Other authors</label>
-        <textarea rows="3" class="form-control form-control-sm"></textarea>
+        <label for="OtherAuthors">Other authors</label>
+        <textarea formControlName="authors" id="OtherAuthors" rows="3" class="form-control form-control-sm"></textarea>
       </div>
     </div>
     <div class="row form-group">
       <div class="col-md-4">
-        <label for="">Publication date*</label>
-        <select class="form-control form-control-sm">
-          <option selected>Day</option>
+        <label for="day">Publication date<span class="star">*</span></label>
+        <select formControlName="day" id="day" class="form-control form-control-sm">
+          <option name="day" *ngFor="let dia of dias">{{dia}}</option>
         </select>
       </div>
       <div class="col-md-4 dialog-content-date">
-        <select class="form-control form-control-sm" >
-          <option selected>Month</option>
-        </select>  
+        <select formControlName="month" id="month" class="form-control form-control-sm">
+          <option name="month" *ngFor="let mes of meses">{{mes}}</option>
+        </select>
       </div>
       <div class="col-md-4 dialog-content-date">
-        <select class="form-control form-control-sm" >
-          <option selected>Year</option>
-        </select>  
+        <select formControlName="year" id="year" class="form-control form-control-sm">
+          <option name="year" *ngFor="let ano of anos">{{ano}}</option>
+        </select>
       </div>
     </div>
     <div class="row form-group">
       <div class="col-12">
-        <label for="">Number of pages*</label>
-        <input type="text" placeholder="Ex.: 195" class="form-control form-control-sm" />
+        <label for="numberPages">Number of pages<span class="star">*</span></label>
+        <input formControlName="numberPages" id="numberPages" type="number" placeholder="Ex.: 195" class="form-control form-control-sm" />
+        <div *ngIf="formulario.get('numberPages')?.hasError('pattern') && formulario.get('numberPages')?.touched" class="text-danger">
+          Only numbers are allowed.
+        </div>
       </div>
     </div>
-  </div>
+  </form>
   <div class="dialog-footer">
     <label for="article" class="btn-article">Open file</label>
     <input type="file" name="article" id="article" accept="application/pdf" (change)="fileChangedArticle($event)">

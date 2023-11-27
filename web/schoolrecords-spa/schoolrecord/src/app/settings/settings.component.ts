@@ -4,6 +4,8 @@ import { User } from 'src/app/shared/models/user';
 import { PerfilDataService } from '../shared/services/perfil-data.service';
 import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NotificationService } from '../shared/services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -17,9 +19,11 @@ export class SettingsComponent implements OnInit {
   user: User | null;
 
   constructor(
+    private router: Router,
     private perfilDataService: PerfilDataService,
     private settingsService: SettingsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -57,7 +61,20 @@ export class SettingsComponent implements OnInit {
   }
 
   closeAccount() {
-    alert("Funcionou!")
+    var id = this.dados.id;
+    this.settingsService.deleteUser(id).subscribe(
+      response => {
+        if (response.successful) {
+          this.notificationService.success("Conta excluída com sucesso!");
+          this.router.navigate(['/login']);
+        } else {
+          this.notificationService.error("Falha ao fechar a conta. Por favor, tente novamente.");
+        }
+      },
+      error => {
+        this.notificationService.error("Ocorreu um erro ao fechar a conta. Por favor, tente novamente.");
+      }
+    );
   }
 
   comingSoon() {

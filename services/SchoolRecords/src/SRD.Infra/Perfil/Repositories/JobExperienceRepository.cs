@@ -46,7 +46,6 @@ namespace SRD.Infra.Perfil.Repositories
             var jobExperience = _context.JobExperiences
                                       .Where(je => je.PerfilId == perfilId)
                                       .FirstOrDefault();
-
             if (jobExperience != null)
             {
                 return jobExperience.PerfilId;

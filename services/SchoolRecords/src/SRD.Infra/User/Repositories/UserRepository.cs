@@ -137,7 +137,43 @@ namespace SRD.Infra.User.Repositories
             }
         }
 
+        public void Delete(int id)
+        {
 
 
+            var userToDelete = _context.Users.FirstOrDefault(x => x.Id == id);
+
+            if (userToDelete != null)
+            {
+
+                var userContacts = _context.UserContacts.Where(uc => uc.UserId == id || uc.ContactId == id);
+                _context.UserContacts.RemoveRange(userContacts);
+
+                var userArticle = _context.Articles.Where(x => x.UserId == id);
+                _context.Articles.RemoveRange(userArticle);
+
+                var userPerfil = _context.Perfis.Where(x => x.UserId == id);
+                _context.Perfis.RemoveRange(userPerfil);
+
+                
+                
+                _context.Users.Remove(userToDelete);
+
+
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    foreach (var entry in ex.Entries)
+                    {
+                        Console.WriteLine($"Entity of type {entry.Entity.GetType().Name} in state {entry.State} has issues.");
+                    }
+                    Console.WriteLine(ex.Message);
+                    throw;
+                }
+            }
+        }
     }
 }

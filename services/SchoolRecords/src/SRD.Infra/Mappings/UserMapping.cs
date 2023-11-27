@@ -35,20 +35,27 @@ namespace SRD.Infra.Mappings
                 .HasColumnType("VARCHAR(100)");
 
             builder.Property(x => x.Token)
-                .HasColumnName ("token")
+                .HasColumnName("token")
                .IsRequired(false)
                .HasColumnType("VARCHAR(100)");
 
-
             builder.HasMany(x => x.Contacts)
-                   .WithMany(x => x.Users)
-                   .UsingEntity<Domain.User.Entities.UserContact>(
-                        x => x.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId),
-                        x => x.HasOne(x => x.Contact).WithMany().HasForeignKey(x => x.ContactId));
+                .WithMany(x => x.Users)
+                .UsingEntity<Domain.User.Entities.UserContact>(
+                    x => x.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId)
+                    .OnDelete(DeleteBehavior.Cascade),
+                    x => x.HasOne(x => x.Contact).WithMany().HasForeignKey(x => x.ContactId)
+                    .OnDelete(DeleteBehavior.Restrict));
 
             builder.HasOne(x => x.Perfil)
                 .WithOne(p => p.User)
-                .HasForeignKey<Domain.Perfil.Entities.Perfil>(x => x.UserId);
+                .HasForeignKey<Domain.Perfil.Entities.Perfil>(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Article)
+                .WithOne(p => p.User)
+                .HasForeignKey<Domain.Perfil.Entities.Article>(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }
