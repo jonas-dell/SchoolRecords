@@ -21,6 +21,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 25px;
+}
+
+.articles li a {
   cursor: pointer;
 }
 

@@ -74,11 +74,12 @@ export class ArticleComponent implements OnInit {
     });
   }
 
-  viewPDF() {
+  viewPDF(pdfFile: string) {
     let dialogRef = this.dialog.open(ViewPdfComponent, {
       height: '650px',
-      width: '750px',
+      width: '950px',
       data: {
+        pdfFile
       },
     });
   }

@@ -10,10 +10,9 @@
     </span>
   </div>
   <div class="dialog-content">
-
+    <iframe [src]="pdfUrl" width="100%" height="100%"></iframe>
   </div>
   <div class="dialog-footer">
-    <button class=" dialog-success" (click)="edit()">Edit</button>
     <button class="dialog-cancel" (click)="closeDialog()">Cancel</button>
   </div>
 </div>

@@ -16,14 +16,14 @@
         <button class="btn-start-post" (click)="publishPost()">Start a post</button>
       </div>
       <ul class="start-post-buttons-container">
-        <li class="start-post-button">
+        <li class="start-post-button" (click)="comingSoon()">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
             class="bi bi-image start-post-button-svg" viewBox="0 0 16 16">
             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
             <path
               d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
           </svg>
-          <span class="start-post-button-span" (click)="comingSoon()">Media</span>
+          <span class="start-post-button-span" >Media</span>
         </li>
         <li id="event" class="start-post-button" (click)="comingSoon()">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -35,7 +35,7 @@
           </svg>
           <span class="start-post-button-span">Event</span>
         </li>
-        <li id="write-Article" class="start-post-button" (click)="comingSoon()">
+        <li id="write-Article" class="start-post-button" routerLink="/home/edit-text">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
             class="bi bi-newspaper start-post-button-svg" viewBox="0 0 16 16">
             <path
@@ -43,7 +43,7 @@
             <path
               d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
           </svg>
-          <span class="start-post-button-span" (click)="comingSoon()">Write article</span>
+          <span class="start-post-button-span">Write article</span>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
           </div>
           <div class="post-header-info">
             <div class="info-post">
-              <a href="" class="name-user">{{ post.name }}</a>
+              <a class="name-user">{{ post.name }}</a>
             </div>
             <p class="title-user">{{ post.jobTitle }}</p>
             <div class="info-post">
@@ -84,7 +84,7 @@
           <img *ngIf="post.midia && post.tipo == 'image'" [src]="post.midia" alt="Post image">
         </div>
         <div class="post-info-reactions">
-          <a href="" class="post-comments" (click)="comingSoon()">5 comments</a>
+          <a class="post-comments" (click)="comingSoon()">5 comments</a>
         </div>
         <div class="post-footer">
           <div class="post-buttons-container">
