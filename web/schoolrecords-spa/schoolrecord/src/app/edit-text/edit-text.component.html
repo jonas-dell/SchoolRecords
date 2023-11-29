@@ -1,41 +1,23 @@
 <section class="editText-container">
   <div class="edit-text">
     <div class="input-name-article-container">
-      <input
-        class="input-name-article"
-        type="text"
-        placeholder="Article title"
-      />
+      <input class="input-name-article" type="text" placeholder="Article title" />
     </div>
-    <ckeditor
-      [(ngModel)]="ckeditorContent"
-      config.heith = '500px'
-    >
+    <ckeditor [(ngModel)]="ckeditorContent" config.heith='500px'>
     </ckeditor>
   </div>
   <div id='div-chat' class="chat-container">
     <div class="search-container">
-      <input
-        class="input-search"
-        type="text"
-        placeholder="search friends"
-      />
+      <input class="input-search" type="text" placeholder="search friends" />
       <div class="search" (click)="comingSoon()">
-        <img
-          src="../../../assets/img/search.png"
-          alt="Search friends"
-        />
+        <img src="../../../assets/img/search.png" alt="Search friends" />
       </div>
     </div>
     <div class="chat-list">
       <h1 class="online">Online - 1</h1>
       <div class="friend" id="open-chat">
         <div class="imgbx">
-          <img
-            src="../../../assets/img/team.png"
-            alt="Profile picture"
-            class="profile-picture"
-          />
+          <img src="../../../assets/img/team.png" alt="Profile picture" class="profile-picture" />
         </div>
         <h4 class="name-user">Joss Sticks</h4>
       </div>
@@ -44,11 +26,7 @@
       <div class="chat-header">
         <div class="info-user-container">
           <div class="user-img">
-            <img
-              src="../../../assets/img/team.png"
-              alt="User picture"
-              class="profile-picture"
-            />
+            <img src="../../../assets/img/team.png" alt="User picture" class="profile-picture" />
           </div>
           <div class="nome-user-container">
             <h1 class="nome-user">Joss Sticks</h1>
@@ -56,10 +34,7 @@
           </div>
         </div>
         <div id="close-chat">
-          <img
-            src="../../../assets/img/close-chat.png"
-            alt="Close"
-          />
+          <img src="../../../assets/img/close-chat.png" alt="Close" />
         </div>
       </div>
       <div class="chat-body">
@@ -71,48 +46,17 @@
         </div>
       </div>
       <div class="chat-input">
-        <input
-          class="input-chat"
-          type="text"
-          placeholder="Type a message"
-          [(ngModel)]="textArea"
-        />
-        <img
-          class="emoji-btn"
-          src="../../../assets/img/emoji-chat.png"
-          alt="Smile"
-          (click)="isEmojiPickerVisible = !isEmojiPickerVisible;"
-        />
-        <emoji-mart
-          [darkMode]="false"
-          class="emoji-mart"
-          *ngIf="isEmojiPickerVisible"
-          (emojiSelect)="addEmoji($event)"
-          title="Choose your emoji"
-        >
+        <input class="input-chat" type="text" placeholder="Type a message" [(ngModel)]="textArea" />
+        <img class="emoji-btn" src="../../../assets/img/emoji-chat.png" alt="Smile" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" />
+        <emoji-mart [darkMode]="false" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji">
         </emoji-mart>
-        <img
-          class="icon-chat"
-          src="../../../assets/img/file-chat-image.png"
-          alt="Image file"
-          id="button-file-img"
-        />
-        <input
-          type="file"
-          id="file-img-input"
-        />
-        <img
-          class="icon-chat" (click)="comingSoon()"
-          src="../../../assets/img/send-chat.svg"
-          alt="Send"
-        />
+        <img class="icon-chat" src="../../../assets/img/file-chat-image.png" alt="Image file" id="button-file-img" />
+        <input type="file" id="file-img-input" />
+        <img class="icon-chat" (click)="comingSoon()" src="../../../assets/img/send-chat.svg" alt="Send" />
       </div>
     </div>
   </div>
   <div id="open-div" class="ocultar btn-open-chat-container">
-    <img
-      src="../../../assets/img/chat.png"
-      alt="Chat button"
-    />
+    <img src="../../../assets/img/chat.png" alt="Chat button" />
   </div>
 </section>

@@ -13,7 +13,7 @@ import { PerfilService } from './perfil.service';
 import { SharedService } from './cover-photo/shared.service';
 import { User } from 'src/app/shared/models/user';
 
-export class Perfil {}
+export class Perfil { }
 
 @Component({
   selector: 'perfil',
@@ -40,7 +40,7 @@ export class PerfilComponent implements OnInit {
     private formPerfilEducation: FormPerfilEducation,
     private convertBase64: ConvertBase64,
     private sharedService: SharedService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getPerfilData();
@@ -146,9 +146,9 @@ export class PerfilComponent implements OnInit {
 
     if (selectedFile) {
       this.perfilDataService.uploadImage(selectedFile).subscribe(() => {
-        this.notificationService.success('Perfil salvo com sucesso!');
+        this.notificationService.success('Foto de Perfil salvo com sucesso!');
+        this.getPerfilData();
       });
-      this.getPerfilData();
     }
   }
 
