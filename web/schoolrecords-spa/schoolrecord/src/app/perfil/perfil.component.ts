@@ -146,7 +146,7 @@ export class PerfilComponent implements OnInit {
 
     if (selectedFile) {
       this.perfilDataService.uploadImage(selectedFile).subscribe(() => {
-        this.notificationService.success('Foto de Perfil salvo com sucesso!');
+        this.notificationService.success('Profile photo saved successfully!');
         this.getPerfilData();
       });
     }

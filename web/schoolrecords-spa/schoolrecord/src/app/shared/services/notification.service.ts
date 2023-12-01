@@ -9,7 +9,7 @@ export class NotificationService {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Preencha os campos corretamente!',
+      text: 'Fill in the fields correctly!',
     });
   }
 
@@ -24,7 +24,7 @@ export class NotificationService {
   success(message: string) {
     Swal.fire({
       icon: 'success',
-      title: 'Sucesso!',
+      title: 'Success!',
       text: message,
     });
   }

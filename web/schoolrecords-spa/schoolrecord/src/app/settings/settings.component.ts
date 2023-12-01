@@ -65,14 +65,14 @@ export class SettingsComponent implements OnInit {
     this.settingsService.deleteUser(id).subscribe(
       response => {
         if (response.successful) {
-          this.notificationService.success("Conta excluída com sucesso!");
+          this.notificationService.success("Account deleted successfully!");
           this.router.navigate(['/login']);
         } else {
-          this.notificationService.error("Falha ao fechar a conta. Por favor, tente novamente.");
+          this.notificationService.error("Failed to close the account. Please, try again.");
         }
       },
       error => {
-        this.notificationService.error("Ocorreu um erro ao fechar a conta. Por favor, tente novamente.");
+        this.notificationService.error("An error occurred while closing the account. Please, try again.");
       }
     );
   }

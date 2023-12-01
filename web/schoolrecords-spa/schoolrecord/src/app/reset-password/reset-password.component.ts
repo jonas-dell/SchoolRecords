@@ -42,10 +42,10 @@ export class ResetPasswordComponent implements OnInit {
       this.resetPassword.updatePassword(password1).subscribe(
         (response) =>{
           if(response){
-            this.notificationService.success("Senha alterada com sucesso!");
+            this.notificationService.success("Password changed successfully!");
             this.router.navigate(['/login']);
           }else{
-            this.notificationService.success("Erro ao alterar a senha.");
+            this.notificationService.success("Error changing password.");
           }
         }
       )

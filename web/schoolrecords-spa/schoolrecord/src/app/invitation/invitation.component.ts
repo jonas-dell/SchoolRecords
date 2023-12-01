@@ -33,7 +33,7 @@ export class InvitesComponent implements OnInit {
       (resp) => {
         this.invites = [];
         this.loadInvites();
-        this.notificationService.success('Contato adicionado com sucesso!');
+        this.notificationService.success('Contact added successfully!');
       },
       (error) => {
         console.error('Erro ao buscar dados da api:', error);

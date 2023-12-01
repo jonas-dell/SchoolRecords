@@ -53,7 +53,7 @@
       </div>
       <div class="post-container" *ngFor="let post of posts">
         <div class="post-header">
-          <div class="img-container">
+          <div class="img-container" (click)="comingSoon()">
             <img
               onerror="this.style.display = 'none'"
               *ngIf="post.foto"
@@ -62,7 +62,7 @@
           </div>
           <div class="post-header-info">
             <div class="info-post">
-              <a class="name-user">{{ post.name }}</a>
+              <a class="name-user" (click)="comingSoon()">{{ post.name }}</a>
             </div>
             <p class="title-user">{{ post.jobTitle }}</p>
             <div class="info-post">

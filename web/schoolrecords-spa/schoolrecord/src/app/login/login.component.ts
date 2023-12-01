@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   loginError = (resp: RequestResponse) => {
     this.loading = false;
     this.toastr.error(
-      'Falha ao fazer login. Por favor, verifique suas credenciais.'
+      'Failed to login. Please, verify your credentials.'
     );
   };
 
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         this.toastr.error(
-          'Falha ao fazer login. Por favor, verifique suas credenciais.'
+          'Failed to login. Please, verify your credentials.'
         );
         this.loading = false;
       }

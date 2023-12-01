@@ -66,7 +66,7 @@ export class CoverPhotoComponent extends BaseFormComponent implements OnInit {
     if (this.selectedFile) {
       this.coverPhotoService.atualizarImagem(this.selectedFile).subscribe(
         (response) => {
-          this.notificationService.success('Imagem salva com sucesso!');
+          this.notificationService.success('Image saved successfully!');
           this.sharedService.updateImage();
           this.getPerfilData();
           this.dialogRef.close();

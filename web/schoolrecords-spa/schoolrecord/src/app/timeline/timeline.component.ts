@@ -126,19 +126,19 @@ export class TimelineComponent implements OnInit {
         id: 1,
         img: '../../assets/img/coca-1.jpg',
         title: 'Coca-Cola 2022',
-        desc: 'Novo delicioso sabor',
+        desc: 'New delicious flavor',
       },
       {
         id: 1,
         img: '../../assets/img/quintoandar.jpg',
         title: 'Quinto Andar',
-        desc: 'Novo jeito de comprar',
+        desc: 'New way to buy',
       },
       {
         id: 1,
         img: '../../assets/img/clear.png',
         title: 'Clear',
-        desc: 'Sabe porque eu nunca caio?',
+        desc: 'Do you know why I never fall?',
       },
     ];
   }

@@ -53,7 +53,7 @@ export class FormPerfilContactComponent
   }
 
   save() {
-    alert('Salvar alguma coisa');
+    alert('Save something');
   }
 
   sites: any[] = [];

@@ -71,25 +71,25 @@ export class PublishArticleComponent extends BaseFormComponent implements OnInit
             this.publishArticleService.uploadFormData(this.formData).subscribe(
               response => {
                 console.log('Resposta do servidor:', response);
-                this.notificationService.success('Artigo enviado com sucesso!');
+                this.notificationService.success('Article sent successfully!');
                 this.dialogRef.close();
               },
               error => {
                 console.error('Erro ao enviar dados:', error);
-                this.notificationService.error('Erro ao enviar o artigo. Por favor, tente novamente.');
+                this.notificationService.error('Error submitting the article. Please try again.');
               }
             );
           },
           error => {
             console.error('Erro ao converter PDF para Base64:', error);
-            this.notificationService.error('Erro ao converter o artigo para Base64.');
+            this.notificationService.error('Error converting article to Base64.');
           }
         );
       }
     } else if (!this.articleSelected) {
-      this.notificationService.error('Por favor, selecione um artigo antes de salvar.');
+      this.notificationService.error('Please, select an article before saving.');
     } else {
-      this.notificationService.error('Por favor, preencha todos os campos obrigatórios');
+      this.notificationService.error('Please, fill in all required fields.');
     }
   }
 

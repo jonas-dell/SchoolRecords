@@ -8,7 +8,7 @@
     </span>
   </div>
   <form [formGroup]="formulario" class="dialog-content">
-    <p class="dialog-content-required">* Indicates mandatory item</p>
+    <p class="dialog-content-required">* Indicates required item</p>
     <p *ngIf="!articleSelected" class="noArticle">No article selected</p>
     <div *ngIf="articleSelected">
       <p class="article">Selected article</p>

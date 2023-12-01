@@ -39,25 +39,25 @@ export class TokenComponent implements OnInit {
           if (response === 200) {
             this.router.navigate(['/forgot-password/token/resetPassword']);
           } else if (response === 400) {
-            this.notificationService.error('Token expirado');
+            this.notificationService.error('Expired token');
             this.tokenForm.reset();
           } else if (response === 404) {
-            this.notificationService.error('Token inválido');
+            this.notificationService.error('Invalid token');
             this.tokenForm.reset();
           } else {
-            this.notificationService.error(`Erro no envio do token. Valor: ${response}`);
+            this.notificationService.error(`Error sending the token. Value: ${response}`);
           }
         },
         (error) => {
           if (error === 404) {
-            this.notificationService.error('Token não encontrado');
+            this.notificationService.error('Token not found');
           } else {
-            this.notificationService.error('Erro no envio do token');
+            this.notificationService.error('Error sending token');
           }
         }
       );
     } else {
-      this.notificationService.error('*Token é obrigatório');
+      this.notificationService.error('*Token is required');
     }
   }
 

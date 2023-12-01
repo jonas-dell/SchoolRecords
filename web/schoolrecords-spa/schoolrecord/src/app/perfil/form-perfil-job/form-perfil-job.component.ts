@@ -203,12 +203,12 @@ export class FormPerfilJobComponent
       const valoresSkills = this.meuFormulario.value.skills;
       console.log(valoresSkills);
       this.formPerfilJob.salvarJob(this.meuFormulario.value).subscribe(() => {
-        this.notificationService.success('Experiência adicionada!');
+        this.notificationService.success('Added experience!');
         // this.closeDialog();
       });
     }else {
       this.notificationService.error(
-        'Por favor, preencha todos os campos obrigatórios.'
+        'Please, fill in all required fields.'
       );
     }
   }

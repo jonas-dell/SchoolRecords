@@ -66,12 +66,12 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
   save() {
     if (this.perfil.valid) {
       this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
-        this.notificationService.success('Perfil salvo com sucesso!');
+        this.notificationService.success('Profile saved successfully!');
         this.closeDialog();
       });
     } else {
       this.notificationService.error(
-        'Por favor, preencha todos os campos obrigatórios.'
+        'Please, fill in all required fields.'
       );
     }
   }

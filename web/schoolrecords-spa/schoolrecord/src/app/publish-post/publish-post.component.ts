@@ -102,7 +102,7 @@ export class PublishPostComponent implements OnInit {
 
   save() {
     this.postService.postInsert(this.formulario.value).subscribe(()=>{
-      this.notificationService.success("Post publicado com sucesso!");
+      this.notificationService.success("Post published successfully!");
       this.closeDialog();
     })
   }

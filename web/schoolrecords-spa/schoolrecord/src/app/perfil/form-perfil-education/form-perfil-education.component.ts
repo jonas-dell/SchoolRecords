@@ -55,7 +55,7 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
   }
   save() {
     this.formPerfilEducation.salvarEducation(this.formulario.value).subscribe(() => {
-      this.notificationService.success("Experiência adicionada!");
+      this.notificationService.success("Added academic education!");
       this.closeDialog();
     });
   }
