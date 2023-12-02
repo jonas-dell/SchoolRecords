@@ -12,25 +12,25 @@
     <form class="form-perfil-education" [formGroup]="formulario">
       <div class="row form-group">
         <div class="col-12">
-          <label for="titulo">Educational institution*</label>
+          <label for="titulo">Educational institution<span class="required">*</span></label>
           <input id="titulo" type="text" placeholder="Ex.: Getúlio Vargas Foundation" formControlName="title" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="diploma">University Degree</label>
+          <label for="diploma">University Degree<span class="required">*</span></label>
           <input id="diploma" type="text" placeholder="Ex.: Bachelor degree" formControlName="academicType" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="areaDeEstudo">Study area</label>
+          <label for="areaDeEstudo">Study area<span class="required">*</span></label>
           <input id="areaDeEstudo" type="text" placeholder="Ex.: Administration" formControlName="studyArea" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="dataInicio">Start date</label>
+          <label for="dataInicio">Start date<span class="required">*</span></label>
           <select id="dataInicio" formControlName="studyStartMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -43,7 +43,7 @@
       </div>
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="dataTermino">End date (or predicted)</label>
+          <label for="dataTermino">End date (or predicted)<span class="required">*</span></label>
           <select id="dataTermino" formControlName="studyEndMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -56,7 +56,7 @@
       </div>
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="nota">Note</label>
+          <label for="nota">Note<span class="required">*</span></label>
           <input id="nota" type="text" formControlName="note" class="form-control form-control-sm" />
         </div>
       </div>
@@ -76,7 +76,7 @@
       <p class="dialog-content-info">
         We recommend adding the 5 that you use most in this experience. They will also be displayed in your Skills section.
       </p>
-      <button class="dialog-button dialog-button-skills">
+      <button class="dialog-button dialog-button-skills" (click)="comingSoon()">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
@@ -86,7 +86,7 @@
       <p class="dialog-content-info">
         Add media like images, documents, websites or presentations. know more about <a class="dialog-link-info">supported media file types</a>
       </p>
-      <button class="dialog-button dialog-button-media">
+      <button class="dialog-button dialog-button-media" (click)="comingSoon()">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus dialog-button-svg" viewBox="0 1 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>

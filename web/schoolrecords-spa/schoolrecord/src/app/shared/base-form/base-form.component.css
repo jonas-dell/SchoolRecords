@@ -61,6 +61,11 @@
   font-family: Roboto-Light, Arial, Helvetica, sans-serif;
 }
 
+.required {
+  color: red;
+  font-weight: bold;
+}
+
 .dialog-content label {
   outline: none;
   color: #787878;

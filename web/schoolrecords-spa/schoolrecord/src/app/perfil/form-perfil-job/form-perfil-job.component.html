@@ -14,7 +14,7 @@
     <form [formGroup]="meuFormulario" (ngSubmit)="save()">
       <div class="row form-group">
         <div class="col-12">
-          <label for="titulo">Title<span class="red">*</span></label>
+          <label for="titulo">Title<span class="required">*</span></label>
           <input id="titulo" name="titulo" type="text" placeholder="Ex: Retail sales manager" formControlName="jobTitle" class="form-control form-control-sm" />
         </div>
       </div>
@@ -30,7 +30,7 @@
 
       <div class="row form-group">
         <div class="col-12">
-          <label for="companyName">Company Name*</label>
+          <label for="companyName">Company name</label>
           <input id="companyName" name="companyName" type=" text" placeholder="Ex.: Microsoft" formControlName="companyName" class="form-control form-control-sm" />
         </div>
       </div>
@@ -68,7 +68,7 @@
 
       <div class="row form-group">
         <div class="col-md-6">
-          <label for="start">Start*</label>
+          <label for="start">Start</label>
           <select id="start" name="start" formControlName="jobStartMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -82,7 +82,7 @@
 
       <div class="row form-group">
         <div class="col-md-6" id="opacity-month">
-          <label for="end">End*</label>
+          <label for="end">End</label>
           <select id="end" name="end" formControlName="jobEndMonth" class="form-control form-control-sm">
             <option *ngFor="let mes of meses">{{ mes }}</option>
           </select>
@@ -98,7 +98,7 @@
       <div id="hide-container">
         <div class="row form-group margin-info-job">
           <div class="col-12">
-            <label for="sector">Sector*</label>
+            <label for="sector">Sector</label>
             <input id="sector" name="sector" type="text" placeholder="Ex: varejo" formControlName="jobSector" class="form-control form-control-sm margin-info-job" />
           </div>
         </div>
@@ -115,7 +115,7 @@
       </div>
       <div class="row form-group margin-info-job">
         <div class="col-12">
-          <label for="jobTitlePerfil">Profile title<span class="red">*</span></label>
+          <label for="jobTitlePerfil">Profile title<span class="required">*</span></label>
           <input id="jobTitlePerfil" name="jobTitlePerfil" type="text" formControlName="jobTitlePerfil" placeholder="headline" class="form-control form-control-sm margin-info-job" />
         </div>
       </div>

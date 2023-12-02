@@ -14,6 +14,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormPerfilEducation } from './form-perfil-education.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ComingSoonComponent } from '../../core/coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form-perfil-education',
@@ -25,14 +27,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormPerfilEducationComponent extends BaseFormComponent implements OnInit {
   formulario = new FormGroup({
-    title: new FormControl('', [Validators.nullValidator]),
-    academicType: new FormControl('', [Validators.nullValidator]),
-    studyArea: new FormControl('', [Validators.nullValidator]),
-    studyStartMonth: new FormControl('', [Validators.nullValidator]),
-    studyStartYear: new FormControl('', [Validators.nullValidator]),
-    studyEndMonth: new FormControl('', [Validators.nullValidator]),
-    studyEndYear: new FormControl('', [Validators.nullValidator]),
-    note: new FormControl('', [Validators.nullValidator]),
+    title: new FormControl('', [Validators.required]),
+    academicType: new FormControl('', [Validators.required]),
+    studyArea: new FormControl('', [Validators.required]),
+    studyStartMonth: new FormControl('', [Validators.required]),
+    studyStartYear: new FormControl('', [Validators.required]),
+    studyEndMonth: new FormControl('', [Validators.required]),
+    studyEndYear: new FormControl('', [Validators.required]),
+    note: new FormControl('', [Validators.required]),
     activitiesGroups: new FormControl('', [Validators.nullValidator]),
     description: new FormControl('', [Validators.nullValidator]),
   });
@@ -41,6 +43,7 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
   public meses: string[] = [];
 
   constructor(
+    public dialog: MatDialog,
     private formPerfilEducation: FormPerfilEducation,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<FormPerfilEducationComponent>,
@@ -54,10 +57,16 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
     this.ConsultaEducation();
   }
   save() {
-    this.formPerfilEducation.salvarEducation(this.formulario.value).subscribe(() => {
-      this.notificationService.success("Added academic education!");
-      this.closeDialog();
-    });
+    if (this.formulario.valid) {
+      this.formPerfilEducation.salvarEducation(this.formulario.value).subscribe(() => {
+        this.notificationService.success("Added academic education!");
+        this.closeDialog();
+      });
+    } else {
+      this.notificationService.error(
+        'Please, fill in all required fields.'
+      );
+    }
   }
 
   list(){
@@ -118,4 +127,13 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
       });
     }
   }
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {},
+    });
+  }
+
 }

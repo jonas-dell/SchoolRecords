@@ -14,13 +14,13 @@
     <form class="form-perfil-introducao" [formGroup]="perfil">
       <div class="row form-group">
         <div class="col-12">
-          <label for="nome">Name<span class="purple">*</span></label>
+          <label for="nome">Name<span class="required">*</span></label>
           <input id="nome" type="text" formControlName="perfilName" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="sobrenome">Last name<span class="purple">*</span></label>
+          <label for="sobrenome">Last name<span class="required">*</span></label>
           <input id="sobrenome" type="text" formControlName="perfilLastName" class="form-control form-control-sm" />
         </div>
       </div>
@@ -36,7 +36,7 @@
 
       <div class="row form-group">
         <div class="col-md-12">
-          <label for="about">About<span class="purple">*</span></label>
+          <label for="about">About<span class="required">*</span></label>
           <textarea id="about" formControlName="about" rows="3" class="form-control form-control-sm"></textarea>
         </div>
       </div>
@@ -85,13 +85,13 @@
       <h2 class="dialog-content-subtitle">Address</h2>
       <div class="row form-group">
         <div class="col-12">
-          <label for="pais">Country/Region<span class="purple">*</span></label>
+          <label for="pais">Country/Region<span class="required">*</span></label>
           <input id="pais" type="text" formControlName="country" class="form-control form-control-sm" />
         </div>
       </div>
       <div class="row form-group">
         <div class="col-12">
-          <label for="cep">Zip code<span class="purple">*</span></label>
+          <label for="cep">Zip code<span class="required">*</span></label>
           <input id="cep" type="text" class="form-control form-control-sm" name="cep" formControlName="zipCode"
             (blur)="consultaCep()" />
         </div>
