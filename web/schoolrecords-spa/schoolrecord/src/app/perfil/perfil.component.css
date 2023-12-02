@@ -71,9 +71,11 @@
 }
 
 .edit-profile {
+  position: relative;
   margin-top: 2vh;
   margin-right: 1vw;
   padding: 2px;
+  z-index: 10;
 }
 
 .photo-item {

@@ -3,7 +3,7 @@
     <div class="input-name-article-container">
       <input class="input-name-article" type="text" placeholder="Article title" />
     </div>
-    <ckeditor [(ngModel)]="ckeditorContent" config.heith='500px'>
+    <ckeditor [(ngModel)]="ckeditorContent" config.height=500;>
     </ckeditor>
   </div>
   <div id='div-chat' class="chat-container">
@@ -48,8 +48,10 @@
       <div class="chat-input">
         <input class="input-chat" type="text" placeholder="Type a message" [(ngModel)]="textArea" />
         <img class="emoji-btn" src="../../../assets/img/emoji-chat.png" alt="Smile" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" />
-        <emoji-mart [darkMode]="false" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji">
-        </emoji-mart>
+        <div>
+          <emoji-mart [darkMode]="false" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji">
+          </emoji-mart>
+        </div>
         <img class="icon-chat" src="../../../assets/img/file-chat-image.png" alt="Image file" id="button-file-img" />
         <input type="file" id="file-img-input" />
         <img class="icon-chat" (click)="comingSoon()" src="../../../assets/img/send-chat.svg" alt="Send" />

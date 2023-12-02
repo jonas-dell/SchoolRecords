@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ComingSoonComponent } from '../../core/coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form-perfil-contact',
@@ -33,6 +35,7 @@ export class FormPerfilContactComponent
   public servicos: string[] = [];
 
   constructor(
+    public dialog: MatDialog,
     public dialogRef: MatDialogRef<FormPerfilContactComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
@@ -147,4 +150,13 @@ export class FormPerfilContactComponent
       this.servicos.push(item);
     }
   }
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {},
+    });
+  }
+
 }

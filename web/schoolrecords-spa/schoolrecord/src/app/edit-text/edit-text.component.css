@@ -217,6 +217,10 @@
   justify-content: flex-end;
 }
 
+.message {
+  background-color: white !important;
+}
+
 .message p {
   position: relative;
   right: 0;
@@ -301,18 +305,17 @@
 
 .emoji-btn {
   position: absolute;
-  width: 11%;
+  width: 10%;
   background: transparent;
   right: 100px;
-  top: 10px;
   cursor: pointer;
 }
 
 .emoji-mart {
   display: block;
-  position: fixed;
-  top: 376px;
-  right: 120px;
+  position: absolute;
+  top: -425px;
+  right: 0px;
 }
 
 ::ng-deep .emoji-mart section emoji-search {
@@ -364,19 +367,21 @@ input[type="file"] {
     display: none;
   }
 
-  .emoji-mart {
-    position: fixed;
-    top: 376px;
-    right: 120px;
-    bottom: auto;
-  }
 }
 
 @media (max-width: 400px) {
+
   .emoji-mart {
-    position: fixed;
-    top: 185px;
-    right: 60px;
-    bottom: auto;
+    right: -25px;
   }
+
+  .input-chat {
+    margin-bottom: 7px;
+  }
+
+  .emoji-btn {
+    top: 10px;
+    width: 11%;
+  }
+
 }
