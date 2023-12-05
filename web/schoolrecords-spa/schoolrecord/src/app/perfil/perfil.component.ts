@@ -109,7 +109,7 @@ export class PerfilComponent implements OnInit {
     abc: 'abc.png',
     default: 'default.jpg.png',
     federaldesaopaulo: 'federalDeSaoPaulo.png',
-    federalminasgerais: 'federalminasgerais.png',
+    federalminasgerais: 'federalMinasGerais.png',
     fgv: 'fgv.png',
     mackenzie: 'mackenzie.png',
     puc: 'puc.png',

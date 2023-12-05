@@ -35,6 +35,10 @@
   border: none;
 }
 
+.article-container-mobile {
+  display: none;
+}
+
 .start-post-container {
   height: 125px;
   margin-bottom: 20px;
@@ -499,6 +503,12 @@
     align-self: center;
   }
 
+  .article-container-mobile {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
   .start-post-container {
     width: 100%;
   }
@@ -540,13 +550,18 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+
+  .article-container-mobile {
+    display: block;
+    width: 100%;
+  }
   
   .principal-info {
     width: 100%;
   }
 
   .share-now {
-    display: none;
+    margin-top: 20px;
   }
 
   .start-post-container {
@@ -573,9 +588,6 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .article-container {
-    display: none;
-  }
 
   .share-now {
     width: 100%;
@@ -584,10 +596,7 @@
   .post-button-svg {
     display: none;
   }
-
-  .ad-container {
-    margin-top: 0px;
-  }
+  
 }
 
 /* X-Large devices (large desktops, 1200px and up) */

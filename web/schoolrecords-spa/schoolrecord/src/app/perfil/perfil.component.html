@@ -219,39 +219,41 @@
               </h3>
               <div class="card">
                 <div class="card-content">
-                  <div class="media">
-                    <div class="media-left">
-                      <figure class="image is-96x96">
+                  <div class="columns">
+                    <div class="column is-narrow img-education">
+                      <figure class="image is-96x96 img-education">
                         <img [src]="imagemSrc" alt="faculdade" />
                       </figure>
                     </div>
-                    <div class="media-content">
-                      <p class="title is-6 has-text-black-bis pb-1">
+                    <div class="column">
+                      <p class="title is-6 has-text-black-bis pb-2">
                         {{formEducation?.title}}
-                      </p>
-
-                      <div class="subtitle is-6 has-text-grey-darker pb-2">
+                        <span class="separation"> . </span> 
                         {{formEducation?.academicType}}
-
-                        <br />
-                        <p class="title is-7 has-text-black-bis">
-                          {{formEducation?.description}}
-                        </p>
-                        <br />
-                        <p class="subtitle is-7 has-text-grey">
-                          {{formEducation?.studyStartMonth}} de {{formEducation?.studyStartYear}}<span class="separation"> -
-                          </span> {{formEducation?.studyEndMonth}} de {{formEducation?.studyEndYear}}
-                        </p>
-
-                      </div>
+                        <span class="separation"> . </span> 
+                        {{formEducation?.studyArea}}
+                        <span class="separation"> . </span> 
+                        {{formEducation?.note}}
+                      </p>
+                      <p class="subtitle is-6 has-text-grey-darker pb-2">
+                        {{formEducation?.activitiesGroups}}
+                      </p>
+                      <p class="title is-7 has-text-black-bis">
+                        {{formEducation?.description}}
+                      </p>
+                      <br />
+                      <p class="subtitle is-7 has-text-grey">
+                        {{formEducation?.studyStartMonth}} de {{formEducation?.studyStartYear}}<span class="separation"> -
+                        </span> {{formEducation?.studyEndMonth}} de {{formEducation?.studyEndYear}}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
+        </div>    
+        
         <div class="card skills" *ngIf="formJob?.skills !== null">
           <div class="card-content">
             <div class="content">

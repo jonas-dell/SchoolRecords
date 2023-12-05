@@ -158,6 +158,12 @@
   font-size: 10px;
 }
 
+.img-education {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .buttons {
   margin-top: 5px;
   margin-left: 1vw;
