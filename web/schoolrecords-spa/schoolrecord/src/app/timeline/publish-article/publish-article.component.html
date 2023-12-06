@@ -20,20 +20,20 @@
 
     <div class="row form-group">
       <div class="col-12">
-        <label for="title">Title<span class="star">*</span></label>
+        <label for="title">Title<span class="required">*</span></label>
         <input id="title" type="text" placeholder="Ex.: Artificial Intelligence" class="form-control form-control-sm" formControlName="title" />
       </div>
     </div>
 
     <div class="row form-group">
       <div class="col-md-12">
-        <label for="OtherAuthors">Other authors</label>
+        <label for="OtherAuthors">Author(s)</label>
         <textarea formControlName="authors" id="OtherAuthors" rows="3" class="form-control form-control-sm"></textarea>
       </div>
     </div>
     <div class="row form-group">
       <div class="col-md-4">
-        <label for="day">Publication date<span class="star">*</span></label>
+        <label for="day">Publication date<span class="required">*</span></label>
         <select formControlName="day" id="day" class="form-control form-control-sm">
           <option name="day" *ngFor="let dia of dias">{{dia}}</option>
         </select>
@@ -51,7 +51,7 @@
     </div>
     <div class="row form-group">
       <div class="col-12">
-        <label for="numberPages">Number of pages<span class="star">*</span></label>
+        <label for="numberPages">Number of pages<span class="required">*</span></label>
         <input formControlName="numberPages" id="numberPages" type="number" placeholder="Ex.: 195" class="form-control form-control-sm" />
         <div *ngIf="formulario.get('numberPages')?.hasError('pattern') && formulario.get('numberPages')?.touched" class="text-danger">
           Only numbers are allowed.

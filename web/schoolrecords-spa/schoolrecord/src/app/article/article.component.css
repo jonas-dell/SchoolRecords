@@ -24,6 +24,8 @@
 }
 
 .articles li a {
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 }
 
@@ -37,34 +39,31 @@
 }
 
 .article {
+  flex: 1;
   margin-left: 10px;
 }
 
 .article-name {
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
-  max-height: 25px;
-  overflow: hidden;
 }
 
 .article-info-container {
   display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  flex: 1;
 }
 
 .article-author {
   font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
   font-size: 0.9em;
   color: #959393;
-  max-height: 20px;
-  overflow: hidden;
-  margin-right: 10px;
 }
 
 .article-date {
   font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
   font-size: 0.9em;
   color: #959393;
-  max-height: 20px;
-  overflow: hidden;
 }
 
 .loading {
@@ -81,17 +80,4 @@
 .article-container-fixed {
   position: fixed;
   top: 70px;
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199px) {
-
-  .article-info-container {
-    display: none;
-  }
-
-  .articles li a {
-    display: contents;
-  }
-
 }

@@ -228,7 +228,7 @@ export class TimelineComponent implements OnInit {
 
   publishPost() {
     let dialogRef = this.dialog.open(PublishPostComponent, {
-      height: '550px',
+      height: '650px',
       width: '750px',
       data: {
 

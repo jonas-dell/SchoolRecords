@@ -41,6 +41,13 @@
   background-repeat: no-repeat;
 }
 
+.icon-documents {
+  position: relative;
+  top: 2px;
+  background: url(../../../assets/img/documents.svg);
+  background-repeat: no-repeat;
+}
+
 .icon-config {
   background: url(../../../assets/img/config.svg);
   background-repeat: no-repeat;

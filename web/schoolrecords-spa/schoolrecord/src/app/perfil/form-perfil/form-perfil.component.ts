@@ -38,7 +38,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     country: new FormControl('', [Validators.required]),
     zipCode: new FormControl('', [Validators.required]),
     street: new FormControl('', [Validators.nullValidator]),
-    number: new FormControl('', [Validators.nullValidator]),
+    number: new FormControl('', [Validators.required]),
     complement: new FormControl('', [Validators.nullValidator]),
     neighborhood: new FormControl('', [Validators.nullValidator]),
     city: new FormControl('', [Validators.nullValidator]),

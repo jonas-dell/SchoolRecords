@@ -40,7 +40,7 @@
 }
 
 .start-post-container {
-  height: 125px;
+  height: 130px;
   margin-bottom: 20px;
   padding: 15px;
   border-radius: 20px;
@@ -54,27 +54,30 @@
 }
 
 .image-container {
-  width: 60px; 
-  height: 50px; 
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background-image: url(../../assets/img/people.svg);
   background-repeat: no-repeat;
-  background-size: 55px 50px;
+  background-size: 55px 55px;
+  background-position: center;
   background-color: darkgray;
   cursor: pointer;
 }
 
 .image-container img {
   width: 55px;
-  height: 50px;
+  height: 55px;
   border-radius: 50%;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   cursor: pointer;
 }
 
 .btn-start-post {
   width: 100%;
+  flex: 1;
   border-radius: 30px;
   border: 1px solid #969696;
   text-align: left;
@@ -168,6 +171,7 @@
   margin-right: 10px;
   background-image: url(../../assets/img/people.svg);
   background-repeat: no-repeat;
+  background-position: center;
   background-size: 55px 55px;
   background-color: darkgray;
   cursor: pointer;
@@ -179,12 +183,14 @@
   margin-right: 10px;
   border-radius: 50%;
   cursor: pointer;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .post-header-info {
   display: flex;
+  flex: 1;
   flex-direction: column;
   position: relative;
   top: -3px;
@@ -528,10 +534,6 @@
   .post-buttons-container {
     margin-left: 20px;
     margin-right: 20px;
-  }
-
-  .post-header img {
-    height: 50px;
   }
 
   .post-button {
