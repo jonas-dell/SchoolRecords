@@ -67,6 +67,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     if (this.perfil.valid) {
       this.formPerfilService.salvarPerfil(this.perfil.value).subscribe(() => {
         this.notificationService.success('Profile saved successfully!');
+        this.formPerfilService.updatePerfilData(null);
         this.closeDialog();
       });
     } else {

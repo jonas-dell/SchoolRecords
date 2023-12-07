@@ -12,6 +12,7 @@ import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
 import { PerfilService } from './perfil.service';
 import { SharedService } from './cover-photo/shared.service';
 import { User } from 'src/app/shared/models/user';
+import { FormPerfilService } from './form-perfil/form-perfil.service';
 
 export class Perfil { }
 
@@ -36,6 +37,7 @@ export class PerfilComponent implements OnInit {
     public dialog: MatDialog,
     private perfilDataService: PerfilDataService,
     private perfilService: PerfilService,
+    private formPerfilService: FormPerfilService,
     private formPerfilJobService: FormPerfilJobService,
     private formPerfilEducation: FormPerfilEducation,
     private convertBase64: ConvertBase64,
@@ -50,6 +52,12 @@ export class PerfilComponent implements OnInit {
     this.sharedService.getImageUpdatedObservable().subscribe(() => {
       this.getPerfilData();
     });
+
+
+    this.formPerfilService.perfilData$.subscribe(() => {
+      this.getPerfilData();
+    });
+
 
     let fileButtonContainer = document.getElementById('button-file-container');
     let file = document.getElementById('file-img-input');

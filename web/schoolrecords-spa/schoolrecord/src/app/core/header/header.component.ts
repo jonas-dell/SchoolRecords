@@ -8,6 +8,7 @@ import { FormPerfilJobService } from 'src/app/perfil/form-perfil-job/form-perfil
 import { ComingSoonComponent } from '../coming-soon/coming-soon.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { FormPerfilService } from 'src/app/perfil/form-perfil/form-perfil.service';
 
 @Component({
   selector: 'header',
@@ -30,17 +31,21 @@ export class HeaderComponent implements OnInit {
     private currentUserService: CurrentUserService,
     private perfilService: PerfilService,
     private convertBase64: ConvertBase64,
+    private formPerfilService: FormPerfilService,
     private formPerfilJobService: FormPerfilJobService,
     private PerfilDataService: PerfilDataService,
     public dialog: MatDialog,
     private router: Router,
-    ) {}
+  ) { }
 
   ngOnInit(): void {
     this.user = this.currentUserService.getCurrentUser();
     this.getPerfilData();
     this.saudacao = this.calcularSaudacao();
     this.getJobExperience();
+    this.formPerfilService.perfilData$.subscribe(() => {
+      this.getPerfilData();
+    })
   }
   calcularSaudacao(): string {
     const agora = new Date();
@@ -58,7 +63,7 @@ export class HeaderComponent implements OnInit {
   dropdownNotification() {
     document.getElementById("dropdown")?.classList.remove("show");
     document.getElementById("dropdown-notification")?.classList.toggle("show-notification");
-    window.onclick = function(event) {
+    window.onclick = function (event) {
       if (!event.target.matches('.dropdown-notification-btn, .dropdown-notification-icon')) {
         var dropdownsNotification = document.getElementsByClassName("dropdown-notification-content");
         var i;
@@ -75,7 +80,7 @@ export class HeaderComponent implements OnInit {
   dropdown() {
     document.getElementById("dropdown-notification")?.classList.remove("show-notification");
     document.getElementById("dropdown")?.classList.toggle("show");
-    window.onclick = function(event) {
+    window.onclick = function (event) {
       if (!event.target.matches('.dropdown-btn, .dropdown-icon, .dropdown-span, .dropdown-svg')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
@@ -89,36 +94,36 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  exit(){
+  exit() {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
 
-  getPerfilData(){
+  getPerfilData() {
     const token = localStorage.getItem('token');
     this.perfilService.getPerfil().
-    subscribe((dados) => {
-      this.dados = dados;
-      if(this.dados.perfilName === null){
-        this.PerfilDataService.getUser().subscribe((dados) => {
-          this.dadosUser = dados;
-          function primeiraLetraMaiuscula(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-          }
-          const capitalizeString = primeiraLetraMaiuscula(
-            this.dadosUser.username
-          );
-          this.dados.perfilName = capitalizeString;
-        });
-      }
-      this.dados.foto = this.convertBase64.converterBase64ParaImagem(
-        this.dados.foto
+      subscribe((dados) => {
+        this.dados = dados;
+        if (this.dados.perfilName === null) {
+          this.PerfilDataService.getUser().subscribe((dados) => {
+            this.dadosUser = dados;
+            function primeiraLetraMaiuscula(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+            const capitalizeString = primeiraLetraMaiuscula(
+              this.dadosUser.username
+            );
+            this.dados.perfilName = capitalizeString;
+          });
+        }
+        this.dados.foto = this.convertBase64.converterBase64ParaImagem(
+          this.dados.foto
+        );
+      },
+        (error) => {
+          console.error("Erro ao buscar dados da API:", error);
+        }
       );
-    },
-     (error) => {
-      console.error("Erro ao buscar dados da API:", error);
-      }
-    );
   }
 
   getJobExperience() {
