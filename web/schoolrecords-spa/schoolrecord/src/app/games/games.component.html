@@ -7,12 +7,10 @@
   <ul class="game-content">
     <div class="game-content-li">
       <li *ngFor="let game of games" class="game">
-        <a href="{{ game.title }}">
-          <img [src]="game.img" class="img-container" alt="Game" />
-        </a>
+          <img [src]="game.img" class="img-container" alt="Game" (click)="comingSoon()" />
 
         <div class="game-info">
-          <a href="{{ game.title }}" class="game-name">{{ game.title }}</a>
+          <p class="game-name" (click)="comingSoon()">{{ game.title }}</p>
           <p class="game-description">{{ game.desc }}</p>
         </div>
       </li>

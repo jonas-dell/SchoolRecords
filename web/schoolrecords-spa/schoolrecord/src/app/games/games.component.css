@@ -127,6 +127,7 @@ input::placeholder {
   display: block;
   justify-content: left;
   height: 150px;
+  cursor: pointer;
 }
 
 .img-container img {
@@ -145,6 +146,7 @@ input::placeholder {
   width: 320px;
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .game-description {

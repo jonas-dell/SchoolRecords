@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { skipWhile, tap } from 'rxjs/operators';
 import { GamesService } from './games.service';
+import { ComingSoonComponent } from '../core/coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-games',
@@ -16,7 +18,7 @@ export class GamesComponent implements OnInit {
   gamesLoaded: boolean = false;
   games: Array<any> = new Array<any>();
 
-  constructor(private gamesService: GamesService) {
+  constructor(private gamesService: GamesService, public dialog: MatDialog) {
     this.loadGames();
   }
 
@@ -56,6 +58,19 @@ export class GamesComponent implements OnInit {
     this[controller] = true;
     timer(5000).subscribe(() => {
       this[controller] = false;
+    });
+  }
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
     });
   }
 }
