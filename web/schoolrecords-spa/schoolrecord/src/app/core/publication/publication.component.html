@@ -2,10 +2,10 @@
   <h2 class="title">Publications</h2>
   <ul class="publications">
     <li *ngFor="let publication of publications">
-      <img [src]="publication.image" alt="Publication" />
+      <img [src]="publication.image" alt="Publication" (click)="comingSoon()" />
       <div class="publication-info">
-        <p class="publication-post">{{ publication.post }}</p>
-        <p class="publication-date">{{ publication.date }}</p>
+        <p class="publication-post" (click)="comingSoon()" >{{ publication.post }}</p>
+        <p class="publication-date" (click)="comingSoon()">{{ publication.date }}</p>
       </div>
     </li>
     <li class="loading">

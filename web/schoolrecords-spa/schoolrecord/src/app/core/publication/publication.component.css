@@ -30,6 +30,7 @@
 .publications img {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 
 .publication-info {
@@ -40,6 +41,7 @@
   font-family: Roboto-Medium, Arial, Helvetica, sans-serif;
   max-height: 25px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .publication-date {
@@ -48,6 +50,7 @@
   color: #959393;
   max-height: 20px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .loading {

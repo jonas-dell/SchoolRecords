@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { skipWhile, tap } from 'rxjs/operators';
 import { PublicationService } from './publication.service';
+import { ComingSoonComponent } from '../coming-soon/coming-soon.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-publication',
@@ -17,7 +19,7 @@ export class PublicationComponent implements OnInit {
   publicationsLoaded: boolean = false;
   publications: Array<any> = new Array<any>();
 
-  constructor(private publicationService: PublicationService) { 
+  constructor(private publicationService: PublicationService, public dialog: MatDialog,) {
     this.loadPublications();
   }
 
@@ -61,4 +63,17 @@ export class PublicationComponent implements OnInit {
     });
   }
 
+
+  comingSoon() {
+    let dialogRef = this.dialog.open(ComingSoonComponent, {
+      height: '300px',
+      width: '300px',
+      data: {
+        user: {
+          id: 1,
+          name: 'Jonas',
+        },
+      },
+    });
+  }
 }

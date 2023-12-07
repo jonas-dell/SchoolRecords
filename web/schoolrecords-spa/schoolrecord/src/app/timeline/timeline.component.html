@@ -177,10 +177,10 @@
       <div #pub>
         <div class="pub-container">
           <div class="pub d-flex" *ngFor="let item of publications">
-            <img [src]="item.img" alt="Pub" />
+            <img [src]="item.img" alt="Pub" (click)="comingSoon()" class="pub-img"/>
             <div class="pub-info">
-              <p>{{ item.title }}</p>
-              <p>{{ item.desc }}</p>
+              <p (click)="comingSoon()">{{ item.title }}</p>
+              <p (click)="comingSoon()">{{ item.desc }}</p>
             </div>
           </div>
         </div>
