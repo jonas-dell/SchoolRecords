@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import { Component, Inject, OnInit } from '@angular/core';
 import { BaseFormComponent } from 'src/app/shared/base-form/base-form.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -49,7 +39,7 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
     public dialogRef: MatDialogRef<FormPerfilEducationComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {
     super(dialogRef);
-   }
+  }
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
@@ -60,6 +50,7 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
     if (this.formulario.valid) {
       this.formPerfilEducation.salvarEducation(this.formulario.value).subscribe(() => {
         this.notificationService.success("Added academic education!");
+        this.formPerfilEducation.updatePerfilData(null);
         this.closeDialog();
       });
     } else {
@@ -69,8 +60,8 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
     }
   }
 
-  list(){
-    this.popularAnos();    
+  list() {
+    this.popularAnos();
     this.popularMeses();
   }
 
@@ -80,40 +71,39 @@ export class FormPerfilEducationComponent extends BaseFormComponent implements O
     });
   }
 
-  popularMeses(){
+  popularMeses() {
     var meses: string[] =
-    [
-      'Month',
-      'January',
-      'February',
-       'March',
-       'April',
-       'May',
-       'June',
-       'July',
-       'August',
-       'September',
-       'October',
-       'November',
-       'December'
-    ];
-    for(var item of meses){
+      [
+        'Month',
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ];
+    for (var item of meses) {
       this.meses.push(item);
     };
   }
 
-  popularAnos(){
+  popularAnos() {
     this.anos.push('Year');
-    for(let anoAtual = new Date().getFullYear() ;
-    anoAtual>=1900;anoAtual--){
+    for (let anoAtual = new Date().getFullYear();
+      anoAtual >= 1900; anoAtual--) {
       this.anos.push(anoAtual.toString());
     };
   }
 
-  popularFormulario(dados){
-    if (dados)
-    {
-        this.formulario.patchValue({
+  popularFormulario(dados) {
+    if (dados) {
+      this.formulario.patchValue({
         title: dados.title || '',
         academicType: dados.academicType || '',
         studyArea: dados.studyArea || '',

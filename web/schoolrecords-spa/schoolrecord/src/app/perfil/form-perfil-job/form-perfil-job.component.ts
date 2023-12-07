@@ -22,16 +22,15 @@ import { FormPerfilJobService } from './form-perfil-job.service';
 })
 export class FormPerfilJobComponent
   extends BaseFormComponent
-  implements OnInit
-{
-  @ViewChild('meuFormulario', { static: false }) formulario: NgForm; 
+  implements OnInit {
+  @ViewChild('meuFormulario', { static: false }) formulario: NgForm;
   public anos: string[] = [];
   public tipoDeEmprego: string[] = [];
   public tipoDeLocais: string[] = [];
   public meses: string[] = [];
 
   constructor(
-    private formPerfilJob: FormPerfilJobService,
+    private formPerfilJobService: FormPerfilJobService,
     private notificationService: NotificationService,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<FormPerfilJobComponent>,
@@ -54,7 +53,7 @@ export class FormPerfilJobComponent
       jobSector: ['', [Validators.nullValidator]],
       jobDescription: ['', [Validators.nullValidator]],
       jobTitlePerfil: ['', [Validators.required]],
-      skills: this.fb.array([]), 
+      skills: this.fb.array([]),
     });
     this.list();
   }
@@ -100,10 +99,8 @@ export class FormPerfilJobComponent
         this.meuFormulario.get('jobSector')?.setValue('');
       }
     });
-
-    
   }
-  
+
 
   popularTipoEmprego() {
     var empregos: string[] = [
@@ -157,34 +154,13 @@ export class FormPerfilJobComponent
     }
   }
 
-  // popularFormulario(dados) {
-  //   if (dados) {
-  //     this.formulario.patchValue({
-  //       jobTitle: dados.jobTitle || '',
-  //       jobType: dados.jobType || '',
-  //       companyName: dados.companyName || '',
-  //       companyLocation: dados.companyLocation || '',
-  //       typeLocation: dados.typeLocation || '',
-  //       checkboxJob: dados.checkboxJob || '',
-  //       jobStartMonth: dados.jobStartMonth || '',
-  //       jobStartYear: dados.jobStartYear || '',
-  //       jobEndMonth: dados.jobEndMonth || '',
-  //       jobEndYear: dados.jobEndYear || '',
-  //       jobSector: dados.jobSector || '',
-  //       jobDescription: dados.jobDescription || '',
-  //       jobTitlePerfil: dados.jobTitlePerfil || '',
-  //     });
-  //   }
-  // }
-
- 
 
   meuFormulario!: FormGroup;
   skill = new FormControl([]);
 
 
   adicionarSkill() {
-    const novaSkill = this.fb.control('',[Validators.required]);
+    const novaSkill = this.fb.control('', [Validators.required]);
     (this.meuFormulario.get('skills') as FormArray).push(novaSkill);
   }
 
@@ -198,15 +174,14 @@ export class FormPerfilJobComponent
 
   save() {
     console.log(this.meuFormulario.valid);
-    if(this.meuFormulario.valid){
-      console.log(this.meuFormulario.value);
+    if (this.meuFormulario.valid) {
       const valoresSkills = this.meuFormulario.value.skills;
-      console.log(valoresSkills);
-      this.formPerfilJob.salvarJob(this.meuFormulario.value).subscribe(() => {
+      this.formPerfilJobService.salvarJob(this.meuFormulario.value).subscribe(() => {
         this.notificationService.success('Added experience!');
-        // this.closeDialog();
+        this.formPerfilJobService.updatePerfilData(null);
+        this.closeDialog();
       });
-    }else {
+    } else {
       this.notificationService.error(
         'Please, fill in all required fields.'
       );

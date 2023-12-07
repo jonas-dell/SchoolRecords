@@ -13,6 +13,7 @@ import { PerfilService } from './perfil.service';
 import { SharedService } from './cover-photo/shared.service';
 import { User } from 'src/app/shared/models/user';
 import { FormPerfilService } from './form-perfil/form-perfil.service';
+import { FormPerfilContactService } from './form-perfil-contact/form-perfil-contact.service';
 
 export class Perfil { }
 
@@ -39,6 +40,7 @@ export class PerfilComponent implements OnInit {
     private perfilService: PerfilService,
     private formPerfilService: FormPerfilService,
     private formPerfilJobService: FormPerfilJobService,
+    private formPerfilContactService: FormPerfilContactService,
     private formPerfilEducation: FormPerfilEducation,
     private convertBase64: ConvertBase64,
     private sharedService: SharedService
@@ -57,6 +59,21 @@ export class PerfilComponent implements OnInit {
     this.formPerfilService.perfilData$.subscribe(() => {
       this.getPerfilData();
     });
+
+    this.formPerfilJobService.perfilData$.subscribe(() => {
+      this.getJobExperience();
+    })
+
+    this.formPerfilEducation.perfilData$.subscribe(() => {
+      this.getEducation();
+    });
+
+    this.formPerfilContactService.perfilData$.subscribe(() => {
+      this.getPerfilData();
+    });
+
+
+
 
 
     let fileButtonContainer = document.getElementById('button-file-container');

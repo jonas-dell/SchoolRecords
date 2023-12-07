@@ -13,6 +13,7 @@ import { FormPerfilJobComponent } from '../form-perfil-job/form-perfil-job.compo
 import { PerfilService } from '../perfil.service';
 import { ConsultaCepService } from './consulta-cep.service';
 import { FormPerfilService } from './form-perfil.service';
+import { FormPerfilJobService } from '../form-perfil-job/form-perfil-job.service';
 
 @Component({
   selector: 'form-perfil',
@@ -50,6 +51,7 @@ export class FormPerfilComponent extends BaseFormComponent implements OnInit {
     private perfilService: PerfilService,
     private cepService: ConsultaCepService,
     private formPerfilService: FormPerfilService,
+    private formPerfilJobService: FormPerfilJobService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<FormPerfilComponent>,
     @Inject(MAT_DIALOG_DATA) public data

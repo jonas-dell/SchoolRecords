@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ComingSoonComponent } from '../../core/coming-soon/coming-soon.component';
 import { MatDialog } from '@angular/material/dialog';
+import { FormPerfilService } from '../form-perfil/form-perfil.service';
 
 @Component({
   selector: 'app-form-perfil-contact',
@@ -15,8 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class FormPerfilContactComponent
   extends BaseFormComponent
-  implements OnInit
-{
+  implements OnInit {
   formulario = new FormGroup({
     phoneNumber: new FormControl('', [Validators.nullValidator]),
     phoneType: new FormControl('', [Validators.nullValidator]),
@@ -35,6 +35,7 @@ export class FormPerfilContactComponent
   public servicos: string[] = [];
 
   constructor(
+    private formPerfilService: FormPerfilService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<FormPerfilContactComponent>,
     @Inject(MAT_DIALOG_DATA) public data
@@ -56,6 +57,7 @@ export class FormPerfilContactComponent
   }
 
   save() {
+    this.formPerfilService.updatePerfilData(null);
     alert('Save something');
   }
 
